@@ -1,12 +1,17 @@
 {
-    "compilerOptions": {
-      "target": "ESNext",
-      "module": "ESNext",
-      "moduleResolution": "Node",
-      "strict": true,
-      "esModuleInterop": true,
-      "forceConsistentCasingInFileNames": true,
-      "outDir": "./dist"
+  "compilerOptions": {
+    "esModuleInterop": true
+  },
+  "references": [
+    {
+      "path": "./packages/crypto"
     },
-    "include": ["./src"]
+    {
+      "path": "./packages/func"
+    },
+    {
+      "path": "./packages/generator"
+    }
+  ],
+  "files": []
 }
