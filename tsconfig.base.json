@@ -2,7 +2,7 @@
   "compilerOptions": {
     "incremental": true,
     "target": "ESNext",
-    "module": "CommonJS",
+    "module": "ESNext",
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,
@@ -15,6 +15,7 @@
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "noUncheckedIndexedAccess": true,
+    "isolatedModules": true,
 
     "moduleResolution": "Node",
     "esModuleInterop": true,

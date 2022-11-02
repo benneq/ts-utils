@@ -1,4 +1,4 @@
-export type Falsy = false | 0 | "" | null | undefined;
+import { Falsy } from "./_types";
 
 /**
  * Checks if the provided value is Falsy
@@ -10,6 +10,8 @@ export type Falsy = false | 0 | "" | null | undefined;
  * isFalsy([]) => false
  * isFalsy(object) = false
  *
- * @returns `true` if the provided value is Falsy
+ * @returns `true` if `value` is Falsy, otherwise `false`
  */
-export const isFalsy = (value: unknown): value is Falsy => !value;
+export const isFalsy = (value: unknown): value is Falsy => {
+  return !value;
+};

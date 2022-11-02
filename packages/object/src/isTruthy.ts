@@ -1,6 +1,4 @@
-import { Falsy } from "./isFalsy";
-
-export type Truthy<T> = Exclude<T, Falsy>;
+import { Truthy } from "./_types";
 
 /**
  * Checks if the provided value is Truthy
@@ -12,6 +10,8 @@ export type Truthy<T> = Exclude<T, Falsy>;
  * isTruthy(null) => false
  * isTruthy(undefined) => false
  *
- * @returns `true` if the provided value is Truthy
+ * @returns `true` if `value` is a Truthy, otherwise `false`
  */
-export const isTruthy = <T>(value: T): value is Truthy<T> => !!value;
+export const isTruthy = <T>(value: T): value is Truthy<T> => {
+  return !!value;
+};

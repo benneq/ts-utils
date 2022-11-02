@@ -5,19 +5,46 @@
   },
   "references": [
     {
+      "path": "./packages/array"
+    },
+    {
+      "path": "./packages/comparator"
+    },
+    {
       "path": "./packages/crypto"
     },
     {
-      "path": "./packages/func"
+      "path": "./packages/function"
     },
     {
       "path": "./packages/generator"
+    },
+    {
+      "path": "./packages/iterable"
+    },
+    {
+      "path": "./packages/map"
+    },
+    {
+      "path": "./packages/number"
     },
     {
       "path": "./packages/object"
     },
     {
       "path": "./packages/predicate"
+    },
+    {
+      "path": "./packages/promise"
+    },
+    {
+      "path": "./packages/regexp"
+    },
+    {
+      "path": "./packages/set"
+    },
+    {
+      "path": "./packages/string"
     }
   ],
   "files": []

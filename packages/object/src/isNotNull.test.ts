@@ -1,3 +1,4 @@
+import { jest } from "@jest/globals";
 import { isNotNull } from "./isNotNull";
 
 describe("object.isNotNull", () => {

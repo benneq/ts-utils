@@ -1,2 +1,6 @@
-// eslint-disable-next-line @typescript-eslint/unbound-method
-export const randomUuid = crypto.randomUUID;
+/**
+ * Generates a random UUID
+ *
+ * @return the generated random UUID
+ */
+export const randomUuid = (): string => crypto.randomUUID();

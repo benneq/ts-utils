@@ -1,3 +1,4 @@
+import { jest } from "@jest/globals";
 import { fromFunction } from "./fromFunction";
 
 describe("generator.fromFunction", () => {

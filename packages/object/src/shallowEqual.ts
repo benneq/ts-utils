@@ -14,21 +14,19 @@ const hasProperties = (
  * shallowEqual([1,2], [2,3]) => false
  * shallowEqual(null, undefined) => false
  *
- * @param objA
- * @param objB
- * @returns
+ * @returns `true` if both values are shallowly equal, otherwise `false`
  */
-export const shallowEqual = (objA: unknown, objB: unknown): boolean => {
-  if (Object.is(objA, objB)) {
+export const shallowEqual = (valueA: unknown, valueB: unknown): boolean => {
+  if (Object.is(valueA, valueB)) {
     return true;
   }
 
-  if (!hasProperties(objA) || !hasProperties(objB)) {
+  if (!hasProperties(valueA) || !hasProperties(valueB)) {
     return false;
   }
 
-  const keysA = Object.keys(objA);
-  const keysB = Object.keys(objB);
+  const keysA = Object.keys(valueA);
+  const keysB = Object.keys(valueB);
 
   if (keysA.length !== keysB.length) {
     return false;
@@ -37,8 +35,8 @@ export const shallowEqual = (objA: unknown, objB: unknown): boolean => {
   // Test for A's keys different from B.
   for (const currentKey of keysA) {
     if (
-      !(currentKey in objB) ||
-      !Object.is(objA[currentKey], objB[currentKey])
+      !(currentKey in valueB) ||
+      !Object.is(valueA[currentKey], valueB[currentKey])
     ) {
       return false;
     }

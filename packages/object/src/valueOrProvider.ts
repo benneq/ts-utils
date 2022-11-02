@@ -1,4 +1,4 @@
-import { Provider, isFunction } from "@benneq/func";
+import { Provider, isFunction } from "@benneq/function";
 
 export type ValueOrProvider<T, TArgs extends unknown[] = []> =
   | T

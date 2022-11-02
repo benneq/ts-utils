@@ -1,5 +1,7 @@
 /**
- * A Predicate that returns always `false`
+ * A Predicate that always returns `false`
+ *
+ * All arguments are ignored
  *
  * @example
  * alwaysFalse() => false
@@ -7,5 +9,6 @@
  *
  * @returns `false`
  */
-export const alwaysFalse = (arg?: unknown, ..._: unknown[]): arg is unknown =>
-  false;
+export const alwaysFalse = (_?: unknown[]): boolean => {
+  return false;
+};

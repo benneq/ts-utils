@@ -8,7 +8,6 @@ import { ValueOrProvider, valueOrProviderResult } from "./valueOrProvider";
  * defaulfIf(x => x < 0)(0)(2) => 2
  * defaulfIf(x => x < 0)(() => 3)(-1) => 3
  *
- * @param predicate
  * @returns the defaultValue if the Predicate matches, else the provided value
  */
 export const defaultIf =

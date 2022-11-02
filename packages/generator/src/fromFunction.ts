@@ -1,4 +1,4 @@
-import { Provider } from "@benneq/func";
+import { Provider } from "@benneq/function";
 
 export function* fromFunction<T>(
   provider: Provider<T>

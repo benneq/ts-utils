@@ -5,8 +5,7 @@
  * isUndefined(undefined) => true
  * isUndefined(0) => false
  *
- * @param value
- * @returns `true`if the provided value is `undefined`
+ * @returns `true` if `value` is `undefined`, otherwise `false`
  */
 export const isUndefined = (value: unknown): value is undefined => {
   return value === undefined;

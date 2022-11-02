@@ -1,0 +1,26 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "include": ["src/**/*"],
+  "compilerOptions": {
+    "composite": true,
+    "rootDir": "./src",
+    "outDir": "./dist"
+  },
+  "references": [
+    {
+      "path": "../function"
+    },
+    {
+      "path": "../iterable"
+    },
+    {
+      "path": "../number"
+    },
+    {
+      "path": "../generator"
+    },
+    {
+      "path": "../predicate"
+    }
+  ]
+}

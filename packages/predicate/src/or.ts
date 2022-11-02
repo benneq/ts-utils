@@ -1,7 +1,7 @@
 import { Predicate } from "./_types";
 
 /**
- * Combines the provided Predicates with a logical OR
+ * Combines Predicates with a logical OR
  *
  * @example
  * or() => (() => true)
@@ -9,10 +9,12 @@ import { Predicate } from "./_types";
  * or(alwaysTrue, alwaysFalse) => (() => true)
  * or(alwaysFalse, alwaysFalse) => (() => false)
  *
- * @returns `true` if any of the provided Predicates return `true`, else `false`
+ * @returns `true` if any of the `predicates` returned `true`, otherwise `false`
  */
 export const or =
-  <T>(...predicates: Predicate<[T]>[]): Predicate<[T]> =>
-  (value) => {
-    return predicates.some((predicate) => predicate(value));
+  <TArgs extends unknown[]>(
+    ...predicates: Predicate<TArgs>[]
+  ): Predicate<TArgs> =>
+  (...args) => {
+    return predicates.some((predicate) => predicate(...args));
   };

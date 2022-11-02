@@ -1,5 +1,7 @@
 /**
- * A Predicate that returns always `true`
+ * A Predicate that always returns `true`
+ *
+ * All arguments are ignored
  *
  * @example
  * alwaysTrue() => true
@@ -7,5 +9,6 @@
  *
  * @returns `true`
  */
-export const alwaysTrue = (arg?: unknown, ..._: unknown[]): arg is unknown =>
-  true;
+export const alwaysTrue = (_?: unknown[]): boolean => {
+  return true;
+};

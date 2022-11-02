@@ -10,9 +10,11 @@ module.exports = {
     tsconfigRootDir: __dirname,
     project: ["./tsconfig.json", "./packages/*/tsconfig.json"],
   },
-  plugins: ["@typescript-eslint"],
+  plugins: ["@typescript-eslint", "prettier"],
   root: true,
   rules: {
+    "react/prop-types": "off",
+    "prettier/prettier": "error",
     "@typescript-eslint/no-unused-vars": [
       "warn",
       {

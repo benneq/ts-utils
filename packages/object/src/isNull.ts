@@ -5,8 +5,7 @@
  * isNull(null) => true
  * isNull(0) => false
  *
- * @param value
- * @returns `true`if the provided value is `null`
+ * @returns `true` if `value` is `null`, otherwise `false`
  */
 export const isNull = (value: unknown): value is null => {
   return value === null;
