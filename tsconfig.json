@@ -14,9 +14,11 @@
       "path": "./packages/generator"
     },
     {
+      "path": "./packages/object"
+    },
+    {
       "path": "./packages/predicate"
     }
   ],
-  "files": [],
-  // "include": ["./packages/*/*.ts"]
+  "files": []
 }

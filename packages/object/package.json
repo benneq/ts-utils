@@ -1,5 +1,5 @@
 {
-  "name": "@benneq/generator",
+  "name": "@benneq/object",
   "version": "1.0.0",
   "description": "",
   "type": "module",
@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@benneq/func": "*"
+    "@benneq/func": "*",
+    "@benneq/predicate": "*"
   }
 }

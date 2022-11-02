@@ -2,6 +2,7 @@
   "name": "@benneq/predicate",
   "version": "1.0.0",
   "description": "",
+  "type": "module",
   "main": "dist/index.js",
   "scripts": {
     "compile": "tsc -b",
