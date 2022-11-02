@@ -1,0 +1,8 @@
+**/dist/*
+*.test.js
+*.test.jsx
+*.test.ts
+*.test.tsx
+
+jest.config.ts
+jest.setup.ts

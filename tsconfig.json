@@ -1,4 +1,5 @@
 {
+  "extends": "./tsconfig.base.json",
   "compilerOptions": {
     "esModuleInterop": true
   },
@@ -11,7 +12,11 @@
     },
     {
       "path": "./packages/generator"
+    },
+    {
+      "path": "./packages/predicate"
     }
   ],
-  "files": []
+  "files": [],
+  // "include": ["./packages/*/*.ts"]
 }
