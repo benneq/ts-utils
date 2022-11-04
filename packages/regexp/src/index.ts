@@ -3,6 +3,7 @@ export * from "./asciiLetterRegExp";
 export * from "./digitCharacterRegExp";
 export * from "./emailRegExp";
 export * from "./escapeString";
+export * from "./nonWhitespaceRegExp";
 export * from "./printableAsciiCharacterRegExp";
 export * from "./printableCharacterRegExp";
 export * from "./regExpTemplate";
