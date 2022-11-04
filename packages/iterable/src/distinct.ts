@@ -15,11 +15,10 @@ export const distinct = <T>(mapper: Mapper<T, unknown> = identity) =>
 
     for (const value of iterable) {
       const key = mapper(value);
-      if (seen.has(key)) {
-        continue;
-      }
 
-      seen.add(key);
-      yield value;
+      if (!seen.has(key)) {
+        seen.add(key);
+        yield value;
+      }
     }
   };
