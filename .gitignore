@@ -1,6 +1,6 @@
+.vscode
 build
-coverage
 dist
-docs
+pages
 node_modules
 tsconfig.tsbuildinfo
