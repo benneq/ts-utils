@@ -1,4 +1,5 @@
 export * from "./concat";
+export * from "./distinct";
 export * from "./dropWhile";
 export * from "./every";
 export * from "./filter";

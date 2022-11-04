@@ -1,4 +1,4 @@
-import { nonWhitespaceRegExp } from "@benneq/regexp"
+import { nonWhitespaceRegExp } from "@benneq/regexp";
 
 /**
  * Checks if a String contains only whitespace characters
@@ -12,4 +12,4 @@ import { nonWhitespaceRegExp } from "@benneq/regexp"
  */
 export const isBlank = (str: string): boolean => {
   return !nonWhitespaceRegExp.test(str);
-}
+};
