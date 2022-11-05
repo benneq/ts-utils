@@ -1,4 +1,5 @@
 export * from "./_types";
+export * from "./arrayComparator";
 export * from "./copy";
 export * from "./equal";
 export * from "./insertAt";

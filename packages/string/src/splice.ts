@@ -1,15 +1,33 @@
 import { mod } from "@benneq/number";
 
 /**
- * Removes characters from a String, and insert new characters in their place.
+ * Removes characters from a String, and inserts new characters in their place.
  *
  * Works like {@link Array.prototype.splice}
  *
  * @example
- * splice(2)("abc") => "ab"
- * splice(1, 1)("abc") => "ac"
- * splice(1, 2, "def")("abc") => "adef"
- * splice(0, 2, "d")("abc") => "dc"
+ * Truncate to 3 characters
+ * ```ts
+ * const truncateTo3 = splice(3);
+ * const s = truncateTo3("abcde");
+ * console.log(s); // 'abc'
+ * ```
+ *
+ * @example
+ * Delete the second character
+ * ```ts
+ * const delete2ndChar = splice(1, 1);
+ * const s = delete2ndChar("abc");
+ * console.log(s); // 'ac'
+ * ```
+ *
+ * @example
+ * Replace last character with asterisk
+ * ```ts
+ * const maskLastChar = splice(-1, 1, '*');
+ * const s = maskLastChar("abc");
+ * console.log(s); // 'ab*'
+ * ```
  *
  * @return the spliced String
  */

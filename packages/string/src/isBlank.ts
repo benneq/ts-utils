@@ -4,9 +4,26 @@ import { nonWhitespaceRegExp } from "@benneq/regexp";
  * Checks if a String contains only whitespace characters
  *
  * @example
- * isBlank("") => true
- * isBlank(" ") => true
- * isBlank(" a ") => false
+ * Returns `true` if the String is empty
+ * ```ts
+ * const b = isBlank("");
+ * console.log(b); // true
+ * ```
+ *
+ * @example
+ * Returns `true` if the String contains only whitespace characters
+ * ```ts
+ * const b = isBlank(" ");
+ * console.log(b); // true
+ * ```
+ *
+ * @example
+ * Returns `false` if the String contains any non-whitespace character
+ *
+ * ```ts
+ * const b = isBlank(" a ");
+ * console.log(b); // false
+ * ```
  *
  * @returns `true` if the String is empty or all characters are whitespace, otherwise `false`
  */

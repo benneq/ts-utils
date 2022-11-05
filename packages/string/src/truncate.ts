@@ -3,15 +3,33 @@ import { splice } from "./splice";
 /**
  * Truncates a string to a maximum length.
  *
- * If suffix is provided, its length is idependent from maxLength
+ * `suffix` length does not influence `maxLength`.
  *
- * If separator is provided, it will look for the closest separator to truncate to
+ * If `separator` is provided, it will look for the closest `separator` to truncate to
  *
  * @example
- * truncate("12345", 3) => "123"
- * truncate("12345", 3, '...') => "123..."
- * truncate("12 34 56", 1, '...', ' ') => "1..."
- * truncate("12 34 56", 7, '...', ' ') => "12 34..."
+ * Truncate to 3 characters
+ * ```ts
+ * const truncateTo3 = truncate(3);
+ * const s = truncateTo3("12345");
+ * console.log(s); // '123'
+ * ```
+ *
+ * @example
+ * Truncate to 3 characters, and add suffix
+ * ```ts
+ * const truncateTo3WithSuffix = truncate(3, '...');
+ * const s = truncateTo3WithSuffix("12345");
+ * console.log(s); // '123...'
+ * ```
+ *
+ * @example
+ * Truncate to the closest separator up to 9 characters
+ * ```ts
+ * const truncateTo9AtSpace = truncate(9, "", " ");
+ * const s = truncateTo9AtSpace("123 45 6 789");
+ * console.log(s); // '123 45 6'
+ * ```
  *
  * @returns the truncated String
  */

@@ -6,16 +6,39 @@ import { CharCodeRange } from "./_types";
 import { charCodeOf } from "./charCodeOf";
 
 /**
- * A Generator function that will iterate over a range of characters
+ * Creates an Iterable that will iterate over a range of characters.
  *
- * Only the first character of the provided string will be used.
+ * Only the first character of the `initialValue` will be used.
+ *
+ * If `initialValue` is empty, the sequence will start with `rangeStart` if
+ * `stepSize` is positive, or `rangeEnd` if `stepSize` is negative.
+ *
+ * If `stepSize` is `0` the sequence is empty.
  *
  * @example
- * characterSequence(uppercaseAsciiLetterRange) => ['A','B',...,'Z']
- * characterSequence(uppercaseAsciiLetterRange, 'D', -1) => ['D','C','B','A']
- * characterSequence([67, 69], '', 1) => ['C','D','E']
+ * Iterate over the complete `uppercaseAsciiLetterRange`
+ * ```ts
+ * for (const c of characterSequence(uppercaseAsciiLetterRange)) {
+ *   console.log(c); // 'A','B',...,'Z'
+ * }
+ * ```
  *
- * @returns a Generator that steps through the characters
+ * @example
+ * Start at letter 'D' and iterate backwards
+ * ```ts
+ * for (const c of characterSequence(uppercaseAsciiLetterRange, 'D', -1)) {
+ *   console.log(c); // 'D','C','B','A'
+ * }
+ * ```
+ *
+ * @example
+ * Create a character Array
+ * ```ts
+ * const a = [...characterSequence(uppercaseAsciiLetterRange, 'V', 2)];
+ * console.log(a); // ['V', 'X', 'Z']
+ * ```
+ *
+ * @returns an Iterable that iterates through the characters
  */
 export const characterSequence = (
   [rangeStart, rangeEnd]: CharCodeRange,
@@ -26,7 +49,7 @@ export const characterSequence = (
     return empty;
   }
 
-  const charCode = initialCharacter.length
+  const charCode = initialCharacter
     ? charCodeOf(initialCharacter)
     : stepSize < 0
     ? rangeEnd
