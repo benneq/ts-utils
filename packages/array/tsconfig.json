@@ -8,6 +8,9 @@
   },
   "references": [
     {
+      "path": "../comparator"
+    },
+    {
       "path": "../number"
     }
   ]

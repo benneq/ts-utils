@@ -1,7 +1,7 @@
-import { numberComparator } from "./numberComparator";
+import { numberComparator } from "@benneq/comparator";
 import { arrayComparator } from "./arrayComparator";
 
-describe("comparator.arrayComparator", () => {
+describe("array.arrayComparator", () => {
   it("should return 1 if the first array has more elements", () => {
     expect(arrayComparator(numberComparator)([0], [])).toBeGreaterThan(0);
     expect(arrayComparator(numberComparator)([1, 2], [1])).toBeGreaterThan(0);

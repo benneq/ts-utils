@@ -1,4 +1,4 @@
-import { Comparator } from "./_types";
+import { Comparator } from "../../comparator/src/_types";
 
 /**
  * Creates a Comparator that compares the elements of two Arrays pairwise
@@ -18,7 +18,7 @@ import { Comparator } from "./_types";
  */
 export const arrayComparator = <T>(
   comparator: Comparator<T>
-): Comparator<T[]> => {
+): Comparator<ArrayLike<T>> => {
   return (valueA, valueB) => {
     const length = Math.min(valueA.length, valueB.length);
 
