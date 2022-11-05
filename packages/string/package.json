@@ -14,7 +14,6 @@
     "@benneq/function": "*",
     "@benneq/iterable": "*",
     "@benneq/number": "*",
-    "@benneq/generator": "*",
     "@benneq/regexp": "*"
   }
 }

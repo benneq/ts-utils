@@ -17,9 +17,6 @@
       "path": "./packages/function"
     },
     {
-      "path": "./packages/generator"
-    },
-    {
       "path": "./packages/iterable"
     },
     {

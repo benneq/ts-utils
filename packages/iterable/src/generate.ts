@@ -1,6 +1,6 @@
 import { Provider } from "@benneq/function";
 
-export function* fromFunction<T>(
+export function* generate<T>(
   provider: Provider<T>
 ): Generator<T, void, unknown> {
   while (true) {

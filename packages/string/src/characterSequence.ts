@@ -1,4 +1,4 @@
-import { done } from "@benneq/generator";
+import { empty } from "@benneq/iterable";
 import { pipe } from "@benneq/function";
 import { map, takeWhile } from "@benneq/iterable";
 import { numberSequence } from "@benneq/number";
@@ -21,9 +21,9 @@ export const characterSequence = (
   [rangeStart, rangeEnd]: CharCodeRange,
   initialCharacter = "",
   stepSize = 1
-): Generator<string, void, unknown> => {
+): Iterable<string> => {
   if (!stepSize) {
-    return done;
+    return empty;
   }
 
   const charCode = initialCharacter.length

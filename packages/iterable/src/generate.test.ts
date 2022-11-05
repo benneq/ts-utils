@@ -1,12 +1,12 @@
 import { jest } from "@jest/globals";
-import { fromFunction } from "./fromFunction";
+import { generate } from "./generate";
 
-describe("generator.fromFunction", () => {
+describe("iterable.generate", () => {
   it("should call the provider each time and yield its returned value", () => {
     const value = Symbol();
     const provider = jest.fn(() => value);
 
-    const generator = fromFunction(provider);
+    const generator = generate(provider);
 
     expect(generator.next().value).toEqual(value);
     expect(generator.next().value).toEqual(value);
