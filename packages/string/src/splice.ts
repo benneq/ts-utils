@@ -22,7 +22,7 @@ import { mod } from "@benneq/number";
  * ```
  *
  * @example
- * Replace last character with asterisk
+ * Replace last character with asterisk (`"*"`)
  * ```ts
  * const maskLastChar = splice(-1, 1, '*');
  * const s = maskLastChar("abc");

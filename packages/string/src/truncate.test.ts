@@ -1,6 +1,10 @@
 import { truncate } from "./truncate";
 
 describe("string.truncate", () => {
+  it("should not add suffix if string is less than truncate length", () => {
+    expect(truncate(6, "...")("abc")).toBe("abc");
+  });
+
   it("should return the truncated string", () => {
     expect(truncate(1)("123456789")).toBe("1");
 

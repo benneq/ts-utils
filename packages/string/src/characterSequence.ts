@@ -8,15 +8,15 @@ import { charCodeOf } from "./charCodeOf";
 /**
  * Creates an Iterable that will iterate over a range of characters.
  *
- * Only the first character of the `initialValue` will be used.
+ * Only the first character of the `initialCharacter` will be used.
  *
- * If `initialValue` is empty, the sequence will start with `rangeStart` if
+ * If `initialCharacter` is empty, the sequence will start with `rangeStart` if
  * `stepSize` is positive, or `rangeEnd` if `stepSize` is negative.
  *
  * If `stepSize` is `0` the sequence is empty.
  *
  * @example
- * Iterate over the complete `uppercaseAsciiLetterRange`
+ * Iterate over `uppercaseAsciiLetterRange`
  * ```ts
  * for (const c of characterSequence(uppercaseAsciiLetterRange)) {
  *   console.log(c); // 'A','B',...,'Z'

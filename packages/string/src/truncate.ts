@@ -16,7 +16,7 @@ import { splice } from "./splice";
  * ```
  *
  * @example
- * Truncate to 3 characters, and add suffix
+ * Truncate to 3 characters, and add `"..."` suffix
  * ```ts
  * const truncateTo3WithSuffix = truncate(3, '...');
  * const s = truncateTo3WithSuffix("12345");
@@ -24,7 +24,7 @@ import { splice } from "./splice";
  * ```
  *
  * @example
- * Truncate to the closest separator up to 9 characters
+ * Truncate to the closest space (`" "`) up to 9 characters
  * ```ts
  * const truncateTo9AtSpace = truncate(9, "", " ");
  * const s = truncateTo9AtSpace("123 45 6 789");
@@ -39,6 +39,10 @@ export const truncate = (
   separator = ""
 ): ((str: string) => string) => {
   return (str) => {
+    if (str.length < maxLength) {
+      return str;
+    }
+
     const lastSeparatorIndex = str
       .slice(0, maxLength + 1)
       .lastIndexOf(separator);

@@ -6,7 +6,7 @@ import { whitespaceRegExp } from "@benneq/regexp";
  * @example
  * Compact every duplicate whitespaces
  * ```ts
- * const s = compactWhitespace('  a  b  ')
+ * const s = compactWhitespace('  a  b  ');
  * console.log(s); // ' a b '
  * ```
  *
