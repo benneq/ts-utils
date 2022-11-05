@@ -19,16 +19,16 @@ import { Comparator } from "../../comparator/src/_types";
 export const arrayComparator = <T>(
   comparator: Comparator<T>
 ): Comparator<ArrayLike<T>> => {
-  return (valueA, valueB) => {
-    const length = Math.min(valueA.length, valueB.length);
+  return (arrayA, arrayB) => {
+    const length = Math.min(arrayA.length, arrayB.length);
 
     for (let i = 0; i < length; i++) {
-      const result = comparator(valueA[i] as T, valueB[i] as T);
-      if (result !== 0) {
+      const result = comparator(arrayA[i] as T, arrayB[i] as T);
+      if (result) {
         return result;
       }
     }
 
-    return valueA.length - valueB.length;
+    return arrayA.length - arrayB.length;
   };
 };

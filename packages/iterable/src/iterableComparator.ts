@@ -22,10 +22,10 @@ export const iterableComparator = <T>(
 ): Comparator<Iterable<T>> => {
   comparator = undefinedFirst(comparator);
 
-  return (valueA, valueB) => {
-    for (const [vA, vB] of zip(valueA, valueB)) {
-      const result = comparator(vA, vB);
-      if (result !== 0) {
+  return (iterableA, iterableB) => {
+    for (const [valueA, valueB] of zip(iterableA, iterableB)) {
+      const result = comparator(valueA, valueB);
+      if (result) {
         return result;
       }
     }

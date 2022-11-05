@@ -1,4 +1,5 @@
-import { undefinedLast, isGreaterThan, Comparator } from "@benneq/comparator";
+import { isGreaterThan, Comparator } from "@benneq/comparator";
+import { isUndefined } from "@benneq/object";
 
 /**
  * Get the minimum element from the provided Iterable using the given Comparator
@@ -13,12 +14,12 @@ import { undefinedLast, isGreaterThan, Comparator } from "@benneq/comparator";
 export const min = <T>(
   comparator: Comparator<T>
 ): ((iterable: Iterable<T>) => T | undefined) => {
-  const minValueIsGreaterOrUndefined = isGreaterThan(undefinedLast(comparator));
+  const minValueIsGreater = isGreaterThan(comparator);
 
   return (iterable) => {
     let minValue: T | undefined;
     for (const value of iterable) {
-      if (minValueIsGreaterOrUndefined(minValue, value)) {
+      if (isUndefined(minValue) || minValueIsGreater(minValue, value)) {
         minValue = value;
       }
     }

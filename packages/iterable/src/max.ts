@@ -1,4 +1,5 @@
-import { undefinedFirst, isLessThan, Comparator } from "@benneq/comparator";
+import { isLessThan, Comparator } from "@benneq/comparator";
+import { isUndefined } from "@benneq/object";
 
 /**
  * Get the maximum element from the provided Iterable using the given Comparator
@@ -13,12 +14,12 @@ import { undefinedFirst, isLessThan, Comparator } from "@benneq/comparator";
 export const max = <T>(
   comparator: Comparator<T>
 ): ((iterable: Iterable<T>) => T | undefined) => {
-  const maxValueIsLessOrUndefined = isLessThan(undefinedFirst(comparator));
+  const maxValueIsLess = isLessThan(comparator);
 
   return (iterable) => {
     let maxValue: T | undefined;
     for (const value of iterable) {
-      if (maxValueIsLessOrUndefined(maxValue, value)) {
+      if (isUndefined(maxValue) || maxValueIsLess(maxValue, value)) {
         maxValue = value;
       }
     }

@@ -13,7 +13,7 @@ export const chain = <T>(...comparators: Comparator<T>[]): Comparator<T> => {
   return (valueA, valueB) => {
     for (const comparator of comparators) {
       const result = comparator(valueA, valueB);
-      if (result !== 0) {
+      if (result) {
         return result;
       }
     }

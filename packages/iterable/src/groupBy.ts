@@ -15,8 +15,8 @@ export const groupBy = <T, K>(
   return reduce<T, Map<K, T[]>>((acc, value) => {
     const key = mapper(value);
 
-    const groupedValues = acc.get(key) || [];
-    groupedValues.push(value);
-    return acc.set(key, groupedValues);
+    const values = acc.get(key) ?? [];
+    values.push(value);
+    return acc.set(key, values);
   }, new Map());
 };

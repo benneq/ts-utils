@@ -13,8 +13,8 @@ import { Mapper } from "@benneq/function";
 export const flatMap = <T, R>(mapper: Mapper<T, Iterable<R>>) =>
   function* (iterable: Iterable<T>): Generator<R, void, unknown> {
     for (const value of iterable) {
-      for (const inner of mapper(value)) {
-        yield inner;
+      for (const innerValue of mapper(value)) {
+        yield innerValue;
       }
     }
   };
