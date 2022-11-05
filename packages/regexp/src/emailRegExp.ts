@@ -1,6 +1,13 @@
 /**
  * A RegExp that matches email addresses
  *
+ * @example
+ * Match email address
+ * ```ts
+ * const b = emailRegExp.test("test@example.org");
+ * console.log(b); // true
+ * ```
+ *
  * @see https://stackoverflow.com/a/201378/1321564
  */
 export const emailRegExp =

@@ -1,6 +1,13 @@
 /**
  * A RegExp that matches UUIDs
  *
+ * @example
+ * Match UUID String
+ * ```ts
+ * const b = uuidRegExp.test("ffffffff-ffff-1fff-bfff-ffffffffffff");
+ * console.log(b); // true
+ * ```
+ *
  * @see https://stackoverflow.com/a/13653180
  */
 export const uuidRegExp =
