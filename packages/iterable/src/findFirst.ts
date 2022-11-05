@@ -1,7 +1,4 @@
-import { pipe } from "@benneq/function";
-import { not, Predicate } from "@benneq/predicate";
-import { dropWhile } from "./dropWhile";
-import { first } from "./first";
+import { Predicate } from "@benneq/predicate";
 
 /**
  * Get the first element of the provided Iterable, or the given default value if the Iterable is empty
@@ -16,9 +13,13 @@ import { first } from "./first";
 export const findFirst: {
   <T>(predicate: Predicate<[T]>): (iterable: Iterable<T>) => T | undefined;
   <T>(predicate: Predicate<[T]>, defaultValue: T): (iterable: Iterable<T>) => T;
-} = <T>(
-  predicate: Predicate<[T]>,
-  defaultValue?: T
-): ((iterable: Iterable<T>) => T | undefined) => {
-  return pipe(dropWhile(not(predicate)), first(defaultValue));
-};
+} =
+  <T>(predicate: Predicate<[T]>, defaultValue?: T) =>
+  (iterable: Iterable<T>): T | undefined => {
+    for (const value of iterable) {
+      if (predicate(value)) {
+        return value;
+      }
+    }
+    return defaultValue;
+  };

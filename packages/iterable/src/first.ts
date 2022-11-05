@@ -1,3 +1,6 @@
+import { alwaysTrue } from "@benneq/predicate";
+import { findFirst } from "./findFirst";
+
 /**
  * Get the first element of the provided Iterable, or the given default value if the Iterable is empty
  *
@@ -12,11 +15,6 @@
 export const first: {
   <T>(): (iterable: Iterable<T>) => T | undefined;
   <T>(defaultValue: T): (iterable: Iterable<T>) => T;
-} =
-  <T>(defaultValue?: T) =>
-  (iterable: Iterable<T>): T | undefined => {
-    for (const value of iterable) {
-      return value;
-    }
-    return defaultValue;
-  };
+} = <T>(defaultValue?: T): ((iterable: Iterable<T>) => T | undefined) => {
+  return findFirst(alwaysTrue, defaultValue);
+};
