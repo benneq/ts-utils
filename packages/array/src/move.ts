@@ -17,27 +17,30 @@ import { RelativeIndex } from "./_types";
  * @param sourceIndex
  * @param targetIndex
  */
-export const move = (
-  array: unknown[],
-  sourceIndex: RelativeIndex,
-  targetIndex: RelativeIndex,
-  moveCount = 1
-): void => {
+export const move = (array: unknown[]) => {
   const isRelativeIndexOfArray = isRelativeIndex(array);
-  if (
-    isRelativeIndexOfArray(sourceIndex) &&
-    isRelativeIndexOfArray(targetIndex)
-  ) {
-    // adjust the count to stay in bounds of the array
-    moveCount = Math.min(
-      moveCount,
-      array.length - normalizeIndex(sourceIndex)(array)
-    );
+  const normalizeIndexForArray = normalizeIndex(array);
 
-    array.splice(
-      normalizeIndex(targetIndex)(array) - moveCount + 1,
-      0,
-      ...array.splice(sourceIndex, moveCount)
-    );
-  }
+  return (
+    sourceIndex: RelativeIndex,
+    targetIndex: RelativeIndex,
+    moveCount = 1
+  ): void => {
+    if (
+      isRelativeIndexOfArray(sourceIndex) &&
+      isRelativeIndexOfArray(targetIndex)
+    ) {
+      // adjust the count to stay in bounds of the array
+      moveCount = Math.min(
+        moveCount,
+        array.length - normalizeIndexForArray(sourceIndex)
+      );
+
+      array.splice(
+        normalizeIndexForArray(targetIndex) - moveCount + 1,
+        0,
+        ...array.splice(sourceIndex, moveCount)
+      );
+    }
+  };
 };
