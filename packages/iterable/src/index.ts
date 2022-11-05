@@ -7,6 +7,7 @@ export * from "./findFirst";
 export * from "./first";
 export * from "./flatMap";
 export * from "./forEach";
+export * from "./groupBy";
 export * from "./interleave";
 export * from "./isEmpty";
 export * from "./isIterable";
