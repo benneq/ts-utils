@@ -2,5 +2,8 @@
   "entryPointStrategy": "packages",
   "entryPoints": ["packages/*"],
   "out": "./pages/docs",
-  "plugin": ["typedoc-plugin-resolve-crossmodule-references"]
+  "plugin": [
+    "typedoc-plugin-resolve-crossmodule-references",
+    "typedoc-plugin-mdn-links"
+  ]
 }
