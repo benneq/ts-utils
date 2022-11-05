@@ -1,4 +1,4 @@
-import { empty } from "@benneq/function";
+import { noop } from "@benneq/function";
 
 /**
  * A Promise that never fulfills
@@ -18,4 +18,4 @@ import { empty } from "@benneq/function";
  * ```
  *
  */
-export const never: Promise<unknown> = new Promise(empty);
+export const never: Promise<unknown> = new Promise(noop);
