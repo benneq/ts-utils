@@ -6,7 +6,7 @@ import { CharCodeRange } from "./_types";
 import { charCodeOf } from "./charCodeOf";
 
 /**
- * Creates an Iterable that will iterate over a range of characters.
+ * Iterates over a range of characters.
  *
  * Only the first character of the `initialCharacter` will be used.
  *

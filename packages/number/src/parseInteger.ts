@@ -1,6 +1,13 @@
 /**
  * Tries to parse an Integer from a String
  *
+ * @example
+ * Parse the first valid Integer
+ * ```ts
+ * const i = parseInteger(" 3.4a");
+ * console.log(i); // 3
+ * ```
+ *
  * @returns the parsed Iloat if successful, otherwise `undefined`
  */
 export const parseInteger = (str: string): number | undefined => {

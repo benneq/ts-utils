@@ -5,8 +5,11 @@
  * JavaScript's `%` operator returns the remainder, so `-4 % 3 === -1`
  *
  * @example
- * mod(4, 3) => 1
- * mod(-4, 3) => 2
+ * Modulus of negative value
+ * ```ts
+ * const n = mod(-4, 3)
+ * console.log(n); // 2
+ * ```
  *
  * @returns the modulus of `n` and `m`
  */

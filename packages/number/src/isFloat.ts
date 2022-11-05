@@ -1,5 +1,5 @@
 /**
- * Checks if the provided value is a Float
+ * Checks if a `value` is a Float
  *
  * @example
  * isInteger(NaN) => false

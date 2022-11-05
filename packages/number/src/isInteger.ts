@@ -1,5 +1,5 @@
 /**
- * Checks if the provided value is an Integer
+ * Checks if a `value` is an Integer
  *
  * @example
  * isInteger(NaN) => false

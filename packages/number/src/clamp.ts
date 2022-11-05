@@ -2,9 +2,12 @@
  * Ensures a value is between min and max
  *
  * @example
- * clamp(1, 5)(3) => 3
- * clamp(1, 5)(8) => 5
- * clamp(1, 5)(0) => 1
+ * Clamp value between 1 and 5
+ * ```ts
+ * const clamp1To5 = clamp(1, 5);
+ * const b = clamp1To5(8);
+ * console.log(b); // 5
+ * ```
  *
  * @returns `min` if `value < min`, or `max` if `value > max`, otherwise `value`
  */

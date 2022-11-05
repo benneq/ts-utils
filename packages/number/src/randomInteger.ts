@@ -2,9 +2,10 @@
  * Generates a random Integer between min (incl.) and max (incl.)
  *
  * @example
- * randomInteger(-1, 1) => 0
- * randomInteger(-1, 1) => -1
- * randomInteger(-1, 1) => 1
+ * ```ts
+ * const i = randomInteger(-1, 1);
+ * console.log(i); // -1 or 0 or 1
+ * ```
  *
  * @returns the generated random Integer
  */
