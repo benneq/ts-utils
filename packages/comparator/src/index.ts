@@ -1,4 +1,5 @@
 export * from "./_types";
+export * from "./arrayComparator";
 export * from "./booleanComparator";
 export * from "./chain";
 export * from "./comparing";
