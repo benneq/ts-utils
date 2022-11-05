@@ -9,6 +9,6 @@
  *
  * @returns `true`
  */
-export const alwaysTrue = (_?: unknown[]): boolean => {
+export const alwaysTrue = (..._: unknown[]): boolean => {
   return true;
 };

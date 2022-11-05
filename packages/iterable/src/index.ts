@@ -11,6 +11,7 @@ export * from "./groupBy";
 export * from "./interleave";
 export * from "./isEmpty";
 export * from "./isIterable";
+export * from "./iterate";
 export * from "./join";
 export * from "./limit";
 export * from "./map";
