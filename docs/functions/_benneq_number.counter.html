@@ -18,7 +18,7 @@
 <h1>Function counter</h1></div>
 <section class="tsd-panel">
 <ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-<li class="tsd-signature tsd-anchor-link" id="counter">counter<span class="tsd-signature-symbol">(</span>initialValue<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span><br/><span>    </span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span><br/><span>    </span>dec<span class="tsd-signature-symbol">(</span>delta<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">; </span><br/><span>    </span>inc<span class="tsd-signature-symbol">(</span>delta<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">; </span><br/><span>    </span>reset<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">; </span><br/><span class="tsd-signature-symbol">}</span><a href="#counter" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" id="icon-anchor-a"></path><path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" id="icon-anchor-b"></path><path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" id="icon-anchor-c"></path></svg></a></li>
+<li class="tsd-signature tsd-anchor-link" id="counter">counter<span class="tsd-signature-symbol">(</span>initialValue<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Counter</span><a href="#counter" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" id="icon-anchor-a"></path><path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" id="icon-anchor-b"></path><path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" id="icon-anchor-c"></path></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Creates a counter object with an <code>initialValue</code>.</p>
 
@@ -35,48 +35,9 @@
 <h5>initialValue: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 0</span></h5>
 <div class="tsd-comment tsd-typography"><p>the initial value</p>
 </div></li></ul></div>
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">{ </span><br/><span>    </span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span><br/><span>    </span>dec<span class="tsd-signature-symbol">(</span>delta<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">; </span><br/><span>    </span>inc<span class="tsd-signature-symbol">(</span>delta<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">; </span><br/><span>    </span>reset<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">; </span><br/><span class="tsd-signature-symbol">}</span></h4>
-<ul class="tsd-parameters">
-<li class="tsd-parameter">
-<h5><span class="tsd-signature-symbol">get </span>value<span class="tsd-signature-symbol">(): </span><span class="tsd-signature-type">number</span></h5></li>
-<li class="tsd-parameter">
-<h5><span class="tsd-signature-symbol">set </span>value<span class="tsd-signature-symbol">(</span>newValue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">): </span><span class="tsd-signature-type">void</span></h5></li>
-<li class="tsd-parameter">
-<h5>dec<span class="tsd-signature-symbol">:</span>function</h5>
-<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-type-literal">
-<li class="tsd-signature tsd-anchor-link" id="counter.__type.dec.dec-1">dec<span class="tsd-signature-symbol">(</span>delta<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span><a href="#counter.__type.dec.dec-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
-<li class="tsd-description">
-<div class="tsd-parameters">
-<h4 class="tsd-parameters-title">Parameters</h4>
-<ul class="tsd-parameter-list">
-<li>
-<h5>delta: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 1</span></h5></li></ul></div>
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4><aside class="tsd-sources">
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Counter</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/benneq/ts-utils/blob/b6452bc/packages/number/src/counter.ts#L30">number/src/counter.ts:30</a></li></ul></aside></li></ul></li>
-<li class="tsd-parameter">
-<h5>inc<span class="tsd-signature-symbol">:</span>function</h5>
-<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-type-literal">
-<li class="tsd-signature tsd-anchor-link" id="counter.__type.inc.inc-1">inc<span class="tsd-signature-symbol">(</span>delta<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span><a href="#counter.__type.inc.inc-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
-<li class="tsd-description">
-<div class="tsd-parameters">
-<h4 class="tsd-parameters-title">Parameters</h4>
-<ul class="tsd-parameter-list">
-<li>
-<h5>delta: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 1</span></h5></li></ul></div>
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4><aside class="tsd-sources">
-<ul>
-<li>Defined in <a href="https://github.com/benneq/ts-utils/blob/b6452bc/packages/number/src/counter.ts#L27">number/src/counter.ts:27</a></li></ul></aside></li></ul></li>
-<li class="tsd-parameter">
-<h5>reset<span class="tsd-signature-symbol">:</span>function</h5>
-<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-type-literal">
-<li class="tsd-signature tsd-anchor-link" id="counter.__type.reset.reset-1">reset<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span><a href="#counter.__type.reset.reset-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
-<li class="tsd-description">
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4><aside class="tsd-sources">
-<ul>
-<li>Defined in <a href="https://github.com/benneq/ts-utils/blob/b6452bc/packages/number/src/counter.ts#L39">number/src/counter.ts:39</a></li></ul></aside></li></ul></li></ul><aside class="tsd-sources">
-<ul>
-<li>Defined in <a href="https://github.com/benneq/ts-utils/blob/b6452bc/packages/number/src/counter.ts#L23">number/src/counter.ts:23</a></li></ul></aside></li></ul></section></div>
+<li>Defined in <a href="https://github.com/benneq/ts-utils/blob/39a5dde/packages/number/src/counter.ts#L31">number/src/counter.ts:31</a></li></ul></aside></li></ul></section></div>
 <div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 <div class="tsd-navigation settings">
 <details class="tsd-index-accordion"><summary class="tsd-accordion-summary">
@@ -108,6 +69,7 @@
 <li class="tsd-kind-module"><a href="../modules/_benneq_object.html">@benneq/object</a></li>
 <li class="tsd-kind-module"><a href="../modules/_benneq_predicate.html">@benneq/predicate</a></li>
 <li class="tsd-kind-module"><a href="../modules/_benneq_promise.html">@benneq/promise</a></li>
+<li class="tsd-kind-module"><a href="../modules/_benneq_queryparams.html">@benneq/queryparams</a></li>
 <li class="tsd-kind-module"><a href="../modules/_benneq_regexp.html">@benneq/regexp</a></li>
 <li class="tsd-kind-module"><a href="../modules/_benneq_set.html">@benneq/set</a></li>
 <li class="tsd-kind-module"><a href="../modules/_benneq_string.html">@benneq/string</a></li></ul></li></ul></div></details></nav>
