@@ -9,6 +9,7 @@ export * from "./asciiLetterRegExp";
 export * from "./digitCharacterRegExp";
 export * from "./emailRegExp";
 export * from "./escapeString";
+export * from "./isRegExp";
 export * from "./nonWhitespaceRegExp";
 export * from "./printableAsciiCharacterRegExp";
 export * from "./printableCharacterRegExp";

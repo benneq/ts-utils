@@ -3,7 +3,7 @@
  *
  * @example
  * ```
- * const b = isArrayBuffer(new ArrayBuffer());
+ * const b = isArrayBuffer(new ArrayBuffer(0));
  * console.log(b); // true
  * ```
  *
