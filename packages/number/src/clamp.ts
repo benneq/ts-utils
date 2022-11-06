@@ -4,8 +4,8 @@
  * @example
  * Clamp value between 1 and 5
  * ```ts
- * const clamp1To5 = clamp(1, 5);
- * const b = clamp1To5(8);
+ * const clampBetween1And5 = clamp(1, 5);
+ * const b = clampBetween1And5(8);
  * console.log(b); // 5
  * ```
  *

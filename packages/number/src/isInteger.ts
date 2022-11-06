@@ -2,11 +2,18 @@
  * Checks if a `value` is an Integer
  *
  * @example
- * isInteger(NaN) => false
- * isInteger(Infinity) => false
- * isInteger(0.5) => false
- * isInteger(0) => true
- * isInteger("") => false
+ * Returns `true` if the `value` is an Integer
+ * ```ts
+ * const b = isInteger(0);
+ * console.log(b); // true
+ * ```
+ *
+ * @example
+ * Returns `false` if the `value` is not an Integer
+ * ```ts
+ * const b = isInteger(0.5);
+ * console.log(b); // false
+ * ```
  *
  * @returns `true` if `value` is an Integer, otherwise `false`
  */

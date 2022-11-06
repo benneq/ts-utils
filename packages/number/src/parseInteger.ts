@@ -2,6 +2,13 @@
  * Tries to parse an Integer from a String
  *
  * @example
+ * Parse Integer
+ * ```ts
+ * const i = parseInteger("1");
+ * console.log(i); // 1
+ * ```
+ *
+ * @example
  * Parse the first valid Integer
  * ```ts
  * const i = parseInteger(" 3.4a");

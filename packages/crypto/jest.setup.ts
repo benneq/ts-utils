@@ -1,5 +1,5 @@
 import { TextEncoder } from "util";
-import { webcrypto, subtle, randomUUID, getRandomValues } from "crypto";
+import { webcrypto, randomUUID, getRandomValues } from "crypto";
 
 // mocks the window.crypto object
 Object.defineProperty(global, "crypto", {
