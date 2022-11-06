@@ -19,9 +19,9 @@
  *
  * @returns a new Promise that rejects after `ms` milliseconds
  */
-export const rejectAfterTimeout: {
-  (ms: number): Promise<void>;
-  (ms: number, error: unknown): Promise<void>;
-} = (ms: number, error?: unknown): Promise<void> => {
+export const rejectAfterTimeout = (
+  ms: number,
+  error?: unknown
+): Promise<void> => {
   return new Promise((_, reject) => setTimeout(reject, ms, error));
 };

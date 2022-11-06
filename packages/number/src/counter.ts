@@ -1,3 +1,11 @@
+type Counter = {
+    inc: (delta?: number) => void,
+    dec: (delta?: number) => void,
+    get value(): number,
+    set value(newValue: number),
+    reset: () => void,
+}
+
 /**
  * Creates a counter object with an `initialValue`.
  *
@@ -20,7 +28,7 @@
  *
  * @returns the Counter object
  */
-export const counter = (initialValue: number = 0) => {
+export const counter = (initialValue: number = 0): Counter => {
   let value = initialValue;
 
   return {

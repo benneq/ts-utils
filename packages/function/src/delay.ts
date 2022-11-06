@@ -24,7 +24,7 @@ export const delay = <TArgs extends unknown[] = []>(
   callback: Callback<TArgs>,
   ms: number,
   ...args: TArgs
-): Callback<[]> => {
+): Callback => {
   const timeout = setTimeout(callback, ms, ...args);
 
   return () => clearTimeout(timeout);

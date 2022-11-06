@@ -26,6 +26,6 @@
  *
  * @returns `false`
  */
-export const alwaysFalse = (..._: unknown[]): boolean => {
+export const alwaysFalse = (..._: unknown[]): false => {
   return false;
 };

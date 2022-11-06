@@ -5,8 +5,8 @@
  * Resolve after 100ms
  * ```ts
  * resolveAfterTimeout(100)
- *   .then(() => console.log("then"))    // this will never be called
- *   .catch(() => console.log("catch")); // will be called after 100ms
+ *   .then(() => console.log("then"))    // will be called after 100ms
+ *   .catch(() => console.log("catch")); // this will never be called
  * ```
  *
  * @example
@@ -19,9 +19,9 @@
  *
  * @returns a new Promise that resolves after `ms` milliseconds
  */
-export const resolveAfterTimeout: {
-  (ms: number): Promise<void>;
-  <T>(ms: number, value: T): Promise<T>;
-} = <T>(ms: number, value?: T): Promise<T | void> => {
+export const resolveAfterTimeout = <T>(
+  ms: number,
+  value?: T
+): Promise<T | void> => {
   return new Promise((resolve) => setTimeout(resolve, ms, value));
 };

@@ -4,6 +4,6 @@
  * @param value
  * @returns the provided value
  */
-export const identity: <T>(value: T) => T = (value) => {
+export const identity = <T>(value: T): T => {
   return value;
 };
