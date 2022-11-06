@@ -1,3 +1,9 @@
+/**
+ * @packageDocumentation
+ *
+ * This module contains utilities for working with Comparators
+ */
+
 export * from "./_types";
 export * from "./booleanComparator";
 export * from "./chain";

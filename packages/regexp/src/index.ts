@@ -1,3 +1,9 @@
+/**
+ * @packageDocumentation
+ *
+ * This module contains utilities for working with RegExps
+ */
+
 export * from "./asciiCharacterRegExp";
 export * from "./asciiLetterRegExp";
 export * from "./digitCharacterRegExp";

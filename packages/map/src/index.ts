@@ -1,3 +1,9 @@
+/**
+ * @packageDocumentation
+ *
+ * This module contains utilities for working with Maps
+ */
+
 export * from "./add";
 export * from "./addAll";
 export * from "./copy";

@@ -1,3 +1,9 @@
+/**
+ * @packageDocumentation
+ *
+ * This module contains utilities for working with Strings
+ */
+
 export * from "./_types";
 export * from "./characterSequence";
 export * from "./charCodeOf";

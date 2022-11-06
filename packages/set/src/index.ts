@@ -1,3 +1,9 @@
+/**
+ * @packageDocumentation
+ *
+ * This module contains utilities for working with Sets
+ */
+
 export * from "./_types";
 export * from "./add";
 export * from "./addAll";

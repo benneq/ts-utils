@@ -1,3 +1,9 @@
+/**
+ * @packageDocumentation
+ *
+ * This module contains utilities for working with Functions
+ */
+
 export * from "./_types";
 export * from "./callIfDefined";
 export * from "./debounce";

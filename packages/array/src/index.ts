@@ -1,3 +1,9 @@
+/**
+ * @packageDocumentation
+ *
+ * This module contains utilities for working with Arrays
+ */
+
 export * from "./_types";
 export * from "./arrayComparator";
 export * from "./copy";

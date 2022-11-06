@@ -1,3 +1,9 @@
+/**
+ * @packageDocumentation
+ *
+ * This module contains utilities for working with Numbers
+ */
+
 export * from "./clamp";
 export * from "./isFloat";
 export * from "./isInteger";

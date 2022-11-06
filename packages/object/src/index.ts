@@ -1,3 +1,9 @@
+/**
+ * @packageDocumentation
+ *
+ * This module contains utilities for working with Objects
+ */
+
 export * from "./_types";
 export * from "./defaultIf";
 export * from "./defaultIfFalsy";
