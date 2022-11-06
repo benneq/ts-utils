@@ -5,8 +5,7 @@ import { Comparator } from "./_types";
  * Creates a Comparator using the provided Mapper
  *
  * @example
- * comparatorFor(person => person.age)({age: 1}, {age: 2}) => -1
- * comparatorFor(person => person.name, stringComparator)({name: "a"}, {name: ""}) => 1
+ * comparing(person => person.name, stringComparator)({name: "a"}, {name: ""}) => 1
  *
  * @param mapper
  * @param comparator
