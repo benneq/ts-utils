@@ -1,13 +1,25 @@
 import { Predicate } from "./_types";
 
 /**
- * Combines Predicates with a logical AND
+ * Combines Predicates with a logical `AND`.
+ *
+ * The combined Predicate returns `true` if all of the `predicates` returns `true`.
  *
  * @example
- * and() => (() => true)
- * and(alwaysTrue, alwaysTrue) => (() => true)
- * and(alwaysTrue, alwaysFalse) => (() => false)
- * and(alwaysFalse, alwaysFalse) => (() => false)
+ * Combine two Predicates with a logical `AND`
+ * ```
+ * const predicate = and(numberIsPositive, numberIsEven);
+ * const b = p(2);
+ * console.log(b); // true
+ * ```
+ *
+ * @example
+ * Returns an {@link alwaysTrue} Predicate if no args provided
+ * ```
+ * const predicate = and();
+ * const b = p();
+ * console.log(b); // true
+ * ```
  *
  * @returns `true` if all `predicates` return `true`, otherwise `false`
  */

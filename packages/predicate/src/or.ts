@@ -1,13 +1,25 @@
 import { Predicate } from "./_types";
 
 /**
- * Combines Predicates with a logical OR
+ * Combines Predicates with a logical `OR`.
+ *
+ * The combined Predicate returns `true` if any of the `predicates` returns `true`.
  *
  * @example
- * or() => (() => true)
- * or(alwaysTrue, alwaysTrue) => (() => true)
- * or(alwaysTrue, alwaysFalse) => (() => true)
- * or(alwaysFalse, alwaysFalse) => (() => false)
+ * Combine two Predicates with a logical `OR`
+ * ```
+ * const predicate = or(numberIsPositive, numberIsEven);
+ * const b = p(-2);
+ * console.log(b); // true
+ * ```
+ *
+ * @example
+ * Returns an {@link alwaysFalse} Predicate if no args provided
+ * ```
+ * const predicate = or();
+ * const b = p();
+ * console.log(b); // false
+ * ```
  *
  * @returns `true` if any of the `predicates` returned `true`, otherwise `false`
  */
