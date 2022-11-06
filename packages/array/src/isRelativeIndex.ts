@@ -1,15 +1,28 @@
 import { RelativeIndex } from "./_types";
 
 /**
- * Checks if the given index is a relative index of the provided Array
+ * Checks if a Number is a {@link RelativeIndex} of an {@link ArrayLike}
  *
  * @example
- * isRelativeIndex([1,2,3])(2) => true
- * isRelativeIndex([1,2,3])(3) => false
- * isRelativeIndex([1])(-3) => true
- * isRelativeIndex([1])(-4) => false
+ * A {@link RelativeIndex} can be negative
+ * ```ts
+ * const array = [1,2,3];
+ * const isRelativeIndexOfArray = isRelativeIndex(array);
  *
- * @returns `true` if the index is between -Array.length and Array.length, otherwise `false`
+ * const index = -3;
+ * const b = isRelativeIndexOfArray(index);
+ * console.log(b); // true
+ * ```
+ *
+ * @example
+ * Works with Strings, too
+ * ```ts
+ * const isRelativeIndexOfTest = isRelativeIndex("test");
+ * const b = isRelativeIndexOfTest(-5);
+ * console.log(b); // false
+ * ```
+ *
+ * @returns `true` if the index is between `-array.length` and `array.length`, otherwise `false`
  */
 export const isRelativeIndex =
   <T>(array: ArrayLike<T>) =>

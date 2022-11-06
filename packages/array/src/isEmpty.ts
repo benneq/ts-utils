@@ -4,8 +4,18 @@ import { EmptyArrayLike } from "./_types";
  * Checks if an Array contains any element
  *
  * @example
- * isEmpty([]) => true
- * isEmpty([1,2,3]) => false
+ * Returns `true` if the Array is empty
+ * ```ts
+ * const b = isEmpty([]);
+ * console.log(b); // true
+ * ```
+ *
+ * @example
+ * Works with Strings, too
+ * ```ts
+ * const b = isEmpty(" ");
+ * console.log(b); // false
+ * ```
  *
  * @returns `true` if the Array is empty, otherwise `false`
  */

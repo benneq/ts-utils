@@ -1,14 +1,26 @@
 /**
- * Checks if the given index is in bounds of the provided Array
+ * Checks if a Number is an index of an {@link ArrayLike}
  *
  * @example
- * isIndex([])(0) => false
- * isIndex([1,2,3])(1) => true
- * isIndex([1])(-1) => false
- * isIndex([1])(3) => false
- * isIndex("abc")(2) => true
+ * Is `index` in bounds of `array`?
+ * ```ts
+ * const array = [1,2,3];
+ * const isIndexOfArray = isIndex(array);
  *
- * @returns `true` if the index is between 0 and Array.length, otherwise `false`
+ * const index = 4;
+ * const b = isIndexOfArray(index);
+ * console.log(b); // false
+ * ```
+ *
+ * @example
+ * Works with strings, too
+ * ```ts
+ * const isIndexOfTest = isIndex("test");
+ * const b = isIndexOfTest(3);
+ * console.log(b); // true
+ * ```
+ *
+ * @returns `true` if the index is between `0` and `array.length`, otherwise `false`
  */
 export const isIndex =
   <T>(array: ArrayLike<T>) =>

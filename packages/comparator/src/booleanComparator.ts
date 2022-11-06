@@ -3,7 +3,7 @@ import { Comparator } from "./_types";
 /**
  * Orders `boolean` values by their natural order, i.e. `false` < `true`
  *
- * @exmaple
+ * @example
  * booleanComparator(true, true) => 0
  * booleanComparator(false, true) => < 0
  * booleanComparator(true, false) => > 0

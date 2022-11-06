@@ -1,7 +1,7 @@
 /**
  * @packageDocumentation
  *
- * This module contains utilities for working with Arrays
+ * This module contains utilities for working with Arrays and ArrayLikes
  */
 
 export * from "./_types";

@@ -1,7 +1,7 @@
 /**
- * Checks if the provided value is an Array
+ * Checks if a value is an Array
  *
- * @exmaple
+ * @example
  * isArray(null) = false
  * isArray("") => false
  * isArray([]) => true

@@ -4,7 +4,7 @@
  * @remark
  * This function will consume the first element
  *
- * @exmaple
+ * @example
  * isEmpty([]) => true
  * isEmpty([1,2,3]) => false
  *
