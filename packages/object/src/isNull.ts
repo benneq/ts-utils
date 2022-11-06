@@ -1,9 +1,19 @@
 /**
- * Checks if the provided value is `null`
+ * Checks if a value is `null`
+ *
+ * The opposite of {@link isNotNull}
  *
  * @example
- * isNull(null) => true
- * isNull(0) => false
+ * ```
+ * const b = isNull(null);
+ * console.log(b); // true
+ * ```
+ *
+ * @example
+ * ```
+ * const b = isNull(0);
+ * console.log(b); // false
+ * ```
  *
  * @returns `true` if `value` is `null`, otherwise `false`
  */

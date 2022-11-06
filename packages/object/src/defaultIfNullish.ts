@@ -1,4 +1,5 @@
-import { ValueOrProvider, valueOrProviderResult } from "./valueOrProvider";
+import { defaultIf } from "./defaultIf";
+import { isNullish } from "./isNullish";
 
 /**
  * If the provided value is `null` the defaultValue will be returned
@@ -9,8 +10,4 @@ import { ValueOrProvider, valueOrProviderResult } from "./valueOrProvider";
  * defaultIfNullish(0)(2) => 2
  * defaultIfNullish(() => 3)(null) => 3
  */
-export const defaultIfNullish =
-  <D>(defaultValue: ValueOrProvider<D>) =>
-  <V>(value: V): D | NonNullable<V> => {
-    return value ?? valueOrProviderResult(defaultValue);
-  };
+export const defaultIfNullish = defaultIf(isNullish);

@@ -1,14 +1,33 @@
 import { Truthy } from "./_types";
 
 /**
- * Checks if the provided value is Truthy
+ * Checks if a value is {@link Truthy}
+ *
+ * The opposite of {@link isFalsy}
  *
  * @example
- * isTruthy(1) => true
- * isTruthy([]) => true
- * isTruthy({}) = true
- * isTruthy(null) => false
- * isTruthy(undefined) => false
+ * ```
+ * const b = isTruthy(1);
+ * console.log(b); // true
+ * ```
+ *
+ * @example
+ * ```
+ * const b = isTruthy(" ");
+ * console.log(b); // true
+ * ```
+ *
+ * @example
+ * ```
+ * const b = isTruthy(0);
+ * console.log(b); // false
+ * ```
+ *
+ * @example
+ * ```
+ * const b = isTruthy(null);
+ * console.log(b); // false
+ * ```
  *
  * @returns `true` if `value` is a Truthy, otherwise `false`
  */

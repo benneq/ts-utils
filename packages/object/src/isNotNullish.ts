@@ -2,12 +2,27 @@ import { isNullish } from "./isNullish";
 import { Nullish } from "./_types";
 
 /**
- * Checks if the provided value is not Nullish
+ * Checks if a value is not {@link Nullish}
+ *
+ * The opposite of {@link isNullish}
  *
  * @example
- * isNotNullish(0) => true
- * isNotNullish(null) => false
- * isNotNullish(undefined) => false
+ * ```
+ * const b = isNotNullish(0);
+ * console.log(b); // true
+ * ```
+ *
+ * @example
+ * ```
+ * const b = isNotNullish(null);
+ * console.log(b); // false
+ * ```
+ *
+ * @example
+ * ```
+ * const b = isNotNullish(undefined);
+ * console.log(b); // false
+ * ```
  *
  * @returns `true` if `value` is not Nullish, otherwise `false`
  */

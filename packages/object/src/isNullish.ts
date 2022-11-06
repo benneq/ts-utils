@@ -3,14 +3,27 @@ import { isUndefined } from "./isUndefined";
 import { Nullish } from "./_types";
 
 /**
- * Checks if the provided value is Falsy
+ * Checks if a value is {@link Falsy}
+ *
+ * The opposite of {@link isNotNullish}
  *
  * @example
- * isNullish(null) => true
- * isNullish(undefined) => true
- * isNullish("") => false
- * isNullish([]) => false
- * isNullish(object) = false
+ * ```
+ * const b = isNullish(null);
+ * console.log(b); // true
+ * ```
+ *
+ * @example
+ * ```
+ * const b = isNullish(undefined);
+ * console.log(b); // true
+ * ```
+ *
+ * @example
+ * ```
+ * const b = isNullish(0);
+ * console.log(b); // false
+ * ```
  *
  * @returns `true` if `value` is Falsy, otherwise `false`
  */

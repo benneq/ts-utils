@@ -1,14 +1,33 @@
 import { Falsy } from "./_types";
 
 /**
- * Checks if the provided value is Falsy
+ * Checks if a value is {@link Falsy}
+ *
+ * The opposite of {@link isTruthy}
  *
  * @example
- * isFalsy(null) => true
- * isFalsy(undefined) => true
- * isFalsy("") => true
- * isFalsy([]) => false
- * isFalsy(object) = false
+ * ```
+ * const b = isFalsy(0);
+ * console.log(b); // true
+ * ```
+ *
+ * @example
+ * ```
+ * const b = isFalsy(null);
+ * console.log(b); // true
+ * ```
+ *
+ * @example
+ * ```
+ * const b = isFalsy(1);
+ * console.log(b); // false
+ * ```
+ *
+ * @example
+ * ```
+ * const b = isFalsy(" ");
+ * console.log(b); // false
+ * ```
  *
  * @returns `true` if `value` is Falsy, otherwise `false`
  */

@@ -1,11 +1,21 @@
 import { isNull } from "./isNull";
 
 /**
- * Checks if the provided value is not `null`
+ * Checks if a value is not `null`
+ *
+ * The opposite of {@link isNull}
  *
  * @example
- * isNotNull(0) => true
- * isNotNull(null) => false
+ * ```
+ * const b = isNotNull(0);
+ * console.log(b); // true
+ * ```
+ *
+ * @example
+ * ```
+ * const b = isNotNull(null);
+ * console.log(b); // false
+ * ```
  *
  * @returns `true` if `value` is not `null`, otherwise `false`
  */

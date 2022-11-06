@@ -4,9 +4,20 @@ import { ValueOrProvider, valueOrProviderResult } from "./valueOrProvider";
  * If the provided value matches the Predicate, the default value will be returned
  *
  * @example
- * defaulfIf(x => x < 0)(0)(-1) => 0
- * defaulfIf(x => x < 0)(0)(2) => 2
- * defaulfIf(x => x < 0)(() => 3)(-1) => 3
+ * Default to `1` if `value` is less than `0`
+ * ```ts
+ * const defaultTo1IfNegative = defaultIf(value => value < 0)(1);
+ * const n = defaultTo1IfNegative(-1);
+ * console.log(n); // 1
+ * ```
+ *
+ * @example
+ * Call initializer function if `value` is less than `0`
+ * ```ts
+ * const callInitFnIfNegative = defaultIf(value => value < 0)(() => 2);
+ * const n = callInitFnIfNegative(-1);
+ * console.log(n); // 2
+ * ```
  *
  * @returns the defaultValue if the Predicate matches, else the provided value
  */

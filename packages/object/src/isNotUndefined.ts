@@ -1,11 +1,21 @@
 import { isUndefined } from "./isUndefined";
 
 /**
- * Checks if the provided value is not `undefined`
+ * Checks if a value is not `undefined`
+ *
+ * The opposite of {@link isUndefined}
  *
  * @example
- * isNotUndefined(0) => true
- * isNotUndefined(undefined) => false
+ * ```
+ * const b = isNotUndefined(0);
+ * console.log(b); // true
+ * ```
+ *
+ * @example
+ * ```
+ * const b = isNotUndefined(undefined);
+ * console.log(b); // false
+ * ```
  *
  * @returns `true` if `value` is not `undefined`, otherwise `false`
  */

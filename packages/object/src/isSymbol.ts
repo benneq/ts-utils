@@ -1,9 +1,17 @@
 /**
- * Checks if the provided value is `symbol`
+ * Checks if a value is of type `symbol`
  *
  * @example
- * isSymbol(Symbol()) => true
- * isSymbol(0) => false
+ * ```
+ * const b = isSymbol(Symbol());
+ * console.log(b); // true
+ * ```
+ *
+ * @example
+ * ```
+ * const b = isSymbol(0);
+ * console.log(b); // false
+ * ```
  *
  * @returns `true` if `value` is `symbol`, otherwise `false`
  */
