@@ -5,6 +5,7 @@
  */
 
 export * from "./clamp";
+export * from "./counter";
 export * from "./isFloat";
 export * from "./isInteger";
 export * from "./isNumber";
