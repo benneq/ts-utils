@@ -10,6 +10,7 @@ export * from "./defaultIfFalsy";
 export * from "./defaultIfNull";
 export * from "./defaultIfNullish";
 export * from "./defaultIfUndefined";
+export * from "./isArrayBuffer";
 export * from "./isBoolean";
 export * from "./isFalsy";
 export * from "./isEqualTo";
