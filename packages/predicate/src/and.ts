@@ -21,12 +21,14 @@ import { Predicate } from "./_types";
  * console.log(b); // true
  * ```
  *
+ * @typeParam T - the type of the Predicates
+ *
+ * @param predicates - the Predicates to combine
+ *
  * @returns `true` if all `predicates` return `true`, otherwise `false`
  */
 export const and =
-  <TArgs extends unknown[]>(
-    ...predicates: Predicate<TArgs>[]
-  ): Predicate<TArgs> =>
+  <T extends unknown[]>(...predicates: Predicate<T>[]): Predicate<T> =>
   (...args) => {
     return predicates.every((predicate) => predicate(...args));
   };

@@ -19,10 +19,14 @@ import { Predicate } from "./_types";
  * console.log(b); // false
  * ```
  *
+ * @typeParam T - the type of the Predicate
+ *
+ * @param predicate - the Predicate to negate
+ *
  * @returns `true` if the `predicate` returns `false`, otherwise `false`
  */
-export const not = <TArgs extends unknown[]>(
-  predicate: Predicate<TArgs>
-): Predicate<TArgs> => {
+export const not = <T extends unknown[]>(
+  predicate: Predicate<T>
+): Predicate<T> => {
   return (...args) => !predicate(...args);
 };

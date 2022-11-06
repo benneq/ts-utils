@@ -21,12 +21,14 @@ import { Predicate } from "./_types";
  * console.log(b); // false
  * ```
  *
+ * @typeParam T - the type of the Predicates
+ *
+ * @param predicates - the Predicates to combine
+ *
  * @returns `true` if any of the `predicates` returned `true`, otherwise `false`
  */
 export const or =
-  <TArgs extends unknown[]>(
-    ...predicates: Predicate<TArgs>[]
-  ): Predicate<TArgs> =>
+  <T extends unknown[]>(...predicates: Predicate<T>[]): Predicate<T> =>
   (...args) => {
     return predicates.some((predicate) => predicate(...args));
   };

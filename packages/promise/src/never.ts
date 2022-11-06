@@ -18,4 +18,4 @@ import { noop } from "@benneq/function";
  * ```
  *
  */
-export const never: Promise<unknown> = new Promise(noop);
+export const never: Promise<never> = new Promise(noop);
