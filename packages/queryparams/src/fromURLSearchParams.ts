@@ -3,6 +3,23 @@ import { reduce } from "@benneq/iterable";
 import { Entry } from "@benneq/object";
 import { multiMapAdd } from "@benneq/map";
 
+/**
+ * Converts URLSearchParams to {@link QueryParams}
+ *
+ * @example
+ * Convert URLSearchParams
+ * ```ts
+ * const urlSearchParams = new URLSearchParams([
+ *   ["k1", "v1"],
+ *   ["k1", "v2"],
+ * ])
+ *
+ * const queryParams = fromURLSearchParams(urlSearchParams);
+ * console.log(queryParams); // Map([["k1", ["v1", "v2"]]])
+ * ```
+ *
+ * @returns the parsed {@link QueryParams}
+ */
 export const fromURLSearchParams = (
   urlSearchParams: URLSearchParams
 ): QueryParams => {
