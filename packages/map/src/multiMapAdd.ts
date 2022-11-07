@@ -7,8 +7,8 @@ import { MultiMap } from "./_types";
  * @example
  * ```ts
  * const multiMap = new Map<string, string[]>();
- * multiMapAdd(multiMap, "a", "b");
- * console.log(multiMap); // Map([["a", ["b"]]])
+ * multiMapAdd(multiMap, "k", "v");
+ * console.log(multiMap); // Map([["k", ["v"]]])
  * ```
  *
  */

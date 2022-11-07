@@ -4,13 +4,15 @@ import { SetCompatible } from "./_types";
 
 /**
  *
- * @exmple
- * difference([])([]) => []
- * difference([3])([1,2]) => [1,2]
- * difference([2,3])([1,2]) => [1]
+ * @example
+ * Difference between two sets
+ * ```
+ * const setA = new Set([2,3]);
+ * const setB = new Set([1,2]);
+ * const diff = difference(setA)(setB);
+ * console.log(diff); // Set([1])
+ * ```
  *
- * @param setA
- * @param setB
  * @returns
  */
 export const difference = <T>(

@@ -6,9 +6,9 @@ import { MultiMap } from "./_types";
  *
  * @example
  * ```ts
- * const multiMap = new Map([["a", ["b", "c"]]]);
- * multiMapRemove(multiMap, "a", "b");
- * console.log(multiMap); // Map([["a", ["c"]]])
+ * const multiMap = new Map([["k", ["v1", "v2"]]]);
+ * multiMapRemove(multiMap, "k", "v1");
+ * console.log(multiMap); // Map([["k", ["v2"]]])
  * ```
  *
  */
@@ -23,8 +23,4 @@ export const multiMapRemove =
         values.splice(index, 1);
       }
     }
-
-    // const values = multiMap.get(key) || [];
-    // values.push(value);
-    // multiMap.set(key, values);
   };

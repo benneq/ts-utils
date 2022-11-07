@@ -4,7 +4,12 @@ import { filter as iterableFilter } from "@benneq/iterable";
 /**
  *
  * @example
- * filter([1,2,3])(x => x < 3) => [1,2]
+ * Filtering a Set
+ * ```
+ * const set = new Set([1,2,3]);
+ * const filteredSet = filter(isEven)(set);
+ * console.log(filteredSet); // Set([2])
+ * ```
  *
  * @param set
  * @returns

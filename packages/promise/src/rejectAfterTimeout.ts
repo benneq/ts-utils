@@ -23,5 +23,5 @@ export const rejectAfterTimeout = (
   ms: number,
   error?: unknown
 ): Promise<void> => {
-  return new Promise((_, reject) => setTimeout(reject, ms, error));
+  return new Promise((_resolve, reject) => setTimeout(reject, ms, error));
 };

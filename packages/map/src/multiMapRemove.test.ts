@@ -1,7 +1,7 @@
 import { multiMapRemove } from "./multiMapRemove";
 
 describe("map.multiMapRemove", () => {
-  it("should add the given value if the key already exists", () => {
+  it("should remove the given value from the key", () => {
     const key = Symbol();
     const value1 = Symbol();
     const value2 = Symbol();

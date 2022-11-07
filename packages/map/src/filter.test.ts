@@ -21,12 +21,10 @@ describe("map.filter", () => {
       [key2, value2],
     ]);
 
-    expect(filter(([k, _]) => k === key1)(map)).not.toBe(map);
-    expect(filter(([k, _]) => k === key1)(map)).toEqual(
-      new Map([[key1, value1]])
-    );
-    expect(filter(([_, v]) => v === value2)(map)).not.toBe(map);
-    expect(filter(([_, v]) => v === value2)(map)).toEqual(
+    expect(filter(([key]) => key === key1)(map)).not.toBe(map);
+    expect(filter(([k]) => k === key1)(map)).toEqual(new Map([[key1, value1]]));
+    expect(filter(([_key, value]) => value === value2)(map)).not.toBe(map);
+    expect(filter(([_key, value]) => value === value2)(map)).toEqual(
       new Map([[key2, value2]])
     );
   });

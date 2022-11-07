@@ -5,11 +5,14 @@ import { SetCompatible } from "./_types";
 /**
  *
  * @example
- * union([])([]) => []
- * union([1,2])([2,3]) => [1,2,3]
+ * Union of two sets
+ * ```
+ * const setA = new Set([1,2]);
+ * const setB = new Set([2,3]);
+ * const sum = union(setA)(setB);
+ * console.log(sum); // Set([1,2,3])
+ * ```
  *
- * @param setA
- * @param setB
  * @returns
  */
 export const union = <T>(

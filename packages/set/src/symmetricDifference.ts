@@ -5,12 +5,14 @@ import { SetCompatible } from "./_types";
 /**
  *
  * @example
- * symmetricDifference([], []) => []
- * symmetricDifference([1,2], [3]) => [1,2,3]
- * symmetricDifference([1,2], [2,3]) => [1,3]
+ * Symmetric difference between two sets
+ * ```
+ * const setA = new Set([1,2]);
+ * const setB = new Set([2,3]);
+ * const diff = symmetricDifference(setA, setB);
+ * console.log(diff); // Set([1,3])
+ * ```
  *
- * @param setA
- * @param setB
  * @returns
  */
 export const symmetricDifference = <T>(

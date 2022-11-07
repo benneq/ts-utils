@@ -12,5 +12,5 @@ import { filter } from "./filter";
 export const filterValues = <K, V>(
   predicate: Predicate<[V]>
 ): ((map: Map<K, V>) => Map<K, V>) => {
-  return filter<K, V>(([_, v]) => predicate(v));
+  return filter<K, V>(([_key, value]) => predicate(value));
 };

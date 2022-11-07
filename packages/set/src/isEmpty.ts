@@ -2,12 +2,22 @@
  * Checks if a Set contains any element
  *
  * @example
- * isEmpty([]) => true
- * isEmpty([1,2]) => false
+ * Returns `true` if the Set is empty
+ * ```ts
+ * const b = isEmpty(new Set());
+ * console.log(b); // true
+ * ```
+ *
+ * @example
+ * Returns `false` if the Set contains elements
+ * ```ts
+ * const b = isEmpty(new Set([1]));
+ * console.log(b); // false
+ * ```
  *
  * @param set
  * @returns `true` if the Set is empty, otherwise `false`
  */
-export const isEmpty = <T>(set: Set<T>): boolean => {
+export const isEmpty = (set: ReadonlySet<unknown>): boolean => {
   return !set.size;
 };

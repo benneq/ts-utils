@@ -6,10 +6,13 @@ import { SetCompatible } from "./_types";
  * @mutation
  *
  * @example
- * toggleAll([1,2])([]) => [1,2]
- * toggleAll([1,2])([2,3]) => [1,3]
+ * Toggle multiple values
+ * ```ts
+ * const set = new Set([1,2]);
+ * toggleAll(set)([2,3]);
+ * console.log(set); // Set([1,3]);
+ * ```
  *
- * @param set
  * @returns
  */
 export const toggleAll =

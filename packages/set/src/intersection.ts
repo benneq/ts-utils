@@ -3,12 +3,14 @@ import { filter } from "./filter";
 /**
  *
  * @example
- * intersection([], []) => []
- * intersection([1], [2]) => []
- * intersection([1,2], [2,3]) => [2]
+ * Intersection between two sets
+ * ```
+ * const setA = new Set([1,2]);
+ * const setB = new Set([2,3]);
+ * const diff = intersection(setA, setB);
+ * console.log(diff); // Set([2])
+ * ```
  *
- * @param setA
- * @param setB
  * @returns
  */
 export const intersection = <T>(setA: Set<T>): ((setB: Set<T>) => Set<T>) => {
