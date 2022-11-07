@@ -1,4 +1,4 @@
-import { containsAll } from "./containsAll";
+import { hasAll } from "./hasAll";
 
 /**
  *
@@ -12,5 +12,5 @@ import { containsAll } from "./containsAll";
  * @returns
  */
 export const isSuperset = <T>(set: Set<T>, subset: Set<T>): boolean => {
-  return containsAll(set)(subset);
+  return hasAll(set)(subset);
 };

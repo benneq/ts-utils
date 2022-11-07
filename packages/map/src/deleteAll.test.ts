@@ -1,6 +1,6 @@
-import { removeAll } from "./removeAll";
+import { deleteAll } from "./deleteAll";
 
-describe("map.removeAll", () => {
+describe("map.deleteAll", () => {
   it("should remove the given values from the Set", () => {
     const key1 = Symbol();
     const value1 = Symbol();
@@ -14,7 +14,7 @@ describe("map.removeAll", () => {
       [key3, value3],
     ]);
 
-    removeAll(map)([key2, key3]);
+    deleteAll(map)([key2, key3]);
 
     expect(map).toEqual(new Map([[key1, value1]]));
   });
@@ -28,7 +28,7 @@ describe("map.removeAll", () => {
     const value3 = Symbol();
     const map = new Map([[key1, value1]]);
 
-    removeAll(map)([key2, key3]);
+    deleteAll(map)([key2, key3]);
 
     expect(map).toEqual(new Map([[key1, value1]]));
   });

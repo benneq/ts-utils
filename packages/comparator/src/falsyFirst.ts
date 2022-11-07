@@ -5,7 +5,7 @@ import { Comparator } from "./_types";
 /**
  *
  * @example
- * Sort an array with Falsy values first
+ * Sort an array with {@link @benneq/object!Falsy} values first
  * ```ts
  * const array = ["b", 0, "a"];
  * array.sort(falsyFirst(stringComparator));

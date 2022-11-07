@@ -1,4 +1,4 @@
-import { addAll } from "./addAll";
+import { setAll } from "./setAll";
 
 describe("map.addAll", () => {
   it("should add the given entries to the Map", () => {
@@ -10,7 +10,7 @@ describe("map.addAll", () => {
     const value3 = Symbol();
     const map = new Map([[key1, value1]]);
 
-    addAll(map)([
+    setAll(map)([
       [key2, value2],
       [key3, value3],
     ]);
@@ -37,7 +37,7 @@ describe("map.addAll", () => {
       [key3, Symbol()],
     ]);
 
-    addAll(map)([
+    setAll(map)([
       [key2, value2],
       [key3, value3],
     ]);

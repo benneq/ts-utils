@@ -1,18 +1,17 @@
 import { some } from "@benneq/iterable";
-import { contains } from "./contains";
 import { SetCompatible } from "./_types";
 
 /**
  *
  * @example
- * containsAny([1,2])([2]) => true
- * containsAny([1,2])([2,3]) => true
+ * hasAny([1,2])([2]) => true
+ * hasAny([1,2])([2,3]) => true
  *
  * @param set
  * @returns
  */
-export const containsAny = <T>(
+export const hasAny = <T>(
   set: Set<T>
 ): ((value: SetCompatible<T>) => boolean) => {
-  return some(contains(set));
+  return some((element) => set.has(element));
 };

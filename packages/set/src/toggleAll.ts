@@ -14,6 +14,7 @@ import { SetCompatible } from "./_types";
  */
 export const toggleAll =
   <T>(set: Set<T>) =>
-  (value: SetCompatible<T>): void => {
+  (value: SetCompatible<T>): Set<T> => {
     value.forEach(toggle(set));
+    return set;
   };

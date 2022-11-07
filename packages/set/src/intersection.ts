@@ -1,4 +1,3 @@
-import { contains } from "./contains";
 import { filter } from "./filter";
 
 /**
@@ -13,5 +12,5 @@ import { filter } from "./filter";
  * @returns
  */
 export const intersection = <T>(setA: Set<T>): ((setB: Set<T>) => Set<T>) => {
-  return filter(contains(setA));
+  return filter((element) => setA.has(element));
 };

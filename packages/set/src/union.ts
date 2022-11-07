@@ -12,10 +12,8 @@ import { SetCompatible } from "./_types";
  * @param setB
  * @returns
  */
-export const union =
-  <T>(setB: SetCompatible<T>) =>
-  (setA: Set<T>): Set<T> => {
-    setA = copy(setA);
-    addAll(setA)(setB);
-    return setA;
-  };
+export const union = <T>(
+  setA: Set<T>
+): ((setB: SetCompatible<T>) => Set<T>) => {
+  return addAll(copy(setA));
+};

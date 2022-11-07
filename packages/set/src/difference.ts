@@ -1,5 +1,5 @@
 import { copy } from "./copy";
-import { removeAll } from "./removeAll";
+import { deleteAll } from "./deleteAll";
 import { SetCompatible } from "./_types";
 
 /**
@@ -13,10 +13,8 @@ import { SetCompatible } from "./_types";
  * @param setB
  * @returns
  */
-export const difference =
-  <T>(setB: SetCompatible<T>) =>
-  (setA: Set<T>): Set<T> => {
-    setA = copy(setA);
-    removeAll(setA)(setB);
-    return setA;
-  };
+export const difference = <T>(
+  setA: Set<T>
+): ((setB: SetCompatible<T>) => Set<T>) => {
+  return deleteAll(copy(setA));
+};

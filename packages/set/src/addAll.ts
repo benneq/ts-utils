@@ -1,4 +1,3 @@
-import { add } from "./add";
 import { SetCompatible } from "./_types";
 
 /**
@@ -14,6 +13,7 @@ import { SetCompatible } from "./_types";
  */
 export const addAll =
   <T>(set: Set<T>) =>
-  (value: SetCompatible<T>): void => {
-    value.forEach(add(set));
+  (value: SetCompatible<T>): Set<T> => {
+    value.forEach(set.add, set);
+    return set;
   };
