@@ -29,6 +29,7 @@ export type Guard<T, S extends T> = (value: T) => value is S;
 /**
  * A key-value pair encoded as Tuple
  *
- * Returned for example by `Map.prototype.entries` or `Object.entries`.
+ * Returned for example by `Map.prototype.entries`, `Object.entries` and
+ * `URLSearchParams.prototype.entries`.
  */
 export type Entry<K, V> = [K, V];

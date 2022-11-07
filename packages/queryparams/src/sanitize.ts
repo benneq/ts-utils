@@ -1,7 +1,7 @@
 import { Mapper } from "@benneq/function";
 import { reduce } from "@benneq/iterable";
 import { multiMapAdd } from "@benneq/map";
-import { Entry, isNotUndefined } from "@benneq/object";
+import { isNotUndefined } from "@benneq/object";
 import { QueryParams } from "./_types";
 
 export type SanitizeMapper = Mapper<string, string | undefined>;
@@ -34,7 +34,7 @@ export const sanitize = (
   keyMapper: SanitizeMapper,
   valueMapper: SanitizeMapper
 ): ((queryParams: QueryParams) => QueryParams) => {
-  return reduce<Entry<string, string[]>, QueryParams>((acc, [key, values]) => {
+  return reduce((acc, [key, values]) => {
     key = keyMapper(key) as string;
 
     if (isNotUndefined(key)) {

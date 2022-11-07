@@ -36,13 +36,11 @@ export type StringPredicateInput =
 export const stringPredicate = (
   predicateInput: StringPredicateInput
 ): Predicate<[string]> => {
-  const predicateFn: Predicate<[string]> = isString(predicateInput)
+  return isString(predicateInput)
     ? (key) => key === predicateInput
     : isArray(predicateInput)
     ? (key) => predicateInput.includes(key)
     : isRegExp(predicateInput)
     ? (key) => predicateInput.test(key)
     : predicateInput;
-
-  return (value) => predicateFn(value);
 };
