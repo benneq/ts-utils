@@ -5,10 +5,12 @@ import { Comparator } from "./_types";
 /**
  *
  * @example
- * falsyLast(numberComparator)(null, 1) => 1
- * falsyLast(numberComparator)(0, -1) => 1
- * falsyLast(numberComparator)(2, "") => -1
- * falsyLast(numberComparator)(0, "") => 0
+ * Sort an array with {@link @benneq/object!Falsy} values last
+ * ```ts
+ * const array = ["b", 0, "a"];
+ * array.sort(falsyLast(stringComparator));
+ * console.log(array); // ["a", "b", 0]
+ * ```
  *
  * @param comparator
  * @returns a {@link Comparator}

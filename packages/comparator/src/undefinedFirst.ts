@@ -5,10 +5,12 @@ import { Comparator } from "./_types";
 /**
  *
  * @example
- * undefinedFirst(numberComparator)(undefined, 1) => -1
- * undefinedFirst(numberComparator)(0, -1) => 1
- * undefinedFirst(numberComparator)(-1, undefined) => 1
- * undefinedFirst(numberComparator)(undefined, undefined) => 0
+ * Sort an array with `undefined` values first
+ * ```ts
+ * const array = ["b", undefined, "a"];
+ * array.sort(undefinedFirst(stringComparator));
+ * console.log(array); // [undefined, "a", "b"]
+ * ```
  *
  * @param comparator
  * @returns a {@link Comparator}

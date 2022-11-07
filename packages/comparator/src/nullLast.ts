@@ -5,10 +5,12 @@ import { Comparator } from "./_types";
 /**
  *
  * @example
- * nullLast(numberComparator)(null, 1) => 1
- * nullLast(numberComparator)(0, -1) => 1
- * nullLast(numberComparator)(-1, null) => -1
- * nullLast(numberComparator)(null, null) => 0
+ * Sort an array with `null` values last
+ * ```ts
+ * const array = ["b", null, "a"];
+ * array.sort(nullLast(stringComparator));
+ * console.log(array); // ["a", "b", null]
+ * ```
  *
  * @param comparator
  * @returns a {@link Comparator}

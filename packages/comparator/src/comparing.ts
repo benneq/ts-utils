@@ -2,7 +2,7 @@ import { Mapper } from "@benneq/function";
 import { Comparator } from "./_types";
 
 /**
- * Creates a {@link Comparator} using the provided Mapper
+ * Creates a {@link Comparator} using the provided {@link @benneq/function!Mapper}
  *
  * @example
  * Sort objects by age

@@ -5,10 +5,12 @@ import { Comparator } from "./_types";
 /**
  *
  * @example
- * falsyFirst(numberComparator)(null, 1) => -1
- * falsyFirst(numberComparator)(0, -1) => -1
- * falsyFirst(numberComparator)(2, "") => 1
- * falsyFirst(numberComparator)(0, "") => 0
+ * Sort an array with Falsy values first
+ * ```ts
+ * const array = ["b", 0, "a"];
+ * array.sort(falsyFirst(stringComparator));
+ * console.log(array); // [0, "a", "b"]
+ * ```
  *
  * @param comparator
  * @returns a {@link Comparator}

@@ -5,10 +5,12 @@ import { Comparator } from "./_types";
 /**
  *
  * @example
- * nullishLast(numberComparator)(null, 1) => 1
- * nullishLast(numberComparator)(undefined, -1) => 1
- * nullishLast(numberComparator)(2, null) => -1
- * nullishLast(numberComparator)(null, undefined) => 0
+ * Sort an array with {@link @benneq/object!Nullish} values last
+ * ```ts
+ * const array = ["b", null, "a"];
+ * array.sort(nullishLast(stringComparator));
+ * console.log(array); // ["a", "b", null]
+ * ```
  *
  * @param comparator
  * @returns a {@link Comparator}
