@@ -8,7 +8,7 @@ import { Comparator } from "./_types";
  * reverse(numberComparator)(1, 1) => 0
  *
  * @param comparator
- * @returns
+ * @returns the reversed {@link Comparator}
  */
 export const reverse = <T>(comparator: Comparator<T>): Comparator<T> => {
   return (valueA: T, valueB: T) => comparator(valueA, valueB) * -1;

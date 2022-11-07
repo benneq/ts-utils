@@ -11,7 +11,7 @@ import { Comparator } from "./_types";
  * undefinedFirst(numberComparator)(undefined, undefined) => 0
  *
  * @param comparator
- * @returns
+ * @returns a {@link Comparator}
  */
 export const undefinedFirst = <T>(
   comparator: Comparator<T>

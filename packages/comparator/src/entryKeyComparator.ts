@@ -9,7 +9,7 @@ import { Comparator } from "./_types";
  * entryKeyComparator(numberComparator)([0, 0], [1, 0]) => -1
  *
  * @param comparator
- * @returns a Comparator for Entry keys
+ * @returns a {@link Comparator} for Entry keys
  */
 export const entryKeyComparator = <K, V>(
   comparator: Comparator<K>

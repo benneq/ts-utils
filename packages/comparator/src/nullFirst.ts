@@ -11,7 +11,7 @@ import { Comparator } from "./_types";
  * nullFirst(numberComparator)(null, null) => 0
  *
  * @param comparator
- * @returns
+ * @returns a {@link Comparator}
  */
 export const nullFirst = <T>(
   comparator: Comparator<T>

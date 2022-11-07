@@ -8,5 +8,5 @@ import { Comparator } from "./_types";
 export const isEqualTo =
   <T>(comparator: Comparator<T>) =>
   (valueA: T, valueB: T): boolean => {
-    return !comparator(valueA, valueB);
+    return comparator(valueA, valueB) === 0;
   };

@@ -11,7 +11,7 @@ import { Comparator } from "./_types";
  * falsyFirst(numberComparator)(0, "") => 0
  *
  * @param comparator
- * @returns
+ * @returns a {@link Comparator}
  */
 export const falsyFirst = <T>(
   comparator: Comparator<T>

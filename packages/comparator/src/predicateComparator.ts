@@ -10,7 +10,7 @@ import { Comparator } from "./_types";
  * @param comparator
  * @param predicate
  * @param trueFirst
- * @returns
+ * @returns a {@link Comparator}
  */
 export const predicateComparator = <T, U>(
   comparator: Comparator<T>,
