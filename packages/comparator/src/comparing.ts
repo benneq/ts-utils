@@ -8,7 +8,6 @@ import { Comparator } from "./_types";
  * Sort objects by age
  * ```ts
  * const personByAgeComparator = comparing(p => p.age, numberComparator);
- * ```
  *
  * const array: Person[] = [
  *   { age: 2 },

@@ -28,14 +28,14 @@ type Counter = {
  *
  * @returns the Counter object
  */
-export const counter = (initialValue: number = 0): Counter => {
+export const counter = (initialValue = 0): Counter => {
   let value = initialValue;
 
   return {
-    inc(delta: number = 1) {
+    inc(delta = 1) {
       value = value + delta;
     },
-    dec(delta: number = 1) {
+    dec(delta = 1) {
       value = value - delta;
     },
     get value() {

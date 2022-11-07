@@ -14,5 +14,5 @@ import { Comparator } from "./_types";
 export const entryKeyComparator = <K, V>(
   comparator: Comparator<K>
 ): Comparator<Entry<K, V>> => {
-  return (valueA, valueB) => comparator(valueA[0], valueB[0]);
+  return ([keyA], [keyB]) => comparator(keyA, keyB);
 };

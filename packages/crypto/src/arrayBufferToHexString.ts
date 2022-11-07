@@ -15,7 +15,7 @@
  */
 export const arrayBufferToHexString = (
   arrayBuffer: ArrayBufferLike
-): String => {
+): string => {
   return [...new Uint8Array(arrayBuffer)]
     .map((n) => n.toString(16).padStart(2, "0"))
     .join("");

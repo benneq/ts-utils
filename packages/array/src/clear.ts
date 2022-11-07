@@ -1,5 +1,3 @@
-import { EmptyArrayLike } from "./_types";
-
 /**
  * Clears the contents of an Array
  *
