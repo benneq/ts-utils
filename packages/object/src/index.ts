@@ -5,6 +5,7 @@
  */
 
 export * from "./_types";
+export * from "./copy";
 export * from "./defaultIf";
 export * from "./defaultIfFalsy";
 export * from "./defaultIfNull";
