@@ -8,6 +8,9 @@
   },
   "references": [
     {
+      "path": "../array"
+    },
+    {
       "path": "../function"
     },
     {

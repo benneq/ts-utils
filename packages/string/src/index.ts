@@ -13,5 +13,6 @@ export * from "./isEmpty";
 export * from "./isString";
 export * from "./lowercaseAsciiLetterRange";
 export * from "./splice";
+export * from "./stringPredicate";
 export * from "./truncate";
 export * from "./uppercaseAsciiLetterRange";
