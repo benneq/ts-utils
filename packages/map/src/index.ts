@@ -16,6 +16,8 @@ export * from "./isMap";
 export * from "./keySet";
 export * from "./mapValues";
 export * from "./multiMapAdd";
+export * from "./multiMapAddAll";
 export * from "./multiMapRemove";
+export * from "./multiMapRemoveAll";
 export * from "./deleteAll";
 export * from "./setIfAbsent";

@@ -10,5 +10,10 @@
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {}
+  "dependencies": {
+    "@benneq/array": "*",
+    "@benneq/iterable": "*",
+    "@benneq/map": "*",
+    "@benneq/string": "*"
+  }
 }

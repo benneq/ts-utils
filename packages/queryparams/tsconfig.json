@@ -6,5 +6,18 @@
     "rootDir": "./src",
     "outDir": "./dist"
   },
-  "references": []
+  "references": [
+    {
+      "path": "../array"
+    },
+    {
+      "path": "../iterable"
+    },
+    {
+      "path": "../map"
+    },
+    {
+      "path": "../string"
+    }
+  ]
 }
