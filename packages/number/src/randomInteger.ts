@@ -1,5 +1,5 @@
 /**
- * Generates a random Integer between min (incl.) and max (incl.)
+ * Generates a random Integer between `min` (incl.) and `max` (incl.)
  *
  * @example
  * ```ts
@@ -7,6 +7,8 @@
  * console.log(i); // -1 or 0 or 1
  * ```
  *
+ * @param min - the lower bound
+ * @param max - the upper bound
  * @returns the generated random Integer
  */
 export const randomInteger = (min: number, max: number): number => {

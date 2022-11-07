@@ -1,4 +1,4 @@
-type Counter = {
+export type Counter = {
   value: number;
   inc: (delta?: number) => void;
   dec: (delta?: number) => void;
@@ -6,7 +6,7 @@ type Counter = {
 };
 
 /**
- * Creates a counter object with an `initialValue`.
+ * Creates a {@link Counter} object with an optional `initialValue`, defaults to `0`.
  *
  * @example
  * Create a countdown

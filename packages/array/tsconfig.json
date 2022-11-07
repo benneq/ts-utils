@@ -12,6 +12,9 @@
     },
     {
       "path": "../number"
+    },
+    {
+      "path": "../predicate"
     }
   ]
 }

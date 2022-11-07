@@ -10,7 +10,7 @@
  * @param array
  * @param index
  */
-export const removeAt = <T>(
+export const deleteAt = <T>(
   array: T[],
   index: number,
   deleteCount = 1

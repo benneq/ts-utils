@@ -2,7 +2,8 @@
  * Modulus function
  *
  * @remark
- * JavaScript's `%` operator returns the remainder, so `-4 % 3 === -1`
+ * JavaScript's `%` operator returns the remainder, not the modulus. This
+ * behave different from modulus for negative values: `-4 % 3 === -1`.
  *
  * @example
  * Modulus of negative value

@@ -6,7 +6,7 @@ describe("map.setIfAbsent", () => {
     const value = Symbol();
     const map = new Map<symbol, symbol>([[key, value]]);
 
-    setIfAbsent(map, key, Symbol());
+    setIfAbsent(map)(key, Symbol());
 
     expect(map).toEqual(new Map([[key, value]]));
   });
@@ -16,7 +16,7 @@ describe("map.setIfAbsent", () => {
     const key = Symbol();
     const value = Symbol();
 
-    setIfAbsent(map, key, value);
+    setIfAbsent(map)(key, value);
 
     expect(map).toEqual(new Map([[key, value]]));
   });

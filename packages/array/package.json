@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "@benneq/comparator": "*",
-    "@benneq/number": "*"
+    "@benneq/number": "*",
+    "@benneq/predicate": "*"
   }
 }

@@ -1,4 +1,4 @@
-import { removeAt } from "./removeAt";
+import { deleteAt } from "./deleteAt";
 
 describe("array.removeAt", () => {
   it("should remove the Array element at the given index", () => {
@@ -6,7 +6,7 @@ describe("array.removeAt", () => {
     const value2 = Symbol();
     const array = [value1, value2];
 
-    removeAt(array, 1);
+    deleteAt(array, 1);
 
     expect(array).toEqual([value1]);
   });
@@ -14,7 +14,7 @@ describe("array.removeAt", () => {
   it("should not modify the Array if it is empty", () => {
     const array: unknown[] = [];
 
-    removeAt(array, 1);
+    deleteAt(array, 1);
 
     expect(array).toEqual([]);
   });
@@ -24,7 +24,7 @@ describe("array.removeAt", () => {
     const value2 = Symbol();
     const array = [value1, value2];
 
-    removeAt(array, -2);
+    deleteAt(array, -2);
 
     expect(array).toEqual([value2]);
   });
@@ -34,7 +34,7 @@ describe("array.removeAt", () => {
     const value2 = Symbol();
     const array = [value1, value2];
 
-    removeAt(array, 2);
+    deleteAt(array, 2);
 
     expect(array).toEqual([value1, value2]);
   });
@@ -43,11 +43,11 @@ describe("array.removeAt", () => {
     const value = Symbol();
     const array = [value];
 
-    removeAt(array, 0, 0);
+    deleteAt(array, 0, 0);
 
     expect(array).toEqual([value]);
 
-    removeAt(array, 0, -1);
+    deleteAt(array, 0, -1);
 
     expect(array).toEqual([value]);
   });
@@ -58,7 +58,7 @@ describe("array.removeAt", () => {
     const value3 = Symbol();
     const array = [value1, value2, value3];
 
-    removeAt(array, 1, 2);
+    deleteAt(array, 1, 2);
 
     expect(array).toEqual([value1]);
   });
