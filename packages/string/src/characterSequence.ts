@@ -1,6 +1,5 @@
-import { empty } from "@benneq/iterable";
 import { pipe } from "@benneq/function";
-import { map, takeWhile } from "@benneq/iterable";
+import { empty, map, takeWhile } from "@benneq/iterable";
 import { numberSequence } from "@benneq/number";
 import { CharCodeRange } from "./_types";
 import { charCodeOf } from "./charCodeOf";

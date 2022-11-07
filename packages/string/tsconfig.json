@@ -17,7 +17,7 @@
       "path": "../number"
     },
     {
-      "path": "../predicate"
+      "path": "../regexp"
     }
   ]
 }

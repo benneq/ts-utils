@@ -1,4 +1,3 @@
-import { reduce } from "@benneq/iterable";
 import { SetCompatible } from "./_types";
 
 /**
