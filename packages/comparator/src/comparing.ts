@@ -7,7 +7,8 @@ import { Comparator } from "./_types";
  * @example
  * Sort objects by age
  * ```ts
- * const personByAgeComparator = comparing(p => p.age, numberComparator);
+ * const comparingNumbers = comparing(numberComparator);
+ * const personByAgeComparator = comparingNumbers<Person>(p => p.age);
  *
  * const array: Person[] = [
  *   { age: 2 },
@@ -18,13 +19,10 @@ import { Comparator } from "./_types";
  * console.log(array); // [{age:1}, {age:2}]
  * ```
  *
- * @param mapper
- * @param comparator
  * @returns a {@link Comparator}
  */
-export const comparing = <T, R>(
-  mapper: Mapper<T, R>,
-  comparator: Comparator<R>
-): Comparator<T> => {
-  return (valueA, valueB) => comparator(mapper(valueA), mapper(valueB));
-};
+export const comparing =
+  <R>(comparator: Comparator<R>) =>
+  <T>(mapper: Mapper<T, R>): Comparator<T> => {
+    return (valueA, valueB) => comparator(mapper(valueA), mapper(valueB));
+  };

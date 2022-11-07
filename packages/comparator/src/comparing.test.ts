@@ -5,9 +5,8 @@ describe("comparator.comparing", () => {
   it("comparatorFor", () => {
     const value = [{ i: "3" }, { i: "1" }, { i: "2" }];
 
-    const comparator = comparing<typeof value[number], string>(
-      (value) => value.i,
-      stringComparator()
+    const comparator = comparing(stringComparator())<typeof value[number]>(
+      (value) => value.i
     );
 
     expect(value.sort(comparator)).toEqual([

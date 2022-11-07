@@ -13,8 +13,8 @@ describe("comparator.chain", () => {
     expect(value.sort(chain())).toEqual(value);
 
     const comparator = chain<typeof value[number]>(
-      comparing((value) => value.b, booleanComparator),
-      comparing((value) => value.i, numberComparator)
+      comparing(booleanComparator)((value) => value.b),
+      comparing(numberComparator)((value) => value.i)
     );
 
     expect(value.sort(comparator)).toEqual([

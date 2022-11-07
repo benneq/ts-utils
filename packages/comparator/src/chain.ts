@@ -7,8 +7,8 @@ import { Comparator } from "./_types";
  * Sort objects first by age and then by name
  * ```ts
  * const personComparator = chain<Person>(
- *   comparing(p => p.age, numberComparator),
- *   comparing(p => p.name, stringComparator)
+ *   comparing(numberComparator)(p => p.age),
+ *   comparing(stringComparator)(p => p.name)
  * );
  *
  * const array: Person[] = [
