@@ -3,6 +3,7 @@ import { mapValues } from "@benneq/map";
 import { QueryParams } from "./_types";
 
 /**
+ * Copies all entries of a {@link QueryParams} object into a new {@link QueryParams} object.
  *
  * @example
  * ```ts
@@ -11,7 +12,8 @@ import { QueryParams } from "./_types";
  * console.log(copiedQueryParams); // Map([["k": ["v"]]])
  * ```
  *
+ * @returns the copied {@link QueryParams} object
  */
 export const copy: {
   (queryParams: QueryParams): QueryParams;
-} = mapValues<string[], string[]>((values) => arrayCopy(values));
+} = mapValues<string[], string[]>(arrayCopy);

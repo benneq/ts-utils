@@ -3,7 +3,7 @@ import { isString } from "@benneq/string";
 import { QueryParams } from "./_types";
 
 /**
- * Converts a mixed object to {@link QueryParams}
+ * Parses a mixed object into {@link QueryParams}
  *
  * @example
  * Parse mixed object
@@ -17,16 +17,16 @@ import { QueryParams } from "./_types";
  * console.log(queryParams); // Map([["k1", ["v1"]]])
  * ```
  *
- * @returns the parsed {@link QueryParams}
+ * @returns the parsed {@link QueryParams} object
  */
 export const fromMixedObject = (
   obj: Record<string, string | string[] | null | undefined>
 ): QueryParams => {
   return Object.entries(obj).reduce((acc, [key, value]) => {
     if (isString(value)) {
-      acc.set(key, [value]);
+      return acc.set(key, [value]);
     } else if (isArray(value) && !isEmpty(value)) {
-      acc.set(key, value);
+      return acc.set(key, value);
     }
     return acc;
   }, new Map());

@@ -17,5 +17,5 @@ import { MultiMap } from "./_types";
 export const multiMapRemoveAll =
   <K, V>(multiMap: MultiMap<K, V>) =>
   (entries: Entry<K, V>[]): void => {
-    entries.forEach(([key, value]) => multiMapRemove(multiMap)(key, value));
+    entries.forEach((entry) => multiMapRemove(multiMap)(...entry));
   };

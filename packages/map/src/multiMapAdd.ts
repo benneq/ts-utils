@@ -14,8 +14,9 @@ import { MultiMap } from "./_types";
  */
 export const multiMapAdd =
   <K, V>(multiMap: MultiMap<K, V>) =>
-  (key: K, value: V): void => {
+  (key: K, value: V): MultiMap<K, V> => {
     const values = multiMap.get(key) || [];
     values.push(value);
     multiMap.set(key, values);
+    return multiMap;
   };

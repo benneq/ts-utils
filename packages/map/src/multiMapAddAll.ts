@@ -17,5 +17,5 @@ import { MultiMap } from "./_types";
 export const multiMapAddAll =
   <K, V>(multiMap: MultiMap<K, V>) =>
   (entries: Entry<K, V>[]): void => {
-    entries.forEach(([key, value]) => multiMapAdd(multiMap)(key, value));
+    entries.forEach((entry) => multiMapAdd(multiMap)(...entry));
   };

@@ -13,6 +13,7 @@ export * from "./deleteIf";
 export * from "./equal";
 export * from "./insertAt";
 export * from "./isArray";
+export * from "./isArrayLike";
 export * from "./isEmpty";
 export * from "./isIndex";
 export * from "./isRelativeIndex";
