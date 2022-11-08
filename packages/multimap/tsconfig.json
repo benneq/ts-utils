@@ -8,19 +8,13 @@
   },
   "references": [
     {
-      "path": "../array"
+      "path": "../function"
     },
     {
       "path": "../iterable"
     },
     {
-      "path": "../map"
-    },
-    {
-      "path": "../multimap"
-    },
-    {
-      "path": "../string"
+      "path": "../predicate"
     }
   ]
 }

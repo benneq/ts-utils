@@ -2,7 +2,8 @@ import { iterate } from "./iterate";
 
 describe("iterable.iterate", () => {
   it("should yield infinitly if no hasNext provided", () => {
-    const generator = iterate<number>(1, (x) => x + 1);
+    const iterable = iterate<number>(1, (x) => x + 1);
+    const generator = iterable[Symbol.iterator]();
     expect(generator.next().value).toEqual(1);
     expect(generator.next().value).toEqual(2);
     expect(generator.next().value).toEqual(3);
@@ -12,11 +13,12 @@ describe("iterable.iterate", () => {
   });
 
   it("should yield until hasNext returns false", () => {
-    const generator = iterate<number>(
+    const iterable = iterate<number>(
       1,
       (x) => x + 1,
       (x) => x < 3
     );
+    const generator = iterable[Symbol.iterator]();
     expect(generator.next().value).toEqual(1);
     expect(generator.next().value).toEqual(2);
     expect(generator.next().value).toEqual(3);

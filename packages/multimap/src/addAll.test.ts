@@ -1,13 +1,13 @@
-import { multiMapAddAll } from "./multiMapAddAll";
+import { addAll } from "./addAll";
 
-describe("map.multiMapAddAll", () => {
+describe("multimap.addAll", () => {
   it("should create a new values Array if key does not exist", () => {
     const key = Symbol();
     const value1 = Symbol();
     const value2 = Symbol();
     const map = new Map<symbol, symbol[]>();
 
-    multiMapAddAll(map)([
+    addAll(map)([
       [key, value1],
       [key, value2],
     ]);
@@ -22,7 +22,7 @@ describe("map.multiMapAddAll", () => {
     const value2 = Symbol();
     const map = new Map<symbol, symbol[]>([[key1, [value1]]]);
 
-    multiMapAddAll(map)([
+    addAll(map)([
       [key1, value2],
       [key2, value1],
     ]);

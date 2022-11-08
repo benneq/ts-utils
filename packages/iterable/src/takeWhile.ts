@@ -12,7 +12,7 @@ import { Predicate } from "@benneq/predicate";
  * @returns a Generator that emits values until the given Predicate returns `false`
  */
 export const takeWhile = <T>(predicate: Predicate<[T]>) =>
-  function* (iterable: Iterable<T>): Generator<T, void, unknown> {
+  function* (iterable: Iterable<T>): Iterable<T> {
     for (const value of iterable) {
       if (!predicate(value)) {
         return;

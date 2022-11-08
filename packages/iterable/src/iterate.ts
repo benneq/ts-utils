@@ -5,7 +5,7 @@ export function* iterate<T>(
   seed: T,
   next: Mapper<T, T>,
   hasNext: Predicate<[T]> = alwaysTrue
-): Generator<T, void, unknown> {
+): Iterable<T> {
   yield seed;
   while (hasNext(seed)) {
     seed = next(seed);

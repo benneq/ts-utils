@@ -7,8 +7,8 @@ describe("iterable.flatMap", () => {
       yield value * 2;
     }
     const mapper = (value: number) => innerIterable(value);
-    const generator = flatMap(mapper)([0, 1, 2]);
-
+    const iterable = flatMap(mapper)([0, 1, 2]);
+    const generator = iterable[Symbol.iterator]();
     expect(generator.next().value).toBe(0);
     expect(generator.next().value).toBe(0);
     expect(generator.next().value).toBe(1);

@@ -1,6 +1,6 @@
 import { Mapper } from "@benneq/function";
 import { reduce } from "@benneq/iterable";
-import { multiMapAdd } from "@benneq/map";
+import { add } from "@benneq/multimap";
 import { isNotUndefined } from "@benneq/object";
 import { QueryParams } from "./_types";
 
@@ -41,7 +41,7 @@ export const sanitize = (
       values.forEach((value) => {
         value = valueMapper(value) as string;
         if (isNotUndefined(value)) {
-          multiMapAdd(acc)(key, value);
+          add(acc)(key, value);
         }
       });
     }

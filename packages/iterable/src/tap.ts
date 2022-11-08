@@ -11,7 +11,7 @@ import { Callback } from "@benneq/function";
  */
 export const tap = <T>(
   callback: Callback<[T]>
-): ((iterable: Iterable<T>) => Generator<T, void, unknown>) => {
+): ((iterable: Iterable<T>) => Iterable<T>) => {
   return function* (iterable) {
     for (const e of iterable) {
       callback(e);

@@ -10,7 +10,7 @@ import { identity, Mapper } from "@benneq/function";
  * @returns
  */
 export const distinct = <T>(mapper: Mapper<T, unknown> = identity) =>
-  function* (iterable: Iterable<T>): Generator<T, void, unknown> {
+  function* (iterable: Iterable<T>): Iterable<T> {
     const seen = new Set();
 
     for (const value of iterable) {

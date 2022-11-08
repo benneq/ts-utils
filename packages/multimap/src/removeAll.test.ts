@@ -1,6 +1,6 @@
-import { multiMapRemoveAll } from "./multiMapRemoveAll";
+import { removeAll } from "./removeAll";
 
-describe("map.multiMapRemoveAll", () => {
+describe("multimap.removeAll", () => {
   it("should remove the values from the key", () => {
     const key = Symbol();
     const value1 = Symbol();
@@ -8,7 +8,7 @@ describe("map.multiMapRemoveAll", () => {
     const value3 = Symbol();
     const map = new Map<symbol, symbol[]>([[key, [value1, value2, value3]]]);
 
-    multiMapRemoveAll(map)([
+    removeAll(map)([
       [key, value1],
       [key, value2],
     ]);

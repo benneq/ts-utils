@@ -7,7 +7,7 @@ import { MultiMap } from "./_types";
  * @example
  * ```ts
  * const multiMap = new Map<string, string[]>();
- * multiMapAdd(multiMap, "k", "v");
+ * add(multiMap, "k", "v");
  * console.log(multiMap); // Map([["k", ["v"]]])
  * ```
  *
@@ -15,7 +15,7 @@ import { MultiMap } from "./_types";
  * @typeParam V - the {@link MultiMap} value type
  * @param multiMap - the {@link MultiMap} to add the entry to
  */
-export const multiMapAdd =
+export const add =
   <K, V>(multiMap: MultiMap<K, V>) =>
   (key: K, value: V): MultiMap<K, V> => {
     const values = multiMap.get(key) || [];

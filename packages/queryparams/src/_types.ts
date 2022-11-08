@@ -1,4 +1,4 @@
-import { MultiMap } from "@benneq/map";
+import { MultiMap } from "@benneq/multimap";
 
 /**
  * A representation for query params

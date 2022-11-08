@@ -1,5 +1,5 @@
 import { Entry } from "@benneq/object";
-import { multiMapRemove } from "./multiMapRemove";
+import { remove } from "./remove";
 import { MultiMap } from "./_types";
 
 /**
@@ -9,7 +9,7 @@ import { MultiMap } from "./_types";
  * @example
  * ```ts
  * const multiMap = new Map<string, string[]>([["k", ["v1", "v2", "v3"]]]);
- * multiMapRemoveAll(multiMap, [["k", "v1"], ["k", "v2"]]);
+ * removeAll(multiMap, [["k", "v1"], ["k", "v2"]]);
  * console.log(multiMap); // Map([["k", ["v3"]]])
  * ```
  *
@@ -17,8 +17,8 @@ import { MultiMap } from "./_types";
  * @typeParam V - the {@link MultiMap} value type
  * @param multiMap - the {@link MultiMap} to remove the entries from
  */
-export const multiMapRemoveAll =
+export const removeAll =
   <K, V>(multiMap: MultiMap<K, V>) =>
   (entries: Entry<K, V>[]): void => {
-    entries.forEach((entry) => multiMapRemove(multiMap)(...entry));
+    entries.forEach((entry) => remove(multiMap)(...entry));
   };

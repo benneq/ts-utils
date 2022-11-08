@@ -1,5 +1,5 @@
 {
-  "name": "@benneq/queryparams",
+  "name": "@benneq/multimap",
   "version": "1.0.0",
   "description": "",
   "type": "module",
@@ -11,10 +11,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@benneq/array": "*",
+    "@benneq/function": "*",
     "@benneq/iterable": "*",
-    "@benneq/map": "*",
-    "@benneq/multimap": "*",
-    "@benneq/string": "*"
+    "@benneq/predicate": "*"
   }
 }

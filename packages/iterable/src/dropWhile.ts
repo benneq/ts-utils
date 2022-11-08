@@ -1,7 +1,7 @@
 import { Predicate } from "@benneq/predicate";
 
 /**
- * Omits the first elements from the provided Iterable until the given Predicate returns `false`
+ * Omits the first elements from an {@link Iterable} until a {@link Predicate} returns `false`
  *
  * @example
  * dropWhile(x => x < 3)([]) => []
@@ -9,10 +9,10 @@ import { Predicate } from "@benneq/predicate";
  * dropWhile(x => x < 3)([1,3,2,4]) => [3,2,4]
  *
  * @param predicate
- * @returns a Generator that does not emit values until the given Predicate returns `false`
+ * @returns an {@link Iterable} that does not emit values until the given {@link Predicate} returns `false`
  */
 export const dropWhile = <T>(predicate: Predicate<[T]>) =>
-  function* (iterable: Iterable<T>): Generator<T, void, unknown> {
+  function* (iterable: Iterable<T>): Iterable<T> {
     let drop = true;
 
     for (const value of iterable) {

@@ -7,8 +7,8 @@ describe("iterable.tap", () => {
     const value2 = Symbol();
     const callback = jest.fn();
 
-    const generator = tap(callback)([value1, value2]);
-
+    const iterable = tap(callback)([value1, value2]);
+    const generator = iterable[Symbol.iterator]();
     expect(generator.next().value).toBe(value1);
     expect(generator.next().value).toBe(value2);
     expect(generator.next().done).toBe(true);

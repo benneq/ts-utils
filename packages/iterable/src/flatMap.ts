@@ -1,17 +1,17 @@
 import { Mapper } from "@benneq/function";
 
 /**
- * Maps an iterable to a flat representation of the mapped Iterables
+ * Maps an {@link Iterable} to a flat representation of the mapped {@link Iterable}s
  *
  * @example
  * flatMap(x => [1,x])([]) => []
  * flatMap(x => [1,x])([1,2,3]) => [1,1,1,2,1,3]
  *
  * @param mapper
- * @returns a Generator that emits all elements of all mapped Iterables
+ * @returns an {@link Iterable} that emits all elements of all mapped {@link Iterable}s
  */
 export const flatMap = <T, R>(mapper: Mapper<T, Iterable<R>>) =>
-  function* (iterable: Iterable<T>): Generator<R, void, unknown> {
+  function* (iterable: Iterable<T>): Iterable<R> {
     for (const value of iterable) {
       for (const innerValue of mapper(value)) {
         yield innerValue;

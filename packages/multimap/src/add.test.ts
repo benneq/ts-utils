@@ -1,12 +1,12 @@
-import { multiMapAdd } from "./multiMapAdd";
+import { add } from "./add";
 
-describe("map.multiMapAdd", () => {
+describe("multimap.add", () => {
   it("should create a new values Array if key does not exist", () => {
     const key = Symbol();
     const value = Symbol();
     const map = new Map<symbol, symbol[]>();
 
-    multiMapAdd(map)(key, value);
+    add(map)(key, value);
 
     expect(map).toEqual(new Map([[key, [value]]]));
   });
@@ -17,7 +17,7 @@ describe("map.multiMapAdd", () => {
     const value2 = Symbol();
     const map = new Map<symbol, symbol[]>([[key, [value1]]]);
 
-    multiMapAdd(map)(key, value2);
+    add(map)(key, value2);
 
     expect(map).toEqual(new Map([[key, [value1, value2]]]));
   });

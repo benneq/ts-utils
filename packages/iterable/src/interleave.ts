@@ -7,6 +7,6 @@ type ExtractValue<T extends ReadonlyArray<Iterable<unknown>>> = {
 
 export const interleave = <TArgs extends Iterable<unknown>[]>(
   ...iterables: TArgs
-): Generator<ExtractValue<TArgs>, void, unknown> => {
+): Iterable<ExtractValue<TArgs>> => {
   return concat<any>(zip(...iterables));
 };

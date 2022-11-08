@@ -4,7 +4,7 @@ type ExtractValue<T extends ReadonlyArray<Iterable<unknown>>> = {
 
 export function* zip<RArgs extends Iterable<unknown>[]>(
   ...iterables: RArgs
-): Generator<ExtractValue<RArgs>, void, unknown> {
+): Iterable<ExtractValue<RArgs>> {
   const iterators = iterables.map((iterable) => iterable[Symbol.iterator]());
 
   while (true) {

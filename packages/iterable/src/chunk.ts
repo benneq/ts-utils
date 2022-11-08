@@ -12,7 +12,7 @@
  * @returns
  */
 export const chunk = (chunkSize: number) =>
-  function* <T>(iterable: Iterable<T>): Generator<T[], void, unknown> {
+  function* <T>(iterable: Iterable<T>): Iterable<T[]> {
     let buffer: T[] = [];
 
     for (const value of iterable) {

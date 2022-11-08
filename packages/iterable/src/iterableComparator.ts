@@ -2,11 +2,13 @@ import { Comparator, undefinedFirst } from "@benneq/comparator";
 import { zip } from "./zip";
 
 /**
- * Creates a Comparator that compares the elements of two Iterables pairwise
+ * Creates a {@link Comparator} that compares the elements of two
+ * {@link Iterable}s pairwise.
  *
  * Finds the first unequal pair and returns the result
  *
- * If all pairs are equal the number of elements of the Iterables will be used for comparison
+ * If all pairs are equal, the number of elements of the {@link Iterable}s will
+ * be used for the comparison result.
  *
  * @example
  * iterableComparator(numberComparator)([], []) => 0
@@ -15,7 +17,7 @@ import { zip } from "./zip";
  * iterableComparator(numberComparator)([], [0]) => -1
  *
  * @param comparator
- * @returns a Comparator for Iterables of type `T`
+ * @returns a {@link Comparator} for {@link Iterable}s of type `T`
  */
 export const iterableComparator = <T>(
   comparator: Comparator<T>

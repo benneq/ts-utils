@@ -1,5 +1,5 @@
 /**
- * Checks if an Iterable contains any element
+ * Checks if an {@link Iterable} contains any element
  *
  * @remark
  * This function will consume the first element
@@ -9,7 +9,7 @@
  * isEmpty([1,2,3]) => false
  *
  * @param iterable
- * @returns `true` if the Iterable is empty, otherwise `false`
+ * @returns `true` if the {@link Iterable} is empty, otherwise `false`
  */
 export const isEmpty = <T>(iterable: Iterable<T>): boolean => {
   for (const _ of iterable) {

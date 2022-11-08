@@ -6,8 +6,8 @@ describe("iterable.generate", () => {
     const value = Symbol();
     const provider = jest.fn(() => value);
 
-    const generator = generate(provider);
-
+    const iterable = generate(provider);
+    const generator = iterable[Symbol.iterator]();
     expect(generator.next().value).toEqual(value);
     expect(generator.next().value).toEqual(value);
     expect(generator.next().value).toEqual(value);

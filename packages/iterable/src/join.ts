@@ -5,7 +5,7 @@ import { skip } from "./skip";
 
 export const join =
   <T>(separator: ValueOrProvider<T>) =>
-  (iterable: Iterable<T>): Generator<T, void, unknown> => {
+  (iterable: Iterable<T>): Iterable<T> => {
     return pipe(
       flatMap((value: T) => [valueOrProviderResult(separator), value]),
       skip<T>(1)

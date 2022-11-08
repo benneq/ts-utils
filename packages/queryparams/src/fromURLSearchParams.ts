@@ -1,7 +1,7 @@
 import { QueryParams } from "./_types";
 import { reduce } from "@benneq/iterable";
 import { Entry } from "@benneq/object";
-import { multiMapAdd } from "@benneq/map";
+import { add } from "@benneq/multimap";
 
 /**
  * Converts {@link URLSearchParams} to {@link QueryParams}
@@ -24,7 +24,7 @@ export const fromURLSearchParams = (
   urlSearchParams: URLSearchParams
 ): QueryParams => {
   return reduce<Entry<string, string>, QueryParams>(
-    (acc, entry) => multiMapAdd(acc)(...entry),
+    (acc, entry) => add(acc)(...entry),
     new Map()
   )(urlSearchParams.entries());
 };

@@ -23,6 +23,9 @@
       "path": "./packages/map"
     },
     {
+      "path": "./packages/multimap"
+    },
+    {
       "path": "./packages/number"
     },
     {

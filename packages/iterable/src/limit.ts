@@ -13,6 +13,6 @@ import { takeWhile } from "./takeWhile";
  */
 export const limit = <T>(
   maxSize: number
-): ((iterable: Iterable<T>) => Generator<T, void, unknown>) => {
+): ((iterable: Iterable<T>) => Iterable<T>) => {
   return takeWhile(() => !!maxSize--);
 };

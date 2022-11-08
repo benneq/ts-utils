@@ -1,13 +1,19 @@
 import { Predicate } from "@benneq/predicate";
 
 /**
- * Only emits elements from the provided Iterable that match the given Predicate
+ * Only emits elements from an {@link Iterable} that match the given {@link Predicate}
  *
  * @example
- * filter(x => isEven(x))([1,2,3,4]) => [2,4]
+ * Filter even numbers
+ * ```ts
+ * const filterEven = filter(n => n % 2 === 0);
+ * const iterable = [1,2,3,4];
+ * const filteredIterable = filterEven(iterable);
+ * console.log(filteredIterable); // [2,4]
+ * ```
  *
  * @param predicate
- * @returns a Generator that only emits values for which the given Predicate returns `true`
+ * @returns an {@link Iterable} that only emits values for which the given {@link Predicate} returns `true`
  */
 export const filter = <T>(predicate: Predicate<[T]>) =>
   function* (iterable: Iterable<T>): Iterable<T> {

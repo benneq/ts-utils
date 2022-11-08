@@ -12,6 +12,6 @@ import { dropWhile } from "./dropWhile";
  */
 export const skip = <T>(
   toSkip: number
-): ((iterable: Iterable<T>) => Generator<T, void, unknown>) => {
+): ((iterable: Iterable<T>) => Iterable<T>) => {
   return dropWhile(() => !!toSkip--);
 };

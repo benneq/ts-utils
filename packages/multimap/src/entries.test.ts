@@ -1,7 +1,7 @@
-import { multiMapValues } from "./multiMapValues";
+import { entries } from "./entries";
 
-describe("map.multiMapValues", () => {
-  it("should yield all values", () => {
+describe("multimap.entries", () => {
+  it("should yield all key-value pairs", () => {
     const key1 = Symbol();
     const key2 = Symbol();
     const value1 = Symbol();
@@ -12,9 +12,13 @@ describe("map.multiMapValues", () => {
       [key2, [value3]],
     ]);
 
-    const result = [...multiMapValues(map)];
+    const result = [...entries(map)];
 
-    expect(result).toEqual([value1, value2, value3]);
+    expect(result).toEqual([
+      [key1, value1],
+      [key1, value2],
+      [key2, value3],
+    ]);
   });
 });
 

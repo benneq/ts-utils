@@ -10,7 +10,7 @@ import { Mapper } from "@benneq/function";
  * @returns a Generator that emits all mapped elements from the provided Iterable
  */
 export const map = <T, R>(mapper: Mapper<T, R>) =>
-  function* (iterable: Iterable<T>): Generator<R, void, unknown> {
+  function* (iterable: Iterable<T>): Iterable<R> {
     for (const value of iterable) {
       yield mapper(value);
     }
