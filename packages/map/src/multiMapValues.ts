@@ -13,7 +13,9 @@ import { MultiMap } from "./_types";
  * }
  * ```
  *
+ * @typeParam V - the {@link MultiMap} value type
+ * @param multiMap - the {@link MultiMap} to iterate over
  */
 export const multiMapValues: {
-  <K, V>(multiMap: MultiMap<K, V>): Iterable<V>;
+  <V>(multiMap: MultiMap<unknown, V>): Iterable<V>;
 } = flatMap(([_key, values]) => values);

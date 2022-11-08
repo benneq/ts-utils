@@ -2,6 +2,7 @@
  *
  * @mutation
  *
+ * @typeParam K - the {@link Map} key type
  * @returns
  */
 export const deleteAll =

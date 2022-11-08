@@ -13,6 +13,9 @@ import { MultiMap } from "./_types";
  * console.log(multiMap); // Map([["k", ["v3"]]])
  * ```
  *
+ * @typeParam K - the {@link MultiMap} key type
+ * @typeParam V - the {@link MultiMap} value type
+ * @param multiMap - the {@link MultiMap} to remove the entries from
  */
 export const multiMapRemoveAll =
   <K, V>(multiMap: MultiMap<K, V>) =>

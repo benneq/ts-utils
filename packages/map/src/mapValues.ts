@@ -2,10 +2,10 @@ import { Mapper } from "@benneq/function";
 import { fromIterable } from "./fromIterable";
 
 /**
- * Maps the values of a Map from type `S` to `T`
+ * Maps the values of a {@link Map} from type `S` to `T`
  *
  * @param mapper
- * @returns a new Map with the mapped values
+ * @returns the new {@link Map} with the mapped values
  */
 export const mapValues = <S, T>(
   mapper: Mapper<S, T>

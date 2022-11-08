@@ -3,7 +3,7 @@ import { Entry } from "@benneq/object";
 import { MultiMap } from "./_types";
 
 /**
- * Returns an iterable of key, value pairs for every entry in the {@link MultiMap}.
+ * Returns an iterable of key-value pairs for every entry in the {@link MultiMap}.
  *
  * @example
  * Iterate over all entries
@@ -14,6 +14,9 @@ import { MultiMap } from "./_types";
  * }
  * ```
  *
+ * @typeParam K - the {@link MultiMap} key type
+ * @typeParam V - the {@link MultiMap} value type
+ * @param multiMap - the {@link MultiMap} to iterate over
  */
 export const multiMapEntries: {
   <K, V>(multiMap: MultiMap<K, V>): Iterable<Entry<K, V>>;

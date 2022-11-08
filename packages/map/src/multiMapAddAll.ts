@@ -13,6 +13,9 @@ import { MultiMap } from "./_types";
  * console.log(multiMap); // Map([["k", ["v1", "v2"]]])
  * ```
  *
+ * @typeParam K - the {@link MultiMap} key type
+ * @typeParam V - the {@link MultiMap} value type
+ * @param multiMap - the {@link MultiMap} to add the entries to
  */
 export const multiMapAddAll =
   <K, V>(multiMap: MultiMap<K, V>) =>
