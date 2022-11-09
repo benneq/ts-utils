@@ -1,3 +1,4 @@
+import { deleteFirst, isEmpty } from "@benneq/array";
 import { MultiMap } from "./_types";
 
 /**
@@ -22,9 +23,9 @@ export const remove =
     const values = multiMap.get(key);
 
     if (values) {
-      const index = values.indexOf(value);
-      if (index > -1) {
-        values.splice(index, 1);
+      deleteFirst(values, value);
+      if (isEmpty(values)) {
+        multiMap.delete(key);
       }
     }
   };

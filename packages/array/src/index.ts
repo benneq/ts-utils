@@ -9,6 +9,7 @@ export * from "./arrayComparator";
 export * from "./clear";
 export * from "./copy";
 export * from "./deleteAt";
+export * from "./deleteFirst";
 export * from "./deleteIf";
 export * from "./equal";
 export * from "./insertAt";

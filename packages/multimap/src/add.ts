@@ -1,3 +1,4 @@
+import { computeIfAbsent } from "@benneq/map";
 import { MultiMap } from "./_types";
 
 /**
@@ -18,8 +19,7 @@ import { MultiMap } from "./_types";
 export const add =
   <K, V>(multiMap: MultiMap<K, V>) =>
   (key: K, value: V): MultiMap<K, V> => {
-    const values = multiMap.get(key) || [];
+    const values = computeIfAbsent(multiMap)(key, (_key) => []);
     values.push(value);
-    multiMap.set(key, values);
     return multiMap;
   };

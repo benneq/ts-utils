@@ -11,6 +11,16 @@ describe("multimap.remove", () => {
 
     expect(map).toEqual(new Map([[key, [value2]]]));
   });
+
+  it("should remove the key if all values were removed", () => {
+    const key = Symbol();
+    const value = Symbol();
+    const map = new Map<symbol, symbol[]>([[key, [value]]]);
+
+    remove(map)(key, value);
+
+    expect(map).toEqual(new Map());
+  });
 });
 
 export {};
