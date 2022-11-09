@@ -5,7 +5,6 @@
  */
 
 export * from "./_types";
-export * from "./copy";
 export * from "./fromMixedObject";
 export * from "./fromURLSearchParams";
 export * from "./sanitize";
