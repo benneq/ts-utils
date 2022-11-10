@@ -13,7 +13,7 @@ import { SetCompatible } from "./_types";
  */
 export const deleteAll =
   <T>(set: Set<T>) =>
-  (value: SetCompatible<T>): Set<T> => {
-    value.forEach(set.delete, set);
+  (values: SetCompatible<T>): Set<T> => {
+    values.forEach((value) => set.delete(value));
     return set;
   };

@@ -1,4 +1,3 @@
-import { Mapper } from "@benneq/function";
 import { compute } from "./compute";
 
 /**
@@ -10,20 +9,23 @@ import { compute } from "./compute";
  * @example
  * Set a {@link Map} entry if the key is absent
  * ```ts
- * const map = new Map();
- * computeIfAbsent(map)(1, key => key + 1);
- * console.log(map); // Map([[1, 2]])
+ * const map = new Map([[1, 2]]);
+ * merge(map)(1, 3, (old, value) => old + value);
+ * console.log(map); // Map([[1, 5]])
  * ```
  *
  * @typeParam K - the {@link Map} key type
  * @typeParam V - the {@link Map} value type
  * @param map - the {@link Map} to set the entry
  */
-export const computeIfAbsent =
+export const merge =
   <K, V>(map: Map<K, V>) =>
-  (key: K, mappingFunction: Mapper<K, V>): V | undefined => {
-    if (!map.has(key)) {
-      return compute(map)(key, mappingFunction);
-    }
-    return map.get(key);
+  (
+    key: K,
+    value: V,
+    remappingFunction: (oldValue: V | undefined, value: V) => V | undefined
+  ): V | undefined => {
+    return compute(map)(key, (key, oldValue) =>
+      map.has(key) ? remappingFunction(oldValue, value) : value
+    );
   };

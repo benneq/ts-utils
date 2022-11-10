@@ -13,7 +13,7 @@ import { SetCompatible } from "./_types";
  */
 export const addAll =
   <T>(set: Set<T>) =>
-  (value: SetCompatible<T>): Set<T> => {
-    value.forEach(set.add, set);
+  (values: SetCompatible<T>): Set<T> => {
+    values.forEach((value) => set.add(value));
     return set;
   };

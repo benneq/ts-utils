@@ -19,7 +19,7 @@ import { MultiMap } from "./_types";
 export const add =
   <K, V>(multiMap: MultiMap<K, V>) =>
   (key: K, value: V): MultiMap<K, V> => {
-    const values = computeIfAbsent(multiMap)(key, (_key) => []);
+    const values = computeIfAbsent(multiMap)(key, () => []) as V[];
     values.push(value);
     return multiMap;
   };
