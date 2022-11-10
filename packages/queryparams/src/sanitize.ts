@@ -47,5 +47,5 @@ export const sanitize = (
     }
 
     return acc;
-  }, new Map());
+  }, new Map() as QueryParams);
 };

@@ -29,5 +29,5 @@ export const fromMixedObject = (
       return acc.set(key, value);
     }
     return acc;
-  }, new Map());
+  }, new Map() as QueryParams);
 };
