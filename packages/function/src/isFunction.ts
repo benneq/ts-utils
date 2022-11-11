@@ -11,8 +11,6 @@
  *
  * @returns `true` if `value` is a Function, otherwise `false`
  */
-export const isFunction = <T, TArgs extends unknown[] = []>(
-  value: unknown
-): value is (...args: TArgs) => T => {
+export const isFunction = (value: unknown): value is Function => {
   return typeof value === "function";
 };

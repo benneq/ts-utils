@@ -23,5 +23,6 @@ export * from "./isNullish";
 export * from "./isSymbol";
 export * from "./isTruthy";
 export * from "./isUndefined";
+export * from "./mapper";
 export * from "./shallowEqual";
 export * from "./valueOrProvider";

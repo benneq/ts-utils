@@ -8,6 +8,6 @@
  *
  * @returns `true` if `value` is an Array, otherwise `false`
  */
-export const isArray = <T>(value: unknown): value is Array<T> => {
+export const isArray = <T>(value: unknown): value is ReadonlyArray<T> => {
   return Array.isArray(value);
 };
