@@ -25,22 +25,26 @@ describe("promise.anySerial", () => {
   });
 
   it("should resolve to the first resolving Promise", async () => {
-    const resolveValue = Symbol();
+    const [resolveValue] = symbolGenerator();
+
     const promise = anySerial([
       new Promise((resolve) => resolve(resolveValue)),
       new Promise((resolve) => resolve(Symbol())),
       makePromise((_resolve: any, reject: any) => reject(Symbol())),
     ]);
+
     expect(promise).resolves.toBe(resolveValue);
   });
 
   it("should reject with the first error if no Promise resolves", async () => {
-    const rejectValue = Symbol();
+    const [rejectValue] = symbolGenerator();
+
     const promise = anySerial([
       new Promise((_resolve, reject) => reject(rejectValue)),
       // TODO: should Symbol(), but jest goes crazy
       new Promise((_resolve, reject) => reject(rejectValue)),
     ]);
+
     expect(promise).rejects.toBe(rejectValue);
   });
 });

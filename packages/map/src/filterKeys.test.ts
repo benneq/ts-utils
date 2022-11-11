@@ -12,10 +12,8 @@ describe("map.filterKeys", () => {
   });
 
   it("should only keep entries matching the Predicate", () => {
-    const key1 = Symbol();
-    const key2 = Symbol();
-    const value1 = Symbol();
-    const value2 = Symbol();
+    const [key1, value1, key2, value2] = symbolGenerator();
+
     const map = new Map([
       [key1, value1],
       [key2, value2],

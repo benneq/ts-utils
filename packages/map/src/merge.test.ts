@@ -2,9 +2,8 @@ import { merge } from "./merge";
 
 describe("map.merge", () => {
   it("should call remapping function with the old value and provided value", () => {
-    const key = Symbol();
-    const value1 = Symbol();
-    const value2 = Symbol();
+    const [key, value1, value2] = symbolGenerator();
+
     const map = new Map<symbol, symbol>([[key, value1]]);
     const remappingFunction = jest.fn();
 
@@ -15,8 +14,8 @@ describe("map.merge", () => {
   });
 
   it("should remove entry if remappingFunction returns undefined", () => {
-    const key = Symbol();
-    const value = Symbol();
+    const [key, value] = symbolGenerator();
+
     const map = new Map<symbol, symbol>([[key, value]]);
 
     merge(map)(key, value, () => undefined);
@@ -25,10 +24,8 @@ describe("map.merge", () => {
   });
 
   it("should set the result of the remappingFunction if key does exist", () => {
-    const key = Symbol();
-    const value1 = Symbol();
-    const value2 = Symbol();
-    const value3 = Symbol();
+    const [key, value1, value2, value3] = symbolGenerator();
+
     const map = new Map<symbol, symbol>([[key, value1]]);
 
     merge(map)(key, value2, () => value3);
@@ -38,8 +35,7 @@ describe("map.merge", () => {
 
   it("should set value if key does not exist", () => {
     const map = new Map<symbol, symbol>();
-    const key = Symbol();
-    const value = Symbol();
+    const [key, value] = symbolGenerator();
 
     merge(map)(key, value, () => Symbol());
 

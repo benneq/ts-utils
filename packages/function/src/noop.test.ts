@@ -2,7 +2,12 @@ import { noop } from "./noop";
 
 describe("function.noop", () => {
   it("should should return nothing", () => {
-    expect(noop()).toBeUndefined();
+    const fn = jest.fn();
+
+    const result = noop(fn);
+
+    expect(result).toBeUndefined();
+    expect(fn).not.toHaveBeenCalled();
   });
 });
 

@@ -8,14 +8,14 @@ describe("iterable.findFirst", () => {
   });
 
   it("should return the default value if the Iterable is empty", () => {
-    const defaultValue = Symbol();
+    const [defaultValue] = symbolGenerator();
+
     expect(findFirst(alwaysTrue, defaultValue)([])).toBe(defaultValue);
     expect(findFirst(alwaysFalse, defaultValue)([])).toBe(defaultValue);
   });
 
   it("should return the first element of the iterable matching the Predicate", () => {
-    const value1 = Symbol();
-    const value2 = Symbol();
+    const [value1, value2] = symbolGenerator();
 
     expect(findFirst(alwaysTrue)([value1, Symbol()])).toBe(value1);
     expect(findFirst(alwaysTrue, Symbol())([value1, Symbol()])).toBe(value1);

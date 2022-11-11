@@ -3,8 +3,8 @@ import { forEach } from "./forEach";
 
 describe("iterable.forEach", () => {
   it("should call the callback for each element of the Iterable", () => {
-    const value1 = Symbol();
-    const value2 = Symbol();
+    const [value1, value2] = symbolGenerator();
+
     const callback = jest.fn();
 
     forEach([value1, value2])(callback);

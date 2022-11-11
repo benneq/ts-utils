@@ -11,7 +11,7 @@ describe("set.copy", () => {
   });
 
   it("should copy all elements", () => {
-    const value = Symbol();
+    const [value] = symbolGenerator();
     const set = new Set([value]);
 
     const result = copy(set);

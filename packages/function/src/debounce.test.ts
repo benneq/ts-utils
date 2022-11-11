@@ -16,7 +16,7 @@ describe("function.debounce", () => {
 
   it("should call the callback after 100ms with the given argument", async () => {
     const callback = jest.fn();
-    const arg = Symbol();
+    const [arg] = symbolGenerator();
 
     debounce(callback)(100, arg);
     expect(callback).not.toHaveBeenCalled();
@@ -33,7 +33,7 @@ describe("function.debounce", () => {
 
   it("should delay the callback if called multiple times", async () => {
     const callback = jest.fn();
-    const arg = Symbol();
+    const [arg] = symbolGenerator();
 
     const now = Date.now();
     const debounceFn = debounce(callback);

@@ -4,7 +4,7 @@ import { defaultIf } from "./defaultIf";
 
 describe("object.defaultIf", () => {
   it("should return the default value if Predicate returns true", () => {
-    const defaultValue = Symbol();
+    const [defaultValue] = symbolGenerator();
 
     expect(defaultIf(alwaysTrue)(defaultValue)(Symbol())).toBe(defaultValue);
     expect(defaultIf(alwaysTrue)(() => defaultValue)(Symbol())).toBe(
@@ -13,7 +13,7 @@ describe("object.defaultIf", () => {
   });
 
   it("should return the provided value if Predicate returns false", () => {
-    const value = Symbol();
+    const [value] = symbolGenerator();
 
     expect(defaultIf(alwaysFalse)(Symbol())(value)).toBe(value);
   });

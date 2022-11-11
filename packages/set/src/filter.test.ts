@@ -13,9 +13,8 @@ describe("set.filter", () => {
   });
 
   it("should return a new Set with only the elements from the given Set that match the Predicate", () => {
-    const value1 = Symbol();
-    const value2 = Symbol();
-    const value3 = Symbol();
+    const [value1, value2, value3] = symbolGenerator();
+
     const set = new Set([value1, value2, value3]);
 
     expect(filter((e) => e === value2)(set)).not.toBe(set);

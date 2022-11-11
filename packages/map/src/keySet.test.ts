@@ -6,7 +6,8 @@ describe("map.keySet", () => {
   });
 
   it("should return a Set containg the keys of the Map", () => {
-    const key = Symbol();
+    const [key] = symbolGenerator();
+
     expect(keySet(new Map([[key, Symbol()]]))).toEqual(new Set([key]));
   });
 });

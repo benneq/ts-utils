@@ -16,7 +16,7 @@ describe("function.delay", () => {
 
   it("should call the callback after 100ms with the given argument", async () => {
     const callback = jest.fn();
-    const arg = Symbol();
+    const [arg] = symbolGenerator();
 
     delay(callback, 100, arg);
     expect(callback).not.toHaveBeenCalled();
@@ -33,9 +33,8 @@ describe("function.delay", () => {
 
   it("should cancel the timeout", async () => {
     const callback = jest.fn();
-    const arg = Symbol();
+    const [arg] = symbolGenerator();
 
-    const now = Date.now();
     const cancelFn = delay(callback, 100, arg);
     cancelFn();
 

@@ -2,7 +2,7 @@ import { defaultIfNullish } from "./defaultIfNullish";
 
 describe("object.defaultIfUndefined", () => {
   it("should return the default value if the provided value is undefined", () => {
-    const value = Symbol();
+    const [value] = symbolGenerator();
     expect(defaultIfNullish(value)(null)).toBe(value);
     expect(defaultIfNullish(() => value)(null)).toBe(value);
     expect(defaultIfNullish(value)(undefined)).toBe(value);
@@ -10,7 +10,7 @@ describe("object.defaultIfUndefined", () => {
   });
 
   it("it should return the provided value if it is not undefined", () => {
-    const value = Symbol();
+    const [value] = symbolGenerator();
     expect(defaultIfNullish(Symbol())(value)).toBe(value);
     expect(defaultIfNullish(() => Symbol())(value)).toBe(value);
   });

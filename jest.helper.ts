@@ -1,11 +1,11 @@
-export function* symbolGenerator() {
+export function* symbolGeneratorFn() {
   let counter = 0;
   while (true) {
     yield Symbol(++counter);
   }
 }
 
-export const expectIterableToEqual = <T>(
+export const expectIterableToEqualFn = <T>(
   iterable: Iterable<T>,
   expected: ArrayLike<T>
 ): void => {
@@ -21,3 +21,11 @@ export const expectIterableToEqual = <T>(
 
   expect(expected.length).toBe(i);
 };
+
+global.symbolGenerator = symbolGeneratorFn;
+global.expectIterableToEqual = expectIterableToEqualFn;
+
+declare global {
+  var symbolGenerator: typeof symbolGeneratorFn;
+  var expectIterableToEqual: typeof expectIterableToEqualFn;
+}

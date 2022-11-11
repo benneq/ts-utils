@@ -7,9 +7,7 @@ describe("array.toReverseIterable", () => {
   });
 
   it("should yield the elements in reverse order", () => {
-    const value1 = Symbol();
-    const value2 = Symbol();
-    const value3 = Symbol();
+    const [value1, value2, value3] = symbolGenerator();
 
     const generator = toReverseIterable([value1, value2, value3]);
     expect(generator.next().value).toBe(value3);

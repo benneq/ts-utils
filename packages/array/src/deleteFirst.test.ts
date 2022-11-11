@@ -3,7 +3,8 @@ import { deleteIf } from "./deleteIf";
 
 describe("array.deleteFirst", () => {
   it("should remove the first Array element that matches the predicate", () => {
-    const value = Symbol();
+    const [value] = symbolGenerator();
+
     const array = [value, value];
 
     deleteIf(array, (e) => e === value);

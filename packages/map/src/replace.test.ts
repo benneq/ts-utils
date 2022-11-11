@@ -2,8 +2,8 @@ import { replace } from "./replace";
 
 describe("map.setIfAbsent", () => {
   it("should not modify the map if does not contain the key", () => {
-    const key = Symbol();
-    const value = Symbol();
+    const [key, value] = symbolGenerator();
+
     const map = new Map<symbol, symbol>([[key, value]]);
 
     replace(map)(Symbol(), Symbol());
@@ -13,8 +13,8 @@ describe("map.setIfAbsent", () => {
   });
 
   it("should not modify the map if oldValue and current value don't match", () => {
-    const key = Symbol();
-    const value = Symbol();
+    const [key, value] = symbolGenerator();
+
     const map = new Map<symbol, symbol>([[key, value]]);
 
     replace(map)(key, Symbol(), Symbol());
@@ -23,18 +23,18 @@ describe("map.setIfAbsent", () => {
   });
 
   it("should replace the value if no oldValue provided", () => {
-    const key = Symbol();
+    const [key, value] = symbolGenerator();
+
     const map = new Map<symbol, symbol>([[key, Symbol()]]);
 
-    const value = Symbol();
     replace(map)(key, value);
 
     expect(map).toEqual(new Map([[key, value]]));
   });
 
   it("should replace the value if no oldValue matches current value", () => {
-    const key = Symbol();
-    const oldValue = Symbol();
+    const [key, oldValue] = symbolGenerator();
+
     const map = new Map<symbol, symbol>([[key, oldValue]]);
 
     const newValue = Symbol();

@@ -6,8 +6,7 @@ describe("set.symmetricDifference", () => {
   });
 
   it("should return an empty Set if both sets contain the same elements", () => {
-    const value1 = Symbol();
-    const value2 = Symbol();
+    const [value1, value2] = symbolGenerator();
 
     expect(symmetricDifference(new Set([value1]))(new Set([value1]))).toEqual(
       new Set()
@@ -19,8 +18,7 @@ describe("set.symmetricDifference", () => {
   });
 
   it("should return a new Set containing the elements of setA if setB is empty", () => {
-    const value1 = Symbol();
-    const value2 = Symbol();
+    const [value1, value2] = symbolGenerator();
 
     expect(symmetricDifference(new Set())(new Set([value1, value2]))).toEqual(
       new Set([value1, value2])
@@ -28,8 +26,7 @@ describe("set.symmetricDifference", () => {
   });
 
   it("should return a new Set containing the elements of setB if setA is empty", () => {
-    const value1 = Symbol();
-    const value2 = Symbol();
+    const [value1, value2] = symbolGenerator();
 
     expect(symmetricDifference(new Set([value1, value2]))(new Set())).toEqual(
       new Set([value1, value2])
@@ -37,8 +34,7 @@ describe("set.symmetricDifference", () => {
   });
 
   it("should return a new Set containing the elements of setA and setB that are not in the other Set", () => {
-    const value1 = Symbol();
-    const value2 = Symbol();
+    const [value1, value2] = symbolGenerator();
 
     expect(symmetricDifference(new Set([value2]))(new Set([value1]))).toEqual(
       new Set([value1, value2])

@@ -9,9 +9,8 @@ describe("array.swap", () => {
   });
 
   it("should swap the Array elements at the given indexes", () => {
-    const value1 = Symbol();
-    const value2 = Symbol();
-    const value3 = Symbol();
+    const [value1, value2, value3] = symbolGenerator();
+
     const array = [value1, value2, value3];
 
     swap(array, 1, 2);
@@ -19,9 +18,8 @@ describe("array.swap", () => {
   });
 
   it("should work with relative indexes", () => {
-    const value1 = Symbol();
-    const value2 = Symbol();
-    const value3 = Symbol();
+    const [value1, value2, value3] = symbolGenerator();
+
     const array = [value1, value2, value3];
 
     swap(array, -1, -3);
@@ -33,9 +31,8 @@ describe("array.swap", () => {
   });
 
   it("should not modify the Array if the given indexes are equal", () => {
-    const value1 = Symbol();
-    const value2 = Symbol();
-    const value3 = Symbol();
+    const [value1, value2, value3] = symbolGenerator();
+
     const array = [value1, value2, value3];
 
     swap(array, 1, 1);
@@ -49,8 +46,8 @@ describe("array.swap", () => {
   });
 
   it("should not modify the Array if any index is out of bounds", () => {
-    const value1 = Symbol();
-    const value2 = Symbol();
+    const [value1, value2] = symbolGenerator();
+
     const array = [value1, value2];
 
     swap(array, -3, 0);

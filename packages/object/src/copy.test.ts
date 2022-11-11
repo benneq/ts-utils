@@ -2,8 +2,8 @@ import { copy } from "./copy";
 
 describe("object.copy", () => {
   it("should create a new object instance with the same entries", () => {
-    const key = Symbol();
-    const value = Symbol();
+    const [key, value] = symbolGenerator();
+
     const object = { [key]: value };
 
     const result = copy(object);
@@ -13,8 +13,8 @@ describe("object.copy", () => {
   });
 
   it("should not modify the given object", () => {
-    const key = Symbol();
-    const value = Symbol();
+    const [key, value] = symbolGenerator();
+
     const object = { [key]: value };
 
     copy(object);

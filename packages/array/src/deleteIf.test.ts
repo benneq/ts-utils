@@ -3,8 +3,8 @@ import { deleteIf } from "./deleteIf";
 
 describe("array.removeIf", () => {
   it("should remove the Array element that matches the predicate", () => {
-    const value1 = Symbol();
-    const value2 = Symbol();
+    const [value1, value2] = symbolGenerator();
+
     const array = [value1, value2];
 
     deleteIf(array, (e) => e === value2);

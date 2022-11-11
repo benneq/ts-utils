@@ -11,8 +11,8 @@ describe("map.copy", () => {
   });
 
   it("should copy all keys and values", () => {
-    const key = Symbol();
-    const value = Symbol();
+    const [key, value] = symbolGenerator();
+
     const map = new Map([[key, value]]);
 
     const result = copy(map);

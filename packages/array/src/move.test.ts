@@ -2,9 +2,8 @@ import { move } from "./move";
 
 describe("array.move", () => {
   it("should move an element from sourceIndex to targetIndex", () => {
-    const value1 = Symbol();
-    const value2 = Symbol();
-    const value3 = Symbol();
+    const [value1, value2, value3] = symbolGenerator();
+
     const array = [value1, value2, value3];
 
     move(array)(1, 2);
@@ -12,9 +11,8 @@ describe("array.move", () => {
   });
 
   it("should not modify the Array if both indexes are equal", () => {
-    const value1 = Symbol();
-    const value2 = Symbol();
-    const value3 = Symbol();
+    const [value1, value2, value3] = symbolGenerator();
+
     const array = [value1, value2, value3];
 
     move(array)(1, 1);
@@ -31,9 +29,8 @@ describe("array.move", () => {
   });
 
   it("should not modify the Array if any index is out of bounds", () => {
-    const value1 = Symbol();
-    const value2 = Symbol();
-    const value3 = Symbol();
+    const [value1, value2, value3] = symbolGenerator();
+
     const array = [value1, value2, value3];
 
     move(array)(-4, 1);
@@ -50,9 +47,8 @@ describe("array.move", () => {
   });
 
   it("move", () => {
-    const value1 = Symbol("a");
-    const value2 = Symbol("b");
-    const value3 = Symbol("c");
+    const [value1, value2, value3] = symbolGenerator();
+
     const array = [value1, value2, value3];
 
     move(array)(0, 1);
@@ -69,9 +65,8 @@ describe("array.move", () => {
   });
 
   it("move multiple", () => {
-    const value1 = Symbol("a");
-    const value2 = Symbol("b");
-    const value3 = Symbol("c");
+    const [value1, value2, value3] = symbolGenerator();
+
     const array = [value1, value2, value3];
 
     move(array)(1, 0, 2);

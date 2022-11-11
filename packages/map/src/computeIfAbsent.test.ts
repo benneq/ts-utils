@@ -2,8 +2,8 @@ import { computeIfAbsent } from "./computeIfAbsent";
 
 describe("map.computeIfAbsent", () => {
   it("should not modify the map if it already contains the key", () => {
-    const key = Symbol();
-    const value = Symbol();
+    const [key, value] = symbolGenerator();
+
     const map = new Map<symbol, symbol>([[key, value]]);
 
     computeIfAbsent(map)(key, (_key) => Symbol());
@@ -13,8 +13,7 @@ describe("map.computeIfAbsent", () => {
 
   it("should add the computed key-value pair if the Map did not contain the key", () => {
     const map = new Map<symbol, symbol>();
-    const key = Symbol();
-    const value = Symbol();
+    const [key, value] = symbolGenerator();
 
     computeIfAbsent(map)(key, (_key) => value);
 

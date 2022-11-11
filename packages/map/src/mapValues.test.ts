@@ -12,9 +12,8 @@ describe("map.mapValues", () => {
   });
 
   it("it should return a new Map containing the same keys but with their mapped values", () => {
-    const key = Symbol();
-    const value = Symbol();
-    const mappedValue = Symbol();
+    const [key, value, mappedValue] = symbolGenerator();
+
     const map = new Map([[key, value]]);
 
     expect(mapValues(() => mappedValue)(map)).not.toBe(map);

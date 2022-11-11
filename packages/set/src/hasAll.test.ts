@@ -2,8 +2,7 @@ import { hasAll } from "./hasAll";
 
 describe("set.hasAll", () => {
   it("should return true if the Set contains all given values", () => {
-    const value1 = Symbol();
-    const value2 = Symbol();
+    const [value1, value2] = symbolGenerator();
 
     expect(hasAll(new Set())([])).toBe(true);
     expect(hasAll(new Set())(new Set())).toBe(true);
@@ -20,8 +19,7 @@ describe("set.hasAll", () => {
   });
 
   it("should return false if the Set does not contain all given values", () => {
-    const value1 = Symbol();
-    const value2 = Symbol();
+    const [value1, value2] = symbolGenerator();
 
     expect(hasAll(new Set())([value1])).toBe(false);
     expect(hasAll(new Set())(new Set([value1]))).toBe(false);

@@ -2,12 +2,8 @@ import { setAll } from "./setAll";
 
 describe("map.addAll", () => {
   it("should add the given entries to the Map", () => {
-    const key1 = Symbol();
-    const value1 = Symbol();
-    const key2 = Symbol();
-    const value2 = Symbol();
-    const key3 = Symbol();
-    const value3 = Symbol();
+    const [key1, value1, key2, value2, key3, value3] = symbolGenerator();
+
     const map = new Map([[key1, value1]]);
 
     setAll(map)([
@@ -25,12 +21,8 @@ describe("map.addAll", () => {
   });
 
   it("should override the entries if the keys are already present", () => {
-    const key1 = Symbol();
-    const value1 = Symbol();
-    const key2 = Symbol();
-    const value2 = Symbol();
-    const key3 = Symbol();
-    const value3 = Symbol();
+    const [key1, value1, key2, value2, key3, value3] = symbolGenerator();
+
     const map = new Map([
       [key1, value1],
       [key2, Symbol()],

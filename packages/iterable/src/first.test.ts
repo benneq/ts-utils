@@ -6,12 +6,12 @@ describe("iterable.first", () => {
   });
 
   it("should return the default value if the Iterable is empty", () => {
-    const defaultValue = Symbol();
+    const [defaultValue] = symbolGenerator();
     expect(first(defaultValue)([])).toBe(defaultValue);
   });
 
   it("should return the first element of the iterable", () => {
-    const value = Symbol();
+    const [value] = symbolGenerator();
     expect(first<symbol>()([value, Symbol()])).toBe(value);
     expect(first<symbol>(Symbol())([value, Symbol()])).toBe(value);
   });

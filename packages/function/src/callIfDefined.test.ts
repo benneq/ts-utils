@@ -2,7 +2,8 @@ import { callIfDefined } from "./callIfDefined";
 
 describe("function.callIfDefined", () => {
   it("should return the Function result if the provided value is a Function", () => {
-    const value: symbol = Symbol();
+    const [value] = symbolGenerator();
+
     const fn = (value: symbol) => value;
 
     expect(callIfDefined(fn, value)).toBe(value);

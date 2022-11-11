@@ -12,8 +12,7 @@ describe("map.fromIterable", () => {
   });
 
   it("should return a Map containing the mapped key-value pairs", () => {
-    const key = Symbol();
-    const value = Symbol();
+    const [key, value] = symbolGenerator();
 
     expect(fromIterable((e) => [key, e])([0])).toEqual(new Map([[key, 0]]));
     expect(fromIterable((e) => [e, value])([0, 1])).toEqual(

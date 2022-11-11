@@ -32,7 +32,7 @@ describe("promise.resolveAfterTimeout", () => {
   it("should reject with provided error", async () => {
     const thenSpy = jest.fn();
 
-    const value = Symbol();
+    const [value] = symbolGenerator();
     resolveAfterTimeout(100, value).then(thenSpy);
 
     jest.advanceTimersByTime(100);

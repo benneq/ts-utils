@@ -7,13 +7,13 @@ describe("iterable.every", () => {
   });
 
   it("should return true if every element of the given Iterable matches the Predicate", () => {
-    const value = Symbol();
+    const [value] = symbolGenerator();
     const predicate = (val: symbol) => val === value;
     expect(every(predicate)([value, value])).toBe(true);
   });
 
   it("should return false if any element of the given Iterable does not match the Predicate", () => {
-    const value = Symbol();
+    const [value] = symbolGenerator();
     const predicate = (val: symbol) => val === value;
     expect(every(predicate)([Symbol()])).toBe(false);
   });

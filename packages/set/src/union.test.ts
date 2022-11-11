@@ -6,8 +6,7 @@ describe("set.union", () => {
   });
 
   it("should return a new Set containing the elements of setA if setB is empty", () => {
-    const value1 = Symbol();
-    const value2 = Symbol();
+    const [value1, value2] = symbolGenerator();
 
     expect(union(new Set())(new Set([value1, value2]))).toEqual(
       new Set([value1, value2])
@@ -15,8 +14,7 @@ describe("set.union", () => {
   });
 
   it("should return a new Set containing the elements of setB if setA is empty", () => {
-    const value1 = Symbol();
-    const value2 = Symbol();
+    const [value1, value2] = symbolGenerator();
 
     expect(union(new Set([value1, value2]))(new Set())).toEqual(
       new Set([value1, value2])
@@ -24,8 +22,7 @@ describe("set.union", () => {
   });
 
   it("should return a new Set containing all elements of setA and setB", () => {
-    const value1 = Symbol();
-    const value2 = Symbol();
+    const [value1, value2] = symbolGenerator();
 
     expect(union(new Set([value1]))(new Set([value1]))).toEqual(
       new Set([value1])

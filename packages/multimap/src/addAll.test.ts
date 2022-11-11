@@ -2,9 +2,8 @@ import { addAll } from "./addAll";
 
 describe("multimap.addAll", () => {
   it("should create a new values Array if key does not exist", () => {
-    const key = Symbol();
-    const value1 = Symbol();
-    const value2 = Symbol();
+    const [key, value1, value2] = symbolGenerator();
+
     const map = new Map<symbol, symbol[]>();
 
     addAll(map)([
@@ -16,10 +15,8 @@ describe("multimap.addAll", () => {
   });
 
   it("should add the given value if the key already exists", () => {
-    const key1 = Symbol();
-    const key2 = Symbol();
-    const value1 = Symbol();
-    const value2 = Symbol();
+    const [key1, value1, key2, value2] = symbolGenerator();
+
     const map = new Map<symbol, symbol[]>([[key1, [value1]]]);
 
     addAll(map)([
