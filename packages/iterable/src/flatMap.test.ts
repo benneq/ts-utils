@@ -8,14 +8,8 @@ describe("iterable.flatMap", () => {
     }
     const mapper = (value: number) => innerIterable(value);
     const iterable = flatMap(mapper)([0, 1, 2]);
-    const generator = iterable[Symbol.iterator]();
-    expect(generator.next().value).toBe(0);
-    expect(generator.next().value).toBe(0);
-    expect(generator.next().value).toBe(1);
-    expect(generator.next().value).toBe(2);
-    expect(generator.next().value).toBe(2);
-    expect(generator.next().value).toBe(4);
-    expect(generator.next().done).toBe(true);
+
+    expectIterableToEqual(iterable, [0, 0, 1, 2, 2, 4]);
   });
 });
 

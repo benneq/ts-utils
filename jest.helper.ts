@@ -5,14 +5,23 @@ export function* symbolGeneratorFn() {
   }
 }
 
+type ExpectIterableToEqualOptions = {
+  toEqual?: boolean;
+};
+
 export const expectIterableToEqualFn = <T>(
   iterable: Iterable<T>,
-  expected: ArrayLike<T>
+  expected: ArrayLike<T>,
+  { toEqual = false }: ExpectIterableToEqualOptions = {}
 ): void => {
   let i = 0;
 
   for (const value of iterable) {
-    expect(value).toBe(expected[i]);
+    if (toEqual) {
+      expect(value).toEqual(expected[i]);
+    } else {
+      expect(value).toBe(expected[i]);
+    }
 
     if (i++ > 1000) {
       return;

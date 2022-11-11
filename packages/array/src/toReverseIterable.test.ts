@@ -2,18 +2,17 @@ import { toReverseIterable } from "./toReverseIterable";
 
 describe("array.toReverseIterable", () => {
   it("should be done immediatly if array is empty", () => {
-    const generator = toReverseIterable([]);
-    expect(generator.next().done).toBe(true);
+    const iterable = toReverseIterable([]);
+
+    expectIterableToEqual(iterable, []);
   });
 
   it("should yield the elements in reverse order", () => {
     const [value1, value2, value3] = symbolGenerator();
 
-    const generator = toReverseIterable([value1, value2, value3]);
-    expect(generator.next().value).toBe(value3);
-    expect(generator.next().value).toBe(value2);
-    expect(generator.next().value).toBe(value1);
-    expect(generator.next().done).toBe(true);
+    const iterable = toReverseIterable([value1, value2, value3]);
+
+    expectIterableToEqual(iterable, [value3, value2, value1]);
   });
 });
 

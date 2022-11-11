@@ -18,11 +18,8 @@ describe("iterable.iterate", () => {
       (x) => x + 1,
       (x) => x < 3
     );
-    const generator = iterable[Symbol.iterator]();
-    expect(generator.next().value).toEqual(1);
-    expect(generator.next().value).toEqual(2);
-    expect(generator.next().value).toEqual(3);
-    expect(generator.next().done).toBe(true);
+
+    expectIterableToEqual(iterable, [1, 2, 3]);
   });
 });
 
