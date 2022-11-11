@@ -35,3 +35,26 @@ export type Guard<T, S extends T> = (value: T) => value is S;
 export type Entry<K, V> = [K, V];
 
 export type ObjectEntry<T> = { [K in keyof T]: [K, T[K]] }[keyof T];
+
+/**
+ * @example
+ * ```ts
+ * const tree: Tree<'children', { value: number }> = {
+ *   value: 1,
+ *   children: [
+ *     {
+ *       value: 2
+ *     },
+ *     {
+ *       value: 3,
+ *       children: [
+ *         { value: 4 }
+ *       ]
+ *     }
+ *   ]
+ * }
+ * ```
+ */
+export type Tree<K extends string, T> = T & {
+  [key in K]?: Array<Tree<K, T>>;
+};

@@ -32,10 +32,10 @@ export const get = (
   } else if (isString(keyPredicate)) {
     return (queryParams) => queryParams.get(keyPredicate) || [];
   } else {
+    const predicate = stringPredicate(keyPredicate);
     return (queryParams) => {
-      const predicate = stringPredicate(keyPredicate);
       return Array.from(
-        flatMap(([key, value]: [string, string[]]) =>
+        flatMap<[string, string[]], string>(([key, value]) =>
           predicate(key) ? value : []
         )(queryParams.entries())
       );
