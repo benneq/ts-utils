@@ -11,8 +11,8 @@
  * @param chunkSize the chunk size
  * @returns
  */
-export const chunk = (chunkSize: number) =>
-  function* <T>(iterable: Iterable<T>): Iterable<T[]> {
+export const chunk = <T>(chunkSize: number, ...fill: [] | [T]) =>
+  function* (iterable: Iterable<T>): Iterable<T[]> {
     let buffer: T[] = [];
 
     for (const value of iterable) {
@@ -21,6 +21,12 @@ export const chunk = (chunkSize: number) =>
       if (buffer.length === chunkSize) {
         yield buffer;
         buffer = [];
+      }
+    }
+
+    if (fill.length) {
+      while (buffer.length < chunkSize) {
+        buffer.push(fill[0]);
       }
     }
 

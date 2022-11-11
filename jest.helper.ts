@@ -18,6 +18,9 @@ export const expectIterableToEqualFn = <T>(
 
   for (const value of iterable) {
     if (toEqual) {
+      if (Array.isArray(value) && Array.isArray(expected[i])) {
+        expect(value.length).toBe((expected[i] as any).length);
+      }
       expect(value).toEqual(expected[i]);
     } else {
       expect(value).toBe(expected[i]);

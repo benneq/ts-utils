@@ -6,6 +6,20 @@ describe("iterable.concat", () => {
 
     expectIterableToEqual(iterable, [[1, 2], [3, 4], [5]], { toEqual: true });
   });
+
+  it("should fill the remaining empty spaces", () => {
+    const iterable = chunk(2, 0)([1, 2, 3, 4, 5]);
+
+    expectIterableToEqual(
+      iterable,
+      [
+        [1, 2],
+        [3, 4],
+        [5, 0],
+      ],
+      { toEqual: true }
+    );
+  });
 });
 
 export {};
