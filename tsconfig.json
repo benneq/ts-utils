@@ -23,6 +23,9 @@
       "path": "./packages/map"
     },
     {
+      "path": "./packages/mapper"
+    },
+    {
       "path": "./packages/multimap"
     },
     {

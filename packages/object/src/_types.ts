@@ -33,3 +33,5 @@ export type Guard<T, S extends T> = (value: T) => value is S;
  * `URLSearchParams.prototype.entries`.
  */
 export type Entry<K, V> = [K, V];
+
+export type ObjectEntry<T> = { [K in keyof T]: [K, T[K]] }[keyof T];
