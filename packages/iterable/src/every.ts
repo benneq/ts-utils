@@ -4,10 +4,14 @@ import { Predicate } from "@benneq/predicate";
  * Checks if all elements of an {@link Iterable} match a {@link Predicate}
  *
  * @example
- * every(x => x > 0)([1,2,3,4]) => true
- * every(x => x > 2)([1,2,3,4]) => false
+ * ```ts
+ * const allValuesEven = every(x => x % 2 === 0);
+ * const result = allValuesEven([2,4,6]);
+ * console.log(result); // true
+ * ```
  *
  * @typeParam T - the {@link Iterable} value type
+ * @param predicate - the {@link Predicate} to match
  * @returns `true` if the {@link Predicate} returns `true` for all elements of the {@link Iterable}
  */
 export const every =

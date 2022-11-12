@@ -21,7 +21,8 @@
  * `...fill` is used to distinguish between `undefined` and "no value provided".
  *
  * @typeParam T - the {@link Iterable} value type
- * @param chunkSize the chunk size
+ * @param chunkSize - the chunk size
+ * @param fill - the fill value
  * @returns
  */
 export const chunk = <T>(chunkSize: number, ...fill: [] | [T]) =>

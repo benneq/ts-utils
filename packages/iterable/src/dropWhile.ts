@@ -4,9 +4,11 @@ import { Predicate } from "@benneq/predicate";
  * Omits the first elements from an {@link Iterable} until a {@link Predicate} returns `false`
  *
  * @example
- * dropWhile(x => x < 3)([]) => []
- * dropWhile(x => x < 3)([1,2]) => []
- * dropWhile(x => x < 3)([1,3,2,4]) => [3,2,4]
+ * ```ts
+ * const dropWhileLessThan3 = dropWhile(x => x < 3);
+ * const iterable = dropWhileLessThan3([1,3,2,4]);
+ * console.log(iterable); // [3,2,4]
+ * ```
  *
  * @typeParam T - the {@link Iterable} value type
  * @param predicate

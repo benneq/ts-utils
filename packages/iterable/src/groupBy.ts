@@ -4,7 +4,11 @@ import { reduce } from "./reduce";
 /**
  *
  * @example
- * groupBy(x => x % 2)([1,2,1,3]) => Map([[1, [1,1,3]], [0, [2]]])
+ * ```ts
+ * const groupByEvenOdd = groupBy(x => x % 2 === 0);
+ * const result = groupByEvenOdd([1,2,1,3]);
+ * console.log(result); // Map([[1, [1,1,3]], [0, [2]]])
+ * ```
  *
  * @typeParam T - the {@link Iterable} value type
  * @typeParam K - the {@link Map} key type

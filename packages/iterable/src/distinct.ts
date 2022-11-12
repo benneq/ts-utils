@@ -3,19 +3,31 @@ import { identity, Mapper } from "@benneq/function";
 /**
  *
  * @example
- * distinct()([1,2,1,3]) => [1,2,3]
- * distinct(x => x % 2)([1,2,3]) => [1,2]
+ * Distinct by value
+ * ```ts
+ * const distinctByValue = distinct();
+ * const distinctValues = distinctByValue([1,2,1,3]);
+ * console.log(distinctValues); // [1,2,3]
+ * ```
+ *
+ * @example
+ * Distinct by `keyMapper` {@link Function}
+ * ```ts
+ * const distinctByValue = distinct(x => x % 2 === 0);
+ * const distinctValues = distinctByValue([1,2,1,3]);
+ * console.log(distinctValues); // [1,2]
+ * ```
  *
  * @typeParam T - the {@link Iterable} value type
- * @param mapper
- * @returns
+ * @param keyMapper - a {@link Function} that maps an element into a key
+ * @returns an {@link Iterable} containing only unique values
  */
-export const distinct = <T>(mapper: Mapper<T, unknown> = identity) =>
+export const distinct = <T>(keyMapper: Mapper<T, unknown> = identity) =>
   function* (iterable: Iterable<T>): Iterable<T> {
     const seen = new Set();
 
     for (const value of iterable) {
-      const key = mapper(value);
+      const key = keyMapper(value);
 
       if (!seen.has(key)) {
         seen.add(key);

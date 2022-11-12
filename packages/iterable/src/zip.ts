@@ -10,7 +10,9 @@ type ExtractValue<T extends ReadonlyArray<Iterable<unknown>>> = {
 export function* zip<RArgs extends Iterable<unknown>[]>(
   ...iterables: RArgs
 ): Iterable<ExtractValue<RArgs>> {
-  const iterators = iterables.map((iterable) => iterable[Symbol.iterator]());
+  const iterators = iterables.map<Iterator<unknown, unknown>>((iterable) =>
+    iterable[Symbol.iterator]()
+  );
 
   while (true) {
     const iteratorResults = iterators.map((iterator) => iterator.next());

@@ -13,7 +13,7 @@ import { Predicate } from "@benneq/predicate";
  * ```
  *
  * @typeParam T - the {@link Iterable} value type
- * @param predicate
+ * @param predicate - the {@link Predicate} to match
  * @returns an {@link Iterable} that only emits values for which the given {@link Predicate} returns `true`
  */
 export const filter = <T>(predicate: Predicate<[T]>) =>

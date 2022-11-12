@@ -4,8 +4,11 @@ import { Mapper } from "@benneq/function";
  * Maps an {@link Iterable} to a flat representation of the mapped {@link Iterable}s
  *
  * @example
- * flatMap(x => [1,x])([]) => []
- * flatMap(x => [1,x])([1,2,3]) => [1,1,1,2,1,3]
+ * ```ts
+ * const mapTo = flatMap(x => [1, x]);
+ * const result = mapTo([1, 2, 3]);
+ * console.log(result); // [1,1,1,2,1,3]
+ * ```
  *
  * @typeParam T - the source {@link Iterable} value type
  * @typeParam R - the target {@link Iterable} value type
