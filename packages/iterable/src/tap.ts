@@ -1,12 +1,17 @@
 import { Callback } from "@benneq/function";
 
 /**
- * Calls the given Callback for each element of the provided Iterable
+ * Calls a {@link Callback} for each element of an {@link Iterable}.
  *
  * @example
- * tap(x => console.log(x))([1,2,3]);
+ * Print all elements
+ * ```ts
+ * const printAll = tap(x => console.log(x));
+ * printAll([1, 2, 3]); // 1, 2, 3
+ * ```
  *
  * @typeParam T - the {@link Iterable} value type
+ * @param callback - the {@link Callback} to call
  */
 export const tap = <T>(
   callback: Callback<[T]>

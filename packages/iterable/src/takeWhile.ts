@@ -4,9 +4,11 @@ import { Predicate } from "@benneq/predicate";
  * Emits all elements from the provided Iterable until the given Predicate does not match
  *
  * @example
- * takeWhile(x => x < 3)([]) => []
- * takeWhile(x => x < 3)([4]) => []
- * takeWhile(x => x < 3)([1,2,3,4]) => [1,2]
+ * ```ts
+ * const takeWhileLessThan3 = takeWhile(x => x < 3);
+ * const iterable = takeWhileLessThan3([1,2,3,4]);
+ * console.log(iterable); // [1,2]
+ * ```
  *
  * @typeParam T - the {@link Iterable} value type
  * @param predicate

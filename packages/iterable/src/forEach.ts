@@ -1,7 +1,7 @@
 import { Callback } from "@benneq/function";
 
 /**
- * Calls a Callback for each element of an {@link Iterable}
+ * Calls a {@link Callback} for each element of an {@link Iterable}.
  *
  * @example
  * Print all elements
@@ -11,7 +11,7 @@ import { Callback } from "@benneq/function";
  * ```
  *
  * @typeParam T - the {@link Iterable} value type
- * @param iterable
+ * @param callback - the {@link Callback} to call
  */
 export const forEach =
   <T>(callback: Callback<[T]>) =>
