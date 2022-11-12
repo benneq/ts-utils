@@ -4,7 +4,12 @@ import { Mapper } from "@benneq/function";
  * Maps every element of the provided Iterable using the given Mapper
  *
  * @example
- * map(x => x + 1)([1,2,3]) => [2,3,4]
+ * Square all numbers
+ * ```ts
+ * const square = map(x => x * x);
+ * const result = square([1, 2, 3]);
+ * console.log(result); // [1, 4, 9]
+ * ```
  *
  * @typeParam T - the source {@link Iterable} value type
  * @typeParam R - the target {@link Iterable} value type

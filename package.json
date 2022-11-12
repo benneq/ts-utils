@@ -4,6 +4,7 @@
   "description": "TypeScript Utilities",
   "homepage": "/ts-utils",
   "type": "module",
+  "sideEffects": false,
   "scripts": {
     "build": "tsc --build",
     "build:ci": "run-s build",

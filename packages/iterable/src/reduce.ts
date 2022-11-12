@@ -7,7 +7,7 @@
  * @typeParam U - the `reduce` result type
  * @param reducerFn
  * @param initialValue
- * @returns
+ * @returns the reduced value
  */
 export const reduce =
   <T, U>(

@@ -1,12 +1,15 @@
 /**
  * Checks if an {@link Iterable} contains any element
  *
- * @remark
+ * @remarks
  * This function will consume the first element
  *
  * @example
- * isEmpty([]) => true
- * isEmpty([1,2,3]) => false
+ * ```ts
+ * const iterable = [];
+ * const result = isEmtpy(iterable);
+ * console.log(result); // true
+ * ```
  *
  * @typeParam T - the {@link Iterable} value type
  * @param iterable

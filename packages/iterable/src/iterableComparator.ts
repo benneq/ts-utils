@@ -11,10 +11,20 @@ import { zip } from "./zip";
  * be used for the comparison result.
  *
  * @example
- * iterableComparator(numberComparator)([], []) => 0
- * iterableComparator(numberComparator)([1,2], [1,1]) => 1
- * iterableComparator(numberComparator)([1,1], [2]) => 1
- * iterableComparator(numberComparator)([], [0]) => -1
+ * Compare {@link Iterable}s
+ * ```ts
+ * const numberIterableComparator = iterableComparator(numberComparator);
+ * const result = numberIterableComparator([1, 2], [1, 1]);
+ * console.log(result); // 1
+ * ```
+ *
+ * @example
+ * Compare {@link Iterable}s with different lengths
+ * ```ts
+ * const numberIterableComparator = iterableComparator(numberComparator);
+ * const result = numberIterableComparator([1, 1], [2]);
+ * console.log(result); // 1
+ * ```
  *
  * @typeParam T - the {@link Iterable} value type
  * @param comparator

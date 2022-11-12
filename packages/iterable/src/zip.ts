@@ -3,9 +3,20 @@ type ExtractValue<T extends ReadonlyArray<Iterable<unknown>>> = {
 };
 
 /**
+ * Creates an {@link Iterable} of grouped elements from multiple {@link Iterable}s.
  *
- * @param iterables
- * @returns
+ * @example
+ * ```ts
+ * const iterable = zip([
+ *   [1, 2, 3],
+ *   [4, 5]
+ * ]);
+ *
+ * console.log(iterable); // [1, 4], [2, 5], [3, undefined]
+ * ```
+ *
+ * @param iterables - the {@link Iterable}s to zip
+ * @returns - the zipped {@link Iterable}
  */
 export function* zip<RArgs extends Iterable<unknown>[]>(
   ...iterables: RArgs
