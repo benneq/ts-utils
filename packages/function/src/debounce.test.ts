@@ -59,6 +59,20 @@ describe("function.debounce", () => {
     expect(callback).toHaveBeenNthCalledWith(1, arg);
     expect(callback).toHaveBeenCalledTimes(1);
   });
+
+  it("should always return the same cancel callback", async () => {
+    const callback = jest.fn();
+    const debounceFn = debounce(callback);
+
+    const cancel1 = debounceFn(100);
+    const cancel2 = debounceFn(100);
+    cancel1();
+
+    jest.runAllTimers();
+    await Promise.resolve();
+    expect(cancel1).toBe(cancel2);
+    expect(callback).not.toHaveBeenCalled();
+  });
 });
 
 export {};

@@ -59,6 +59,20 @@ describe("function.throttle", () => {
     await Promise.resolve();
     expect(callback).toHaveBeenCalledTimes(2);
   });
+
+  it("should always return the same cancel callback", async () => {
+    const callback = jest.fn();
+    const throttleFn = throttle(callback);
+
+    const cancel1 = throttleFn(100);
+    const cancel2 = throttleFn(100);
+    cancel1();
+
+    jest.runAllTimers();
+    await Promise.resolve();
+    expect(cancel1).toBe(cancel2);
+    expect(callback).not.toHaveBeenCalled();
+  });
 });
 
 export {};
