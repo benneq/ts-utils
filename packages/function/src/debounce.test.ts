@@ -21,11 +21,11 @@ describe("function.debounce", () => {
     debounce(callback)(100, arg);
     expect(callback).not.toHaveBeenCalled();
 
-    jest.advanceTimersByTime(50);
+    jest.advanceTimersByTime(99);
     await Promise.resolve();
     expect(callback).not.toHaveBeenCalled();
 
-    jest.advanceTimersByTime(50);
+    jest.advanceTimersByTime(1);
     await Promise.resolve();
     expect(callback).toHaveBeenNthCalledWith(1, arg);
     expect(callback).toHaveBeenCalledTimes(1);
@@ -54,7 +54,7 @@ describe("function.debounce", () => {
     expect(Date.now() - now).toBe(150);
     expect(callback).not.toHaveBeenCalled();
 
-    jest.advanceTimersByTime(100);
+    jest.runAllTimers();
     await Promise.resolve();
     expect(callback).toHaveBeenNthCalledWith(1, arg);
     expect(callback).toHaveBeenCalledTimes(1);

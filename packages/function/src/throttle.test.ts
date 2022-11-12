@@ -1,7 +1,7 @@
 import { jest } from "@jest/globals";
-import { delay } from "./delay";
+import { throttle } from "./throttle";
 
-describe("function.delay", () => {
+describe("function.throttle", () => {
   beforeAll(() => {
     jest.useFakeTimers();
   });
@@ -18,7 +18,7 @@ describe("function.delay", () => {
     const callback = jest.fn();
     const [arg] = symbolGenerator();
 
-    delay(callback, 100, arg);
+    throttle(callback)(100, arg);
     expect(callback).not.toHaveBeenCalled();
 
     jest.advanceTimersByTime(99);
@@ -31,16 +31,33 @@ describe("function.delay", () => {
     expect(callback).toHaveBeenCalledTimes(1);
   });
 
-  it("should cancel the timeout", async () => {
+  it("should keep the first delay if called multiple times", async () => {
     const callback = jest.fn();
     const [arg] = symbolGenerator();
 
-    const cancelFn = delay(callback, 100, arg);
-    cancelFn();
+    const now = Date.now();
+    const throttleFn = throttle(callback);
+    throttleFn(100, arg);
+
+    jest.advanceTimersByTime(50);
+    await Promise.resolve();
+    throttleFn(100, arg);
+
+    jest.advanceTimersByTime(50);
+    await Promise.resolve();
+    expect(Date.now() - now).toBe(100);
+    expect(callback).toHaveBeenNthCalledWith(1, arg);
+
+    throttleFn(100, arg);
+
+    jest.advanceTimersByTime(100);
+    await Promise.resolve();
+    expect(Date.now() - now).toBe(200);
+    expect(callback).toHaveBeenNthCalledWith(2, arg);
 
     jest.runAllTimers();
     await Promise.resolve();
-    expect(callback).not.toHaveBeenCalled();
+    expect(callback).toHaveBeenCalledTimes(2);
   });
 });
 

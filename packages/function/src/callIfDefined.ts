@@ -1,15 +1,17 @@
 import { Provider } from "./_types";
 
 /**
- * Calls the provided Function with the given arguments if the function is defined
+ * Calls a {@link Function} with the given arguments if it is defined.
  *
  * @example
- * callIfDefined(undefined) => undefined
- * callIfDefined(y => x + 1, 2) => 3
+ * ```
+ * const fn = (arg) => console.log(arg);
+ * callIfDefined(fn, 1); // 1
+ * ```
  *
- * @param fn
- * @param args
- * @returns the result of the provided Function or undefined
+ * @param fn - the {@link Function} to call
+ * @param args - the `arguments` to pass to the {@link Function}
+ * @returns the result of the provided {@link Function} or undefined
  */
 export const callIfDefined: {
   <TArgs extends unknown[], T>(fn: Provider<T, TArgs>, ...args: TArgs): T;

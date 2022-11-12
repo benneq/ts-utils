@@ -1,12 +1,14 @@
-import { Callback } from "./_types";
+import { delay } from "./delay";
+import { Callback, CancelCallback } from "./_types";
 
 export const debounce = <TArgs extends unknown[] = []>(
   callback: Callback<TArgs>
-): ((ms: number, ...args: TArgs) => void) => {
-  let timeout: NodeJS.Timeout | undefined = undefined;
+): ((ms: number, ...args: TArgs) => CancelCallback) => {
+  let cancel: CancelCallback;
 
   return (ms, ...args) => {
-    timeout && clearTimeout(timeout);
-    timeout = setTimeout(callback, ms, ...args);
+    cancel && cancel();
+    cancel = delay(callback, ms, ...args);
+    return cancel;
   };
 };

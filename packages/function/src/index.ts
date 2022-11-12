@@ -12,3 +12,4 @@ export * from "./identity";
 export * from "./isFunction";
 export * from "./noop";
 export * from "./pipe";
+export * from "./throttle";
