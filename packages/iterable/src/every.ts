@@ -7,7 +7,7 @@ import { Predicate } from "@benneq/predicate";
  * every(x => x > 0)([1,2,3,4]) => true
  * every(x => x > 2)([1,2,3,4]) => false
  *
- * @param iterable
+ * @typeParam T - the {@link Iterable} value type
  * @returns `true` if the {@link Predicate} returns `true` for all elements of the {@link Iterable}
  */
 export const every =

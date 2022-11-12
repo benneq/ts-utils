@@ -8,6 +8,7 @@ import { takeWhile } from "./takeWhile";
  * limit(2)([1]) => [1]
  * limit(2)([1,2,3]) => [1,2]
  *
+ * @typeParam T - the {@link Iterable} value type
  * @param maxSize
  * @returns a Generator that emits only the first maxSize elements
  */

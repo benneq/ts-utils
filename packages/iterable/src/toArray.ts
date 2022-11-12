@@ -4,6 +4,7 @@
  * @example
  * toArray([1,2,3]) => [1,2,3]
  *
+ * @typeParam T - the {@link Iterable} value type
  * @param iterable
  * @returns an Array consisting of all elements of the provided Iterable
  */

@@ -6,8 +6,7 @@ import { Callback } from "@benneq/function";
  * @example
  * tap(x => console.log(x))([1,2,3]);
  *
- * @param iterable
- * @returns Void
+ * @typeParam T - the {@link Iterable} value type
  */
 export const tap = <T>(
   callback: Callback<[T]>

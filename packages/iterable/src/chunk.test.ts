@@ -20,6 +20,18 @@ describe("iterable.concat", () => {
       { toEqual: true }
     );
   });
+
+  it("should chunk with size 1 if given chunkSize is 0", () => {
+    const iterable = chunk(0)([1, 2, 3]);
+
+    expectIterableToEqual(iterable, [[1], [2], [3]], { toEqual: true });
+  });
+
+  it("should chunk with size 1 if given chunkSize is negative", () => {
+    const iterable = chunk(-1)([1, 2, 3]);
+
+    expectIterableToEqual(iterable, [[1], [2], [3]], { toEqual: true });
+  });
 });
 
 export {};

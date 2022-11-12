@@ -4,6 +4,7 @@
  * This module contains utilities for working with Iterables
  */
 
+export * from "./chunk";
 export * from "./concat";
 export * from "./distinct";
 export * from "./dropWhile";

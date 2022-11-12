@@ -6,6 +6,7 @@ import { identity, Mapper } from "@benneq/function";
  * distinct()([1,2,1,3]) => [1,2,3]
  * distinct(x => x % 2)([1,2,3]) => [1,2]
  *
+ * @typeParam T - the {@link Iterable} value type
  * @param mapper
  * @returns
  */

@@ -12,6 +12,7 @@ import { Predicate } from "@benneq/predicate";
  * console.log(filteredIterable); // [2,4]
  * ```
  *
+ * @typeParam T - the {@link Iterable} value type
  * @param predicate
  * @returns an {@link Iterable} that only emits values for which the given {@link Predicate} returns `true`
  */

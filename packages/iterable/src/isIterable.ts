@@ -8,6 +8,6 @@
  *
  * @returns `true` if `value` is an {@link Iterable}, otherwise `false`
  */
-export const isIterable = <T>(value: unknown): value is Iterable<T> => {
+export const isIterable = (value: unknown): value is Iterable<unknown> => {
   return Symbol.iterator in Object(value);
 };

@@ -8,6 +8,7 @@ import { Predicate } from "@benneq/predicate";
  * findFirst(v => v === 2)([]) => undefined
  * findFirst(v => v === 2)([1,2,3]) => 2
  *
+ * @typeParam T - the {@link Iterable} value type
  * @param defaultValue
  * @returns the first matching element of the {@link Iterable}, or the given defaultValue
  */

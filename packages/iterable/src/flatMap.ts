@@ -7,6 +7,8 @@ import { Mapper } from "@benneq/function";
  * flatMap(x => [1,x])([]) => []
  * flatMap(x => [1,x])([1,2,3]) => [1,1,1,2,1,3]
  *
+ * @typeParam T - the source {@link Iterable} value type
+ * @typeParam R - the target {@link Iterable} value type
  * @param mapper
  * @returns an {@link Iterable} that emits all elements of all mapped {@link Iterable}s
  */

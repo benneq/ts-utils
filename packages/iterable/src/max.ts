@@ -13,6 +13,7 @@ import { reduce } from "./reduce";
  * console.log(maxNumber); // 3
  * ```
  *
+ * @typeParam T - the {@link Iterable} value type
  * @param comparator - the Comparator to use
  * @returns the maximum element from the provided Iterable, or `undefined` if Iterable is empty
  */

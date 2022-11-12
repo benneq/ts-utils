@@ -16,6 +16,7 @@ import { zip } from "./zip";
  * iterableComparator(numberComparator)([1,1], [2]) => 1
  * iterableComparator(numberComparator)([], [0]) => -1
  *
+ * @typeParam T - the {@link Iterable} value type
  * @param comparator
  * @returns a {@link Comparator} for {@link Iterable}s of type `T`
  */

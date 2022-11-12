@@ -10,6 +10,7 @@ import { findFirst } from "./findFirst";
  * first()([1,2,3]) => 1
  * first(2)([]) => 2
  *
+ * @typeParam T - the {@link Iterable} value type
  * @param defaultValue
  * @returns the first element of the {@link Iterable}, or the defaultValue
  */

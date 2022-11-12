@@ -7,7 +7,8 @@ import { dropWhile } from "./dropWhile";
  * skip(2)([1,2,3,4]) => [3,4]
  * skip(5)([1,2,3,4]) => []
  *
- * @param maxSize
+ * @typeParam T - the {@link Iterable} value type
+ * @param toSkip
  * @returns a Generator that does not emit the first toSkip elements
  */
 export const skip = <T>(

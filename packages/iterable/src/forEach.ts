@@ -6,6 +6,7 @@ import { Callback } from "@benneq/function";
  * @example
  * forEach([1,2,3])(x => console.log(x));
  *
+ * @typeParam T - the {@link Iterable} value type
  * @param iterable
  */
 export const forEach =

@@ -3,6 +3,8 @@
  * @example
  * reduce((acc, val) => acc + val, 0)([1,2,3])
  *
+ * @typeParam T - the {@link Iterable} value type
+ * @typeParam U - the `reduce` result type
  * @param reducerFn
  * @param initialValue
  * @returns

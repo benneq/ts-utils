@@ -8,6 +8,7 @@ import { Predicate } from "@benneq/predicate";
  * dropWhile(x => x < 3)([1,2]) => []
  * dropWhile(x => x < 3)([1,3,2,4]) => [3,2,4]
  *
+ * @typeParam T - the {@link Iterable} value type
  * @param predicate
  * @returns an {@link Iterable} that does not emit values until the given {@link Predicate} returns `false`
  */

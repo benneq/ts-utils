@@ -6,6 +6,8 @@ import { Mapper } from "@benneq/function";
  * @example
  * map(x => x + 1)([1,2,3]) => [2,3,4]
  *
+ * @typeParam T - the source {@link Iterable} value type
+ * @typeParam R - the target {@link Iterable} value type
  * @param mapper
  * @returns a Generator that emits all mapped elements from the provided Iterable
  */

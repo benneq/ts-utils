@@ -2,6 +2,11 @@ type ExtractValue<T extends ReadonlyArray<Iterable<unknown>>> = {
   [K in keyof T]: T[K] extends Iterable<infer V> ? V : never;
 };
 
+/**
+ *
+ * @param iterables
+ * @returns
+ */
 export function* zip<RArgs extends Iterable<unknown>[]>(
   ...iterables: RArgs
 ): Iterable<ExtractValue<RArgs>> {

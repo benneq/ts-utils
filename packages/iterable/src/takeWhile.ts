@@ -8,6 +8,7 @@ import { Predicate } from "@benneq/predicate";
  * takeWhile(x => x < 3)([4]) => []
  * takeWhile(x => x < 3)([1,2,3,4]) => [1,2]
  *
+ * @typeParam T - the {@link Iterable} value type
  * @param predicate
  * @returns a Generator that emits values until the given Predicate returns `false`
  */
