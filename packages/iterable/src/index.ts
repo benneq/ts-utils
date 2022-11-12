@@ -30,6 +30,7 @@ export * from "./min";
 export * from "./reduce";
 export * from "./skip";
 export * from "./some";
+export * from "./sum";
 export * from "./takeWhile";
 export * from "./tap";
 export * from "./toArray";
