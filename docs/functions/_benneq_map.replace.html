@@ -20,7 +20,9 @@
 <ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
 <li class="tsd-signature tsd-anchor-link" id="replace">replace<span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type" data-tsd-kind="Type parameter">K</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type" data-tsd-kind="Type parameter">V</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">(</span>map<span class="tsd-signature-symbol">: </span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map" class="tsd-signature-type external" target="_blank">Map</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type" data-tsd-kind="Type parameter">K</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type" data-tsd-kind="Type parameter">V</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span><br/><span>    </span><span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type" data-tsd-kind="Type parameter">K</span>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type" data-tsd-kind="Type parameter">V</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">; </span><br/><span>    </span><span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type" data-tsd-kind="Type parameter">K</span>, oldValue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type" data-tsd-kind="Type parameter">V</span>, newValue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type" data-tsd-kind="Type parameter">V</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">; </span><br/><span class="tsd-signature-symbol">}</span><a href="#replace" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" id="icon-anchor-a"></path><path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" id="icon-anchor-b"></path><path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" id="icon-anchor-c"></path></svg></a></li>
 <li class="tsd-description">
-<div class="tsd-comment tsd-typography"><p>Add the value to the Map if it doesn&#39;t already have an entry with the same key</p>
+<div class="tsd-comment tsd-typography"><p>Override a Map entry if an entry with the same key exists.</p>
+<p>An optional <code>oldValue</code> can be provided, which has to match the current
+value inside the Map.</p>
 
 <h3>Mutation</h3>
 <h3>Example</h3><p>Override value if key exists</p>
@@ -76,7 +78,7 @@
 <h5>newValue: <span class="tsd-signature-type" data-tsd-kind="Type parameter">V</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4></li></ul></li></ul><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/benneq/ts-utils/blob/32aab7c/packages/map/src/replace.ts#L27">map/src/replace.ts:27</a></li></ul></aside></li></ul></section></div>
+<li>Defined in <a href="https://github.com/benneq/ts-utils/blob/b83ca38/packages/map/src/replace.ts#L30">map/src/replace.ts:30</a></li></ul></aside></li></ul></section></div>
 <div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 <div class="tsd-navigation settings">
 <details class="tsd-index-accordion"><summary class="tsd-accordion-summary">
