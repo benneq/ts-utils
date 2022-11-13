@@ -14,13 +14,16 @@ describe("map.merge", () => {
   });
 
   it("should remove entry if remappingFunction returns undefined", () => {
-    const [key, value] = symbolGenerator();
+    const [key1, value1, key2, value2] = symbolGenerator();
 
-    const map = new Map<symbol, symbol>([[key, value]]);
+    const map = new Map<symbol, symbol>([
+      [key1, value1],
+      [key2, value2],
+    ]);
 
-    merge(map)(key, value, () => undefined);
+    merge(map)(key1, value1, () => undefined);
 
-    expect(map).toEqual(new Map());
+    expect(map).toEqual(new Map([[key2, value2]]));
   });
 
   it("should set the result of the remappingFunction if key does exist", () => {

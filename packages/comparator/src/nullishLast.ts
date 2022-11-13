@@ -12,6 +12,7 @@ import { Comparator } from "./_types";
  * console.log(array); // ["a", "b", null]
  * ```
  *
+ * @typeParam T - the {@link Comparator} value type
  * @param comparator
  * @returns a {@link Comparator}
  */

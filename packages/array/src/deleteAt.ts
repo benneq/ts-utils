@@ -14,7 +14,7 @@
  * @example
  * Delete two elements at index 1
  * ```ts
- * const array = [1,2,3,4];
+ * const array = [1, 2, 3, 4];
  * deleteAt(array, 1, 2);
  * console.log(array); // [1, 4]
  * ```

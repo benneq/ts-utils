@@ -3,7 +3,7 @@
  * @example
  * Convert ArrayBuffer to hex String
  * ```ts
- * const sha256hasher = digestString("SHA-256");
+ * const sha256hasher = hashString("SHA-256");
  * const arrayBuffer = sha256hasher("test");
  *
  * const hexString = arrayBufferToHexString(arrayBuffer);

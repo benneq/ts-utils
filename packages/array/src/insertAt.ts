@@ -4,8 +4,12 @@
  * @mutation
  *
  * @example
- * insertAt([], 2, 1, 2) => [1,2]
- * insertAt([1,2,3], 1, 4) => [1,4,2,3]
+ * Insert values `4` and `5` at index `1`
+ * ```ts
+ * const array = [1, 2, 3];
+ * insertAt(array, 1, 4, 5);
+ * console.log(array); // 1, 4, 5, 2, 3
+ * ```
  *
  */
 export const insertAt = <T>(

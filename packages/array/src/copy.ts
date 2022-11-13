@@ -4,9 +4,9 @@
  * @example
  * Copy an Array
  * ```ts
- * const array = [1,2,3];
+ * const array = [1, 2, 3];
  * const copiedArray = copy(array);
- * console.log(copiedArray); // [1,2,3]
+ * console.log(copiedArray); // [1, 2, 3]
  * console.log(array === copiedArray); // false
  * ```
  *

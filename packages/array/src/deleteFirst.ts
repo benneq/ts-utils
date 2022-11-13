@@ -8,9 +8,9 @@ import { deleteAt } from "./deleteAt";
  * @example
  * Delete the first element equal to `2`
  * ```ts
- * const array = [1,2,3,2];
+ * const array = [1, 2, 3, 2];
  * deleteFirst(array, 2);
- * console.log(array); // [1,3,2]
+ * console.log(array); // [1, 3, 2]
  * ```
  *
  * @param array

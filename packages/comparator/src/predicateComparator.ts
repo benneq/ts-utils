@@ -7,6 +7,8 @@ import { Comparator } from "./_types";
  * predicateComparator(numberComparator, isNull)(null, -1) => -1
  * predicateComparator(numberComparator, isNull)(null, null) => 0
  *
+ * @typeParam T - the {@link Comparator} value type
+ * @typeParam U - the {@link Predicate} value type
  * @param comparator
  * @param predicate
  * @param trueFirst

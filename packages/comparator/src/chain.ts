@@ -20,8 +20,8 @@ import { Comparator } from "./_types";
  * console.log(array); // [{age:1, name:"A"}, {age:1, name:"B"}]
  * ```
  *
+ * @typeParam T - the {@link Comparator} value type
  * @param comparators - the {@link Comparator}s to chain
- *
  * @returns the result of the first {@link Comparator} that is not `0`, or else `0`
  */
 export const chain = <T>(...comparators: Comparator<T>[]): Comparator<T> => {

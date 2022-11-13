@@ -12,6 +12,7 @@ import { Comparator } from "./_types";
  * console.log(array); // [3,2,1]
  * ```
  *
+ * @typeParam T - the {@link Comparator} value type
  * @param comparator - the {@link Comparator} to reverse
  * @returns the reversed {@link Comparator}
  */

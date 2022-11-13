@@ -19,6 +19,8 @@ import { Comparator } from "./_types";
  * console.log(array); // [{age:1}, {age:2}]
  * ```
  *
+ * @typeParam R - the {@link Comparator} value type
+ * @typeParam T - the mapped value type
  * @returns a {@link Comparator}
  */
 export const comparing =

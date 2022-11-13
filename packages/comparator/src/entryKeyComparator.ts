@@ -8,6 +8,8 @@ import { Comparator } from "./_types";
  * entryKeyComparator(numberComparator)([1, 0], [1, 0]) => 0
  * entryKeyComparator(numberComparator)([0, 0], [1, 0]) => -1
  *
+ * @typeParam K - the {@link Entry} key type
+ * @typeParam V - the {@link Entry} value type
  * @param comparator
  * @returns a {@link Comparator} for Entry keys
  */

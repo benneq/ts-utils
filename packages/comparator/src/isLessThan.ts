@@ -10,6 +10,7 @@ import { Comparator } from "./_types";
  * console.log(b); // true
  * ```
  *
+ * @typeParam T - the {@link Comparator} value type
  * @returns `true` if `valueA` is less than `valueB`, otherwise `false`
  */
 export const isLessThan =

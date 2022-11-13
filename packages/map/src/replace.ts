@@ -1,5 +1,8 @@
 /**
- * Add the value to the {@link Map} if it doesn't already have an entry with the same key
+ * Override a {@link Map} entry if an entry with the same key exists.
+ *
+ * An optional `oldValue` can be provided, which has to match the current
+ * value inside the {@link Map}.
  *
  * @mutation
  *

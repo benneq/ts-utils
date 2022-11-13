@@ -3,8 +3,8 @@
  * @example
  * Check if an {@link Array} contains `2` and `3`
  * ```ts
- * const array = [1, 2, 3];
- * const result = includesAll([2, 3]);
+ * const includes2And3 = includesAll([2, 3]);
+ * const result = includes2And3([1, 2, 3]);
  * console.log(result); // true
  * ```
  *
