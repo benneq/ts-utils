@@ -5,7 +5,6 @@
  */
 
 export * from "./_types";
-export * from "./callIfDefined";
 export * from "./debounce";
 export * from "./delay";
 export * from "./identity";

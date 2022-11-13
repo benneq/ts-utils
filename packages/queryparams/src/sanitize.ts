@@ -35,13 +35,13 @@ export const sanitize = (
   valueMapper: SanitizeMapper
 ): ((queryParams: QueryParams) => QueryParams) => {
   return reduce((acc, [key, values]) => {
-    key = keyMapper(key) as string;
+    const mappedKey = keyMapper(key);
 
-    if (isNotUndefined(key)) {
+    if (isNotUndefined(mappedKey)) {
       values.forEach((value) => {
-        value = valueMapper(value) as string;
-        if (isNotUndefined(value)) {
-          add(acc)(key, value);
+        const mappedValue = valueMapper(value);
+        if (isNotUndefined(mappedValue)) {
+          add(acc)(mappedKey, mappedValue);
         }
       });
     }

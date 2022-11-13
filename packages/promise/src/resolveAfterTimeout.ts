@@ -19,9 +19,9 @@
  *
  * @returns a new Promise that resolves after `ms` milliseconds
  */
-export const resolveAfterTimeout = <T>(
-  ms: number,
-  value?: T
-): Promise<T | void> => {
+export const resolveAfterTimeout: {
+  (ms: number): Promise<void>;
+  <T>(ms: number, value: T): Promise<T>;
+} = <T>(ms: number, value?: T): Promise<T | void> => {
   return new Promise((resolve) => setTimeout(resolve, ms, value));
 };

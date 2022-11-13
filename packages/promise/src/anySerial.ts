@@ -1,16 +1,22 @@
 import { isEmpty } from "@benneq/array";
 
 /**
- * Executes all Promises in serial order and returns either the first result or throws the last error
+ * Executes all {@link Promise}s in serial order and returns either the first
+ * result or throws an {@link AggregateError} containing all errors.
  *
  * @example
- * anySerial([]) => Promise.resolve()
- * anySerial(Promise.resolve(1)) => Promise.resolve(1)
- * anySerial(Promise.reject(""), Promise.resolve(1)) => Promise.resolve(1)
- * anySerial(Promise.reject("")) => Promise.reject("")
+ * Execute all {@link Promise}s in serial
+ * ```ts
+ * const promise = anySerial([
+ *   Promise.reject("err"),
+ *   Promise.resolve(1)
+ * ]);
  *
- * @param promises the Promises to execute in serial order
- * @returns a Promise that executes all Promises in serial
+ * promise.then(v => console.log(v)); // 1
+ * ```
+ *
+ * @param promises the {@link Promise}s to execute in serial order
+ * @returns a {@link Promise} that executes all {@link Promise}s in serial
  */
 export const anySerial: {
   (promises: []): Promise<void>;
@@ -20,13 +26,15 @@ export const anySerial: {
     return;
   }
 
-  let lastError;
+  const errors = [];
   for (const promise of promises) {
     try {
       return await promise;
     } catch (err) {
-      lastError = err;
+      errors.push(err);
     }
   }
-  throw lastError;
+
+  // if all promises rejected
+  throw new AggregateError(errors);
 };

@@ -34,10 +34,30 @@ export const expectIterableToEqualFn = <T>(
   expect(expected.length).toBe(i);
 };
 
+/**
+ * A function to wrap the Promise constructor such that no rejections are considered unhandled
+ * by either Node or Jest. Whatever handlers can still be attached and rejections turned into
+ * thrown exceptions where ever the returned promise is awaited.
+ *
+ * @see https://github.com/facebook/jest/issues/9210
+ */
+export function makePromiseFn<T>(
+  executor: (
+    resolve: (value: T | PromiseLike<T>) => void,
+    reject: (reason?: any) => void
+  ) => void
+): Promise<T> {
+  const promise = new Promise(executor);
+  promise.catch(() => {});
+  return promise;
+}
+
 global.symbolGenerator = symbolGeneratorFn;
 global.expectIterableToEqual = expectIterableToEqualFn;
+global.makePromise = makePromiseFn;
 
 declare global {
   var symbolGenerator: typeof symbolGeneratorFn;
   var expectIterableToEqual: typeof expectIterableToEqualFn;
+  var makePromise: typeof makePromiseFn;
 }
