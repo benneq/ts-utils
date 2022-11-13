@@ -3,9 +3,12 @@ import { mod } from "@benneq/number";
 /**
  *
  * @example
- * normalizeIndex([1,2,3])(-1) => 2
- * normalizeIndex([1,2,3])(-5) => 1
- * normalizeIndex([1,2,3])(6) => 0
+ * ```ts
+ * const array = [1, 2, 3];
+ * const index = -5;
+ * const normalizedIndex = normalizeIndex(array)(index);
+ * console.log(normalizedIndex); // 1
+ * ```
  *
  * @param array
  * @param index
