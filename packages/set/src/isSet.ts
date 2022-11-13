@@ -16,6 +16,6 @@
  *
  * @returns `true` if `value` is a Set, otherwise `false`
  */
-export const isSet = (value: unknown): value is Set<unknown> => {
+export const isSet = <T>(value: unknown): value is Set<T> => {
   return value instanceof Set;
 };

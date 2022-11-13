@@ -32,7 +32,7 @@ export type Guard<T, S extends T> = (value: T) => value is S;
  * Returned for example by `Map.prototype.entries`, `Object.entries` and
  * `URLSearchParams.prototype.entries`.
  */
-export type Entry<K, V> = [K, V];
+export type Entry<K = unknown, V = unknown> = [K, V];
 
 export type ObjectEntry<T> = { [K in keyof T]: [K, T[K]] }[keyof T];
 
