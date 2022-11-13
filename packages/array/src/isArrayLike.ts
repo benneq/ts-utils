@@ -7,6 +7,7 @@
  * isArrayLike({ length: 0 }) => true
  * isArrayLike(() => {}) => true
  *
+ * @typeParam T - the {@link Array} element type
  * @returns `true` if `value` is an {@link ArrayLike}, otherwise `false`
  */
 export const isArrayLike = <T>(value: unknown): value is ArrayLike<T> => {

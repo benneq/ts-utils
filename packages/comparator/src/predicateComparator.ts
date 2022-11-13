@@ -1,6 +1,8 @@
 import { Comparator } from "./_types";
 
 /**
+ * Compares values first using a {@link @benneq/predicate!Predicate}, and if both values don't
+ * match the {@link @benneq/predicate!Predicate} it will fall back to a {@link Comparator}.
  *
  * @example
  * predicateComparator(numberComparator, isNull)(0, null) => 1
@@ -8,7 +10,7 @@ import { Comparator } from "./_types";
  * predicateComparator(numberComparator, isNull)(null, null) => 0
  *
  * @typeParam T - the {@link Comparator} value type
- * @typeParam U - the {@link Predicate} value type
+ * @typeParam U - the {@link @benneq/predicate!Predicate} value type
  * @param comparator
  * @param predicate
  * @param trueFirst

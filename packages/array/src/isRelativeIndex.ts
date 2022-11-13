@@ -25,7 +25,7 @@ import { RelativeIndex } from "./_types";
  * @returns `true` if the index is between `-array.length` and `array.length`, otherwise `false`
  */
 export const isRelativeIndex =
-  <T>(array: ArrayLike<T>) =>
+  (array: ArrayLike<unknown>) =>
   (index: number): index is RelativeIndex => {
     return index >= -array.length && index < array.length;
   };

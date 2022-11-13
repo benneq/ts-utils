@@ -11,6 +11,7 @@
  * console.log(array); // 1, 4, 5, 2, 3
  * ```
  *
+ * @typeParam T - the {@link Array} element type
  */
 export const insertAt = <T>(
   array: T[],

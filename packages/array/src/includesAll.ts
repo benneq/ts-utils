@@ -8,6 +8,7 @@
  * console.log(result); // true
  * ```
  *
+ * @typeParam T - the {@link Array} element type
  * @param shouldIncludeValues
  * @returns
  */

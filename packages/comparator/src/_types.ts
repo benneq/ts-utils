@@ -6,5 +6,7 @@
  * | > 0          | valueA after valueB  |
  * | < 0          | valueA before valueB |
  * | === 0        | keep original order  |
+ *
+ * @typeParam T - the {@link Comparator} value type
  */
 export type Comparator<T> = (valueA: T, valueB: T) => number;

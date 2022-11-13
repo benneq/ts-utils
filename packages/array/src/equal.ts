@@ -9,6 +9,7 @@
  * console.log(result); // false
  * ```
  *
+ * @typeParam T - the {@link Array} element type
  * @returns `true` if both Arrays have the same elements in the same order, otherwise `false`
  */
 export const equal =

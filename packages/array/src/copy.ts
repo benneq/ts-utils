@@ -10,6 +10,7 @@
  * console.log(array === copiedArray); // false
  * ```
  *
+ * @typeParam T - the {@link Array} element type
  * @returns a new Array containing all elements of the source Array
  */
 export const copy = <T>(array: ArrayLike<T>): T[] => {

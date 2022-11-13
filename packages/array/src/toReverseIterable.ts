@@ -9,6 +9,8 @@
  *   console.log(value); // 3, 2, 1
  * }
  * ```
+ *
+ * @typeParam T - the {@link Array} element type
  */
 export function* toReverseIterable<T>(array: ArrayLike<T>): Iterable<T> {
   for (let i = array.length - 1; i >= 0; i--) {

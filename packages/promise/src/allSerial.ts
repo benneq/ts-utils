@@ -17,7 +17,7 @@
  * @returns a {@link Promise} that executes all {@link Promise}s in serial
  */
 export const allSerial = async <T>(
-  promises: Array<Promise<T>>
+  promises: Iterable<Promise<T>>
 ): Promise<T[]> => {
   const values: T[] = [];
   for (const promise of promises) {

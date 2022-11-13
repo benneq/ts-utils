@@ -14,6 +14,7 @@ import { deleteAt } from "./deleteAt";
  * console.log(array); // [1, 3]
  * ```
  *
+ * @typeParam T - the {@link Array} element type
  * @param array
  * @param predicate
  */

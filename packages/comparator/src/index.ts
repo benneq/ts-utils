@@ -1,7 +1,7 @@
 /**
  * @packageDocumentation
  *
- * This module contains utilities for working with Comparators
+ * This module contains utilities for working with {@link Comparator}s
  */
 
 export * from "./_types";

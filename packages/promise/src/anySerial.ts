@@ -18,14 +18,9 @@ import { isEmpty } from "@benneq/array";
  * @param promises the {@link Promise}s to execute in serial order
  * @returns a {@link Promise} that executes all {@link Promise}s in serial
  */
-export const anySerial: {
-  (promises: []): Promise<void>;
-  <T>(promises: Promise<T>[]): Promise<T>;
-} = async <T>(promises: Array<Promise<T>>): Promise<T | void> => {
-  if (isEmpty(promises)) {
-    return;
-  }
-
+export const anySerial = async <T>(
+  promises: Iterable<Promise<T>>
+): Promise<T> => {
   const errors = [];
   for (const promise of promises) {
     try {
@@ -33,6 +28,11 @@ export const anySerial: {
     } catch (err) {
       errors.push(err);
     }
+  }
+
+  // if no promise was provided
+  if (isEmpty(errors)) {
+    return undefined as T;
   }
 
   // if all promises rejected

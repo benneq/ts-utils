@@ -1,20 +1,24 @@
 import { Comparator } from "../../comparator/src/_types";
 
 /**
- * Creates a Comparator that compares the elements of two Arrays pairwise
+ * Creates a {@link Comparator} that compares the elements of two
+ * {@link Array}s pairwise.
  *
- * Finds the first unequal pair and returns the result
+ * Finds the first unequal pair and returns the result.
  *
- * If all pairs are equal the Array's `length` will be used for comparison
+ * If all pairs are equal the Array's `length` will be used for comparison.
  *
  * @example
- * arrayComparator(numberComparator)([], []) => 0
- * arrayComparator(numberComparator)([1,2], [1,1]) => 1
- * arrayComparator(numberComparator)([1,1], [2]) => 1
- * arrayComparator(numberComparator)([], [0]) => -1
+ * Compare two {@link Array}s of numbers
+ * ```ts
+ * const numberArrayComparator = arrayComparator(numberComparator);
+ * const result = numberArrayComparator([1, 1], [2]);
+ * console.log(result); // 1
+ * ```
  *
- * @param comparator
- * @returns a Comparator for Arrays of type `T`
+ * @typeParam T - the {@link Comparator} value type
+ * @param comparator - the {@link Comparator} to use for the elements
+ * @returns a {@link Comparator} for {@link Array}s of type `T`
  */
 export const arrayComparator = <T>(
   comparator: Comparator<T>

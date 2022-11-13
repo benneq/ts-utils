@@ -7,9 +7,9 @@ import { Comparator } from "./_types";
  * Sort numbers in reverse order
  * ```ts
  * const reverseNumberComparator = reverse(numberComparator);
- * const array = [2,3,1];
+ * const array = [2, 3, 1];
  * array.sort(reverseNumberComparator);
- * console.log(array); // [3,2,1]
+ * console.log(array); // [3, 2, 1]
  * ```
  *
  * @typeParam T - the {@link Comparator} value type

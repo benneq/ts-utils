@@ -17,15 +17,17 @@ import { RelativeIndex } from "./_types";
  * @param sourceIndex
  * @param targetIndex
  */
-export const move = (array: unknown[]) => {
+export const move = (
+  array: unknown[]
+): ((
+  sourceIndex: RelativeIndex,
+  targetIndex: RelativeIndex,
+  moveCount: number
+) => void) => {
   const isRelativeIndexOfArray = isRelativeIndex(array);
   const normalizeIndexForArray = normalizeIndex(array);
 
-  return (
-    sourceIndex: RelativeIndex,
-    targetIndex: RelativeIndex,
-    moveCount = 1
-  ): void => {
+  return (sourceIndex, targetIndex, moveCount = 1) => {
     if (
       isRelativeIndexOfArray(sourceIndex) &&
       isRelativeIndexOfArray(targetIndex)

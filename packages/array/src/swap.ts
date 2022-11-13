@@ -18,17 +18,13 @@ import { RelativeIndex } from "./_types";
  * @param indexA
  * @param indexB
  */
-export const swap = <T>(
-  array: Array<T>,
+export const swap = (
+  array: Array<unknown>,
   indexA: RelativeIndex,
   indexB: RelativeIndex
 ): void => {
   const isRelativeIndexOfArray = isRelativeIndex(array);
   if (isRelativeIndexOfArray(indexA) && isRelativeIndexOfArray(indexB)) {
-    array.splice(
-      indexB,
-      1,
-      array.splice(indexA, 1, array.at(indexB) as T)[0] as T
-    );
+    array.splice(indexB, 1, array.splice(indexA, 1, array.at(indexB))[0]);
   }
 };
