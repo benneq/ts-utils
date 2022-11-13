@@ -24,6 +24,7 @@ import { Nullish } from "./_types";
  * console.log(b); // false
  * ```
  *
+ * @param value - the value to check
  * @returns `true` if `value` is not Nullish, otherwise `false`
  */
 export const isNotNullish = <T>(value: T): value is Exclude<T, Nullish> => {

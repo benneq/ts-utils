@@ -19,8 +19,9 @@
  * console.log(b); // false
  * ```
  *
+ * @param value - the value to check
  * @returns `true` if `value` is `boolean`, otherwise `false`
  */
 export const isBoolean = (value: unknown): value is boolean => {
-  return typeof value == "boolean";
+  return typeof value === "boolean";
 };

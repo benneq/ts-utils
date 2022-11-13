@@ -13,6 +13,7 @@
  * console.log(b); // false
  * ```
  *
+ * @param value - the value to check
  * @returns `true` if `value` is an ArrayBuffer, otherwise `false`
  */
 export const isArrayBuffer = (value: unknown): value is ArrayBuffer => {

@@ -9,6 +9,7 @@
  * }
  * ```
  *
+ * @param value - the value to check
  * @returns `true` if `value` is a Function, otherwise `false`
  */
 export const isFunction = (value: unknown): value is Function => {

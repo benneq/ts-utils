@@ -23,8 +23,7 @@ export type Counter = {
  * };
  * ```
  *
- * @param initialValue the initial value
- *
+ * @param initialValue - the initial value
  * @returns the Counter object
  */
 export const counter = (initialValue = 0): Counter => {

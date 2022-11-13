@@ -12,7 +12,7 @@
  * ```
  *
  * @typeParam T - the {@link Iterable} value type
- * @param iterable
+ * @param iterable - the {@link Iterable} to check
  * @returns `true` if the {@link Iterable} is empty, otherwise `false`
  */
 export const isEmpty = <T>(iterable: Iterable<T>): boolean => {

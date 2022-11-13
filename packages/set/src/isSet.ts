@@ -14,6 +14,7 @@
  * console.log(b); // false
  * ```
  *
+ * @param value - the value to check
  * @returns `true` if `value` is a Set, otherwise `false`
  */
 export const isSet = <T>(value: unknown): value is Set<T> => {

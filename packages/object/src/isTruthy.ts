@@ -29,6 +29,7 @@ import { Truthy } from "./_types";
  * console.log(b); // false
  * ```
  *
+ * @param value - the value to check
  * @returns `true` if `value` is a Truthy, otherwise `false`
  */
 export const isTruthy = <T>(value: T): value is Truthy<T> => {

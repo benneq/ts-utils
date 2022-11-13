@@ -25,6 +25,7 @@ import { Nullish } from "./_types";
  * console.log(b); // false
  * ```
  *
+ * @param value - the value to check
  * @returns `true` if `value` is Falsy, otherwise `false`
  */
 export const isNullish = (value: unknown): value is Nullish => {

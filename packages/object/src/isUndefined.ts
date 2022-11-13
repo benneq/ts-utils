@@ -15,6 +15,7 @@
  * console.log(b); // false
  * ```
  *
+ * @param value - the value to check
  * @returns `true` if `value` is `undefined`, otherwise `false`
  */
 export const isUndefined = (value: unknown): value is undefined => {

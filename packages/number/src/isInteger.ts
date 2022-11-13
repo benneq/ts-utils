@@ -15,6 +15,7 @@
  * console.log(b); // false
  * ```
  *
+ * @param value - the value to check
  * @returns `true` if `value` is an Integer, otherwise `false`
  */
 export const isInteger = (value: unknown): value is number => {

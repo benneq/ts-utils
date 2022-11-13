@@ -9,7 +9,7 @@
  * console.log(result); // true
  * ```
  *
- * @param value
+ * @param value - the value to check
  * @returns `true` if `value` is a {@link Promise}, otherwise `false`
  */
 export const isPromise = <T>(value: unknown): value is Promise<T> => {

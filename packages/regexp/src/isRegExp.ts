@@ -13,6 +13,7 @@
  * console.log(b); // false
  * ```
  *
+ * @param value - the value to check
  * @returns `true` if `value` is an RegExp, otherwise `false`
  */
 export const isRegExp = (value: unknown): value is RegExp => {

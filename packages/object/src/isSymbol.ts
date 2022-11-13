@@ -13,6 +13,7 @@
  * console.log(b); // false
  * ```
  *
+ * @param value - the value to check
  * @returns `true` if `value` is `symbol`, otherwise `false`
  */
 export const isSymbol = (value: unknown): value is symbol => {

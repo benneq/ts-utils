@@ -15,6 +15,7 @@
  * console.log(b); // false
  * ```
  *
+ * @param value - the value to check
  * @returns `true` if `value` is `null`, otherwise `false`
  */
 export const isNull = (value: unknown): value is null => {

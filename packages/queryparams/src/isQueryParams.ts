@@ -16,7 +16,7 @@ import { QueryParams } from "./_types";
  * console.log(result); // true
  * ```
  *
- * @param value
+ * @param value - the value to check
  * @returns `true` if `value` is a {@link QueryParams} object, otherwise `false`
  */
 export const isQueryParams = (value: unknown): value is QueryParams => {

@@ -1,10 +1,10 @@
 import { EmptyArrayLike } from "./_types";
 
 /**
- * Checks if an Array contains any element
+ * Checks if an {@link ArrayLike} contains any element
  *
  * @example
- * Returns `true` if the Array is empty
+ * Returns `true` if the {@link ArrayLike} is empty
  * ```ts
  * const b = isEmpty([]);
  * console.log(b); // true
@@ -17,7 +17,8 @@ import { EmptyArrayLike } from "./_types";
  * console.log(b); // false
  * ```
  *
- * @returns `true` if the Array is empty, otherwise `false`
+ * @param array - the {@link ArrayLike} to check
+ * @returns `true` if the {@link ArrayLike} is empty, otherwise `false`
  */
 export const isEmpty = (array: ArrayLike<unknown>): array is EmptyArrayLike => {
   return !array.length;

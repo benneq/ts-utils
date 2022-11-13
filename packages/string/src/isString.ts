@@ -15,6 +15,7 @@
  * console.log(b); // false
  * ```
  *
+ * @param value - the value to check
  * @returns `true` if `value` is a String, otherwise `false`
  */
 export const isString = (value: unknown): value is string => {

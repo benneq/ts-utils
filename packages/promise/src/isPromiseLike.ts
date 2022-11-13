@@ -11,7 +11,7 @@ import { isFunction } from "@benneq/function";
  * console.log(result); // true
  * ```
  *
- * @param value
+ * @param value - the value to check
  * @returns `true` if `value` is a {@link PromiseLike} object, otherwise `false`
  */
 export const isPromiseLike = <T>(value: unknown): value is PromiseLike<T> => {

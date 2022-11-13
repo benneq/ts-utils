@@ -15,7 +15,7 @@
  * console.log(b); // false
  * ```
  *
- * @param set
+ * @param set - the {@link Set} to check
  * @returns `true` if the Set is empty, otherwise `false`
  */
 export const isEmpty = (set: ReadonlySet<unknown>): boolean => {

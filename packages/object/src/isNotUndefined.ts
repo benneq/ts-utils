@@ -17,6 +17,7 @@ import { isUndefined } from "./isUndefined";
  * console.log(b); // false
  * ```
  *
+ * @param value - the value to check
  * @returns `true` if `value` is not `undefined`, otherwise `false`
  */
 export const isNotUndefined = <T>(value: T): value is Exclude<T, undefined> => {

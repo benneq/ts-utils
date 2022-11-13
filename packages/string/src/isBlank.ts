@@ -25,6 +25,7 @@ import { nonWhitespaceRegExp } from "@benneq/regexp";
  * console.log(b); // false
  * ```
  *
+ * @param str - the {@link String} to check
  * @returns `true` if the String is empty or all characters are whitespace, otherwise `false`
  */
 export const isBlank = (str: string): boolean => {

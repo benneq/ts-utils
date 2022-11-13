@@ -15,6 +15,7 @@
  * console.log(b); // false
  * ```
  *
+ * @param value - the value to check
  * @returns `true` if `value` is a Number, otherwise `false`
  */
 export const isNumber = (value: unknown): value is number => {

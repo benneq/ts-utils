@@ -15,6 +15,7 @@
  * console.log(result); // true
  * ```
  *
+ * @param value - the value to check
  * @returns `true` if `value` is an {@link Iterable}, otherwise `false`
  */
 export const isIterable = (value: unknown): value is Iterable<unknown> => {

@@ -17,6 +17,7 @@ import { isNull } from "./isNull";
  * console.log(b); // false
  * ```
  *
+ * @param value - the value to check
  * @returns `true` if `value` is not `null`, otherwise `false`
  */
 export const isNotNull = <T>(value: T): value is Exclude<T, null> => {
