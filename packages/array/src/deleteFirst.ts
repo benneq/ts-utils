@@ -1,10 +1,12 @@
 import { deleteAt } from "./deleteAt";
 
 /**
+ * Removes the first element from an Array that is equal to a value.
  *
  * @mutation
  *
  * @example
+ * Delete the first element equal to `2`
  * ```ts
  * const array = [1,2,3,2];
  * deleteFirst(array, 2);
