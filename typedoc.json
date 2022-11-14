@@ -13,6 +13,7 @@
       "ArrayBufferLike": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer",
       "ArrayLike": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array",
       "Iterable": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol",
+      "PromiseLike": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise",
       "URLSearchParams": "https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams"
     }
   }

@@ -1,7 +1,7 @@
 import { Comparator } from "../../comparator/src/_types";
 
 /**
- * Creates a {@link Comparator} that compares the elements of two
+ * Creates a {@link @benneq/comparator!Comparator} that compares the elements of two
  * {@link Array}s pairwise.
  *
  * Finds the first unequal pair and returns the result.
@@ -16,9 +16,9 @@ import { Comparator } from "../../comparator/src/_types";
  * console.log(result); // 1
  * ```
  *
- * @typeParam T - the {@link Comparator} value type
- * @param comparator - the {@link Comparator} to use for the elements
- * @returns a {@link Comparator} for {@link Array}s of type `T`
+ * @typeParam T - the {@link @benneq/comparator!Comparator} value type
+ * @param comparator - the {@link @benneq/comparator!Comparator} to use for the elements
+ * @returns a {@link @benneq/comparator!Comparator} for {@link Array}s of type `T`
  */
 export const arrayComparator = <T>(
   comparator: Comparator<T>
