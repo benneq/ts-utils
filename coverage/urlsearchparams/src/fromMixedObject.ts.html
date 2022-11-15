@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for queryparams/src/get.ts</title>
+    <title>Code coverage report for urlsearchparams/src/fromMixedObject.ts</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,34 +19,34 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">queryparams/src</a> get.ts</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">urlsearchparams/src</a> fromMixedObject.ts</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>16/16</span>
+                <span class='fraction'>11/11</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">83.33% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>5/6</span>
+                <span class='fraction'>5/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>6/6</span>
+                <span class='fraction'>4/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>13/13</span>
+                <span class='fraction'>9/9</span>
             </div>
         
             
@@ -95,23 +95,7 @@
 <a name='L30'></a><a href='#L30'>30</a>
 <a name='L31'></a><a href='#L31'>31</a>
 <a name='L32'></a><a href='#L32'>32</a>
-<a name='L33'></a><a href='#L33'>33</a>
-<a name='L34'></a><a href='#L34'>34</a>
-<a name='L35'></a><a href='#L35'>35</a>
-<a name='L36'></a><a href='#L36'>36</a>
-<a name='L37'></a><a href='#L37'>37</a>
-<a name='L38'></a><a href='#L38'>38</a>
-<a name='L39'></a><a href='#L39'>39</a>
-<a name='L40'></a><a href='#L40'>40</a>
-<a name='L41'></a><a href='#L41'>41</a>
-<a name='L42'></a><a href='#L42'>42</a>
-<a name='L43'></a><a href='#L43'>43</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L33'></a><a href='#L33'>33</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -131,63 +115,49 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">9x</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { pipe } from "@benneq/function";
-import { filter, map, toArray } from "@benneq/iterable";
-import { Entry, isUndefined } from "@benneq/object";
-import {
-  isString,
-  stringPredicate,
-  StringPredicateInput,
-} from "@benneq/string";
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { isArray, isEmpty } from "@benneq/array";
+import { isString } from "@benneq/string";
 &nbsp;
 /**
- * Returns all values from a {@link URLSearchParams} object matching the
- * `keyPredicate`.
+ * Parses a mixed object into {@link URLSearchParams}
  *
  * @example
+ * Parse mixed object
  * ```ts
- * const getValues = get("k1");
+ * const mixedObject = {
+ *   k1: "v1",
+ *   k2: null
+ * };
  *
- * const urlSearchParams = new URLSearchParams([
- *   ["k1", "v1"],
- *   ["k2", "v2"],
- * ]);
- *
- * const values = getValues(urlSearchParams);
- * console.log(values); // ["v1"]
+ * const urlSearchParams = fromMixedObject(mixedObject);
+ * console.log(urlSearchParams); // URLSearchParams([["k1", "v1"]])
  * ```
+ *
+ * @returns the parsed {@link URLSearchParams} object
  */
-export const get = (
-  keyPredicate?: StringPredicateInput
-): ((urlSearchParams: URLSearchParams) =&gt; Iterable&lt;string&gt;) =&gt; {
-  if (isUndefined(keyPredicate)) {
-    return (urlSearchParams) =&gt; Array.from(urlSearchParams.values());
-  } else if (isString(keyPredicate)) {
-    return (urlSearchParams) =&gt; urlSearchParams.getAll(keyPredicate) || <span class="branch-1 cbranch-no" title="branch not covered" >[];</span>
-  } else {
-    const predicate = stringPredicate(keyPredicate);
-    return pipe(
-      filter&lt;Entry&lt;string, string&gt;&gt;(([key]) =&gt; predicate(key)),
-      map&lt;Entry&lt;string, string&gt;, string&gt;(([_key, value]) =&gt; value),
-      toArray&lt;string&gt;
-    );
-  }
+export const fromMixedObject = (
+  obj: Record&lt;string, string | string[] | null | undefined&gt;
+): URLSearchParams =&gt; {
+  return Object.entries(obj).reduce((acc, [key, value]) =&gt; {
+    if (isString(value)) {
+      acc.set(key, value);
+    } else if (isArray(value) &amp;&amp; !isEmpty(value)) {
+      value.forEach((v) =&gt; acc.append(key, v));
+    }
+    return acc;
+  }, new URLSearchParams());
 };
 &nbsp;</pre></td></tr></table></pre>
 
@@ -196,7 +166,7 @@ export const get = (
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2022-11-15T02:11:32.201Z
+                at 2022-11-15T02:29:48.738Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
