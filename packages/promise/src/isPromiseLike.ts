@@ -19,6 +19,6 @@ export const isPromiseLike = <T>(value: unknown): value is PromiseLike<T> => {
     !!value &&
     typeof value === "object" &&
     "then" in value &&
-    isFunction((value as { then: unknown }).then)
+    isFunction(value.then)
   );
 };

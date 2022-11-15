@@ -41,9 +41,6 @@
       "path": "./packages/promise"
     },
     {
-      "path": "./packages/urlsearchparams"
-    },
-    {
       "path": "./packages/regexp"
     },
     {
@@ -51,6 +48,9 @@
     },
     {
       "path": "./packages/string"
+    },
+    {
+      "path": "./packages/urlsearchparams"
     }
   ],
   "files": []
