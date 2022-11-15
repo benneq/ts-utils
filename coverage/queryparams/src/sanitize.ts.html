@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>13/13</span>
+                <span class='fraction'>11/11</span>
             </div>
         
             
@@ -39,14 +39,14 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>4/4</span>
+                <span class='fraction'>3/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>12/12</span>
+                <span class='fraction'>10/10</span>
             </div>
         
             
@@ -110,15 +110,9 @@
 <a name='L45'></a><a href='#L45'>45</a>
 <a name='L46'></a><a href='#L46'>46</a>
 <a name='L47'></a><a href='#L47'>47</a>
-<a name='L48'></a><a href='#L48'>48</a>
-<a name='L49'></a><a href='#L49'>49</a>
-<a name='L50'></a><a href='#L50'>50</a>
-<a name='L51'></a><a href='#L51'>51</a>
-<a name='L52'></a><a href='#L52'>52</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L48'></a><a href='#L48'>48</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -151,30 +145,26 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Mapper } from "@benneq/function";
 import { reduce } from "@benneq/iterable";
-import { add } from "@benneq/multimap";
 import { isNotUndefined } from "@benneq/object";
-import { QueryParams } from "./_types";
 &nbsp;
 export type SanitizeMapper = Mapper&lt;string, string | undefined&gt;;
 &nbsp;
 /**
- * Sanitize {@link QueryParams}, trim strings, remove unusable keys and values.
+ * Sanitize {@link URLSearchParams}, trim strings, remove unusable keys and values.
  *
  * @example
  * Trim all keys and values and remove empty strings
@@ -184,37 +174,35 @@ export type SanitizeMapper = Mapper&lt;string, string | undefined&gt;;
  *   (value) =&gt; value.trim() || undefined
  * );
  *
- * const queryParams = new Map([
+ * const urlSearchParams = new Map([
  *   [" k ", ["v1", ""]],
  *   ["", ["v2", "v3"]],
  * ]);
  *
- * const sanitizedQueryParams = sanitizer(queryParams);
- * console.log(sanitizedQueryParams); // Map([["k", ["v1"]]])
+ * const sanitizedUrlSearchParams = sanitizer(urlSearchParams);
+ * console.log(sanitizedUrlSearchParams); // URLSearchParams([["k", "v1"]])
  * ```
  *
  * @param keyMapper
  * @param valueMapper
- * @returns the sanitized {@link QueryParams}
+ * @returns the sanitized {@link URLSearchParams}
  */
 export const sanitize = (
   keyMapper: SanitizeMapper,
   valueMapper: SanitizeMapper
-): ((queryParams: QueryParams) =&gt; QueryParams) =&gt; {
-  return reduce((acc, [key, values]) =&gt; {
+): ((urlSearchParams: URLSearchParams) =&gt; URLSearchParams) =&gt; {
+  return reduce((acc, [key, value]) =&gt; {
     const mappedKey = keyMapper(key);
 &nbsp;
     if (isNotUndefined(mappedKey)) {
-      values.forEach((value) =&gt; {
-        const mappedValue = valueMapper(value);
-        if (isNotUndefined(mappedValue)) {
-          add(acc)(mappedKey, mappedValue);
-        }
-      });
+      const mappedValue = valueMapper(value);
+      if (isNotUndefined(mappedValue)) {
+        acc.append(mappedKey, mappedValue);
+      }
     }
 &nbsp;
     return acc;
-  }, new Map() as QueryParams);
+  }, new URLSearchParams());
 };
 &nbsp;</pre></td></tr></table></pre>
 
@@ -223,7 +211,7 @@ export const sanitize = (
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2022-11-15T01:23:45.663Z
+                at 2022-11-15T02:11:32.201Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
