@@ -1,5 +1,5 @@
 {
-  "name": "@benneq/queryparams",
+  "name": "@benneq/urlsearchparams",
   "version": "1.0.0",
   "description": "",
   "type": "module",
@@ -13,9 +13,9 @@
   "license": "ISC",
   "dependencies": {
     "@benneq/array": "*",
+    "@benneq/function": "*",
     "@benneq/iterable": "*",
-    "@benneq/map": "*",
-    "@benneq/multimap": "*",
+    "@benneq/object": "*",
     "@benneq/string": "*"
   }
 }

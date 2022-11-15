@@ -11,13 +11,13 @@
       "path": "../array"
     },
     {
+      "path": "../function"
+    },
+    {
       "path": "../iterable"
     },
     {
-      "path": "../map"
-    },
-    {
-      "path": "../multimap"
+      "path": "../object"
     },
     {
       "path": "../string"

@@ -41,7 +41,7 @@
       "path": "./packages/promise"
     },
     {
-      "path": "./packages/queryparams"
+      "path": "./packages/urlsearchparams"
     },
     {
       "path": "./packages/regexp"
