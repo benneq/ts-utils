@@ -1,9 +1,10 @@
 import { Predicate } from "./_types";
 
 /**
- * Inverts a Predicate with a logical `NOT`.
+ * Inverts a {@link Predicate} with a logical `NOT`.
  *
- * The combined Predicate returns `true` if the `predicate` returns `false` and vice versa.
+ * The inverted {@link Predicate} returns `true` if the {@link Predicate}
+ * returns `false` and vice versa.
  *
  * @example
  * ```ts
@@ -19,11 +20,9 @@ import { Predicate } from "./_types";
  * console.log(b); // false
  * ```
  *
- * @typeParam T - the type of the Predicate
- *
- * @param predicate - the Predicate to negate
- *
- * @returns `true` if the `predicate` returns `false`, otherwise `false`
+ * @typeParam T - the type of the {@link Predicate}
+ * @param predicate - the {@link Predicate} to negate
+ * @returns `true` if the {@link Predicate} returns `false`, otherwise `false`
  */
 export const not = <T extends unknown[]>(
   predicate: Predicate<T>

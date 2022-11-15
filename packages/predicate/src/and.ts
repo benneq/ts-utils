@@ -1,9 +1,10 @@
 import { Predicate } from "./_types";
 
 /**
- * Combines Predicates with a logical `AND`.
+ * Combines {@link Predicate}s with a logical `AND`.
  *
- * The combined Predicate returns `true` if all of the `predicates` returns `true`.
+ * The combined {@link Predicate} returns `true` if all of the
+ * {@link Predicate}s returns `true`.
  *
  * @example
  * Combine two Predicates with a logical `AND`
@@ -21,11 +22,9 @@ import { Predicate } from "./_types";
  * console.log(b); // true
  * ```
  *
- * @typeParam T - the type of the Predicates
- *
- * @param predicates - the Predicates to combine
- *
- * @returns `true` if all `predicates` return `true`, otherwise `false`
+ * @typeParam T - the type of the {@link Predicate}s
+ * @param predicates - the {@link Predicate}s to combine
+ * @returns `true` if all {@link Predicate}s return `true`, otherwise `false`
  */
 export const and =
   <T extends unknown[]>(...predicates: Predicate<T>[]): Predicate<T> =>

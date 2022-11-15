@@ -1,6 +1,6 @@
 import { sanitize } from "./sanitize";
 
-describe("queryparams.sanitize", () => {
+describe("urlsearchparams.sanitize", () => {
   it("should return a sanitized copy of URLSearchParams", () => {
     const urlSearchParams = new URLSearchParams([
       [" k ", "v1"],

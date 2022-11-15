@@ -1,6 +1,6 @@
 import { fromMixedObject } from "./fromMixedObject";
 
-describe("queryparams.fromURLSearchParams", () => {
+describe("urlsearchparams.fromURLSearchParams", () => {
   it("should return the same entries", () => {
     const mixedObject = {
       k1: "v1",

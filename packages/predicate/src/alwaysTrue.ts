@@ -1,7 +1,7 @@
 /**
- * A Predicate that always returns `true`
+ * A {@link Predicate} that always returns `true`.
  *
- * Opposite of {@link alwaysFalse}
+ * Opposite of {@link alwaysFalse}.
  *
  * @remark
  * All arguments are ignored

@@ -1,9 +1,10 @@
 import { Predicate } from "./_types";
 
 /**
- * Combines Predicates with a logical `OR`.
+ * Combines {@link Predicate}s with a logical `OR`.
  *
- * The combined Predicate returns `true` if any of the `predicates` returns `true`.
+ * The combined {@link Predicate} returns `true` if any of the
+ * {@link Predicate}s returns `true`.
  *
  * @example
  * Combine two Predicates with a logical `OR`
@@ -21,11 +22,9 @@ import { Predicate } from "./_types";
  * console.log(b); // false
  * ```
  *
- * @typeParam T - the type of the Predicates
- *
- * @param predicates - the Predicates to combine
- *
- * @returns `true` if any of the `predicates` returned `true`, otherwise `false`
+ * @typeParam T - the type of the {@link Predicate}s
+ * @param predicates - the {@link Predicate}s to combine
+ * @returns `true` if any of the {@link Predicate}s returned `true`, otherwise `false`
  */
 export const or =
   <T extends unknown[]>(...predicates: Predicate<T>[]): Predicate<T> =>
