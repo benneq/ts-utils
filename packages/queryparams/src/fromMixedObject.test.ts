@@ -11,9 +11,10 @@ describe("queryparams.fromURLSearchParams", () => {
     const result = fromMixedObject(mixedObject);
 
     expect(result).toEqual(
-      new Map([
-        ["k1", ["v1"]],
-        ["k4", ["v2", "v3"]],
+      new URLSearchParams([
+        ["k1", "v1"],
+        ["k4", "v2"],
+        ["k4", "v3"],
       ])
     );
   });

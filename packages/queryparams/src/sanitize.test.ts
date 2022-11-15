@@ -1,18 +1,21 @@
 import { sanitize } from "./sanitize";
 
 describe("queryparams.sanitize", () => {
-  it("should return a sanitized copy of QueryParams", () => {
-    const queryParams = new Map([
-      [" k ", ["v1", ""]],
-      ["", ["v2", "v3"]],
+  it("should return a sanitized copy of URLSearchParams", () => {
+    const urlSearchParams = new URLSearchParams([
+      [" k ", "v1"],
+      ["k ", ""],
+      ["", "v2"],
+      [" ", "v3"],
     ]);
+
     const result = sanitize(
       (key) => key.trim() || undefined,
       (value) => value.trim() || undefined
-    )(queryParams);
+    )(urlSearchParams);
 
-    expect(result).toEqual(new Map([["k", ["v1"]]]));
-    expect(result).not.toBe(queryParams);
+    expect(result).toEqual(new URLSearchParams([["k", "v1"]]));
+    expect(result).not.toBe(urlSearchParams);
   });
 });
 

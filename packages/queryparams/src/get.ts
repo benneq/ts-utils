@@ -1,44 +1,42 @@
-import { flatMap } from "@benneq/iterable";
-import { values } from "@benneq/multimap";
-import { isUndefined } from "@benneq/object";
+import { pipe } from "@benneq/function";
+import { filter, map, toArray } from "@benneq/iterable";
+import { Entry, isUndefined } from "@benneq/object";
 import {
   isString,
   stringPredicate,
   StringPredicateInput,
 } from "@benneq/string";
-import { QueryParams } from "./_types";
 
 /**
- * Returns all values from @param queryParams matching the @param keyPredicate
+ * Returns all values from a {@link URLSearchParams} object matching the
+ * `keyPredicate`.
  *
  * @example
  * ```ts
  * const getValues = get("k1");
  *
- * const queryParams = new Map([
- *   ["k1", ["v1"]],
- *   ["k2", ["v2"]],
+ * const urlSearchParams = new URLSearchParams([
+ *   ["k1", "v1"],
+ *   ["k2", "v2"],
  * ]);
  *
- * const values = getValues(queryParams);
+ * const values = getValues(urlSearchParams);
  * console.log(values); // ["v1"]
  * ```
  */
 export const get = (
   keyPredicate?: StringPredicateInput
-): ((queryParams: QueryParams) => string[]) => {
+): ((urlSearchParams: URLSearchParams) => Iterable<string>) => {
   if (isUndefined(keyPredicate)) {
-    return (queryParams) => Array.from(values(queryParams));
+    return (urlSearchParams) => Array.from(urlSearchParams.values());
   } else if (isString(keyPredicate)) {
-    return (queryParams) => queryParams.get(keyPredicate) || [];
+    return (urlSearchParams) => urlSearchParams.getAll(keyPredicate) || [];
   } else {
     const predicate = stringPredicate(keyPredicate);
-    return (queryParams) => {
-      return Array.from(
-        flatMap<[string, string[]], string>(([key, value]) =>
-          predicate(key) ? value : []
-        )(queryParams.entries())
-      );
-    };
+    return pipe(
+      filter<Entry<string, string>>(([key]) => predicate(key)),
+      map<Entry<string, string>, string>(([_key, value]) => value),
+      toArray<string>
+    );
   }
 };

@@ -1,12 +1,12 @@
 /**
  * @packageDocumentation
  *
- * This module contains utilities for working with URL Query Params
+ * This module contains utilities for working with {@link URLSearchParams}
  *
  * @example
  * ```ts
- * // create the QueryParams mapper
- * const queryParamsMapper = mapper({
+ * // create the URLSearchParams mapper
+ * const urlSearchParamsMapper = mapper({
  *   categories: pipe(
  *     get("category"),
  *   ),
@@ -41,8 +41,8 @@
  *   ),
  * });
  *
- * // create an (optional, but recommended) QueryParams sanitizer
- * const queryParamsSanitizer = sanitize(trimAndRemoveEmpty, trimAndRemoveEmpty);
+ * // create an (optional, but recommended) URLSearchParams sanitizer
+ * const urlSearchParamsSanitizer = sanitize(trimAndRemoveEmpty, trimAndRemoveEmpty);
  *
  * // the incoming URLSearchParams to parse
  * const urlSearchParams = new URLSearchParams(`
@@ -53,21 +53,15 @@
  *   &pageSize=5
  * `);
  *
- * // convert to QueryParams
- * comst queryParams = fromURLSearchParams(urlSearchParams);
- *
  * // trim all keys and values, and remove empty strings
- * const sanitizedQueryParams = queryParamsSanitizer(queryParams);
+ * const sanitizedUrlSearchParams = urlSearchParamsSanitizer(urlSearchParams);
  *
- * // map QueryParams
- * const result = queryParamsMapper(sanitizedQueryParams);
+ * // map URLSearchParams
+ * const result = urlSearchParamsMapper(sanitizedUrlSearchParams);
  * console.log(result); // { categories:["a","b"], active:true, paignation:{page:1,size:5}, hours:[] }
  * ```
  */
 
-export * from "./_types";
 export * from "./fromMixedObject";
-export * from "./fromURLSearchParams";
 export * from "./get";
-export * from "./isQueryParams";
 export * from "./sanitize";

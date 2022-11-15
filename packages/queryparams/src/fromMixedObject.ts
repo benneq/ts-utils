@@ -1,9 +1,8 @@
 import { isArray, isEmpty } from "@benneq/array";
 import { isString } from "@benneq/string";
-import { QueryParams } from "./_types";
 
 /**
- * Parses a mixed object into {@link QueryParams}
+ * Parses a mixed object into {@link URLSearchParams}
  *
  * @example
  * Parse mixed object
@@ -13,21 +12,21 @@ import { QueryParams } from "./_types";
  *   k2: null
  * };
  *
- * const queryParams = fromMixedObject(mixedObject);
- * console.log(queryParams); // Map([["k1", ["v1"]]])
+ * const urlSearchParams = fromMixedObject(mixedObject);
+ * console.log(urlSearchParams); // URLSearchParams([["k1", "v1"]])
  * ```
  *
- * @returns the parsed {@link QueryParams} object
+ * @returns the parsed {@link URLSearchParams} object
  */
 export const fromMixedObject = (
   obj: Record<string, string | string[] | null | undefined>
-): QueryParams => {
+): URLSearchParams => {
   return Object.entries(obj).reduce((acc, [key, value]) => {
     if (isString(value)) {
-      return acc.set(key, [value]);
+      acc.set(key, value);
     } else if (isArray(value) && !isEmpty(value)) {
-      return acc.set(key, value);
+      value.forEach((v) => acc.append(key, v));
     }
     return acc;
-  }, new Map() as QueryParams);
+  }, new URLSearchParams());
 };

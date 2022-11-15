@@ -15,5 +15,5 @@ import { MultiMap } from "./_types";
  * @returns the copied {@link MultiMap}
  */
 export const copy: {
-  <K, V>(queryParams: MultiMap<K, V>): MultiMap<K, V>;
+  <K, V>(multiMap: MultiMap<K, V>): MultiMap<K, V>;
 } = mapValues(arrayCopy);

@@ -2,56 +2,61 @@ import { get } from "./get";
 
 describe("queryparams.get", () => {
   it("should return all values if no predicate provided", () => {
-    const queryParams = new Map([
-      ["k1", ["v1", "v2"]],
-      ["k2", ["v3"]],
+    const urlSearchParams = new URLSearchParams([
+      ["k1", "v1"],
+      ["k1", "v2"],
+      ["k2", "v3"],
     ]);
 
-    const result = get()(queryParams);
+    const result = get()(urlSearchParams);
 
     expect(result).toEqual(["v1", "v2", "v3"]);
   });
 
   it("should return all values for specified key", () => {
-    const queryParams = new Map([
-      ["k1", ["v1", "v2"]],
-      ["k2", ["v3"]],
+    const urlSearchParams = new URLSearchParams([
+      ["k1", "v1"],
+      ["k1", "v2"],
+      ["k2", "v3"],
     ]);
 
-    const result = get("k2")(queryParams);
+    const result = get("k2")(urlSearchParams);
 
     expect(result).toEqual(["v3"]);
   });
 
   it("should return all values for specified keys", () => {
-    const queryParams = new Map([
-      ["k1", ["v1", "v2"]],
-      ["k2", ["v3"]],
+    const urlSearchParams = new URLSearchParams([
+      ["k1", "v1"],
+      ["k1", "v2"],
+      ["k2", "v3"],
     ]);
 
-    const result = get(["k1", "k2"])(queryParams);
+    const result = get(["k1", "k2"])(urlSearchParams);
 
     expect(result).toEqual(["v1", "v2", "v3"]);
   });
 
   it("should return all values for matching regexp", () => {
-    const queryParams = new Map([
-      ["k1", ["v1", "v2"]],
-      ["k2", ["v3"]],
+    const urlSearchParams = new URLSearchParams([
+      ["k1", "v1"],
+      ["k1", "v2"],
+      ["k2", "v3"],
     ]);
 
-    const result = get(/.2/)(queryParams);
+    const result = get(/.2/)(urlSearchParams);
 
     expect(result).toEqual(["v3"]);
   });
 
   it("should return all values for matching predicate", () => {
-    const queryParams = new Map([
-      ["k1", ["v1", "v2"]],
-      ["k2", ["v3"]],
+    const urlSearchParams = new URLSearchParams([
+      ["k1", "v1"],
+      ["k1", "v2"],
+      ["k2", "v3"],
     ]);
 
-    const result = get((k) => k === "k2")(queryParams);
+    const result = get((k) => k === "k2")(urlSearchParams);
 
     expect(result).toEqual(["v3"]);
   });
