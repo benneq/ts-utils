@@ -42,7 +42,10 @@
  * });
  *
  * // create an (optional, but recommended) URLSearchParams sanitizer
- * const urlSearchParamsSanitizer = sanitize(trimAndRemoveEmpty);
+ * const sanitize = pipe(
+ *   map(([key, value]) => [key.trim(), value.trim()]),
+ *   filter(([key, value]) => !!key && !!value),
+ * );
  *
  * // the incoming URLSearchParams to parse
  * const urlSearchParams = new URLSearchParams(`
@@ -54,7 +57,7 @@
  * `);
  *
  * // trim all keys and values, and remove empty strings
- * const sanitizedUrlSearchParams = urlSearchParamsSanitizer(urlSearchParams);
+ * const sanitizedUrlSearchParams = new URLSearchParams(sanitize(urlSearchParams));
  *
  * // map URLSearchParams
  * const result = urlSearchParamsMapper(sanitizedUrlSearchParams);
@@ -64,4 +67,3 @@
 
 export * from "./fromMixedObject";
 export * from "./get";
-export * from "./sanitize";
