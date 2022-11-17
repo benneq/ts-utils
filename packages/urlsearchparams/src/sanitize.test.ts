@@ -9,10 +9,10 @@ describe("urlsearchparams.sanitize", () => {
       [" ", "v3"],
     ]);
 
-    const result = sanitize(
-      (key) => key.trim() || undefined,
-      (value) => value.trim() || undefined
-    )(urlSearchParams);
+    const result = sanitize(([key, value]) => [
+      key.trim() || undefined,
+      value.trim() || undefined,
+    ])(urlSearchParams);
 
     expect(result).toEqual(new URLSearchParams([["k", "v1"]]));
     expect(result).not.toBe(urlSearchParams);

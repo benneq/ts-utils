@@ -42,7 +42,7 @@
  * });
  *
  * // create an (optional, but recommended) URLSearchParams sanitizer
- * const urlSearchParamsSanitizer = sanitize(trimAndRemoveEmpty, trimAndRemoveEmpty);
+ * const urlSearchParamsSanitizer = sanitize(trimAndRemoveEmpty);
  *
  * // the incoming URLSearchParams to parse
  * const urlSearchParams = new URLSearchParams(`

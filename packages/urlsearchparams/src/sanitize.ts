@@ -1,19 +1,23 @@
 import { Mapper } from "@benneq/function";
 import { reduce } from "@benneq/iterable";
-import { isNotUndefined } from "@benneq/object";
+import { Entry, isNotUndefined } from "@benneq/object";
 
-export type SanitizeMapper = Mapper<string, string | undefined>;
+export type SanitizeMapper = Mapper<
+  Entry<string, string>,
+  Entry<string | undefined, string | undefined>
+>;
 
 /**
- * Sanitize {@link URLSearchParams}, trim strings, remove unusable keys and values.
+ * Creates a sanitizer for {@link URLSearchParams}, that can be used to for
+ * example trim strings and remove unusable keys and values.
  *
  * @example
- * Trim all keys and values and remove empty strings
+ * Trim all keys and values and remove entries with empty strings
  * ```ts
- * const sanitizer = sanitize(
- *   (key) => key.trim() || undefined,
- *   (value) => value.trim() || undefined
- * );
+ * const sanitizer = sanitize(([key, value]) => [
+ *   key.trim() || undefined,
+ *   value.trim() || undefined,
+ * ]);
  *
  * const urlSearchParams = new Map([
  *   [" k ", ["v1", ""]],
@@ -24,22 +28,17 @@ export type SanitizeMapper = Mapper<string, string | undefined>;
  * console.log(sanitizedUrlSearchParams); // URLSearchParams([["k", "v1"]])
  * ```
  *
- * @param keyMapper
- * @param valueMapper
+ * @param mapper - the {@link Mapper} for the {@link Entry}s
  * @returns the sanitized {@link URLSearchParams}
  */
 export const sanitize = (
-  keyMapper: SanitizeMapper,
-  valueMapper: SanitizeMapper
+  mapper: SanitizeMapper
 ): ((urlSearchParams: URLSearchParams) => URLSearchParams) => {
-  return reduce((acc, [key, value]) => {
-    const mappedKey = keyMapper(key);
+  return reduce((acc, entry) => {
+    const [key, value] = mapper(entry);
 
-    if (isNotUndefined(mappedKey)) {
-      const mappedValue = valueMapper(value);
-      if (isNotUndefined(mappedValue)) {
-        acc.append(mappedKey, mappedValue);
-      }
+    if (isNotUndefined(key) && isNotUndefined(value)) {
+      acc.append(key, value);
     }
 
     return acc;
