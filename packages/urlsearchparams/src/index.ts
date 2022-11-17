@@ -5,8 +5,8 @@
  *
  * @example
  * ```ts
- * // create the URLSearchParams mapper
- * const urlSearchParamsMapper = mapper({
+ * // create the URLSearchParams parser
+ * const parseUrlSearchParams = mapper({
  *   categories: pipe(
  *     get("category"),
  *   ),
@@ -41,10 +41,16 @@
  *   ),
  * });
  *
- * // create an (optional, but recommended) URLSearchParams sanitizer
- * const sanitize = pipe(
+ * // function that trims all keys and values and transforms keys to lowercase
+ * const normalizeUrlSearchParams = pipe(
  *   map(([key, value]) => [key.trim(), value.trim()]),
- *   filter(([key, value]) => !!key && !!value),
+ *   map(([key, value]) => [key.toLowerCase(), value]),
+ * );
+ *
+ * // build a function that first normalizes and then parses URLSearchParams
+ * const normalizeAndParse = pipe(
+ *   normalizeUrlSearchParams,
+ *   parseUrlSearchParams
  * );
  *
  * // the incoming URLSearchParams to parse
@@ -56,11 +62,8 @@
  *   &pageSize=5
  * `);
  *
- * // trim all keys and values, and remove empty strings
- * const sanitizedUrlSearchParams = new URLSearchParams(sanitize(urlSearchParams));
- *
- * // map URLSearchParams
- * const result = urlSearchParamsMapper(sanitizedUrlSearchParams);
+ * // parse URLSearchParams
+ * const result = normalizeAndParse(urlSearchParams);
  * console.log(result); // { categories:["a","b"], active:true, paignation:{page:1,size:5}, hours:[] }
  * ```
  */

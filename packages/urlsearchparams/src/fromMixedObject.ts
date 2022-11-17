@@ -1,4 +1,4 @@
-import { isArray, isEmpty } from "@benneq/array";
+import { isArray } from "@benneq/array";
 import { isString } from "@benneq/string";
 
 /**
@@ -24,7 +24,7 @@ export const fromMixedObject = (
   return Object.entries(obj).reduce((acc, [key, value]) => {
     if (isString(value)) {
       acc.set(key, value);
-    } else if (isArray(value) && !isEmpty(value)) {
+    } else if (isArray(value)) {
       value.forEach((v) => acc.append(key, v));
     }
     return acc;

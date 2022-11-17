@@ -1,3 +1,5 @@
+import { pipe } from "@benneq/function";
+import { map } from "@benneq/iterable";
 import { mapper } from "./mapper";
 
 describe("object.mapper", () => {
@@ -53,6 +55,20 @@ describe("object.mapper", () => {
     expect(fn1).toHaveBeenCalledTimes(1);
     expect(fn2).toHaveBeenCalledTimes(1);
     expect(fn3).toHaveBeenCalledTimes(1);
+  });
+
+  it("should work with nested mappers", () => {
+    const nestedMapper = mapper<{ x: number; y: number }, [number, number]>([
+      (v) => v.x,
+      (v) => v.y,
+    ]);
+
+    const result = mapper<any, any>({
+      a: (v) => v.a.toUpperCase(),
+      b: (v) => nestedMapper(v.b),
+    })({ a: "a", b: { x: 1, y: 2 } });
+
+    expect(result).toEqual({ a: "A", b: [1, 2] });
   });
 });
 

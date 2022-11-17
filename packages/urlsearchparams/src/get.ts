@@ -1,7 +1,6 @@
-import { Mapper, pipe } from "@benneq/function";
-import { filter, map, toArray } from "@benneq/iterable";
+import { pipe } from "@benneq/function";
+import { filter, map } from "@benneq/iterable";
 import { Entry, isUndefined } from "@benneq/object";
-import { Predicate } from "@benneq/predicate";
 import {
   isString,
   stringPredicate,
