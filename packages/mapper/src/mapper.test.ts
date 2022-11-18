@@ -1,5 +1,3 @@
-import { pipe } from "@benneq/function";
-import { map } from "@benneq/iterable";
 import { mapper } from "./mapper";
 
 describe("object.mapper", () => {
