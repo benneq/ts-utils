@@ -1,4 +1,8 @@
-import { ValidationErrors, Validator } from "./_types";
+import { ObjectValidationError, ObjectValidator, Validator } from "./_types";
+
+export type ObjectValidatorInput<
+  T extends Record<string | number | symbol, unknown>
+> = { [key in keyof T]: Validator<T[key]> };
 
 /**
  *
@@ -16,15 +20,15 @@ import { ValidationErrors, Validator } from "./_types";
  * @returns
  */
 export const objectValidator =
-  <T extends Record<string, unknown>>(def: {
-    [key in keyof T]: Validator<T[key]>;
-  }) =>
-  (value: T): { [key in keyof T]: ValidationErrors } => {
+  <T extends Record<string | number | symbol, unknown>>(
+    def: ObjectValidatorInput<T>
+  ): ObjectValidator<T> =>
+  (value) => {
     return Object.entries(def).reduce(
       (acc, [key, validator]: [keyof T, Validator<T[keyof T]>]) => {
         acc[key] = validator(value[key]);
         return acc;
       },
-      {} as { [key in keyof T]: ValidationErrors }
+      {} as ObjectValidationError<T>
     );
   };

@@ -1,5 +1,5 @@
 import { Predicate } from "@benneq/predicate";
-import { ValidationErrors } from "./_types";
+import { Validator } from "./_types";
 
 /**
  *
@@ -15,8 +15,8 @@ import { ValidationErrors } from "./_types";
  * @returns
  */
 export const predicateValidator =
-  <T>(predicate: Predicate<[T]>, msg: string) =>
-  (value: T): ValidationErrors => {
+  <T>(predicate: Predicate<[T]>, msg: string): Validator<T> =>
+  (value) => {
     if (predicate(value)) {
       return [];
     } else {
