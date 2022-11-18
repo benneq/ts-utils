@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for iterable/src/concat.ts</title>
+    <title>Code coverage report for validator/src/objectValidator.ts</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,13 +19,13 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">iterable/src</a> concat.ts</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">validator/src</a> objectValidator.ts</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>4/4</span>
+                <span class='fraction'>6/6</span>
             </div>
         
             
@@ -39,14 +39,14 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>4/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>4/4</span>
+                <span class='fraction'>6/6</span>
             </div>
         
             
@@ -73,50 +73,26 @@
 <a name='L8'></a><a href='#L8'>8</a>
 <a name='L9'></a><a href='#L9'>9</a>
 <a name='L10'></a><a href='#L10'>10</a>
-<a name='L11'></a><a href='#L11'>11</a>
-<a name='L12'></a><a href='#L12'>12</a>
-<a name='L13'></a><a href='#L13'>13</a>
-<a name='L14'></a><a href='#L14'>14</a>
-<a name='L15'></a><a href='#L15'>15</a>
-<a name='L16'></a><a href='#L16'>16</a>
-<a name='L17'></a><a href='#L17'>17</a>
-<a name='L18'></a><a href='#L18'>18</a>
-<a name='L19'></a><a href='#L19'>19</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">2x</span>
+<a name='L11'></a><a href='#L11'>11</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { identity } from "@benneq/function";
-import { flatMap } from "./flatMap";
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { ValidationErrors, Validator } from "./_types";
 &nbsp;
-/**
- * Concatenates multiple {@link Iterable}s in order
- *
- * @example
- * ```ts
- * const iterables = [[1,2], [3,4]];
- * const concatenated = concat(iterables);
- * console.log(concatenated); // [1,2,3,4]
- * ```
- *
- * @typeParam T - the {@link Iterable} value type
- * @returns the concatenation of the {@link Iterable}s
- */
-export const concat: &lt;T&gt;(iterable: Iterable&lt;Iterable&lt;T&gt;&gt;) =&gt; Iterable&lt;T&gt; =
-  flatMap(identity);
+export const objectValidator =
+  &lt;T extends Record&lt;string, any&gt;&gt;(def: Record&lt;string, Validator&lt;any&gt;&gt;) =&gt;
+  (value: T): Record&lt;string, ValidationErrors&gt; =&gt; {
+    return Object.entries(def).reduce((acc, [key, validator]) =&gt; {
+      acc[key] = validator(value[key]);
+      return acc;
+    }, {} as Record&lt;string, ValidationErrors&gt;);
+  };
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
