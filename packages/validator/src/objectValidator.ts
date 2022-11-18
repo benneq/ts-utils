@@ -1,4 +1,21 @@
-import { ObjectValidationErrors, ObjectValidator, Validator } from "./_types";
+import { ValidationErrors, Validator } from "./_types";
+
+/**
+ * An object where each value contains {@link ValidationErrors}.
+ */
+export type ObjectValidationErrors<
+  T extends Record<string | number | symbol, unknown>
+> = { [key in keyof T]: ValidationErrors };
+
+/**
+ * An {@link ObjectValidator} validates each entry of an object individually.
+ *
+ * @param obj - the object to validate
+ * @returns an {@link ObjectValidationErrors} containing the {@link ValidationErrors} for each entry
+ */
+export type ObjectValidator<
+  T extends Record<string | number | symbol, unknown>
+> = (obj: T) => ObjectValidationErrors<T>;
 
 export type ObjectValidatorInput<
   T extends Record<string | number | symbol, unknown>

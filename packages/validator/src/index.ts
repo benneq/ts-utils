@@ -9,3 +9,4 @@ export * from "./arrayValidator";
 export * from "./chain";
 export * from "./objectValidator";
 export * from "./predicateValidator";
+export * from "./tupleValidator";
