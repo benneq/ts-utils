@@ -8,6 +8,15 @@
   },
   "references": [
     {
+      "path": "../array"
+    },
+    {
+      "path": "../function"
+    },
+    {
+      "path": "../iterable"
+    },
+    {
       "path": "../predicate"
     }
   ]

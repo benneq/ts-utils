@@ -5,4 +5,5 @@
  */
 
 export * from "./_types";
+export * from "./chain";
 export * from "./predicateValidator";
