@@ -1,4 +1,4 @@
-import { ObjectValidationError, ObjectValidator, Validator } from "./_types";
+import { ObjectValidationErrors, ObjectValidator, Validator } from "./_types";
 
 export type ObjectValidatorInput<
   T extends Record<string | number | symbol, unknown>
@@ -29,6 +29,6 @@ export const objectValidator =
         acc[key] = validator(value[key]);
         return acc;
       },
-      {} as ObjectValidationError<T>
+      {} as ObjectValidationErrors<T>
     );
   };

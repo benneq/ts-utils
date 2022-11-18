@@ -4,7 +4,7 @@ import { predicateValidator } from "./predicateValidator";
 
 describe("validator.objectValidator", () => {
   it("should return a new object with all keys and their values ValidationErrors", () => {
-    const abObjValidator = objectValidator<{ a: unknown; b: unknown }>({
+    const abObjValidator = objectValidator<{ a?: unknown; b?: unknown }>({
       a: predicateValidator(isString, "err1"),
       b: predicateValidator(isString, "err2"),
     });

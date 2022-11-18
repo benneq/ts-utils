@@ -5,6 +5,7 @@
  */
 
 export * from "./_types";
+export * from "./arrayValidator";
 export * from "./chain";
 export * from "./objectValidator";
 export * from "./predicateValidator";

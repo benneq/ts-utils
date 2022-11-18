@@ -4,9 +4,14 @@
 export type ValidationErrors = string[];
 
 /**
+ * An {@link Array} where each element contains {@link ValidationErrors}.
+ */
+export type ArrayValidationErrors = ValidationErrors[];
+
+/**
  * An object where each value contains {@link ValidationErrors}.
  */
-export type ObjectValidationError<
+export type ObjectValidationErrors<
   T extends Record<string | number | symbol, unknown>
 > = { [key in keyof T]: ValidationErrors };
 
@@ -31,6 +36,22 @@ export type ObjectValidationError<
 export type Validator<T> = (value: T) => ValidationErrors;
 
 /**
+ * An {@link ArrayValidator} validates each element of an {@link Array} using
+ * the same {@link Validator}.
+ *
+ * @example
+ * ```ts
+ * const myArrayValidator = arrayValidator(predicateValidator(isString, "must be a string"));
+ * const result = myArrayValidator(["", 1]);
+ * console.log(result); // [[], ["must be a string"]]
+ * ```
+ *
+ * @param obj - the array to validate
+ * @returns an {@link ArrayValidationErrors} containing the {@link ValidationErrors} for each element
+ */
+export type ArrayValidator<T> = (value: T[]) => ArrayValidationErrors;
+
+/**
  * An {@link ObjectValidator} validates each entry of an object individually.
  *
  * @example
@@ -44,8 +65,8 @@ export type Validator<T> = (value: T) => ValidationErrors;
  * ```
  *
  * @param obj - the object to validate
- * @returns an {@link ObjectValidationError} containing the {@link ValidationErrors} for each entry
+ * @returns an {@link ObjectValidationErrors} containing the {@link ValidationErrors} for each entry
  */
 export type ObjectValidator<
   T extends Record<string | number | symbol, unknown>
-> = (obj: T) => ObjectValidationError<T>;
+> = (obj: T) => ObjectValidationErrors<T>;
