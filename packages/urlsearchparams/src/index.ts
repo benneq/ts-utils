@@ -12,25 +12,15 @@
  *   ),
  *   active: pipe(
  *     get("active"),
- *     first(""),
- *     parseBoolean,
+ *     map(parseBoolean),
+ *     some(boolean => boolean),
  *   ),
- *   pagination: {
- *     page: pipe(
- *       get("page"),
- *       map(parseInteger),
- *       filter(isNotUndefined),
- *       filter(isPositive),
- *       first(1),
- *     ),
- *     size: pipe(
- *       get("pageSize"),
- *       map(parseInteger),
- *       filter(isNotUndefined),
- *       filter(isPositive),
- *       first(5),
- *     )
- *   },
+ *   pagination: pipe(
+ *     get("page"),
+ *     map(parsePagination),
+ *     filter(isNotUndefined),
+ *     first(defaultPagination),
+ *   ),
  *   hours: pipe(
  *     get("hours"),
  *     flatMap(split(",")),
@@ -58,8 +48,7 @@
  *   ?category=a
  *   &category=b
  *   &active=true
- *   &page=1
- *   &pageSize=5
+ *   &page=1,5
  * `);
  *
  * // parse URLSearchParams
