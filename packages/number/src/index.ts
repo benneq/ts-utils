@@ -16,3 +16,4 @@ export * from "./numberSequence";
 export * from "./parseFloat";
 export * from "./parseInteger";
 export * from "./randomInteger";
+export * from "./roundToMultiple";
