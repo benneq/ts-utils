@@ -3,7 +3,7 @@
  */
 export type ValidationContext<R, P = unknown> = {
   path: string;
-  parent?: P;
+  parent: P;
   root: R;
 };
 

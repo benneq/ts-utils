@@ -16,7 +16,7 @@ import { Validator, ValidationResult } from "./_types";
  * @returns the {@link ValidationResult}
  */
 export const validate =
-  <T>(validator: Validator<T, T, T>) =>
+  <T>(validator: Validator<T, T, unknown>) =>
   (value: T): ValidationResult => {
-    return validator(value, { path: "$", root: value });
+    return validator(value, { path: "$", root: value, parent: undefined });
   };
