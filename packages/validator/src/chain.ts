@@ -6,11 +6,11 @@ import { Validator } from "./_types";
  * @example
  * Check if `value` is between 0 and 5
  * ```ts
- * const chainedValidator = chain(
+ * const chainedValidator = validate(chain(
  *   valueValidator((n) => n > 0, "err1"),
  *   valueValidator((n) => n < 5, "err2")
- * );
- * const result = chainedValidator(-1, { path: "$" });
+ * ));
+ * const result = chainedValidator(-1);
  * console.log(result); // [{ path: "$", message: "err1", value: -1 }]
  * ```
  *

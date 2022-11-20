@@ -6,8 +6,8 @@ import { ValidationContext, Validator } from "./_types";
  *
  * @example
  * ```ts
- * const isStringValidator = valueValidator(isString, "err");
- * const result = isStringValidator(42, { path: "$" });
+ * const isStringValidator = validate(valueValidator(isString, "err"));
+ * const result = isStringValidator(42);
  * console.log(result); // [{ path: "$", message: "err", value: 42 }]
  * ```
  *

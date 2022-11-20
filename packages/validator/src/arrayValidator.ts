@@ -4,8 +4,10 @@ import { Validator } from "./_types";
  *
  * @example
  * ```ts
- * const myArrayValidator = arrayValidator(valueValidator(isString, "must be a string"));
- * const result = myArrayValidator(["", 1], { path: "$" });
+ * const myArrayValidator = validate(
+ *   arrayValidator(valueValidator(isString, "must be a string"))
+ * );
+ * const result = myArrayValidator(["", 1]);
  * console.log(result); // [{ path: "$.1", message: "must be a string", value: 1 }]
  * ```
  *

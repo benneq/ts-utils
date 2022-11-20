@@ -6,7 +6,7 @@
  * @example
  * Validate registration form
  * ```ts
- * const registrationFormValidator = chain(
+ * const registrationFormValidator = validate(chain(
  *   objectValidator({
  *     email: valueValidator(isEmail, "must be am email"),
  *     password: valueValidator(isSecure, "must be secure"),
@@ -15,15 +15,14 @@
  *     { password, repetition } => password === repetition,
  *     "passwords must match"
  *   ),
- * );
+ * ));
  *
  * const validationResult = registrationFormValidator(
  *   {
  *     email: "a@b.c",
  *     password: "secure",
  *     repetition: "",
- *   },
- *   { path: "$" }
+ *   }
  * );
  *
  * console.log(validationResult);
@@ -35,20 +34,20 @@
  * @example
  * Validate a complex object
  * ```ts
- * const myValidator = objectValidator({
+ * const myValidator = validate(objectValidator({
  *   name: valueValidator(isString, "must be a string"),
  *   numbers: arrayValidator(valueValidator(isNumber, "must be a number")),
  *   tuple: tupleValidator([
  *     valueValidator(isBoolean, "must be a boolean"),
  *     valueValidator(isString, "must be a string"),
  *   ])
- * });
+ * }));
  *
  * const result = myValidator({
  *   name: "a",
  *   numbers: [1, 2, 3],
  *   tuple: [true, ""],
- * }, { path: "$" });
+ * });
  *
  * console.log(result); // []
  * ```

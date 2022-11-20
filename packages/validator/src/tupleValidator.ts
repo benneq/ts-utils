@@ -4,11 +4,11 @@ import { Validator } from "./_types";
  *
  * @example
  * ```ts
- * const myTupleValidator = tupleValidator([
+ * const myTupleValidator = validate(tupleValidator([
  *   valueValidator(isString, "err1"),
  *   valueValidator(isString, "err2"),
- * ]);
- * const result = myTupleValidator(["", 1], { path: "$" });
+ * ]));
+ * const result = myTupleValidator(["", 1]);
  * console.log(result); // [{ path: "$.1", message: "err2", value: 1 }]
  * ```
  *
