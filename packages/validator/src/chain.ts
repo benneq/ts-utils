@@ -17,7 +17,9 @@ import { Validator } from "./_types";
  * @param validators
  * @returns
  */
-export const chain = <T>(...validators: Validator<T>[]): Validator<T> => {
+export const chain = <T, R = T, P = unknown>(
+  ...validators: Validator<T, R, P>[]
+): Validator<T, R, P> => {
   return (value, context) => {
     for (const validator of validators) {
       const validationErrors = validator(value, context);

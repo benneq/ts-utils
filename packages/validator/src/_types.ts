@@ -1,8 +1,10 @@
 /**
  * The context of the current validation.
  */
-export type ValidationContext = {
+export type ValidationContext<R, P = unknown> = {
   path: string;
+  parent?: P;
+  root: R;
 };
 
 /**
@@ -29,7 +31,7 @@ export type ValidationResult = ConstraintViolation[];
  * @param value - the value to validate
  * @returns `[]` if the `value` is valid, otherwise non-empty {@link ValidationResult}
  */
-export type Validator<T> = (
+export type Validator<T, R = T, P = unknown> = (
   value: T,
-  context: ValidationContext
+  context: ValidationContext<R, P>
 ) => ValidationResult;

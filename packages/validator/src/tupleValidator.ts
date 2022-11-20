@@ -15,14 +15,19 @@ import { Validator } from "./_types";
  * @param validators
  * @returns
  */
-export const tupleValidator = <T extends unknown[]>(validators: {
-  [I in keyof T]: Validator<T[I]>;
-}): Validator<T> => {
+export const tupleValidator = <
+  T extends unknown[],
+  R = T,
+  P = unknown
+>(validators: {
+  [I in keyof T]: Validator<T[I], R, T>;
+}): Validator<T, R, P> => {
   return (tuple, context) => {
     return tuple.flatMap((elem, i: keyof T) => {
       return validators[i](elem, {
         ...context,
-        path: context.path + "." + (i as number),
+        path: `${context.path}.${i as number}`,
+        parent: tuple,
       });
     });
   };

@@ -16,16 +16,17 @@ import { ValidationResult, Validator } from "./_types";
  * @returns
  */
 export const objectValidator =
-  <T extends Record<string, unknown>>(def: {
-    [key in keyof T]: Validator<T[key]>;
-  }): Validator<T> =>
+  <T extends Record<string, unknown>, R = T, P = unknown>(def: {
+    [key in keyof T]: Validator<T[key], R, T>;
+  }): Validator<T, R, P> =>
   (value, context) => {
     return Object.entries(def).reduce(
-      (acc, [key, validator]: [keyof T, Validator<T[keyof T]>]) => {
+      (acc, [key, validator]: [keyof T, Validator<T[keyof T], R, T>]) => {
         acc.push(
           ...validator(value[key], {
             ...context,
             path: context.path + "." + (key as string),
+            parent: value,
           })
         );
         return acc;

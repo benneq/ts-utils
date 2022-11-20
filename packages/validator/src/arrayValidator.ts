@@ -13,12 +13,15 @@ import { Validator } from "./_types";
  * @returns
  */
 export const arrayValidator =
-  <T>(validator: Validator<T>): Validator<T[]> =>
+  <T, R = T, P = unknown>(
+    validator: Validator<T, R, T[]>
+  ): Validator<T[], R, P> =>
   (arr, context) => {
     return arr.flatMap((elem, i) => {
       return validator(elem, {
         ...context,
-        path: context.path + "." + i,
+        path: `${context.path}.${i}`,
+        parent: arr,
       });
     });
   };

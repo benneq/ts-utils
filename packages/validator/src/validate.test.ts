@@ -9,7 +9,10 @@ describe("validator.validate", () => {
     const validationResult = validate(validator)(value);
 
     expect(validationResult).toEqual(validatorResult);
-    expect(validator).toHaveBeenNthCalledWith(1, value, { path: "$" });
+    expect(validator).toHaveBeenNthCalledWith(1, value, {
+      path: "$",
+      root: value,
+    });
     expect(validator).toHaveBeenCalledTimes(1);
   });
 });

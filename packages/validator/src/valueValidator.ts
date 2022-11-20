@@ -16,10 +16,10 @@ import { ValidationContext, Validator } from "./_types";
  * @returns
  */
 export const valueValidator =
-  <T>(
+  <T, R = T, P = unknown>(
     isValid: Predicate<[T]>,
-    msg: ValueOrProvider<string, [T, ValidationContext]>
-  ): Validator<T> =>
+    msg: ValueOrProvider<string, [T, ValidationContext<R, P>]>
+  ): Validator<T, R, P> =>
   (value, context) => {
     if (isValid(value)) {
       return [];

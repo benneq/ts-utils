@@ -10,13 +10,13 @@ import { Validator, ValidationResult } from "./_types";
  * const validationResult = validate(isStringValidator)("");
  * console.log(validationResult); // []
  * ```
- * 
+ *
  * @typeParam T - the type of the value to validate
  * @param validator - the {@link Validator} to execute
  * @returns the {@link ValidationResult}
  */
 export const validate =
-  <T>(validator: Validator<T>) =>
+  <T>(validator: Validator<T, T, T>) =>
   (value: T): ValidationResult => {
-    return validator(value, { path: "$" });
+    return validator(value, { path: "$", root: value });
   };
