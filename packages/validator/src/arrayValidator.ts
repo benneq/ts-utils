@@ -1,33 +1,24 @@
-import { ValidationErrors, Validator } from "./_types";
-
-/**
- * An {@link Array} where each element contains {@link ValidationErrors}.
- */
-export type ArrayValidationErrors = ValidationErrors[];
-
-/**
- * An {@link ArrayValidator} validates each element of an {@link Array} using
- * the same {@link Validator}.
- *
- * @param obj - the array to validate
- * @returns an {@link ArrayValidationErrors} containing the {@link ValidationErrors} for each element
- */
-export type ArrayValidator<T> = (value: T[]) => ArrayValidationErrors;
+import { Validator } from "./_types";
 
 /**
  *
  * @example
  * ```ts
- * const myArrayValidator = arrayValidator(predicateValidator(isString, "must be a string"));
- * const result = myArrayValidator(["", 1]);
- * console.log(result); // [[], ["must be a string"]]
+ * const myArrayValidator = arrayValidator(valueValidator(isString, "must be a string"));
+ * const result = myArrayValidator(["", 1], { path: "$" });
+ * console.log(result); // [{ path: "$.1", message: "must be a string", value: 1 }]
  * ```
  *
  * @param validator
  * @returns
  */
 export const arrayValidator =
-  <T>(validator: Validator<T>): ArrayValidator<T> =>
-  (arr) => {
-    return arr.map(validator);
+  <T>(validator: Validator<T>): Validator<T[]> =>
+  (arr, context) => {
+    return arr.flatMap((elem, i) => {
+      return validator(elem, {
+        ...context,
+        path: context.path + "." + i,
+      });
+    });
   };

@@ -1,24 +1,35 @@
 /**
- * An {@link Array} containing validation errors.
+ * The context of the current validation.
  */
-export type ValidationErrors = string[];
+export type ValidationContext = {
+  path: string;
+};
 
 /**
- * A {@link Validator} checks if a `value` is valid and returns the resulting
- * {@link ValidationErrors}.
- *
- * If the `value` is valid the returned {@link ValidationErrors} must be empty.
- *
- * @example
- * Check if `name` is valid
- * ```ts
- * const nameValidator: Validator<string> = (name) =>
- *   name.trim().length > 2 ? [] : ["name must be longer"];
- * const result = nameValidator("ab");
- * console.log(result); // ["name must be longer"]
- * ```
- *
- * @param value - the value to validate
- * @returns `[]` if the `value` is valid, otherwise non-empty {@link ValidationErrors}
+ * An object containing the details of a {@link ConstraintViolation}.
  */
-export type Validator<T> = (value: T) => ValidationErrors;
+export type ConstraintViolation = {
+  path: string;
+  value: unknown;
+  message: string;
+};
+
+/**
+ * An {@link Array} containing {@link ConstraintViolation}s.
+ */
+export type ValidationResult = ConstraintViolation[];
+
+/**
+ * A {@link Validator} checks if a `value` is valid and returns a
+ * {@link ValidationResult} containing the {@link ConstraintViolation}s.
+ *
+ * If the `value` is valid the returned {@link ValidationResult} must be empty.
+ *
+ * @typeParam T - the type of the value to validate
+ * @param value - the value to validate
+ * @returns `[]` if the `value` is valid, otherwise non-empty {@link ValidationResult}
+ */
+export type Validator<T> = (
+  value: T,
+  context: ValidationContext
+) => ValidationResult;

@@ -1,15 +1,17 @@
 import { isString } from "@benneq/string";
 import { arrayValidator } from "./arrayValidator";
-import { predicateValidator } from "./predicateValidator";
+import { valueValidator } from "./valueValidator";
 
 describe("validator.arrayValidator", () => {
   it("should return a new array with ValidationErrors for each element", () => {
     const abObjValidator = arrayValidator<unknown>(
-      predicateValidator(isString, "err")
+      valueValidator(isString, "err")
     );
 
-    expect(abObjValidator([])).toEqual([]);
-    expect(abObjValidator(["", 1])).toEqual([[], ["err"]]);
+    expect(abObjValidator([], { path: "$" })).toEqual([]);
+    expect(abObjValidator(["", 1], { path: "$" })).toEqual([
+      { message: "err", path: "$.1", value: 1 },
+    ]);
   });
 });
 
