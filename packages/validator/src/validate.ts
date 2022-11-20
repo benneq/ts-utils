@@ -18,5 +18,10 @@ import { Validator, ValidationResult } from "./_types";
 export const validate =
   <T>(validator: Validator<T, T, unknown>) =>
   (value: T): ValidationResult => {
-    return validator(value, { path: "$", root: value, parent: undefined });
+    return validator(value, {
+      path: "$",
+      root: value,
+      parent: undefined,
+      shortCircuit: false,
+    });
   };

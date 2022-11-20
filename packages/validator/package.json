@@ -15,6 +15,7 @@
     "@benneq/array": "*",
     "@benneq/function": "*",
     "@benneq/iterable": "*",
+    "@benneq/object": "*",
     "@benneq/predicate": "*"
   }
 }

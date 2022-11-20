@@ -1,4 +1,6 @@
-import { Validator } from "./_types";
+import { pipe } from "@benneq/function";
+import { flatMap, limit, toArray } from "@benneq/iterable";
+import { ConstraintViolation, Validator } from "./_types";
 
 /**
  *
@@ -23,12 +25,18 @@ export const tupleValidator = <
   [I in keyof T]: Validator<T[I], R, T>;
 }): Validator<T, R, P> => {
   return (tuple, context) => {
-    return tuple.flatMap((elem, i: keyof T) => {
-      return validators[i](elem, {
-        ...context,
-        path: `${context.path}.${i as number}`,
-        parent: tuple,
-      });
-    });
+    let i = 0;
+
+    return pipe(
+      flatMap<T[number], ConstraintViolation>((elem) =>
+        validators[i as keyof T](elem, {
+          ...context,
+          path: `${context.path}.${i++}`,
+          parent: tuple,
+        })
+      ),
+      limit(context.shortCircuit ? 1 : -1),
+      toArray<ConstraintViolation>
+    )(tuple);
   };
 };

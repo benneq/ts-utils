@@ -17,6 +17,9 @@
       "path": "../iterable"
     },
     {
+      "path": "../object"
+    },
+    {
       "path": "../predicate"
     }
   ]

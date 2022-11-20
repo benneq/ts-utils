@@ -1,6 +1,5 @@
 import { Predicate } from "@benneq/predicate";
-import { ValueOrProvider, valueOrProviderResult } from "../../object/src";
-import { objectValidator } from "./objectValidator";
+import { ValueOrProvider, valueOrProviderResult } from "@benneq/object";
 import { ValidationContext, Validator } from "./_types";
 
 /**
@@ -13,13 +12,13 @@ import { ValidationContext, Validator } from "./_types";
  * ```
  *
  * @param isValid
- * @param msg
+ * @param message
  * @returns
  */
 export const valueValidator =
   <T, R = T, P = unknown>(
     isValid: Predicate<[T, ValidationContext<R, P>]>,
-    msg: ValueOrProvider<string, [T, ValidationContext<R, P>]>
+    message: ValueOrProvider<string, [T, ValidationContext<R, P>]>
   ): Validator<T, R, P> =>
   (value, context) => {
     if (isValid(value, context)) {
@@ -30,7 +29,7 @@ export const valueValidator =
       {
         path: context.path,
         value,
-        message: valueOrProviderResult(msg, value, context),
+        message: valueOrProviderResult(message, value, context),
       },
     ];
   };

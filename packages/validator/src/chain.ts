@@ -1,5 +1,6 @@
-import { isEmpty } from "@benneq/array";
-import { Validator } from "./_types";
+import { pipe } from "@benneq/function";
+import { flatMap, limit, toArray } from "@benneq/iterable";
+import { ConstraintViolation, Validator } from "./_types";
 
 /**
  *
@@ -21,13 +22,12 @@ export const chain = <T, R = T, P = unknown>(
   ...validators: Validator<T, R, P>[]
 ): Validator<T, R, P> => {
   return (value, context) => {
-    for (const validator of validators) {
-      const validationErrors = validator(value, context);
-      if (!isEmpty(validationErrors)) {
-        return validationErrors;
-      }
-    }
-
-    return [];
+    return pipe(
+      flatMap<Validator<T, R, P>, ConstraintViolation>((validator) =>
+        validator(value, context)
+      ),
+      limit(context.shortCircuit ? 1 : -1),
+      toArray<ConstraintViolation>
+    )(validators);
   };
 };

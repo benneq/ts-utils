@@ -11,7 +11,9 @@ describe("validator.validate", () => {
     expect(validationResult).toEqual(validatorResult);
     expect(validator).toHaveBeenNthCalledWith(1, value, {
       path: "$",
+      parent: undefined,
       root: value,
+      shortCircuit: false,
     });
     expect(validator).toHaveBeenCalledTimes(1);
   });

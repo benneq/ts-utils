@@ -4,7 +4,21 @@ import { validate } from "./validate";
 import { valueValidator } from "./valueValidator";
 
 describe("validator.objectValidator", () => {
-  it("should return a new object with all keys and their values ValidationErrors", () => {
+  it("should return first error", () => {
+    const abObjValidator = objectValidator<{ a?: unknown; b?: unknown }>({
+      a: valueValidator(isString, "err1"),
+      b: valueValidator(isString, "err2"),
+    });
+
+    expect(
+      abObjValidator(
+        {},
+        { parent: undefined, path: "$", root: {}, shortCircuit: true }
+      )
+    ).toEqual([{ message: "err1", path: "$.a", value: undefined }]);
+  });
+
+  it("should return all errors", () => {
     const abObjValidator = validate(
       objectValidator<{ a?: unknown; b?: unknown }>({
         a: valueValidator(isString, "err1"),
@@ -16,7 +30,6 @@ describe("validator.objectValidator", () => {
       { message: "err1", path: "$.a", value: undefined },
       { message: "err2", path: "$.b", value: undefined },
     ]);
-    expect(abObjValidator({ a: "", b: "" })).toEqual([]);
   });
 });
 

@@ -5,6 +5,7 @@ export type ValidationContext<R, P = unknown> = {
   path: string;
   parent: P;
   root: R;
+  shortCircuit: boolean;
 };
 
 /**
@@ -13,7 +14,6 @@ export type ValidationContext<R, P = unknown> = {
 export type ConstraintViolation = {
   path: string;
   value: unknown;
-  message: string;
 };
 
 /**

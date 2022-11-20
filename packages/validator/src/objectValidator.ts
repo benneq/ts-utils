@@ -1,4 +1,6 @@
-import { ValidationResult, Validator } from "./_types";
+import { pipe } from "@benneq/function";
+import { flatMap, limit, toArray } from "@benneq/iterable";
+import { ConstraintViolation, Validator } from "./_types";
 
 /**
  *
@@ -20,17 +22,17 @@ export const objectValidator =
     [key in keyof T]: Validator<T[key], R, T>;
   }): Validator<T, R, P> =>
   (obj, context) => {
-    return Object.entries(def).reduce(
-      (acc, [key, validator]: [keyof T, Validator<T[keyof T], R, T>]) => {
-        acc.push(
-          ...validator(obj[key], {
+    return pipe(
+      flatMap<[keyof T, Validator<T[keyof T], R, T>], ConstraintViolation>(
+        ([key, validator]) => {
+          return validator(obj[key], {
             ...context,
             path: context.path + "." + (key as string),
             parent: obj,
-          })
-        );
-        return acc;
-      },
-      [] as ValidationResult
-    );
+          });
+        }
+      ),
+      limit(context.shortCircuit ? 1 : -1),
+      toArray<ConstraintViolation>
+    )(Object.entries(def));
   };
