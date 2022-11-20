@@ -17,9 +17,9 @@ export type ConstraintViolation = {
 };
 
 /**
- * An {@link Array} containing {@link ConstraintViolation}s.
+ * An {@link Iterable} containing {@link ConstraintViolation}s.
  */
-export type ValidationResult = ConstraintViolation[];
+export type ValidationResult = Iterable<ConstraintViolation>;
 
 /**
  * A {@link Validator} checks if a `value` is valid and returns a
@@ -29,7 +29,7 @@ export type ValidationResult = ConstraintViolation[];
  *
  * @typeParam T - the type of the value to validate
  * @param value - the value to validate
- * @returns `[]` if the `value` is valid, otherwise non-empty {@link ValidationResult}
+ * @returns an empty {@link ValidationResult} if the `value` is valid, otherwise a non-empty {@link ValidationResult}
  */
 export type Validator<T, R = T, P = unknown> = (
   value: T,

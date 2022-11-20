@@ -1,5 +1,5 @@
 import { pipe } from "@benneq/function";
-import { flatMap, limit, toArray } from "@benneq/iterable";
+import { flatMap, limit } from "@benneq/iterable";
 import { ConstraintViolation, Validator } from "./_types";
 
 /**
@@ -35,8 +35,7 @@ export const tupleValidator = <
           parent: tuple,
         })
       ),
-      limit(context.shortCircuit ? 1 : -1),
-      toArray<ConstraintViolation>
+      limit<ConstraintViolation>(context.shortCircuit ? 1 : -1)
     )(tuple);
   };
 };

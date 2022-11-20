@@ -1,5 +1,5 @@
 import { pipe } from "@benneq/function";
-import { flatMap, limit, toArray } from "@benneq/iterable";
+import { flatMap, limit } from "@benneq/iterable";
 import { ConstraintViolation, Validator } from "./_types";
 
 /**
@@ -26,8 +26,7 @@ export const chain = <T, R = T, P = unknown>(
       flatMap<Validator<T, R, P>, ConstraintViolation>((validator) =>
         validator(value, context)
       ),
-      limit(context.shortCircuit ? 1 : -1),
-      toArray<ConstraintViolation>
+      limit<ConstraintViolation>(context.shortCircuit ? 1 : -1)
     )(validators);
   };
 };

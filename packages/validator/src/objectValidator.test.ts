@@ -10,12 +10,14 @@ describe("validator.objectValidator", () => {
       b: valueValidator(isString, "err2"),
     });
 
-    expect(
+    expectIterableToEqual(
       abObjValidator(
         {},
         { parent: undefined, path: "$", root: {}, shortCircuit: true }
-      )
-    ).toEqual([{ message: "err1", path: "$.a", value: undefined }]);
+      ),
+      [{ message: "err1", path: "$.a", value: undefined }],
+      { toEqual: true }
+    );
   });
 
   it("should return all errors", () => {
@@ -26,10 +28,14 @@ describe("validator.objectValidator", () => {
       })
     );
 
-    expect(abObjValidator({})).toEqual([
-      { message: "err1", path: "$.a", value: undefined },
-      { message: "err2", path: "$.b", value: undefined },
-    ]);
+    expectIterableToEqual(
+      abObjValidator({}),
+      [
+        { message: "err1", path: "$.a", value: undefined },
+        { message: "err2", path: "$.b", value: undefined },
+      ],
+      { toEqual: true }
+    );
   });
 });
 

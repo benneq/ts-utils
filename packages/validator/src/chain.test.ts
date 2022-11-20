@@ -10,14 +10,16 @@ describe("validator.chain", () => {
       valueValidator(() => false, "err3")
     );
 
-    expect(
+    expectIterableToEqual(
       validator(0, {
         parent: undefined,
         path: "$",
         root: 0,
         shortCircuit: true,
-      })
-    ).toEqual([{ message: "err1", path: "$", value: 0 }]);
+      }),
+      [{ message: "err1", path: "$", value: 0 }],
+      { toEqual: true }
+    );
   });
 
   it("should return all errors", () => {
@@ -29,14 +31,22 @@ describe("validator.chain", () => {
       )
     );
 
-    expect(validator(0)).toEqual([
-      { message: "err1", path: "$", value: 0 },
-      { message: "err3", path: "$", value: 0 },
-    ]);
-    expect(validator(5)).toEqual([
-      { message: "err2", path: "$", value: 5 },
-      { message: "err3", path: "$", value: 5 },
-    ]);
+    expectIterableToEqual(
+      validator(0),
+      [
+        { message: "err1", path: "$", value: 0 },
+        { message: "err3", path: "$", value: 0 },
+      ],
+      { toEqual: true }
+    );
+    expectIterableToEqual(
+      validator(5),
+      [
+        { message: "err2", path: "$", value: 5 },
+        { message: "err3", path: "$", value: 5 },
+      ],
+      { toEqual: true }
+    );
   });
 });
 

@@ -1,4 +1,4 @@
-import { isEmpty } from "@benneq/array";
+import { isEmpty } from "@benneq/iterable";
 import { Predicate } from "@benneq/predicate";
 import { ValidationResult } from "./_types";
 

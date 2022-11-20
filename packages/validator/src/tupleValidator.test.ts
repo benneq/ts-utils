@@ -10,14 +10,16 @@ describe("validator.tupleValidator", () => {
       valueValidator(isString, "err2"),
     ]);
 
-    expect(
+    expectIterableToEqual(
       abObjValidator([-1, 2], {
         parent: undefined,
         path: "$",
         root: [-1, 2],
         shortCircuit: true,
-      })
-    ).toEqual([{ message: "err1", path: "$.0", value: -1 }]);
+      }),
+      [{ message: "err1", path: "$.0", value: -1 }],
+      { toEqual: true }
+    );
   });
 
   it("should return all errors", () => {
@@ -28,10 +30,14 @@ describe("validator.tupleValidator", () => {
       ])
     );
 
-    expect(abObjValidator([-1, 2])).toEqual([
-      { message: "err1", path: "$.0", value: -1 },
-      { message: "err2", path: "$.1", value: 2 },
-    ]);
+    expectIterableToEqual(
+      abObjValidator([-1, 2]),
+      [
+        { message: "err1", path: "$.0", value: -1 },
+        { message: "err2", path: "$.1", value: 2 },
+      ],
+      { toEqual: true }
+    );
   });
 });
 

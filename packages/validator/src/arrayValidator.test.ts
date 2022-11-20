@@ -7,14 +7,16 @@ describe("validator.arrayValidator", () => {
   it("should return first error", () => {
     const abObjValidator = arrayValidator(valueValidator(isString, "err"));
 
-    expect(
+    expectIterableToEqual(
       abObjValidator(["", 1, 2], {
         parent: undefined,
         path: "$",
         root: 0,
         shortCircuit: true,
-      })
-    ).toEqual([{ message: "err", path: "$.1", value: 1 }]);
+      }),
+      [{ message: "err", path: "$.1", value: 1 }],
+      { toEqual: true }
+    );
   });
 
   it("should return all errors", () => {
@@ -22,10 +24,14 @@ describe("validator.arrayValidator", () => {
       arrayValidator(valueValidator(isString, "err"))
     );
 
-    expect(abObjValidator(["", 1, 2])).toEqual([
-      { message: "err", path: "$.1", value: 1 },
-      { message: "err", path: "$.2", value: 2 },
-    ]);
+    expectIterableToEqual(
+      abObjValidator(["", 1, 2]),
+      [
+        { message: "err", path: "$.1", value: 1 },
+        { message: "err", path: "$.2", value: 2 },
+      ],
+      { toEqual: true }
+    );
   });
 });
 
