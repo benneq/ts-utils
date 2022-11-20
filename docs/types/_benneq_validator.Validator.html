@@ -15,21 +15,25 @@
 <li><a href="../modules.html">@benneq/ts-utils</a></li>
 <li><a href="../modules/_benneq_validator.html">@benneq/validator</a></li>
 <li><a href="_benneq_validator.Validator.html">Validator</a></li></ul>
-<h1>Type alias Validator&lt;T&gt;</h1></div>
-<div class="tsd-signature">Validator<span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type" data-tsd-kind="Type parameter">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type" data-tsd-kind="Type parameter">T</span>, context<span class="tsd-signature-symbol">: </span><a href="_benneq_validator.ValidationContext.html" class="tsd-signature-type" data-tsd-kind="Type alias">ValidationContext</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><a href="_benneq_validator.ValidationResult.html" class="tsd-signature-type" data-tsd-kind="Type alias">ValidationResult</a><span class="tsd-signature-symbol">)</span></div>
+<h1>Type alias Validator&lt;T, R, P&gt;</h1></div>
+<div class="tsd-signature">Validator<span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type" data-tsd-kind="Type parameter">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type" data-tsd-kind="Type parameter">R</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type" data-tsd-kind="Type parameter">P</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type" data-tsd-kind="Type parameter">T</span>, context<span class="tsd-signature-symbol">: </span><a href="_benneq_validator.ValidationContext.html" class="tsd-signature-type" data-tsd-kind="Type alias">ValidationContext</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type" data-tsd-kind="Type parameter">R</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type" data-tsd-kind="Type parameter">P</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><a href="_benneq_validator.ValidationResult.html" class="tsd-signature-type" data-tsd-kind="Type alias">ValidationResult</a><span class="tsd-signature-symbol">)</span></div>
 <section class="tsd-panel tsd-type-parameters">
 <h4>Type Parameters</h4>
 <ul class="tsd-type-parameters">
 <li>
 <h4>T</h4>
 <div class="tsd-comment tsd-typography"><p>the type of the value to validate</p>
-</div></li></ul></section>
+</div></li>
+<li>
+<h4>R = <span class="tsd-signature-type" data-tsd-kind="Type parameter">T</span></h4></li>
+<li>
+<h4>P = <span class="tsd-signature-type">unknown</span></h4></li></ul></section>
 <div class="tsd-type-declaration">
 <h4>Type declaration</h4>
 <ul class="tsd-parameters">
 <li class="tsd-parameter-signature">
 <ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-alias">
-<li class="tsd-signature" id="__type.__type-1"><span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type" data-tsd-kind="Type parameter">T</span>, context<span class="tsd-signature-symbol">: </span><a href="_benneq_validator.ValidationContext.html" class="tsd-signature-type" data-tsd-kind="Type alias">ValidationContext</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_benneq_validator.ValidationResult.html" class="tsd-signature-type" data-tsd-kind="Type alias">ValidationResult</a></li>
+<li class="tsd-signature" id="__type.__type-1"><span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type" data-tsd-kind="Type parameter">T</span>, context<span class="tsd-signature-symbol">: </span><a href="_benneq_validator.ValidationContext.html" class="tsd-signature-type" data-tsd-kind="Type alias">ValidationContext</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type" data-tsd-kind="Type parameter">R</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type" data-tsd-kind="Type parameter">P</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_benneq_validator.ValidationResult.html" class="tsd-signature-type" data-tsd-kind="Type alias">ValidationResult</a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>A <a href="_benneq_validator.Validator.html">Validator</a> checks if a <code>value</code> is valid and returns a
 <a href="_benneq_validator.ValidationResult.html">ValidationResult</a> containing the <a href="_benneq_validator.ConstraintViolation.html">ConstraintViolation</a>s.</p>
@@ -45,10 +49,10 @@
 <div class="tsd-comment tsd-typography"><p>the value to validate</p>
 </div></li>
 <li>
-<h5>context: <a href="_benneq_validator.ValidationContext.html" class="tsd-signature-type" data-tsd-kind="Type alias">ValidationContext</a></h5></li></ul></div>
+<h5>context: <a href="_benneq_validator.ValidationContext.html" class="tsd-signature-type" data-tsd-kind="Type alias">ValidationContext</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type" data-tsd-kind="Type parameter">R</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type" data-tsd-kind="Type parameter">P</span><span class="tsd-signature-symbol">&gt;</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <a href="_benneq_validator.ValidationResult.html" class="tsd-signature-type" data-tsd-kind="Type alias">ValidationResult</a></h4></li></ul></li></ul></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/benneq/ts-utils/blob/0752a25/packages/validator/src/_types.ts#L32">validator/src/_types.ts:32</a></li></ul></aside></div>
+<li>Defined in <a href="https://github.com/benneq/ts-utils/blob/9c5f25b/packages/validator/src/_types.ts#L34">validator/src/_types.ts:34</a></li></ul></aside></div>
 <div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 <div class="tsd-navigation settings">
 <details class="tsd-index-accordion"><summary class="tsd-accordion-summary">
