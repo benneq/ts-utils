@@ -23,19 +23,19 @@ export const tupleValidator = <
   P = unknown
 >(validators: {
   [I in keyof T]: Validator<T[I], R, T>;
-}): Validator<T, R, P> => {
+}): Validator<T, R, T> => {
   return (tuple, context) => {
     let i = 0;
 
     return pipe(
-      flatMap<T[number], ConstraintViolation>((elem) =>
-        validators[i as keyof T](elem, {
+      flatMap<Validator<T[keyof T], R, T>, ConstraintViolation>((validator) =>
+        validator(tuple[i as keyof T], {
           ...context,
           path: `${context.path}.${i++}`,
           parent: tuple,
         })
       ),
       limit<ConstraintViolation>(context.shortCircuit ? 1 : -1)
-    )(tuple);
+    )(validators);
   };
 };

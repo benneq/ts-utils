@@ -24,13 +24,12 @@ export const objectValidator =
   (obj, context) => {
     return pipe(
       flatMap<[keyof T, Validator<T[keyof T], R, T>], ConstraintViolation>(
-        ([key, validator]) => {
-          return validator(obj[key], {
+        ([key, validator]) =>
+          validator(obj[key], {
             ...context,
             path: context.path + "." + (key as string),
             parent: obj,
-          });
-        }
+          })
       ),
       limit<ConstraintViolation>(context.shortCircuit ? 1 : -1)
     )(Object.entries(def));
