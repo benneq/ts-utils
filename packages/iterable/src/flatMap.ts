@@ -1,7 +1,8 @@
 import { Mapper } from "@benneq/function";
 
 /**
- * Maps an {@link Iterable} to a flat representation of the mapped {@link Iterable}s
+ * Maps an {@link Iterable} to a flat representation of the mapped
+ * {@link Iterable}s.
  *
  * @example
  * ```ts

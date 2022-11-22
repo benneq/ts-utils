@@ -1,5 +1,5 @@
 /**
- * Chunks the elements of an Iterable
+ * Chunks the elements of an {@link Iterable}.
  *
  * @example
  * Chunk in pairs
@@ -23,7 +23,7 @@
  * @typeParam T - the {@link Iterable} value type
  * @param chunkSize - the chunk size
  * @param fill - the fill value
- * @returns
+ * @returns The chunked {@link Iterable}
  */
 export const chunk = <T>(chunkSize: number, ...fill: [] | [T]) =>
   function* (iterable: Iterable<T>): Iterable<T[]> {

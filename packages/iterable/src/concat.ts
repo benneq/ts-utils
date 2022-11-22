@@ -2,7 +2,7 @@ import { identity } from "@benneq/function";
 import { flatMap } from "./flatMap";
 
 /**
- * Concatenates multiple {@link Iterable}s in order
+ * Concatenates multiple {@link Iterable}s in order.
  *
  * @example
  * ```ts

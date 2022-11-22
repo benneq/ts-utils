@@ -1,7 +1,7 @@
 import { Predicate } from "@benneq/predicate";
 
 /**
- * Checks if all elements of an {@link Iterable} match a {@link Predicate}
+ * Checks if all elements of an {@link Iterable} match a {@link Predicate}.
  *
  * @example
  * ```ts

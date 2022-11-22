@@ -1,5 +1,5 @@
 /**
- * An empty {@link Iterable}
+ * An empty {@link Iterable}.
  *
  * @example
  * ```ts

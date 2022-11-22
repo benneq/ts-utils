@@ -1,5 +1,5 @@
 /**
- * Checks if the provided value is an {@link Iterable}
+ * Checks if the provided value is an {@link Iterable}.
  *
  * @example
  * Is String iterable?

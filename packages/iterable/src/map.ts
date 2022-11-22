@@ -1,7 +1,7 @@
 import { Mapper } from "@benneq/function";
 
 /**
- * Maps every element of the provided Iterable using the given Mapper
+ * Maps every element of an {@link Iterable} using a {@link Mapper} function.
  *
  * @example
  * Square all numbers
@@ -14,7 +14,7 @@ import { Mapper } from "@benneq/function";
  * @typeParam T - the source {@link Iterable} value type
  * @typeParam R - the target {@link Iterable} value type
  * @param mapper
- * @returns a Generator that emits all mapped elements from the provided Iterable
+ * @returns an {@link Iterable} that emits all mapped elements
  */
 export const map = <T, R>(mapper: Mapper<T, R>) =>
   function* (iterable: Iterable<T>): Iterable<R> {

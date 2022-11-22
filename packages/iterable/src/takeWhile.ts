@@ -1,7 +1,8 @@
 import { Predicate } from "@benneq/predicate";
 
 /**
- * Emits all elements from the provided Iterable until the given Predicate does not match
+ * Emits all elements of an {@link Iterable} until a {@link Predicate} does not
+ * match anymore.
  *
  * @example
  * ```ts
@@ -12,7 +13,7 @@ import { Predicate } from "@benneq/predicate";
  *
  * @typeParam T - the {@link Iterable} value type
  * @param predicate
- * @returns a Generator that emits values until the given Predicate returns `false`
+ * @returns an {@link Iterable} that emits values until the {@link Predicate} returns `false`
  */
 export const takeWhile = <T>(predicate: Predicate<[T]>) =>
   function* (iterable: Iterable<T>): Iterable<T> {

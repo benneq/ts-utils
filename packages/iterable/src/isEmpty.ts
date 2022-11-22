@@ -1,5 +1,5 @@
 /**
- * Checks if an {@link Iterable} contains any element
+ * Checks if an {@link Iterable} contains any element.
  *
  * @remarks
  * This function will consume the first element

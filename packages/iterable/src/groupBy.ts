@@ -2,6 +2,9 @@ import { Mapper } from "@benneq/function";
 import { reduce } from "./reduce";
 
 /**
+ * Groups all elements of an {@link Iterable} by using a {@link Mapper}
+ * function and returns a {@link Map} containing the grouped values for each
+ * mapped key in an {@link Array}.
  *
  * @example
  * ```ts
@@ -12,8 +15,8 @@ import { reduce } from "./reduce";
  *
  * @typeParam T - the {@link Iterable} value type
  * @typeParam K - the {@link Map} key type
- * @param mapper
- * @returns
+ * @param mapper - the key {@link Mapper} function
+ * @returns a {@link Map} containing the grouped values
  */
 export const groupBy = <T, K>(
   mapper: Mapper<T, K>

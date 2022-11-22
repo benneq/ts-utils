@@ -1,9 +1,10 @@
 import { Predicate } from "@benneq/predicate";
 
 /**
- * Checks if any element of the provided Iterable matches the given Predicate
+ * Checks if any element of an {@link Iterable} matches a {@link Predicate}.
  *
  * @example
+ * Is any value even?
  * ```ts
  * const anyValueEven = some(x => x % 2);
  * const result = anyValueEven([1,2,3]);
@@ -12,7 +13,7 @@ import { Predicate } from "@benneq/predicate";
  *
  * @typeParam T - the {@link Iterable} value type
  * @param predicate - the {@link Predicate} to match
- * @returns `true` if the given Predicate returns `true` for any element of the provided Iterable
+ * @returns `true` if the {@link Predicate} returns `true` for any element
  */
 export const some =
   <T>(predicate: Predicate<[T]>) =>

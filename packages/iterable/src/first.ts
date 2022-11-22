@@ -2,8 +2,8 @@ import { alwaysTrue } from "@benneq/predicate";
 import { findFirst } from "./findFirst";
 
 /**
- * Get the first element of an {@link Iterable}, or an optional default value if the
- * {@link Iterable} is empty.
+ * Get the first element of an {@link Iterable}, or an optional default value
+ * if the {@link Iterable} is empty.
  *
  * Returns `undefined` if the {@link Iterable} is empty and no `defaultValue`
  * was provided.

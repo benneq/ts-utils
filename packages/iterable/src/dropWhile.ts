@@ -1,7 +1,8 @@
 import { Predicate } from "@benneq/predicate";
 
 /**
- * Omits the first elements from an {@link Iterable} until a {@link Predicate} returns `false`
+ * Omits the first elements of an {@link Iterable} until a {@link Predicate}
+ * returns `false`.
  *
  * @example
  * ```ts

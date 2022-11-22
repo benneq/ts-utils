@@ -1,7 +1,7 @@
 import { takeWhile } from "./takeWhile";
 
 /**
- * Limit the elements of the provided Iterable to the first n elements
+ * Limit the elements of an {@link Iterable} to the first `n` elements.
  *
  * @example
  * Only emit the first 2 elements
@@ -13,7 +13,7 @@ import { takeWhile } from "./takeWhile";
  *
  * @typeParam T - the {@link Iterable} value type
  * @param maxSize - the {@link number} of maximum values to emit
- * @returns a Generator that emits only the first maxSize elements
+ * @returns an {@link Iterable} that emits only the first `maxSize` elements
  */
 export const limit = <T>(
   maxSize: number

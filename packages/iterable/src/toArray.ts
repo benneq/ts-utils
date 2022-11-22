@@ -1,5 +1,5 @@
 /**
- * Converts all elements of an {@link Iterable} to an {@link Array}
+ * Converts all elements of an {@link Iterable} to an {@link Array}.
  *
  * @example
  * Convert {@link Iterable} to {@link Array}
@@ -11,7 +11,7 @@
  *
  * @typeParam T - the {@link Iterable} value type
  * @param iterable - the {@link Iterable} to convert
- * @returns an Array consisting of all elements of the provided Iterable
+ * @returns an {@link Array} consisting of all elements
  */
 export const toArray = <T>(iterable: Iterable<T>): T[] => {
   return Array.from(iterable);

@@ -1,7 +1,8 @@
 import { Predicate } from "@benneq/predicate";
 
 /**
- * Only emits elements from an {@link Iterable} that match the given {@link Predicate}
+ * Only emits elements from an {@link Iterable} that match the given
+ * {@link Predicate}.
  *
  * @example
  * Filter even numbers

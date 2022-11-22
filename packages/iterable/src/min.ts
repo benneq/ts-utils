@@ -3,7 +3,8 @@ import { isUndefined } from "@benneq/object";
 import { reduce } from "./reduce";
 
 /**
- * Get the minimum element from the provided Iterable using the given Comparator
+ * Get the minimum element from an {@link Iterable} by comparing the elements
+ * using a {@link Comparator}.
  *
  * @example
  * Find min number in Array
@@ -14,8 +15,8 @@ import { reduce } from "./reduce";
  * ```
  *
  * @typeParam T - the {@link Iterable} value type
- * @param comparator - the Comparator to use
- * @returns the minimum element from the provided Iterable, or `undefined` if Iterable is empty
+ * @param comparator - the {@link Comparator} to use
+ * @returns the minimum element, or `undefined` if the {@link Iterable} is empty
  */
 export const min = <T>(
   comparator: Comparator<T>

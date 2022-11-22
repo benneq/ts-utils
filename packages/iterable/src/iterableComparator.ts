@@ -27,7 +27,7 @@ import { zip } from "./zip";
  * ```
  *
  * @typeParam T - the {@link Iterable} value type
- * @param comparator
+ * @param comparator - the {@link Comparator} to use for the comparison of the elements
  * @returns a {@link Comparator} for {@link Iterable}s of type `T`
  */
 export const iterableComparator = <T>(
