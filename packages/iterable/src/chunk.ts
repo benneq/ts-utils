@@ -17,6 +17,9 @@
  * console.log(pairs); // [[1,2], [3,4], [5,0]]
  * ```
  *
+ * @see {@link concat}, {@link flatMap} and {@link zip} for
+ * similar operations.
+ *
  * @privateRemarks
  * `...fill` is used to distinguish between `undefined` and "no value provided".
  *

@@ -7,7 +7,7 @@ import { alwaysTrue, Predicate } from "@benneq/predicate";
  * when the `hasNext` {@link Predicate} returns `false`.
  *
  * @example
- * Iterate from 1 to 3
+ * Iterate from `1` to `3`
  * ```ts
  * const iterable = iterate(
  *   1,
@@ -17,6 +17,8 @@ import { alwaysTrue, Predicate } from "@benneq/predicate";
  *
  * console.log(iterable); // [1, 2, 3]
  * ```
+ *
+ * @see {@link generate} for similar operations.
  *
  * @typeParam T - the {@link Iterable} value type
  * @param seed - the first value of the sequence

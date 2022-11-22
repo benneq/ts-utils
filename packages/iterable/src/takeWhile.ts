@@ -1,8 +1,9 @@
 import { Predicate } from "@benneq/predicate";
 
 /**
- * Emits all elements of an {@link Iterable} until a {@link Predicate} does not
- * match anymore.
+ * Emits all elements of an {@link Iterable} while a {@link Predicate} matches.
+ *
+ * Terminates the {@link Iterable} when the {@link Predicate} returns `false`.
  *
  * @example
  * ```ts
@@ -11,8 +12,10 @@ import { Predicate } from "@benneq/predicate";
  * console.log(iterable); // [1,2]
  * ```
  *
+ * @see {@link dropWhile}, {@link limit} and {@link skip} for similar operations.
+ *
  * @typeParam T - the {@link Iterable} value type
- * @param predicate
+ * @param predicate - the {@link Predicate} to match
  * @returns an {@link Iterable} that emits values until the {@link Predicate} returns `false`
  */
 export const takeWhile = <T>(predicate: Predicate<[T]>) =>

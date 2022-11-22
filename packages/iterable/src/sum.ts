@@ -9,6 +9,8 @@ import { reduce } from "./reduce";
  * console.log(result); // 6
  * ```
  *
+ * @see {@link reduce} for similar operations.
+ *
  * @param iterable - the {@link Iterable} to sum
  * @returns the sum of all {@link number}s
  */

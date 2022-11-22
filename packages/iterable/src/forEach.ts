@@ -10,6 +10,8 @@ import { Callback } from "@benneq/function";
  * printAll([1, 2, 3]); // 1, 2, 3
  * ```
  *
+ * @see {@link map} and {@link tap} for similar operations
+ *
  * @typeParam T - the {@link Iterable} value type
  * @param callback - the {@link Callback} to call
  */

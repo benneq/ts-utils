@@ -23,6 +23,8 @@ import { identity, Mapper } from "@benneq/function";
  * console.log(distinctValues); // [1,2]
  * ```
  *
+ * @see {@link filter} for similar operations.
+ *
  * @typeParam T - the {@link Iterable} value type
  * @param keyMapper - a {@link Function} that maps an element into a key
  * @returns an {@link Iterable} containing only unique values

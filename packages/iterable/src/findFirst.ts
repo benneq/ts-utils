@@ -23,10 +23,12 @@ import { Predicate } from "@benneq/predicate";
  * console.log(result); // 2
  * ```
  *
+ * @see {@link filter} and {@link first} for similar operations.
+ *
  * @typeParam T - the {@link Iterable} value type
  * @param predicate - the {@link Predicate} to match
  * @param defaultValue
- * @returns the first matching element of the {@link Iterable}, or the given defaultValue
+ * @returns the first matching element of the {@link Iterable}, or the given `defaultValue`
  */
 export const findFirst: {
   <T>(predicate: Predicate<[T]>): (iterable: Iterable<T>) => T | undefined;

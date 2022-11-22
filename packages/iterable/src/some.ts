@@ -11,6 +11,8 @@ import { Predicate } from "@benneq/predicate";
  * console.log(result); // true
  * ```
  *
+ * @see {@link every} and {@link filter} for similar operations.
+ *
  * @typeParam T - the {@link Iterable} value type
  * @param predicate - the {@link Predicate} to match
  * @returns `true` if the {@link Predicate} returns `true` for any element

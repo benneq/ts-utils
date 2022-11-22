@@ -11,6 +11,8 @@ import { Predicate } from "@benneq/predicate";
  * console.log(iterable); // [3,2,4]
  * ```
  *
+ * @see {@link limit}, {@link skip} and {@link takeWhile} for similar operations.
+ *
  * @typeParam T - the {@link Iterable} value type
  * @param predicate
  * @returns an {@link Iterable} that does not emit values until the given {@link Predicate} returns `false`

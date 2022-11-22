@@ -3,7 +3,7 @@ import { isUndefined } from "@benneq/object";
 import { reduce } from "./reduce";
 
 /**
- * Get the maximum element from an {@link Iterable} by comparing the elements
+ * Get the maximum element from an {@link Iterable} by comparing its elements
  * using a {@link Comparator}.
  *
  * @example

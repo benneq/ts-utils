@@ -3,7 +3,7 @@ import { isUndefined } from "@benneq/object";
 import { reduce } from "./reduce";
 
 /**
- * Get the minimum element from an {@link Iterable} by comparing the elements
+ * Get the minimum element from an {@link Iterable} by comparing its elements
  * using a {@link Comparator}.
  *
  * @example

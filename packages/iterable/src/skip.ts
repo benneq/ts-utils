@@ -11,6 +11,8 @@ import { dropWhile } from "./dropWhile";
  * console.log(iterable); // [3, 4]
  * ```
  *
+ * @see {@link dropWhile}, {@link limit} and {@link takeWhile} for similar operations.
+ *
  * @typeParam T - the {@link Iterable} value type
  * @param toSkip - the {@link number} of values to skip
  * @returns an {@link Iterable} that does not emit the first `toSkip` elements

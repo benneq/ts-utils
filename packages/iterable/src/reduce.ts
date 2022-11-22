@@ -13,6 +13,9 @@
  * console.log(result); // 6
  * ```
  *
+ * @see {@link filter}, {@link flatMap}, {@link map} and {@link sum} for
+ * similar operations.
+ *
  * @typeParam T - the {@link Iterable} value type
  * @typeParam U - the `reduce` result type
  * @param reducerFn - the reducer Fucntion

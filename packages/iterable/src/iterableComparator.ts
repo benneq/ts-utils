@@ -11,7 +11,7 @@ import { zip } from "./zip";
  * be used for the comparison result.
  *
  * @example
- * Compare {@link Iterable}s
+ * Compare {@link Iterable}s of numbers
  * ```ts
  * const numberIterableComparator = iterableComparator(numberComparator);
  * const result = numberIterableComparator([1, 2], [1, 1]);

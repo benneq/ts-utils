@@ -12,6 +12,8 @@ import { Provider } from "@benneq/function";
  * console.log(value1, value2); // 0, 1
  * ```
  *
+ * @see {@link iterate} for similar operations.
+ *
  * @typeParam T - the {@link Iterable} value type
  * @param provider - a {@link Function} that produces values
  */

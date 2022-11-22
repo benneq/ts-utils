@@ -11,6 +11,9 @@ import { Mapper } from "@benneq/function";
  * console.log(result); // [1,1,1,2,1,3]
  * ```
  *
+ * @see {@link chunk}, {@link groupBy}, {@link map} and {@link zip} for
+ * similar operations.
+ *
  * @typeParam T - the source {@link Iterable} value type
  * @typeParam R - the target {@link Iterable} value type
  * @param mapper

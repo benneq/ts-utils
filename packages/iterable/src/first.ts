@@ -22,6 +22,8 @@ import { findFirst } from "./findFirst";
  * console.log(result); // 1
  * ```
  *
+ * @see {@link filter} and {@link findFirst} for similar operations.
+ *
  * @typeParam T - the {@link Iterable} value type
  * @param defaultValue - the default value
  * @returns the first element of the {@link Iterable}, or the defaultValue

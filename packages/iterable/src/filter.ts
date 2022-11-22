@@ -13,9 +13,11 @@ import { Predicate } from "@benneq/predicate";
  * console.log(filteredIterable); // [2,4]
  * ```
  *
+ * @see {@link distinct}, {@link findFirst} and {@link first} for similar operations.
+ *
  * @typeParam T - the {@link Iterable} value type
  * @param predicate - the {@link Predicate} to match
- * @returns an {@link Iterable} that only emits values for which the given {@link Predicate} returns `true`
+ * @returns an {@link Iterable} that only emits values for which the {@link Predicate} returns `true`
  */
 export const filter = <T>(predicate: Predicate<[T]>) =>
   function* (iterable: Iterable<T>): Iterable<T> {

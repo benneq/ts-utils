@@ -10,9 +10,11 @@ import { Predicate } from "@benneq/predicate";
  * console.log(result); // true
  * ```
  *
+ * @see {@link filter} and {@link some} for similar operations.
+ *
  * @typeParam T - the {@link Iterable} value type
  * @param predicate - the {@link Predicate} to match
- * @returns `true` if the {@link Predicate} returns `true` for all elements of the {@link Iterable}
+ * @returns `true` if the {@link Predicate} returns `true` for all elements
  */
 export const every =
   <T>(predicate: Predicate<[T]>) =>

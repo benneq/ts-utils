@@ -17,7 +17,8 @@ type ExtractValue<T extends ReadonlyArray<Iterable<unknown>>> = {
  * ```
  *
  * @todo
- * Don't yield undefined, if elements don't exist
+ * Don't yield undefined, if elements don't exist, or provide optional
+ * default value.
  *
  * @param iterables - the {@link Iterable}s to interleave
  * @returns the interleaved {@link Iterable}
@@ -25,5 +26,5 @@ type ExtractValue<T extends ReadonlyArray<Iterable<unknown>>> = {
 export const interleave = <TArgs extends Iterable<unknown>[]>(
   ...iterables: TArgs
 ): Iterable<ExtractValue<TArgs>> => {
-  return concat<any>(zip(...iterables));
+  return concat(zip(...iterables)) as Iterable<ExtractValue<TArgs>>;
 };
