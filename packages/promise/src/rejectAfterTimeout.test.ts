@@ -19,11 +19,11 @@ describe("promise.rejectAfterTimeout", () => {
     rejectAfterTimeout(100).catch(catchSpy);
     expect(catchSpy).not.toHaveBeenCalled();
 
-    jest.advanceTimersByTime(50);
+    jest.advanceTimersByTime(99);
     await Promise.resolve();
     expect(catchSpy).not.toHaveBeenCalled();
 
-    jest.advanceTimersByTime(50);
+    jest.advanceTimersByTime(1);
     await Promise.resolve();
     expect(catchSpy).toHaveBeenNthCalledWith(1, undefined);
     expect(catchSpy).toHaveBeenCalledTimes(1);

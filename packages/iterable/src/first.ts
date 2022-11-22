@@ -1,5 +1,5 @@
 import { alwaysTrue } from "@benneq/predicate";
-import { findFirst } from "./findFirst";
+import { find } from "./find";
 
 /**
  * Get the first element of an {@link Iterable}, or an optional default value
@@ -22,7 +22,7 @@ import { findFirst } from "./findFirst";
  * console.log(result); // 1
  * ```
  *
- * @see {@link filter} and {@link findFirst} for similar operations.
+ * @see {@link filter} and {@link find} for similar operations.
  *
  * @typeParam T - the {@link Iterable} value type
  * @param defaultValue - the default value
@@ -32,5 +32,5 @@ export const first: {
   <T>(): (iterable: Iterable<T>) => T | undefined;
   <T>(defaultValue: T): (iterable: Iterable<T>) => T;
 } = <T>(defaultValue?: T): ((iterable: Iterable<T>) => T | undefined) => {
-  return findFirst(alwaysTrue, defaultValue);
+  return find(alwaysTrue, defaultValue);
 };

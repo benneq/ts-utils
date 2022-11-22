@@ -1,6 +1,9 @@
 /**
  * Executes all {@link Promise}s in serial order and returns either all results
- * first or throws the first error.
+ * or throws the first error.
+ *
+ * The results will be returned in an {@link Array} with the same order as the
+ * executed {@link Promise}s.
  *
  * @example
  * Execute all {@link Promise}s in serial
@@ -13,7 +16,7 @@
  * promise.then(v => console.log(v)); // [1, 2]
  * ```
  *
- * @param promises the {@link Promise}s to execute in serial order
+ * @param promises - the {@link Promise}s to execute in serial order
  * @returns a {@link Promise} that executes all {@link Promise}s in serial
  */
 export const allSerial = async <T>(

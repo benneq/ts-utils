@@ -1,5 +1,5 @@
 /**
- * Creates a Promise that rejects after `ms` milliseconds with `error`
+ * Creates a {@link Promise} that rejects after `ms` milliseconds with an `error`.
  *
  * @example
  * Reject after 100ms
@@ -17,11 +17,13 @@
  *   .catch((err) => console.log(err)); // will be called after 100ms
  * ```
  *
- * @returns a new Promise that rejects after `ms` milliseconds
+ * @param ms - the number of milliseconds to wait
+ * @param error - the optional error to reject with
+ * @returns a {@link Promise} that rejects after `ms` milliseconds
  */
 export const rejectAfterTimeout = (
   ms: number,
   error?: unknown
-): Promise<void> => {
+): Promise<never> => {
   return new Promise((_resolve, reject) => setTimeout(reject, ms, error));
 };

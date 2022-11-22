@@ -1,7 +1,7 @@
 import { noop } from "@benneq/function";
 
 /**
- * A Promise that never fulfills
+ * A {@link Promise} that never fulfills.
  *
  * @remark
  * Caution when using with `await`, because it will block at the `await` forever.

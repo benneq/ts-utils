@@ -11,3 +11,4 @@ export * from "./isPromise";
 export * from "./isPromiseLike";
 export * from "./rejectAfterTimeout";
 export * from "./resolveAfterTimeout";
+export * from "./timeoutPromise";

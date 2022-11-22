@@ -1,5 +1,5 @@
 /**
- * Creates a Promise that resolves after `ms` milliseconds with `value`
+ * Creates a {@link Promise} that resolves after `ms` milliseconds with a `value`.
  *
  * @example
  * Resolve after 100ms
@@ -17,7 +17,9 @@
  *   .catch(() => console.log("catch")); // this will never be called
  * ```
  *
- * @returns a new Promise that resolves after `ms` milliseconds
+ * @param ms - the number of milliseconds to wait
+ * @param error - the optional value to resolve with
+ * @returns a {@link Promise} that resolves after `ms` milliseconds
  */
 export const resolveAfterTimeout: {
   (ms: number): Promise<void>;

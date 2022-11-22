@@ -4,6 +4,12 @@ import { isEmpty } from "@benneq/array";
  * Executes all {@link Promise}s in serial order and returns either the first
  * result or throws an {@link AggregateError} containing all errors.
  *
+ * Am optional `defaultValue` can be provided that will be returned if
+ * `promises` is empty.
+ *
+ * If no {@link Promise}s and no `defaultValue` were provided `undefined` will
+ * be returned.
+ *
  * @example
  * Execute all {@link Promise}s in serial
  * ```ts
@@ -15,12 +21,16 @@ import { isEmpty } from "@benneq/array";
  * promise.then(v => console.log(v)); // 1
  * ```
  *
- * @param promises the {@link Promise}s to execute in serial order
+ * @param promises - the {@link Promise}s to execute in serial order
  * @returns a {@link Promise} that executes all {@link Promise}s in serial
  */
-export const anySerial = async <T>(
-  promises: Iterable<Promise<T>>
-): Promise<T> => {
+export const anySerial: {
+  <T>(promises: Iterable<Promise<T>>): Promise<T | undefined>;
+  <T>(promises: Iterable<Promise<T>>, defaultValue: T): Promise<T>;
+} = async <T>(
+  promises: Iterable<Promise<T>>,
+  defaultValue?: T
+): Promise<T | undefined> => {
   const errors = [];
   for (const promise of promises) {
     try {
@@ -32,7 +42,7 @@ export const anySerial = async <T>(
 
   // if no promise was provided
   if (isEmpty(errors)) {
-    return undefined as T;
+    return defaultValue;
   }
 
   // if all promises rejected

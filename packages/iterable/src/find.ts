@@ -30,7 +30,7 @@ import { Predicate } from "@benneq/predicate";
  * @param defaultValue
  * @returns the first matching element of the {@link Iterable}, or the given `defaultValue`
  */
-export const findFirst: {
+export const find: {
   <T>(predicate: Predicate<[T]>): (iterable: Iterable<T>) => T | undefined;
   <T>(predicate: Predicate<[T]>, defaultValue: T): (iterable: Iterable<T>) => T;
 } =

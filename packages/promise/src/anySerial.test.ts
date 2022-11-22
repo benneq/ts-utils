@@ -1,9 +1,16 @@
 import { anySerial } from "./anySerial";
 
 describe("promise.anySerial", () => {
-  it("should resolve if no Promise was provided", async () => {
+  it("should resolve to undefined if no Promise was provided", async () => {
     const promise = anySerial([]);
     expect(promise).resolves.toBeUndefined();
+  });
+
+  it("should resolve to defaultValue if no Promise was provided", async () => {
+    const [defaultValue] = symbolGenerator();
+
+    const promise = anySerial([], defaultValue);
+    expect(promise).resolves.toBe(defaultValue);
   });
 
   it("should resolve to the first resolving Promise", async () => {
