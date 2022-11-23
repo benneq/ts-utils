@@ -58,3 +58,10 @@ export type ObjectEntry<T> = { [K in keyof T]: [K, T[K]] }[keyof T];
 export type Tree<K extends string, T> = T & {
   [key in K]?: Array<Tree<K, T>>;
 };
+
+/**
+ * Removes the first element from the array
+ */
+export type DropFirst<T extends unknown[]> = T extends [unknown, ...infer U]
+  ? U
+  : never;

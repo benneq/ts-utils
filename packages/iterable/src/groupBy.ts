@@ -21,11 +21,11 @@ import { reduce } from "./reduce";
 export const groupBy = <T, K>(
   mapper: Mapper<T, K>
 ): ((iterable: Iterable<T>) => Map<K, T[]>) => {
-  return reduce<T, Map<K, T[]>>((acc, value) => {
+  return reduce((acc, value) => {
     const key = mapper(value);
 
     const values = acc.get(key) ?? [];
     values.push(value);
     return acc.set(key, values);
-  }, new Map());
+  }, new Map<K, T[]>());
 };

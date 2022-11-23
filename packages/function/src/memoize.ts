@@ -3,6 +3,10 @@
  * {@link Function}. The key for the lookup cache is determined by the
  * `keyExtractor` {@link Function}.
  *
+ * @remarks
+ * The memoized function should be a pure function, because else side effects
+ * will only be executed once for each cached key.
+ *
  * @example
  * ```ts
  * const expensiveFunction = (a, b) => a + b;
