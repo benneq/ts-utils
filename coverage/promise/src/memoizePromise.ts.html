@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for object/src/valueOrProvider.ts</title>
+    <title>Code coverage report for promise/src/memoizePromise.ts</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,34 +19,34 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">object/src</a> valueOrProvider.ts</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">promise/src</a> memoizePromise.ts</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">68% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>7/7</span>
+                <span class='fraction'>17/25</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">66.66% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>2/2</span>
+                <span class='fraction'>2/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>2/2</span>
+                <span class='fraction'>3/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">72.72% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>6/6</span>
+                <span class='fraction'>16/22</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line high'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -132,7 +132,34 @@
 <a name='L67'></a><a href='#L67'>67</a>
 <a name='L68'></a><a href='#L68'>68</a>
 <a name='L69'></a><a href='#L69'>69</a>
-<a name='L70'></a><a href='#L70'>70</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">6x</span>
+<a name='L70'></a><a href='#L70'>70</a>
+<a name='L71'></a><a href='#L71'>71</a>
+<a name='L72'></a><a href='#L72'>72</a>
+<a name='L73'></a><a href='#L73'>73</a>
+<a name='L74'></a><a href='#L74'>74</a>
+<a name='L75'></a><a href='#L75'>75</a>
+<a name='L76'></a><a href='#L76'>76</a>
+<a name='L77'></a><a href='#L77'>77</a>
+<a name='L78'></a><a href='#L78'>78</a>
+<a name='L79'></a><a href='#L79'>79</a>
+<a name='L80'></a><a href='#L80'>80</a>
+<a name='L81'></a><a href='#L81'>81</a>
+<a name='L82'></a><a href='#L82'>82</a>
+<a name='L83'></a><a href='#L83'>83</a>
+<a name='L84'></a><a href='#L84'>84</a>
+<a name='L85'></a><a href='#L85'>85</a>
+<a name='L86'></a><a href='#L86'>86</a>
+<a name='L87'></a><a href='#L87'>87</a>
+<a name='L88'></a><a href='#L88'>88</a>
+<a name='L89'></a><a href='#L89'>89</a>
+<a name='L90'></a><a href='#L90'>90</a>
+<a name='L91'></a><a href='#L91'>91</a>
+<a name='L92'></a><a href='#L92'>92</a>
+<a name='L93'></a><a href='#L93'>93</a>
+<a name='L94'></a><a href='#L94'>94</a>
+<a name='L95'></a><a href='#L95'>95</a>
+<a name='L96'></a><a href='#L96'>96</a>
+<a name='L97'></a><a href='#L97'>97</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -189,87 +216,141 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">20x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">26x</span>
-<span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Provider, isFunction } from "@benneq/function";
-&nbsp;
-export type ValueOrProvider&lt;T, TArgs extends unknown[] = []&gt; =
-  | T
-  | Provider&lt;T, TArgs&gt;;
-&nbsp;
-/**
- * Resolves a value that was provided via {@link ValueOrProvider}
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
+ * Create a {@link Promise}-returning {@link Function} that returns the
+ * memoized results of a {@link Promise}. The key for the lookup cache is
+ * determined by the `keyExtractor` {@link Function}.
  *
- * Can be called with optional `args` which will be used as arguments when calling the Provider Function.
+ * An optional {@link Map} instance can be provided to be used as cache. This
+ * allows for example to prepopulate the cache, or to force recomputation of
+ * some values by removing their corresponding keys. If no instance is provided
+ * an empty {@link Map} will be created.
+ *
+ * @remarks
+ * If the {@link Promise} throws an error, no result will be cached and the
+ * {@link Promise} will be run again next time.
  *
  * @example
- * Create a Function that accepts a `value` that can be either lazy and eager inizialized
+ * Memoize the `fetch` function
  * ```ts
- * function fn(value: ValueOrProvider&lt;string&gt;) {
- *   // ... some code that may return early from the Function ...
+ * const keyExtractor = (url) =&gt; url;
  *
- *   // resolve the value when it is actually needed
- *   const actualValue = valueOrProviderResult(value);
- *   console.log(typeof actualValue); // 'string'
- * }
- * ```
+ * const memoizedFetch = memoizePromise(fetch, keyExtractor);
  *
- * Call the Function with an eager initialized value
- * ```ts
- * fn(1);
- * ```
- *
- * Call the Function with a lazy initialized value
- * ```ts
- * function someExpensiveOperation() { /* ... *\/ }
- *
- * fn(someExpensiveOperation);
+ * const result1 = memoizedFetch(url);
+ * const result2 = memoizedFetch(url);
+ * // fetch will only be called once
  * ```
  *
  * @example
- * Create a Function that accepts a `value` that can be either static or dynamic
+ * Provide an initial cache restored from database
  * ```ts
- * function add(numbers: number[], value: ValueOrProvider&lt;number, [number]&gt;) {
- *   return numbers.map(n =&gt; n + valueOrProviderResult(value, e));
- * }
+ * const restoredCacheFromDatabase = new Map([["https://...", 1]]);
+ *
+ * const keyExtractor = (url) =&gt; url;
+ *
+ * const memoizedFetch = memoizePromise(fetch, keyExtractor, restoredCacheFromDatabase);
+ *
+ * const result = memoizedFetch("https://...");
+ * // result will be directly returned from cache
  * ```
  *
- * Call the Function with a static value
+ * @example
+ * Clear cache after 5 seconds
  * ```ts
- * const a = add([1,2,3], 1);
- * console.log(a); // [2,3,4]
+ * const cache = new Map();
+ * const keyExtractor = (url) =&gt; url;
+ *
+ * const memoizedFetch = memoizePromise(fetch, keyExtractor, cache);
+ *
+ * // ... fill the cache
+ *
+ * setTimeout(() =&gt; {
+ *   cache.clear();
+ * }, 5000);
  * ```
  *
- * Call the Function with a dynamic value
- * ```ts
- * const a = add([1,2,3], n =&gt; 2+n);
- * console.log(a); // [4,6,8]
- * ```
- *
- * @returns the result of the Function if `value` is a Function, otherwise returns `value` itself
+ * @param fn - the {@link Function} to memoize
+ * @param keyExtractor - the {@link Function} to extract the key for the cache
+ * @param cache - an optional, possibly prefilled {@link Map} instance to use as cache
+ * @returns the memoized result
  */
-export const valueOrProviderResult = &lt;T, TArgs extends unknown[] = []&gt;(
-  value: ValueOrProvider&lt;T, TArgs&gt;,
-  ...args: TArgs
-): T =&gt; {
-  if (isFunction(value)) {
-    return value(...args);
-  } else {
-    return value;
-  }
-};
+export const memoizePromise = &lt;TArgs extends unknown[], R&gt;(
+  fn: (...args: TArgs) =&gt; Promise&lt;R&gt;,
+  keyExtractor: (...args: TArgs) =&gt; unknown,
+  cache = new Map&lt;unknown, R&gt;()
+): ((...args: TArgs) =&gt; Promise&lt;R&gt;) =&gt; {
+  const pending = new Set&lt;unknown&gt;();
+  const resolves: ((value: R | PromiseLike&lt;R&gt;) =&gt; void)[] = [];
+  const rejects: ((reason?: unknown) =&gt; void)[] = [];
 &nbsp;
-valueOrProviderResult("foo", "");
+  return async (...args) =&gt; {
+    const key = keyExtractor(...args);
+&nbsp;
+    if (cache.has(key)) {
+      return cache.get(key) as R;
+    }
+&nbsp;
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (pending.has(key)) {
+<span class="cstat-no" title="statement not covered" >      return new Promise(<span class="fstat-no" title="function not covered" >(r</span>esolve, reject) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >        resolves.push(resolve);</span>
+<span class="cstat-no" title="statement not covered" >        rejects.push(reject);</span>
+      });
+    }
+&nbsp;
+    try {
+      pending.add(key);
+      const value = await fn(...args);
+      pending.delete(key);
+      cache.set(key, value);
+      resolves.forEach(<span class="fstat-no" title="function not covered" >(r</span>esolve) =&gt; <span class="cstat-no" title="statement not covered" >resolve(value));</span>
+      return value;
+    } catch (err) {
+<span class="cstat-no" title="statement not covered" >      pending.delete(key);</span>
+<span class="cstat-no" title="statement not covered" >      rejects.forEach(<span class="fstat-no" title="function not covered" >(r</span>eject) =&gt; <span class="cstat-no" title="statement not covered" >reject(err));</span></span>
+<span class="cstat-no" title="statement not covered" >      throw err;</span>
+    }
+  };
+};
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
