@@ -1,5 +1,6 @@
 /**
- * Creates a {@link Promise} that rejects after `ms` milliseconds with an `error`.
+ * Creates a {@link Promise} that rejects after `ms` milliseconds with an
+ * `error`.
  *
  * @example
  * Reject after 100ms

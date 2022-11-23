@@ -5,7 +5,7 @@ type StringLocaleCompareArgs = DropFirst<Parameters<String["localeCompare"]>>;
 
 /**
  * Creates a {@link Comparator} that orders `string` values by their natural
- * order, i.e. `'a' < 'b' < 'ba'`.
+ * order, i.e. `'a' < 'aa' < 'ab'`.
  *
  * @example
  * Sort an Array of string values

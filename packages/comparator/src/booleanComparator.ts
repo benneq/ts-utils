@@ -1,7 +1,8 @@
 import { Comparator } from "./_types";
 
 /**
- * A {@link Comparator} that orders `boolean` values by their natural order, i.e. `false < true`.
+ * A {@link Comparator} that orders `boolean` values by their natural order,
+ * i.e. `false < true`.
  *
  * @example
  * Sort an Array of boolean values

@@ -4,6 +4,7 @@
  * This module contains utilities for working with Promises
  */
 
+export * from "./_types";
 export * from "./allSerial";
 export * from "./anySerial";
 export * from "./never";

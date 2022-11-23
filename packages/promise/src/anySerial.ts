@@ -4,7 +4,7 @@ import { isEmpty } from "@benneq/array";
  * Executes all {@link Promise}s in serial order and returns either the first
  * result or throws an {@link AggregateError} containing all errors.
  *
- * Am optional `defaultValue` can be provided that will be returned if
+ * An optional `defaultValue` can be provided that will be returned if
  * `promises` is empty.
  *
  * If no {@link Promise}s and no `defaultValue` were provided `undefined` will
@@ -22,6 +22,7 @@ import { isEmpty } from "@benneq/array";
  * ```
  *
  * @param promises - the {@link Promise}s to execute in serial order
+ * @param defaultValue - the default value to return if no promise was provided
  * @returns a {@link Promise} that executes all {@link Promise}s in serial
  */
 export const anySerial: {

@@ -1,5 +1,6 @@
 /**
- * Creates a {@link Promise} that resolves after `ms` milliseconds with a `value`.
+ * Creates a {@link Promise} that resolves after `ms` milliseconds with a
+ * `value`.
  *
  * @example
  * Resolve after 100ms

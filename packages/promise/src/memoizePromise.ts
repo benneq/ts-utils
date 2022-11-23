@@ -1,3 +1,5 @@
+import { RejectFn, ResolveFn } from "./_types";
+
 /**
  * Create a {@link Promise}-returning {@link Function} that returns the
  * memoized results of a {@link Promise}. The key for the lookup cache is
@@ -19,8 +21,8 @@
  *
  * const memoizedFetch = memoizePromise(fetch, keyExtractor);
  *
- * const result1 = memoizedFetch(url);
- * const result2 = memoizedFetch(url);
+ * const result1 = memoizedFetch("https://...");
+ * const result2 = memoizedFetch("https://...");
  * // fetch will only be called once
  * ```
  *
@@ -58,13 +60,13 @@
  * @returns the memoized result
  */
 export const memoizePromise = <TArgs extends unknown[], R>(
-  fn: (...args: TArgs) => Promise<R>,
+  fn: (...args: TArgs) => PromiseLike<R>,
   keyExtractor: (...args: TArgs) => unknown,
   cache = new Map<unknown, R>()
 ): ((...args: TArgs) => Promise<R>) => {
   const pending = new Set<unknown>();
-  const resolves: ((value: R | PromiseLike<R>) => void)[] = [];
-  const rejects: ((reason?: unknown) => void)[] = [];
+  const resolves: ResolveFn<R>[] = [];
+  const rejects: RejectFn[] = [];
 
   return async (...args) => {
     const key = keyExtractor(...args);

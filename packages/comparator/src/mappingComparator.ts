@@ -2,13 +2,14 @@ import { Mapper } from "@benneq/function";
 import { Comparator } from "./_types";
 
 /**
- * Creates a {@link Comparator} using the provided {@link @benneq/function!Mapper}
+ * Creates a {@link Comparator} that maps the values using a
+ * {@link @benneq/function!Mapper} before comparing them.
  *
  * @example
- * Sort objects by age
+ * Sort `Person` objects by age
  * ```ts
- * const comparingNumbers = comparing(numberComparator);
- * const personByAgeComparator = comparingNumbers<Person>(p => p.age);
+ * const numberMappingComparator = mappingComparator(numberComparator);
+ * const personByAgeComparator = numberMappingComparator<Person>(p => p.age);
  *
  * const array: Person[] = [
  *   { age: 2 },
@@ -23,7 +24,7 @@ import { Comparator } from "./_types";
  * @typeParam T - the mapped value type
  * @returns a {@link Comparator}
  */
-export const comparing =
+export const mappingComparator =
   <R>(comparator: Comparator<R>) =>
   <T>(mapper: Mapper<T, R>): Comparator<T> => {
     return (valueA, valueB) => comparator(mapper(valueA), mapper(valueB));
