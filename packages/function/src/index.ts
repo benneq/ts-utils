@@ -9,6 +9,7 @@ export * from "./debounce";
 export * from "./delay";
 export * from "./identity";
 export * from "./isFunction";
+export * from "./memoize";
 export * from "./noop";
 export * from "./pipe";
 export * from "./throttle";
