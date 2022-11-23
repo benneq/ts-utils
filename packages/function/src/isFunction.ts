@@ -1,11 +1,11 @@
 /**
- * Checks if the provided value is a Function
+ * Checks if a value is a {@link Function}
  *
  * @example
  * Call some unknown function
  * ```ts
- * if(isFunction<void, [string]>(someFn)) {
- *   someFn("arg");
+ * if(isFunction<void, [string]>(value)) {
+ *   value("arg");
  * }
  * ```
  *

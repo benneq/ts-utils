@@ -6,11 +6,15 @@ import { Callback, CancelCallback } from "./_types";
  * Throttle a Function
  * ```ts
  * const callback = (arg) => console.log(arg);
+ *
  * const throttledCallback = throttle(callback);
+ *
  * throttledCallback(100, 1);
  * // wait 50ms
+ *
  * throttledCallback(100, 2);
  * // wait 50ms
+ *
  * // callback is called with arg = 2
  * ```
  *

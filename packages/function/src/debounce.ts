@@ -6,11 +6,15 @@ import { Callback, CancelCallback } from "./_types";
  * Debounce a Function
  * ```ts
  * const callback = (arg) => console.log(arg);
+ *
  * const debouncedCallback = debounce(callback);
+ *
  * debouncedCallback(100, 1);
  * // wait 50ms
+ *
  * debouncedCallback(100, 2);
  * // wait 100ms
+ *
  * // callback is called with arg = 2
  * ```
  *
