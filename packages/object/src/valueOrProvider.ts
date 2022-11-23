@@ -65,5 +65,3 @@ export const valueOrProviderResult = <T, TArgs extends unknown[] = []>(
     return value;
   }
 };
-
-valueOrProviderResult("foo", "");
