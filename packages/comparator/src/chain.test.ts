@@ -1,6 +1,6 @@
 import { booleanComparator } from "./booleanComparator";
 import { chain } from "./chain";
-import { comparing } from "./comparing";
+import { mappingComparator } from "./mappingComparator";
 import { numberComparator } from "./numberComparator";
 
 describe("comparator.chain", () => {
@@ -13,8 +13,8 @@ describe("comparator.chain", () => {
     expect(value.sort(chain())).toEqual(value);
 
     const comparator = chain<typeof value[number]>(
-      comparing(booleanComparator)((value) => value.b),
-      comparing(numberComparator)((value) => value.i)
+      mappingComparator(booleanComparator)((value) => value.b),
+      mappingComparator(numberComparator)((value) => value.i)
     );
 
     expect(value.sort(comparator)).toEqual([
