@@ -1,3 +1,4 @@
+import { isFunction } from "@benneq/function";
 import { Predicate } from "@benneq/predicate";
 import { ValueOrProvider, valueOrProviderResult } from "../../object/dist";
 
@@ -10,20 +11,23 @@ import { ValueOrProvider, valueOrProviderResult } from "../../object/dist";
  * Square the first element equal to `2`
  * ```ts
  * const array = [1, 2, 3, 2];
- * deleteFirst(array, 2);
+ * findAndReplace(array, 2);
  * console.log(array); // [1, 4, 3, 2]
  * ```
  *
  * @typeParam T - the {@link Array} element type
- * @param array
- * @param predicate
+ * @param array - the {@link Array} to modify
+ * @param predicate - the {@link Predicate} to match
+ * @param value - the new value
  */
 export const findAndReplace = <T>(
   array: T[],
-  predicate: Predicate<[T]>,
+  predicate: T | Predicate<[T]>,
   value: ValueOrProvider<T, [T]>
 ) => {
-  const index = array.findIndex(predicate);
+  const index = isFunction(predicate)
+    ? array.findIndex(predicate)
+    : array.indexOf(predicate);
   if (index > -1) {
     array[index] = valueOrProviderResult(value, array[index] as T);
   }

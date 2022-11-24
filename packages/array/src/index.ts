@@ -21,5 +21,6 @@ export * from "./isIndex";
 export * from "./isRelativeIndex";
 export * from "./move";
 export * from "./normalizeIndex";
+export * from "./pushIf";
 export * from "./swap";
 export * from "./toReverseIterable";
