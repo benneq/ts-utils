@@ -1,7 +1,7 @@
 import { DropFirst } from "@benneq/object";
 import { Comparator } from "./_types";
 
-type StringLocaleCompareArgs = DropFirst<Parameters<String["localeCompare"]>>;
+type StringLocaleCompareArgs = DropFirst<Parameters<string["localeCompare"]>>;
 
 /**
  * Creates a {@link Comparator} that orders `string` values by their natural

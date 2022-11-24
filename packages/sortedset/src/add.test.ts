@@ -4,30 +4,33 @@ import { sortedSet } from "./sortedSet";
 
 describe("sortedset.add", () => {
   it("should add values at the right position to maintain the sorting", () => {
-    const set = sortedSet(numberComparator);
+    const sortedNumberSet = sortedSet(numberComparator);
+    add(sortedNumberSet, 0);
+    add(sortedNumberSet, 2);
 
-    add(set, 5);
-    expect(set.values).toEqual([5]);
+    add(sortedNumberSet, 1, 2, 3);
 
-    add(set, 7);
-    expect(set.values).toEqual([5, 7]);
-
-    add(set, 3);
-    expect(set.values).toEqual([3, 5, 7]);
-
-    add(set, 4);
-    expect(set.values).toEqual([3, 4, 5, 7]);
-
-    add(set, 6);
-    expect(set.values).toEqual([3, 4, 5, 6, 7]);
+    expect(sortedNumberSet.values).toEqual([0, 1, 2, 3]);
   });
 
-  it("should not add value if it is already in the sorted set", () => {
+  it("should not modify the sorted set if it already contains all values", () => {
     const set = sortedSet(numberComparator);
+    add(set, 5);
+    add(set, 4);
 
+    add(set, 4, 5);
+
+    expect(set.values).toEqual([4, 5]);
+  });
+
+  it("should not modify the sorted set if values array is empty", () => {
+    const set = sortedSet(numberComparator);
     add(set, 5);
-    add(set, 5);
-    expect(set.values).toEqual([5]);
+    add(set, 4);
+
+    add(set);
+
+    expect(set.values).toEqual([4, 5]);
   });
 });
 

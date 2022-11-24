@@ -6,36 +6,46 @@ import { SortedSet } from "./_types";
  * equal value. Values are considered equal if the {@link Comparator} returns
  * `0`.
  *
+ * @mutation
+ *
  * @example
  * ```ts
  * const sortedNumberSet = sortedSet(numberComparator);
  *
- * add(sortedNumberSet, 5);
- * add(sortedNumberSet, 3);
- * add(sortedNumberSet, 5);
+ * add(sortedNumberSet, 2);
+ * add(sortedNumberSet, 0);
+ * add(sortedNumberSet, [1, 2, 3]);
  *
- * console.log(sortedNumberSet.values); // [3, 5]
+ * console.log(sortedNumberSet.values); // [0, 1, 2, 3]
  * ```
  *
  * @param sortedSet - the {@link SortedSet} to add the `value` to
  * @param value - the value to add
  */
-export const add = <T>(sortedSet: SortedSet<T>, value: T): void => {
-  for (let i = 0; i < sortedSet.values.length; i++) {
-    const comparisonResult = sortedSet.comparator(
-      value,
-      sortedSet.values[i] as T
-    );
+export const add = <T>(
+  { comparator, values }: SortedSet<T>,
+  ...sortedSetValues: T[]
+): void => {
+  let pointer = 0;
+
+  for (let i = 0; i < values.length; i++) {
+    if (pointer >= sortedSetValues.length) {
+      break;
+    }
+
+    const value = sortedSetValues[pointer] as T;
+
+    const comparisonResult = comparator(value, values[i] as T);
 
     if (comparisonResult === 0) {
-      return;
+      pointer++;
     }
 
     if (comparisonResult < 0) {
-      insertAt(sortedSet.values, i, value);
-      return;
+      insertAt(values, i, value);
+      pointer++;
     }
   }
 
-  sortedSet.values.push(value);
+  values.push(...sortedSetValues.slice(pointer));
 };
