@@ -47,6 +47,9 @@
       "path": "./packages/set"
     },
     {
+      "path": "./packages/sortedset"
+    },
+    {
       "path": "./packages/sorting"
     },
     {
