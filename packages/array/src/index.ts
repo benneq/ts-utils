@@ -19,6 +19,7 @@ export * from "./isArrayLike";
 export * from "./isEmpty";
 export * from "./isIndex";
 export * from "./isRelativeIndex";
+export * from "./isSorted";
 export * from "./move";
 export * from "./normalizeIndex";
 export * from "./swap";

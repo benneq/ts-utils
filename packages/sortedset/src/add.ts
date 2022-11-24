@@ -8,6 +8,9 @@ import { SortedSet } from "./_types";
  *
  * @mutation
  *
+ * @remarks
+ * The values provided must be a sorted and unique.
+ *
  * @example
  * ```ts
  * const sortedNumberSet = sortedSet(numberComparator);

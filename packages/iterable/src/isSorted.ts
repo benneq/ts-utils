@@ -1,4 +1,5 @@
 import { Comparator } from "@benneq/comparator";
+import { Predicate } from "@benneq/predicate";
 import { every } from "./every";
 
 /**
@@ -16,11 +17,11 @@ import { every } from "./every";
  *
  * @typeParam T - the {@link Iterable} value type
  * @param comparator - the {@link Comparator} to use
- * @returns `true` is the {@link Iterable} is sorted, otherwise `false`
+ * @returns the {@link Predicate}
  */
 export const isSorted = <T>(
   comparator: Comparator<T>
-): ((iterable: Iterable<T>) => boolean) => {
+): Predicate<[Iterable<T>]> => {
   let prev: T | undefined = undefined;
 
   return every((value) => {
