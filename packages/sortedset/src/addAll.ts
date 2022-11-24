@@ -1,4 +1,6 @@
 import { insertAt } from "@benneq/array";
+import { numberComparator } from "@benneq/comparator";
+import { sortedSet } from "./sortedSet";
 import { SortedSet } from "./_types";
 
 /**
@@ -9,33 +11,44 @@ import { SortedSet } from "./_types";
  * @example
  * ```ts
  * const sortedNumberSet = sortedSet(numberComparator);
+ * add(sortedNumberSet, 0);
+ * add(sortedNumberSet, 2);
  *
- * add(sortedNumberSet, 5);
- * add(sortedNumberSet, 3);
- * add(sortedNumberSet, 5);
+ * addAll(sortedNumberSet, [1, 2, 3]);
  *
- * console.log(sortedNumberSet.values); // [3, 5]
+ * console.log(sortedNumberSet.values); // [0, 1, 2, 3]
  * ```
  *
  * @param sortedSet - the {@link SortedSet} to add the `value` to
  * @param value - the value to add
  */
-export const add = <T>(sortedSet: SortedSet<T>, value: T): void => {
+export const addAll = <T>(
+  sortedSet: SortedSet<T>,
+  sortedSetValues: T[]
+): void => {
+  let pointer = 0;
+
   for (let i = 0; i < sortedSet.values.length; i++) {
+    if (pointer >= sortedSetValues.length) {
+      break;
+    }
+
+    const value = sortedSetValues[pointer] as T;
+
     const comparisonResult = sortedSet.comparator(
       value,
       sortedSet.values[i] as T
     );
 
     if (comparisonResult === 0) {
-      return;
+      pointer++;
     }
 
     if (comparisonResult < 0) {
       insertAt(sortedSet.values, i, value);
-      return;
+      pointer++;
     }
   }
 
-  sortedSet.values.push(value);
+  sortedSet.values.push(...sortedSetValues.slice(pointer));
 };

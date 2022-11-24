@@ -6,7 +6,7 @@ import { SortedSet } from "./_types";
  * values and checking for equality.
  *
  * @example
- * Create an empty sorted set for numbers
+ * Create an empty {@link SortedSet} for numbers
  * ```ts
  * const sortedNumberSet = sortedSet(numberComparator);
  * console.log(sortedNumberSet.values); // []

@@ -14,10 +14,10 @@ import { deleteAt } from "./deleteAt";
  * ```
  *
  * @typeParam T - the {@link Array} element type
- * @param array
- * @param predicate
+ * @param array - the {@link Array} to modify
+ * @param value - the value to delete from the {@link Array}
  */
-export const deleteFirst = <T>(array: T[], value: T) => {
+export const deleteFirst = <T>(array: T[], value: T): void => {
   const index = array.indexOf(value);
   if (index > -1) {
     deleteAt(array, index);
