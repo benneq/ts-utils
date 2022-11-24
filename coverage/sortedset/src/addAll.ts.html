@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for array/src/arrayComparator.ts</title>
+    <title>Code coverage report for sortedset/src/addAll.ts</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,34 +19,34 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">array/src</a> arrayComparator.ts</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">sortedset/src</a> addAll.ts</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>10/10</span>
+                <span class='fraction'>16/16</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>1/1</span>
-            </div>
-        
-            
-            <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
-                <span class="quiet">Functions</span>
                 <span class='fraction'>3/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
+                <span class="quiet">Functions</span>
+                <span class='fraction'>2/2</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>8/8</span>
+                <span class='fraction'>14/14</span>
             </div>
         
             
@@ -101,7 +101,23 @@
 <a name='L36'></a><a href='#L36'>36</a>
 <a name='L37'></a><a href='#L37'>37</a>
 <a name='L38'></a><a href='#L38'>38</a>
-<a name='L39'></a><a href='#L39'>39</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L39'></a><a href='#L39'>39</a>
+<a name='L40'></a><a href='#L40'>40</a>
+<a name='L41'></a><a href='#L41'>41</a>
+<a name='L42'></a><a href='#L42'>42</a>
+<a name='L43'></a><a href='#L43'>43</a>
+<a name='L44'></a><a href='#L44'>44</a>
+<a name='L45'></a><a href='#L45'>45</a>
+<a name='L46'></a><a href='#L46'>46</a>
+<a name='L47'></a><a href='#L47'>47</a>
+<a name='L48'></a><a href='#L48'>48</a>
+<a name='L49'></a><a href='#L49'>49</a>
+<a name='L50'></a><a href='#L50'>50</a>
+<a name='L51'></a><a href='#L51'>51</a>
+<a name='L52'></a><a href='#L52'>52</a>
+<a name='L53'></a><a href='#L53'>53</a>
+<a name='L54'></a><a href='#L54'>54</a>
+<a name='L55'></a><a href='#L55'>55</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -123,59 +139,91 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">11x</span>
-<span class="cline-any cline-yes">11x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">11x</span>
-<span class="cline-any cline-yes">11x</span>
-<span class="cline-any cline-yes">11x</span>
-<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Comparator } from "../../comparator/src/_types";
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { insertAt } from "@benneq/array";
+import { numberComparator } from "@benneq/comparator";
+import { sortedSet } from "./sortedSet";
+import { SortedSet } from "./_types";
 &nbsp;
 /**
- * Creates a {@link @benneq/comparator!Comparator} that compares the elements of two
- * {@link Array}s pairwise.
- *
- * Finds the first unequal pair and returns the result.
- *
- * If all pairs are equal the Array's `length` will be used for comparison.
+ * Adds a `value` to a {@link SortedSet} if it does not already contain an
+ * equal value. Values are considered equal if the {@link Comparator} returns
+ * `0`.
  *
  * @example
- * Compare two {@link Array}s of numbers
  * ```ts
- * const numberArrayComparator = arrayComparator(numberComparator);
- * const result = numberArrayComparator([1, 1], [2]);
- * console.log(result); // 1
+ * const sortedNumberSet = sortedSet(numberComparator);
+ * add(sortedNumberSet, 0);
+ * add(sortedNumberSet, 2);
+ *
+ * addAll(sortedNumberSet, [1, 2, 3]);
+ *
+ * console.log(sortedNumberSet.values); // [0, 1, 2, 3]
  * ```
  *
- * @typeParam T - the {@link @benneq/comparator!Comparator} value type
- * @param comparator - the {@link @benneq/comparator!Comparator} to use for the elements
- * @returns a {@link @benneq/comparator!Comparator} for {@link Array}s of type `T`
+ * @param sortedSet - the {@link SortedSet} to add the `value` to
+ * @param value - the value to add
  */
-export const arrayComparator = &lt;T&gt;(
-  comparator: Comparator&lt;T&gt;
-): Comparator&lt;ArrayLike&lt;T&gt;&gt; =&gt; {
-  return (arrayA, arrayB) =&gt; {
-    const length = Math.min(arrayA.length, arrayB.length);
+export const addAll = &lt;T&gt;(
+  sortedSet: SortedSet&lt;T&gt;,
+  sortedSetValues: T[]
+): void =&gt; {
+  let pointer = 0;
 &nbsp;
-    for (let i = 0; i &lt; length; i++) {
-      const result = comparator(arrayA[i] as T, arrayB[i] as T);
-      if (result) {
-        return result;
-      }
+  for (let i = 0; i &lt; sortedSet.values.length; i++) {
+    if (pointer &gt;= sortedSetValues.length) {
+      break;
     }
 &nbsp;
-    return arrayA.length - arrayB.length;
-  };
+    const value = sortedSetValues[pointer] as T;
+&nbsp;
+    const comparisonResult = sortedSet.comparator(
+      value,
+      sortedSet.values[i] as T
+    );
+&nbsp;
+    if (comparisonResult === 0) {
+      pointer++;
+    }
+&nbsp;
+    if (comparisonResult &lt; 0) {
+      insertAt(sortedSet.values, i, value);
+      pointer++;
+    }
+  }
+&nbsp;
+  sortedSet.values.push(...sortedSetValues.slice(pointer));
 };
 &nbsp;</pre></td></tr></table></pre>
 
