@@ -13,7 +13,7 @@ import { Tuple } from "@benneq/object";
  *
  * @see {@link chunk} and {@link zip} for similar operations.
  *
- * @typePAram L - the length of the tuple
+ * @typeParam L - the length of the tuple
  * @param pairSize - the optional length of the emitted tuples
  * @returns the tuple emitting {@link Iterable}
  */

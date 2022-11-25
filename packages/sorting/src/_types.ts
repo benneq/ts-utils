@@ -1,6 +1,7 @@
-export type SortingDirection = "asc" | "desc";
+export type SortDirection = "asc" | "desc";
 
-export type Sorting<P extends string = string> = {
-  property: P;
-  direction: SortingDirection;
-};
+export type Sort<P extends string> = Map<P, SortDirection>;
+
+export type SortDirectionCycler = (
+  sortDirection: SortDirection | undefined
+) => SortDirection | undefined;
