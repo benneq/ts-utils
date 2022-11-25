@@ -25,7 +25,7 @@ export const isSorted = <T>(
   comparator: Comparator<T>
 ): Predicate<[Iterable<T>]> => {
   return pipe(
-    pairwise<T>,
+    pairwise()<T>,
     every<[T, T]>(([a, b]) => comparator(a, b) <= 0)
   );
 };

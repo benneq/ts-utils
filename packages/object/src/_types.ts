@@ -65,3 +65,23 @@ export type Tree<K extends string, T> = T & {
 export type DropFirst<T extends unknown[]> = T extends [unknown, ...infer U]
   ? U
   : never;
+
+/**
+ * Creates a tuple of type `T` and length `N`.
+ *
+ * @example
+ * ```ts
+ * type Pair<T> = Tuple<T, 2>;
+ * ```
+ *
+ * @typeParam T - the type of the tuple elements
+ * @typeParam N - the number of elements in the tuple
+ */
+export type Tuple<T, N extends number> = N extends N
+  ? number extends N
+    ? T[]
+    : _TupleOf<T, N, []>
+  : never;
+type _TupleOf<T, N extends number, R extends unknown[]> = R["length"] extends N
+  ? R
+  : _TupleOf<T, N, [T, ...R]>;

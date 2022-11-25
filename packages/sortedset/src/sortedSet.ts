@@ -38,7 +38,7 @@ export class SortedSet<T> implements Set<T> {
     if (process.env.NODE_ENV !== "production") {
       console.assert(isSorted(comparator)(values), "values must be sorted");
       console.assert(
-        every<[T, T]>(([a, b]) => comparator(a, b) !== 0)(pairwise(values)),
+        every<[T, T]>(([a, b]) => comparator(a, b) !== 0)(pairwise()(values)),
         "values must be unique"
       );
     }
