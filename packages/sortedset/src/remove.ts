@@ -1,9 +1,9 @@
-import { insertAt } from "@benneq/array";
+import { deleteAt } from "@benneq/array";
 import { SortedSet } from "./_types";
 
 /**
- * Adds `values` to a {@link SortedSet} if it does not already contain equal
- * values. Values are considered equal if the {@link Comparator} returns `0`.
+ * Removes `values` from a {@link SortedSet} if it does contain equal values.
+ * Values are considered equal if the {@link Comparator} returns `0`.
  *
  * @mutation
  *
@@ -11,21 +11,20 @@ import { SortedSet } from "./_types";
  * The values provided must be a sorted and unique.
  *
  * @example
- * Add values
+ * Remove values
  * ```ts
  * const sortedNumberSet = sortedSet(numberComparator);
+ * add(sortedNumberSet, [1, 2, 3, 4, 5]);
  *
- * add(sortedNumberSet, 2);
- * add(sortedNumberSet, 0);
- * add(sortedNumberSet, [1, 2, 3]);
+ * remove(sortedNumberSet, 0, 1, 2, 5)
  *
- * console.log(sortedNumberSet.values); // [0, 1, 2, 3]
+ * console.log(sortedNumberSet.values); // [3, 4]
  * ```
  *
- * @param sortedSet - the {@link SortedSet} to add the `value` to
- * @param sortedSetValues - the values to add
+ * @param sortedSet - the {@link SortedSet} to remove the `values` from
+ * @param sortedSetValues - the values to remove
  */
-export const add = <T>(
+export const remove = <T>(
   { comparator, values }: SortedSet<T>,
   ...sortedSetValues: T[]
 ): void => {
@@ -41,14 +40,14 @@ export const add = <T>(
     const comparisonResult = comparator(value, values[i] as T);
 
     if (comparisonResult === 0) {
+      deleteAt(values, i);
+      i--;
       pointer++;
     }
 
     if (comparisonResult < 0) {
-      insertAt(values, i, value);
+      i--;
       pointer++;
     }
   }
-
-  values.push(...sortedSetValues.slice(pointer));
 };

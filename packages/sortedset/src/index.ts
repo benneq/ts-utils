@@ -7,4 +7,5 @@
 export * from "./_types";
 export * from "./add";
 export * from "./isSortedSet";
+export * from "./remove";
 export * from "./sortedSet";

@@ -14,23 +14,23 @@ describe("sortedset.add", () => {
   });
 
   it("should not modify the sorted set if it already contains all values", () => {
-    const set = sortedSet(numberComparator);
-    add(set, 5);
-    add(set, 4);
+    const sortedNumberSet = sortedSet(numberComparator);
+    add(sortedNumberSet, 5);
+    add(sortedNumberSet, 4);
 
-    add(set, 4, 5);
+    add(sortedNumberSet, 4, 5);
 
-    expect(set.values).toEqual([4, 5]);
+    expect(sortedNumberSet.values).toEqual([4, 5]);
   });
 
   it("should not modify the sorted set if values array is empty", () => {
-    const set = sortedSet(numberComparator);
-    add(set, 5);
-    add(set, 4);
+    const sortedNumberSet = sortedSet(numberComparator);
+    add(sortedNumberSet, 5);
+    add(sortedNumberSet, 4);
 
-    add(set);
+    add(sortedNumberSet);
 
-    expect(set.values).toEqual([4, 5]);
+    expect(sortedNumberSet.values).toEqual([4, 5]);
   });
 });
 
