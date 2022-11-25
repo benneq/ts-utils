@@ -13,6 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "@benneq/array": "*",
-    "@benneq/comparator": "*"
+    "@benneq/comparator": "*",
+    "@benneq/iterable": "*"
   }
 }

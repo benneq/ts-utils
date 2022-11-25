@@ -19,7 +19,7 @@ import { Mapper } from "@benneq/function";
  * @returns an {@link Iterable} that emits all mapped elements
  */
 export const map = <T, R>(mapper: Mapper<T, R>) =>
-  function* (iterable: Iterable<T>): Iterable<R> {
+  function* (iterable: Iterable<T>): IterableIterator<R> {
     for (const value of iterable) {
       yield mapper(value);
     }
