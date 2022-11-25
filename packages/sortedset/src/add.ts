@@ -29,25 +29,23 @@ export const add = <T>(
   { comparator, values }: SortedSet<T>,
   ...sortedSetValues: T[]
 ): void => {
-  let pointer = 0;
+  let i = 0,
+    pointer = 0;
 
-  for (let i = 0; i < values.length; i++) {
-    if (pointer >= sortedSetValues.length) {
-      break;
-    }
-
+  while (i < values.length && pointer < sortedSetValues.length) {
     const value = sortedSetValues[pointer] as T;
 
     const comparisonResult = comparator(value, values[i] as T);
 
-    if (comparisonResult === 0) {
+    if (comparisonResult <= 0) {
+      if (comparisonResult < 0) {
+        insertAt(values, i, value);
+      }
+
       pointer++;
     }
 
-    if (comparisonResult < 0) {
-      insertAt(values, i, value);
-      pointer++;
-    }
+    i++;
   }
 
   values.push(...sortedSetValues.slice(pointer));

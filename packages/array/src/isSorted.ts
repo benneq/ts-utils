@@ -18,7 +18,9 @@ import { Predicate } from "@benneq/predicate";
  * @param comparator - the {@link Comparator} to use
  * @returns the {@link Predicate}
  */
-export const isSorted = <T>(comparator: Comparator<T>): Predicate<[T[]]> => {
+export const isSorted = <T>(
+  comparator: Comparator<T>
+): Predicate<[readonly T[]]> => {
   return (array) =>
     array.every(
       (value, index) => !index || comparator(array[index - 1] as T, value) <= 0

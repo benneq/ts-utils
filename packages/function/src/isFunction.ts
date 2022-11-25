@@ -12,6 +12,6 @@
  * @param value - the value to check
  * @returns `true` if `value` is a Function, otherwise `false`
  */
-export const isFunction = (value: unknown): value is Function => {
+export const isFunction = <T extends Function>(value: unknown): value is T => {
   return typeof value === "function";
 };

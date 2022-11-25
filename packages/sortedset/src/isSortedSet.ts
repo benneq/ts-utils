@@ -8,9 +8,9 @@ export const isSortedSet = <T>(value: unknown): value is SortedSet<T> => {
     !!value &&
     typeof value === "object" &&
     "comparator" in value &&
-    isFunction(value.comparator) &&
+    isFunction<Comparator<T>>(value.comparator) &&
     "values" in value &&
-    isArray(value.values) &&
-    isSorted(value.comparator as Comparator<T>)(value.values as T[])
+    isArray<T>(value.values) &&
+    isSorted(value.comparator)(value.values)
   );
 };
