@@ -4,15 +4,15 @@
  * @example
  * Returns `true` if the `value` is an Integer
  * ```ts
- * const b = isInteger(0);
- * console.log(b); // true
+ * const result = isInteger(0);
+ * console.log(result); // true
  * ```
  *
  * @example
  * Returns `false` if the `value` is not an Integer
  * ```ts
- * const b = isInteger(0.5);
- * console.log(b); // false
+ * const result = isInteger(0.5);
+ * console.log(result); // false
  * ```
  *
  * @param value - the value to check

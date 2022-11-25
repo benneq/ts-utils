@@ -8,16 +8,16 @@
  * const isIndexOfArray = isIndex(array);
  *
  * const index = 4;
- * const b = isIndexOfArray(index);
- * console.log(b); // false
+ * const result = isIndexOfArray(index);
+ * console.log(result); // false
  * ```
  *
  * @example
  * Works with strings, too
  * ```ts
  * const isIndexOfTest = isIndex("test");
- * const b = isIndexOfTest(3);
- * console.log(b); // true
+ * const result = isIndexOfTest(3);
+ * console.log(result); // true
  * ```
  *
  * @returns `true` if the `index` is between `0` and `array.length`, otherwise `false`

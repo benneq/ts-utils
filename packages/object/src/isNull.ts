@@ -5,14 +5,14 @@
  *
  * @example
  * ```
- * const b = isNull(null);
- * console.log(b); // true
+ * const result = isNull(null);
+ * console.log(result); // true
  * ```
  *
  * @example
  * ```
- * const b = isNull(0);
- * console.log(b); // false
+ * const result = isNull(0);
+ * console.log(result); // false
  * ```
  *
  * @param value - the value to check

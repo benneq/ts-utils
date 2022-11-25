@@ -7,8 +7,8 @@
  * Escape special characters
  * ```ts
  * const r = new RegExp(escapeString("(a-b)[.]"));
- * const b = r.test("(a-b)[.]");
- * console.log(b); // true
+ * const result = r.test("(a-b)[.]");
+ * console.log(result); // true
  * ```
  *
  * @returns the escaped string

@@ -6,23 +6,23 @@ import { nonWhitespaceRegExp } from "@benneq/regexp";
  * @example
  * Returns `true` if the String is empty
  * ```ts
- * const b = isBlank("");
- * console.log(b); // true
+ * const result = isBlank("");
+ * console.log(result); // true
  * ```
  *
  * @example
  * Returns `true` if the String contains only whitespace characters
  * ```ts
- * const b = isBlank(" ");
- * console.log(b); // true
+ * const result = isBlank(" ");
+ * console.log(result); // true
  * ```
  *
  * @example
  * Returns `false` if the String contains any non-whitespace character
  *
  * ```ts
- * const b = isBlank(" a ");
- * console.log(b); // false
+ * const result = isBlank(" a ");
+ * console.log(result); // false
  * ```
  *
  * @param str - the {@link String} to check

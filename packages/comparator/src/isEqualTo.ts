@@ -6,8 +6,8 @@ import { Comparator } from "./_types";
  * @example
  * ```
  * const isStringEqualTo = isEqualTo(stringComparator);
- * const b = isStringEqualTo("abc", "abc");
- * console.log(b); // true
+ * const result = isStringEqualTo("abc", "abc");
+ * console.log(result); // true
  * ```
  *
  * @typeParam T - the {@link Comparator} value type

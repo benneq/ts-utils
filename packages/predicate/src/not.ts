@@ -9,15 +9,15 @@ import { Predicate } from "./_types";
  * @example
  * ```ts
  * const isOdd = not(isEven);
- * const b = isOdd(-1);
- * console.log(b); // true
+ * const result = isOdd(-1);
+ * console.log(result); // true
  * ```
  *
  * @example
  * ```ts
  * const isNotEmpty = not(isEmpty);
- * const b = isNotEmpty([]);
- * console.log(b); // false
+ * const result = isNotEmpty([]);
+ * console.log(result); // false
  * ```
  *
  * @typeParam T - the type of the {@link Predicate}

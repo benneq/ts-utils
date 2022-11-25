@@ -7,14 +7,14 @@ import { isUndefined } from "./isUndefined";
  *
  * @example
  * ```
- * const b = isNotUndefined(0);
- * console.log(b); // true
+ * const result = isNotUndefined(0);
+ * console.log(result); // true
  * ```
  *
  * @example
  * ```
- * const b = isNotUndefined(undefined);
- * console.log(b); // false
+ * const result = isNotUndefined(undefined);
+ * console.log(result); // false
  * ```
  *
  * @param value - the value to check

@@ -6,15 +6,15 @@ import { EmptyArrayLike } from "./_types";
  * @example
  * Returns `true` if the {@link ArrayLike} is empty
  * ```ts
- * const b = isEmpty([]);
- * console.log(b); // true
+ * const result = isEmpty([]);
+ * console.log(result); // true
  * ```
  *
  * @example
  * Works with Strings, too
  * ```ts
- * const b = isEmpty(" ");
- * console.log(b); // false
+ * const result = isEmpty(" ");
+ * console.log(result); // false
  * ```
  *
  * @param array - the {@link ArrayLike} to check

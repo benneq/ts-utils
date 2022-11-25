@@ -4,8 +4,8 @@
  * @example
  * Match email address
  * ```ts
- * const b = emailRegExp.test("test@example.org");
- * console.log(b); // true
+ * const result = emailRegExp.test("test@example.org");
+ * console.log(result); // true
  * ```
  *
  * @see https://stackoverflow.com/a/201378/1321564

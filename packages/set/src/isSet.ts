@@ -1,18 +1,18 @@
 /**
  * Checks if a `value` is a {@link Set}.
- * 
+ *
  * @example
  * Returns `true` if the value if a {@link Set}
  * ```ts
- * const b = isSet(new Set());
- * console.log(b); // true
+ * const result = isSet(new Set());
+ * console.log(result); // true
  * ```
  *
  * @example
  * Returns `false` if the value is not as {@link Set}
  * ```ts
- * const b = isSet([]);
- * console.log(b); // false
+ * const result = isSet([]);
+ * console.log(result); // false
  * ```
  *
  * @typeParam T - the {@link Set} element type

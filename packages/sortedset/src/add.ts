@@ -17,7 +17,7 @@ import { SortedSet } from "./_types";
  *
  * add(sortedNumberSet, 2);
  * add(sortedNumberSet, 0);
- * add(sortedNumberSet, [1, 2, 3]);
+ * add(sortedNumberSet, 1, 2, 3);
  *
  * console.log(sortedNumberSet.values); // [0, 1, 2, 3]
  * ```

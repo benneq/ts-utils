@@ -1,6 +1,7 @@
 import { isArray, isSorted } from "@benneq/array";
 import { Comparator } from "@benneq/comparator";
 import { isFunction } from "@benneq/function";
+import { isObject } from "@benneq/object";
 import { SortedSet } from "./_types";
 
 /**
@@ -19,12 +20,11 @@ import { SortedSet } from "./_types";
  */
 export const isSortedSet = <T>(value: unknown): value is SortedSet<T> => {
   return (
-    !!value &&
-    typeof value === "object" &&
+    isObject(value) &&
     "comparator" in value &&
-    isFunction<Comparator<T>>(value.comparator) &&
+    isFunction<Comparator<T>>(value["comparator"]) &&
     "values" in value &&
-    isArray<T>(value.values) &&
-    isSorted(value.comparator)(value.values)
+    isArray<T>(value["values"]) &&
+    isSorted(value["comparator"])(value["values"])
   );
 };

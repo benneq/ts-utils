@@ -4,8 +4,8 @@
  * @example
  * Match printable character
  * ```ts
- * const b = printableCharacterRegExp.test("💩");
- * console.log(b); // true
+ * const result = printableCharacterRegExp.test("💩");
+ * console.log(result); // true
  * ```
  *
  * @remark

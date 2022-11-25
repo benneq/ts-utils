@@ -4,8 +4,8 @@
  * @example
  * Match digit characters
  * ```ts
- * const b = digitCharacterRegExp.test("1");
- * console.log(b); // true
+ * const result = digitCharacterRegExp.test("1");
+ * console.log(result); // true
  * ```
  *
  */

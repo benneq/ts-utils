@@ -8,20 +8,20 @@ import { Nullish } from "./_types";
  *
  * @example
  * ```
- * const b = isNotNullish(0);
- * console.log(b); // true
+ * const result = isNotNullish(0);
+ * console.log(result); // true
  * ```
  *
  * @example
  * ```
- * const b = isNotNullish(null);
- * console.log(b); // false
+ * const result = isNotNullish(null);
+ * console.log(result); // false
  * ```
  *
  * @example
  * ```
- * const b = isNotNullish(undefined);
- * console.log(b); // false
+ * const result = isNotNullish(undefined);
+ * console.log(result); // false
  * ```
  *
  * @param value - the value to check

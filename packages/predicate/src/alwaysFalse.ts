@@ -9,8 +9,8 @@
  * @example
  * Returns always `false`
  * ```ts
- * const b = alwaysFalse();
- * console.log(b); // false
+ * const result = alwaysFalse();
+ * console.log(result); // false
  * ```
  *
  * @example
@@ -20,8 +20,8 @@
  *   return canParse("true");
  * }
  *
- * const b = canParseBoolean();
- * console.log(b); // false
+ * const result = canParseBoolean();
+ * console.log(result); // false
  * ```
  *
  * @returns `false`

@@ -3,14 +3,14 @@
  *
  * @example
  * ```
- * const b = isSymbol(Symbol());
- * console.log(b); // true
+ * const result = isSymbol(Symbol());
+ * console.log(result); // true
  * ```
  *
  * @example
  * ```
- * const b = isSymbol(0);
- * console.log(b); // false
+ * const result = isSymbol(0);
+ * console.log(result); // false
  * ```
  *
  * @param value - the value to check

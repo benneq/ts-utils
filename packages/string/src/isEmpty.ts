@@ -4,15 +4,15 @@
  * @example
  * Returns `true` if the String is empty
  * ```ts
- * const b = isEmpty("");
- * console.log(b); // true
+ * const result = isEmpty("");
+ * console.log(result); // true
  * ```
  *
  * @example
  * Returns `false` if the String contains any character
  * ```ts
- * const b = isEmpty(" ");
- * console.log(b); // false
+ * const result = isEmpty(" ");
+ * console.log(result); // false
  * ```
  *
  * @param str - the {@link String} value to check

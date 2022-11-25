@@ -14,7 +14,7 @@ import { SortedSet } from "./_types";
  * Remove values
  * ```ts
  * const sortedNumberSet = sortedSet(numberComparator);
- * add(sortedNumberSet, [1, 2, 3, 4, 5]);
+ * add(sortedNumberSet, 1, 2, 3, 4, 5);
  *
  * remove(sortedNumberSet, 0, 1, 2, 5)
  *

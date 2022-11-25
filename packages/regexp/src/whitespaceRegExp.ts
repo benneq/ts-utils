@@ -4,8 +4,8 @@
  * @example
  * Match whitespace
  * ```ts
- * const b = whitespaceRegExp.test(" ");
- * console.log(b); // true
+ * const result = whitespaceRegExp.test(" ");
+ * console.log(result); // true
  * ```
  *
  */

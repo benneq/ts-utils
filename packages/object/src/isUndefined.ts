@@ -5,14 +5,14 @@
  *
  * @example
  * ```
- * const b = isUndefined(undefined);
- * console.log(b); // true
+ * const result = isUndefined(undefined);
+ * console.log(result); // true
  * ```
  *
  * @example
  * ```
- * const b = isUndefined(0);
- * console.log(b); // false
+ * const result = isUndefined(0);
+ * console.log(result); // false
  * ```
  *
  * @param value - the value to check

@@ -4,8 +4,8 @@
  * @example
  * Match ASCII characters
  * ```ts
- * const b = asciiCharacterRegExp.test(" ");
- * console.log(b); // true
+ * const result = asciiCharacterRegExp.test(" ");
+ * console.log(result); // true
  * ```
  *
  */

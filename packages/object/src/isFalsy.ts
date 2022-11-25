@@ -7,26 +7,26 @@ import { Falsy } from "./_types";
  *
  * @example
  * ```
- * const b = isFalsy(0);
- * console.log(b); // true
+ * const result = isFalsy(0);
+ * console.log(result); // true
  * ```
  *
  * @example
  * ```
- * const b = isFalsy(null);
- * console.log(b); // true
+ * const result = isFalsy(null);
+ * console.log(result); // true
  * ```
  *
  * @example
  * ```
- * const b = isFalsy(1);
- * console.log(b); // false
+ * const result = isFalsy(1);
+ * console.log(result); // false
  * ```
  *
  * @example
  * ```
- * const b = isFalsy(" ");
- * console.log(b); // false
+ * const result = isFalsy(" ");
+ * console.log(result); // false
  * ```
  *
  * @param value - the value to check

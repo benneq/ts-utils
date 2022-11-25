@@ -4,15 +4,15 @@
  * @example
  * Returns `true` if the `value` is a `String`
  * ```ts
- * const b = isString("");
- * console.log(b); // true
+ * const result = isString("");
+ * console.log(result); // true
  * ```
  *
  * @example
  * Returns `false` if the `value` is not a `String`
  * ```ts
- * const b = isString(1);
- * console.log(b); // false
+ * const result = isString(1);
+ * console.log(result); // false
  * ```
  *
  * @param value - the value to check

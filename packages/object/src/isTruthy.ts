@@ -7,26 +7,26 @@ import { Truthy } from "./_types";
  *
  * @example
  * ```
- * const b = isTruthy(1);
- * console.log(b); // true
+ * const result = isTruthy(1);
+ * console.log(result); // true
  * ```
  *
  * @example
  * ```
- * const b = isTruthy(" ");
- * console.log(b); // true
+ * const result = isTruthy(" ");
+ * console.log(result); // true
  * ```
  *
  * @example
  * ```
- * const b = isTruthy(0);
- * console.log(b); // false
+ * const result = isTruthy(0);
+ * console.log(result); // false
  * ```
  *
  * @example
  * ```
- * const b = isTruthy(null);
- * console.log(b); // false
+ * const result = isTruthy(null);
+ * console.log(result); // false
  * ```
  *
  * @param value - the value to check

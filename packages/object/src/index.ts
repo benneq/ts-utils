@@ -20,6 +20,7 @@ export * from "./isNotNullish";
 export * from "./isNotUndefined";
 export * from "./isNull";
 export * from "./isNullish";
+export * from "./isObject";
 export * from "./isSymbol";
 export * from "./isTruthy";
 export * from "./isUndefined";

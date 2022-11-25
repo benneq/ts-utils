@@ -6,8 +6,8 @@ import { Comparator } from "./_types";
  * @example
  * ```
  * const isStringLessThan = isLessThan(stringComparator);
- * const b = isStringLessThan("aa", "ab");
- * console.log(b); // true
+ * const result = isStringLessThan("aa", "ab");
+ * console.log(result); // true
  * ```
  *
  * @typeParam T - the {@link Comparator} value type

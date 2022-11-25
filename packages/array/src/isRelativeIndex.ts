@@ -10,16 +10,16 @@ import { RelativeIndex } from "./_types";
  * const isRelativeIndexOfArray = isRelativeIndex(array);
  *
  * const index = -3;
- * const b = isRelativeIndexOfArray(index);
- * console.log(b); // true
+ * const result = isRelativeIndexOfArray(index);
+ * console.log(result); // true
  * ```
  *
  * @example
  * Works with Strings, too
  * ```ts
  * const isRelativeIndexOfTest = isRelativeIndex("test");
- * const b = isRelativeIndexOfTest(-5);
- * console.log(b); // false
+ * const result = isRelativeIndexOfTest(-5);
+ * console.log(result); // false
  * ```
  *
  * @returns `true` if the `index` is between `-array.length` and `array.length`, otherwise `false`

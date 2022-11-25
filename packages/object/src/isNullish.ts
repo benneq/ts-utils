@@ -9,20 +9,20 @@ import { Nullish } from "./_types";
  *
  * @example
  * ```
- * const b = isNullish(null);
- * console.log(b); // true
+ * const result = isNullish(null);
+ * console.log(result); // true
  * ```
  *
  * @example
  * ```
- * const b = isNullish(undefined);
- * console.log(b); // true
+ * const result = isNullish(undefined);
+ * console.log(result); // true
  * ```
  *
  * @example
  * ```
- * const b = isNullish(0);
- * console.log(b); // false
+ * const result = isNullish(0);
+ * console.log(result); // false
  * ```
  *
  * @param value - the value to check

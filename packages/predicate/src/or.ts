@@ -10,16 +10,16 @@ import { Predicate } from "./_types";
  * Combine two Predicates with a logical `OR`
  * ```
  * const predicate = or(numberIsPositive, numberIsEven);
- * const b = p(-2);
- * console.log(b); // true
+ * const result = p(-2);
+ * console.log(result); // true
  * ```
  *
  * @example
  * Returns an {@link alwaysFalse} Predicate if no args provided
  * ```
  * const predicate = or();
- * const b = p();
- * console.log(b); // false
+ * const result = p();
+ * console.log(result); // false
  * ```
  *
  * @typeParam T - the type of the {@link Predicate}s

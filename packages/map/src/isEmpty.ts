@@ -4,15 +4,15 @@
  * @example
  * Returns `true` if the {@link Map} is empty
  * ```ts
- * const b = isEmpty(new Map());
- * console.log(b); // true
+ * const result = isEmpty(new Map());
+ * console.log(result); // true
  * ```
  *
  * @example
  * Returns `false` if the {@link Map} contains elements
  * ```ts
- * const b = isEmpty(new Map([[1, 2]]));
- * console.log(b); // false
+ * const result = isEmpty(new Map([[1, 2]]));
+ * console.log(result); // false
  * ```
  *
  * @param map - the {@link Map} to check

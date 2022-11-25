@@ -4,8 +4,8 @@
  * @example
  * Match non-whitespace character
  * ```ts
- * const b = nonWhitespaceRegExp.test("💩");
- * console.log(b); // true
+ * const result = nonWhitespaceRegExp.test("💩");
+ * console.log(result); // true
  * ```
  *
  */

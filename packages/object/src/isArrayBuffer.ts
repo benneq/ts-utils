@@ -3,14 +3,14 @@
  *
  * @example
  * ```
- * const b = isArrayBuffer(new ArrayBuffer(0));
- * console.log(b); // true
+ * const result = isArrayBuffer(new ArrayBuffer(0));
+ * console.log(result); // true
  * ```
  *
  * @example
  * ```
- * const b = isArrayBuffer([]);
- * console.log(b); // false
+ * const result = isArrayBuffer([]);
+ * console.log(result); // false
  * ```
  *
  * @param value - the value to check

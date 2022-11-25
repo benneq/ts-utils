@@ -4,8 +4,8 @@
  * @example
  * Match printable ASCII character
  * ```ts
- * const b = printableCharacterRegExp.test(" ");
- * console.log(b); // true
+ * const result = printableCharacterRegExp.test(" ");
+ * console.log(result); // true
  * ```
  *
  * @remark

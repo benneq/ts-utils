@@ -3,20 +3,20 @@
  *
  * @example
  * ```
- * const b = isBoolean(true);
- * console.log(b); // true
+ * const result = isBoolean(true);
+ * console.log(result); // true
  * ```
  *
  * @example
  * ```
- * const b = isBoolean(false);
- * console.log(b); // true
+ * const result = isBoolean(false);
+ * console.log(result); // true
  * ```
  *
  * @example
  * ```
- * const b = isBoolean(0);
- * console.log(b); // false
+ * const result = isBoolean(0);
+ * console.log(result); // false
  * ```
  *
  * @param value - the value to check

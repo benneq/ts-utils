@@ -7,14 +7,14 @@ import { isNull } from "./isNull";
  *
  * @example
  * ```
- * const b = isNotNull(0);
- * console.log(b); // true
+ * const result = isNotNull(0);
+ * console.log(result); // true
  * ```
  *
  * @example
  * ```
- * const b = isNotNull(null);
- * console.log(b); // false
+ * const result = isNotNull(null);
+ * console.log(result); // false
  * ```
  *
  * @param value - the value to check

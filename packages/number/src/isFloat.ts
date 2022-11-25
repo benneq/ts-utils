@@ -4,15 +4,15 @@
  * @example
  * Returns `true` if the `value` is a Float
  * ```ts
- * const b = isFloat(0.5);
- * console.log(b); // true
+ * const result = isFloat(0.5);
+ * console.log(result); // true
  * ```
  *
  * @example
  * Returns `false` if the `value` is not a Float
  * ```ts
- * const b = isFloat(NaN);
- * console.log(b); // false
+ * const result = isFloat(NaN);
+ * console.log(result); // false
  * ```
  *
  * @param value - the value to check
