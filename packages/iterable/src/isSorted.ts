@@ -1,6 +1,8 @@
 import { Comparator } from "@benneq/comparator";
+import { pipe } from "@benneq/function";
 import { Predicate } from "@benneq/predicate";
 import { every } from "./every";
+import { pairwise } from "./pairwise";
 
 /**
  * Creates a {@link Predicate} function that checks if all elements of an
@@ -22,16 +24,8 @@ import { every } from "./every";
 export const isSorted = <T>(
   comparator: Comparator<T>
 ): Predicate<[Iterable<T>]> => {
-  let prev: T | undefined = undefined;
-
-  return every((value) => {
-    if (prev === undefined) {
-      prev = value;
-      return true;
-    }
-
-    const result = comparator(prev, value) <= 0;
-    prev = value;
-    return result;
-  });
+  return pipe(
+    pairwise<T>,
+    every<[T, T]>(([a, b]) => comparator(a, b) <= 0)
+  );
 };

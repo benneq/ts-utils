@@ -1,29 +1,50 @@
-import { clear, deleteAt, insertAt } from "@benneq/array";
+import { clear, deleteAt, insertAt, isSorted } from "@benneq/array";
 import { Comparator } from "@benneq/comparator";
-import { map } from "@benneq/iterable";
+import { map, every } from "@benneq/iterable";
+import { pairwise } from "@benneq/iterable/src/pairwise";
 
 /**
  * A {@link SortedSet} uses a {@link Comparator} for sorting the values and
  * checking for equality.
  *
  * @example
- * Create an empty {@link SortedSet} for numbers
+ * Add, delete and iterate
  * ```ts
- * const sortedNumberSet = new SortedSet(numberComparator);
- * console.log([...sortedNumberSet.values()]); // []
+ * const sortedSet = new SortedSet(numberComparator);
+ *
+ * sortedSet.add(2);
+ * sortedSet.add(1, 2, 3);
+ * sortedSet.delete(1);
+ *
+ * const result = sortedSet.has(2);
+ * console.log(result); // true
+ *
+ * for(const value of sortedSet) {
+ *   console.log(value); // 2, 3
+ * }
  * ```
  *
  * @typeParam T - the {@link SortedSet} element type
  */
 export class SortedSet<T> implements Set<T> {
   readonly #comparator;
-  readonly #values: T[] = [];
+  readonly #values;
 
   /**
    * @param comparator - the {@link Comparator} to use for sorting the values
+   * @param values - optional {@link Array} of sorted and unique values for initialization
    */
-  constructor(comparator: Comparator<T>) {
+  constructor(comparator: Comparator<T>, values: T[] = []) {
+    if (process.env.NODE_ENV !== "production") {
+      console.assert(isSorted(comparator)(values), "values must be sorted");
+      console.assert(
+        every<[T, T]>(([a, b]) => comparator(a, b) !== 0)(pairwise(values)),
+        "values must be unique"
+      );
+    }
+
     this.#comparator = comparator;
+    this.#values = values;
   }
 
   /**
@@ -125,6 +146,16 @@ export class SortedSet<T> implements Set<T> {
     }
 
     return true;
+  }
+
+  /**
+   * Returns the value at the specified `index`.
+   *
+   * @param index - the index of the element to get
+   * @returns the element at the specified `index`, or `undefined` if out of bounds
+   */
+  at(index: number): T | undefined {
+    return this.#values.at(index);
   }
 
   /**

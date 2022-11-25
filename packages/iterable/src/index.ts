@@ -28,6 +28,7 @@ export * from "./limit";
 export * from "./map";
 export * from "./max";
 export * from "./min";
+export * from "./pairwise";
 export * from "./reduce";
 export * from "./skip";
 export * from "./some";

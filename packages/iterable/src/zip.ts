@@ -15,7 +15,7 @@ type ExtractValue<T extends ReadonlyArray<Iterable<unknown>>> = {
  * console.log(iterable); // [1, 4], [2, 5], [3, undefined]
  * ```
  *
- * @see {@link chunk}, {@link concat} and {@link flatMap} for
+ * @see {@link chunk}, {@link concat}, {@link flatMap} and {@link pairwise} for
  * similar operations.
  *
  * @param iterables - the {@link Iterable}s to zip
