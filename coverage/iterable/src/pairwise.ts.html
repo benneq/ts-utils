@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for predicate/src/or.ts</title>
+    <title>Code coverage report for iterable/src/pairwise.ts</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,34 +19,34 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">predicate/src</a> or.ts</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">iterable/src</a> pairwise.ts</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>5/5</span>
+                <span class='fraction'>9/9</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>4/4</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>4/4</span>
+                <span class='fraction'>9/9</span>
             </div>
         
             
@@ -95,17 +95,7 @@
 <a name='L30'></a><a href='#L30'>30</a>
 <a name='L31'></a><a href='#L31'>31</a>
 <a name='L32'></a><a href='#L32'>32</a>
-<a name='L33'></a><a href='#L33'>33</a>
-<a name='L34'></a><a href='#L34'>34</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L33'></a><a href='#L33'>33</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -125,43 +115,50 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Predicate } from "./_types";
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { isUndefined } from "@benneq/object";
 &nbsp;
 /**
- * Combines {@link Predicate}s with a logical `OR`.
- *
- * The combined {@link Predicate} returns `true` if any of the
- * {@link Predicate}s returns `true`.
+ * Iterates over the elements of an {@link Iterable} in pairs.
  *
  * @example
- * Combine two Predicates with a logical `OR`
- * ```
- * const predicate = or(numberIsPositive, numberIsEven);
- * const result = p(-2);
- * console.log(result); // true
- * ```
- *
- * @example
- * Returns an {@link alwaysFalse} Predicate if no args provided
- * ```
- * const predicate = or();
- * const result = p();
- * console.log(result); // false
+ * Iterate in pairs
+ * ```ts
+ * const iterable = [1, 2, 3];
+ * const pairIterable = pairwise(iterable);
+ * console.log(pairIterable); // [[1,2], [2,3]]
  * ```
  *
- * @typeParam T - the type of the {@link Predicate}s
- * @param predicates - the {@link Predicate}s to combine
- * @returns `true` if any of the {@link Predicate}s returned `true`, otherwise `false`
+ * @see {@link chunk} and {@link zip} for similar operations.
+ *
+ * @typeParam T - the {@link Iterable} value type
+ * @param iterable - the source {@link Iterabel}
+ * @returns the pairwise {@link Iterable}
  */
-export const or =
-  &lt;T extends unknown[]&gt;(...predicates: Predicate&lt;T&gt;[]): Predicate&lt;T&gt; =&gt;
-  (...args) =&gt; {
-    return predicates.some((predicate) =&gt; predicate(...args));
-  };
+export function* pairwise&lt;T&gt;(iterable: Iterable&lt;T&gt;): Iterable&lt;[T, T]&gt; {
+  let prev = undefined;
+&nbsp;
+  for (const value of iterable) {
+    if (isUndefined(prev)) {
+      prev = value;
+      continue;
+    }
+&nbsp;
+    yield [prev, value];
+    prev = value;
+  }
+}
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
