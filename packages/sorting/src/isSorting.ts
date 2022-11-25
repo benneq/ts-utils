@@ -8,9 +8,7 @@ export const isSorting = <T extends string>(
 ): value is Sorting<T> => {
   return (
     isObject(value) &&
-    "property" in value &&
     isString(value["property"]) &&
-    "direction" in value &&
     isSortingDirection(value["direction"])
   );
 };

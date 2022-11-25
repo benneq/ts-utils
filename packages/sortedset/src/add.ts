@@ -30,8 +30,8 @@ export const add = <T>(
   { comparator, values }: SortedSet<T>,
   ...sortedSetValues: T[]
 ): void => {
-  let i = 0,
-    pointer = 0;
+  let i = 0;
+  let pointer = 0;
 
   while (i < values.length && pointer < sortedSetValues.length) {
     const value = sortedSetValues[pointer] as T;

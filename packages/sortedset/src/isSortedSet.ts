@@ -21,9 +21,7 @@ import { SortedSet } from "./_types";
 export const isSortedSet = <T>(value: unknown): value is SortedSet<T> => {
   return (
     isObject(value) &&
-    "comparator" in value &&
     isFunction<Comparator<T>>(value["comparator"]) &&
-    "values" in value &&
     isArray<T>(value["values"]) &&
     isSorted(value["comparator"])(value["values"])
   );

@@ -6,6 +6,8 @@
 
 export * from "./_types";
 export * from "./add";
+export * from "./hasAll";
+export * from "./hasAny";
 export * from "./isSortedSet";
 export * from "./remove";
 export * from "./sortedSet";

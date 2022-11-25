@@ -17,5 +17,5 @@ import { isObject } from "@benneq/object";
  * @returns `true` if `value` is a {@link PromiseLike} object, otherwise `false`
  */
 export const isPromiseLike = <T>(value: unknown): value is PromiseLike<T> => {
-  return isObject(value) && "then" in value && isFunction(value["then"]);
+  return isObject(value) && isFunction(value["then"]);
 };

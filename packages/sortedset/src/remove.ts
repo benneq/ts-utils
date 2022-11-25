@@ -29,11 +29,10 @@ export const remove = <T>(
   { comparator, values }: SortedSet<T>,
   ...sortedSetValues: T[]
 ): void => {
-  for (
-    let pointer = 0, i = 0;
-    i < values.length && pointer < sortedSetValues.length;
-    i++
-  ) {
+  let i = 0;
+  let pointer = 0;
+
+  while (i < values.length && pointer < sortedSetValues.length) {
     const comparisonResult = comparator(
       sortedSetValues[pointer] as T,
       values[i] as T
@@ -44,8 +43,9 @@ export const remove = <T>(
         deleteAt(values, i);
       }
 
-      i--;
       pointer++;
+    } else {
+      i++;
     }
   }
 };
