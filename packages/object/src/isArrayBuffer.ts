@@ -1,5 +1,5 @@
 /**
- * Checks if a value is of type ArrayBuffer
+ * Checks if a `value` is an {@link ArrayBuffer}.
  *
  * @example
  * ```
@@ -14,7 +14,7 @@
  * ```
  *
  * @param value - the value to check
- * @returns `true` if `value` is an ArrayBuffer, otherwise `false`
+ * @returns `true` if `value` is an {@link ArrayBuffer}, otherwise `false`
  */
 export const isArrayBuffer = (value: unknown): value is ArrayBuffer => {
   return value instanceof ArrayBuffer;

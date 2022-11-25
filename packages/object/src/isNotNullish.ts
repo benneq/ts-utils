@@ -2,7 +2,7 @@ import { isNullish } from "./isNullish";
 import { Nullish } from "./_types";
 
 /**
- * Checks if a value is not {@link Nullish}
+ * Checks if a `value` is not {@link Nullish}
  *
  * The opposite of {@link isNullish}
  *

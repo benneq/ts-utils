@@ -1,7 +1,7 @@
 import { isNull } from "./isNull";
 
 /**
- * Checks if a value is not `null`
+ * Checks if a `value` is not `null`
  *
  * The opposite of {@link isNull}
  *

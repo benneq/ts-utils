@@ -3,7 +3,7 @@ import { isUndefined } from "./isUndefined";
 import { Nullish } from "./_types";
 
 /**
- * Checks if a value is {@link Falsy}
+ * Checks if a `value` is {@link Falsy}
  *
  * The opposite of {@link isNotNullish}
  *

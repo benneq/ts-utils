@@ -21,6 +21,7 @@ import { SortedSet } from "./_types";
  * console.log(sortedNumberSet.values); // [3, 4]
  * ```
  *
+ * @typeParam T - the {@link SortedSet} element type
  * @param sortedSet - the {@link SortedSet} to remove the `values` from
  * @param sortedSetValues - the values to remove
  */

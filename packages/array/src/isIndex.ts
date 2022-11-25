@@ -20,7 +20,7 @@
  * console.log(b); // true
  * ```
  *
- * @returns `true` if the index is between `0` and `array.length`, otherwise `false`
+ * @returns `true` if the `index` is between `0` and `array.length`, otherwise `false`
  */
 export const isIndex =
   (array: ArrayLike<unknown>) =>

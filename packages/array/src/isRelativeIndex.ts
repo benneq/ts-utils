@@ -22,7 +22,7 @@ import { RelativeIndex } from "./_types";
  * console.log(b); // false
  * ```
  *
- * @returns `true` if the index is between `-array.length` and `array.length`, otherwise `false`
+ * @returns `true` if the `index` is between `-array.length` and `array.length`, otherwise `false`
  */
 export const isRelativeIndex =
   (array: ArrayLike<unknown>) =>

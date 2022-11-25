@@ -9,6 +9,7 @@
  * console.log(result); // true
  * ```
  *
+ * @typeParam T - the {@link Promise} value type
  * @param value - the value to check
  * @returns `true` if `value` is a {@link Promise}, otherwise `false`
  */

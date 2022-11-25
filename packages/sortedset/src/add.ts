@@ -22,6 +22,7 @@ import { SortedSet } from "./_types";
  * console.log(sortedNumberSet.values); // [0, 1, 2, 3]
  * ```
  *
+ * @typeParam T - the {@link SortedSet} element type
  * @param sortedSet - the {@link SortedSet} to add the `value` to
  * @param sortedSetValues - the values to add
  */

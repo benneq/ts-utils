@@ -4,7 +4,7 @@ import { SortingDirection } from "./_types";
 const sortingDirections = ["asc", "desc"] as SortingDirection[];
 
 /**
- * Checks if a value is {@link SortingDirection}, i.e. is `"asc"` or `"desc"`.
+ * Checks if a `value` is {@link SortingDirection}, i.e. is `"asc"` or `"desc"`.
  *
  * @example
  * isSortingDirection("asc") => true

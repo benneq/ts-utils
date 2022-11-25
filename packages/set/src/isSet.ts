@@ -1,5 +1,6 @@
 /**
- *
+ * Checks if a `value` is a {@link Set}.
+ * 
  * @example
  * Returns `true` if the value if a {@link Set}
  * ```ts
@@ -14,8 +15,9 @@
  * console.log(b); // false
  * ```
  *
+ * @typeParam T - the {@link Set} element type
  * @param value - the value to check
- * @returns `true` if `value` is a Set, otherwise `false`
+ * @returns `true` if `value` is a {@link Set}, otherwise `false`
  */
 export const isSet = <T>(value: unknown): value is Set<T> => {
   return value instanceof Set;

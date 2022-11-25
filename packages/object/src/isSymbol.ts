@@ -1,5 +1,5 @@
 /**
- * Checks if a value is of type `symbol`
+ * Checks if a `value` is of type `symbol`
  *
  * @example
  * ```

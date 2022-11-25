@@ -1,5 +1,5 @@
 /**
- * Checks if a value is `null`
+ * Checks if a `value` is `null`
  *
  * The opposite of {@link isNotNull}
  *

@@ -1,5 +1,5 @@
 /**
- * Checks if a value is {@link ArrayLike}, i.e. has a `length` property.
+ * Checks if a `value` is {@link ArrayLike}, i.e. has a `length` property.
  *
  * @example
  * isArrayLike([]) => true

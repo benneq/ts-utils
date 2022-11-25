@@ -1,20 +1,20 @@
 /**
- * Checks if a value is of type RegExp
+ * Checks if a `value` is a {@link RegExp}.
  *
  * @example
  * ```
- * const b = isRegExp(/.+/);
- * console.log(b); // true
+ * const result = isRegExp(/.+/);
+ * console.log(result); // true
  * ```
  *
  * @example
  * ```
- * const b = isRegExp(".+");
- * console.log(b); // false
+ * const result = isRegExp(".+");
+ * console.log(result); // false
  * ```
  *
  * @param value - the value to check
- * @returns `true` if `value` is an RegExp, otherwise `false`
+ * @returns `true` if `value` is a {@link RegExp}, otherwise `false`
  */
 export const isRegExp = (value: unknown): value is RegExp => {
   return value instanceof RegExp;

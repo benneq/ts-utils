@@ -1,5 +1,5 @@
 /**
- * Checks if a value is `undefined`
+ * Checks if a `value` is `undefined`
  *
  * The opposite of {@link isNotUndefined}
  *

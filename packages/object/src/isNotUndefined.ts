@@ -1,7 +1,7 @@
 import { isUndefined } from "./isUndefined";
 
 /**
- * Checks if a value is not `undefined`
+ * Checks if a `value` is not `undefined`
  *
  * The opposite of {@link isUndefined}
  *

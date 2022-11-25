@@ -1,7 +1,7 @@
 import { Truthy } from "./_types";
 
 /**
- * Checks if a value is {@link Truthy}
+ * Checks if a `value` is {@link Truthy}
  *
  * The opposite of {@link isFalsy}
  *

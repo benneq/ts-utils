@@ -1,5 +1,5 @@
 /**
- * Checks if the provided value is an {@link Iterable}.
+ * Checks if a value is an {@link Iterable}.
  *
  * @example
  * Is String iterable?
@@ -15,9 +15,10 @@
  * console.log(result); // true
  * ```
  *
+ * @typeParam T - the {@link Iterable} element type
  * @param value - the value to check
  * @returns `true` if `value` is an {@link Iterable}, otherwise `false`
  */
-export const isIterable = (value: unknown): value is Iterable<unknown> => {
+export const isIterable = <T>(value: unknown): value is Iterable<T> => {
   return Symbol.iterator in Object(value);
 };

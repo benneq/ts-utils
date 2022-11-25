@@ -1,5 +1,5 @@
 /**
- * Checks if a value is a {@link Function}
+ * Checks if a `value` is a {@link Function}
  *
  * @example
  * Call some unknown function

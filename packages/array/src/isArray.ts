@@ -1,5 +1,5 @@
 /**
- * Checks if a value is an Array
+ * Checks if a `value` is an Array
  *
  * @example
  * isArray(null) = false

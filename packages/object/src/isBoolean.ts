@@ -1,5 +1,5 @@
 /**
- * Checks if a value is of type `boolean`
+ * Checks if a `value` is of type `boolean`.
  *
  * @example
  * ```

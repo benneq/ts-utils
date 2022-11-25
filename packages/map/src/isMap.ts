@@ -1,5 +1,5 @@
 /**
- * Checks if the provided value is a {@link Map}
+ * Checks if a `value` is a {@link Map}
  *
  * @example
  * ```ts
@@ -10,7 +10,7 @@
  *
  * @typeParam K - the {@link Map} key type
  * @typeParam V - the {@link Map} value type
- * @param value - the `value` to check
+ * @param value - the value to check
  * @returns `true` if `value` is a {@link Map}, otherwise `false`
  */
 export const isMap = <K, V>(value: unknown): value is Map<K, V> => {
