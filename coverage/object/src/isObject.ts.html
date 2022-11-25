@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for map/src/isEmpty.ts</title>
+    <title>Code coverage report for object/src/isObject.ts</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,7 +19,7 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">map/src</a> isEmpty.ts</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">object/src</a> isObject.ts</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
@@ -32,7 +32,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>3/3</span>
             </div>
         
             
@@ -86,7 +86,14 @@
 <a name='L21'></a><a href='#L21'>21</a>
 <a name='L22'></a><a href='#L22'>22</a>
 <a name='L23'></a><a href='#L23'>23</a>
-<a name='L24'></a><a href='#L24'>24</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L24'></a><a href='#L24'>24</a>
+<a name='L25'></a><a href='#L25'>25</a>
+<a name='L26'></a><a href='#L26'>26</a>
+<a name='L27'></a><a href='#L27'>27</a>
+<a name='L28'></a><a href='#L28'>28</a>
+<a name='L29'></a><a href='#L29'>29</a>
+<a name='L30'></a><a href='#L30'>30</a>
+<a name='L31'></a><a href='#L31'>31</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -106,31 +113,45 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
- * Checks if a {@link Map} contains any entry
+ * Checks if a `value` is an object.
+ *
+ * "object" in terms of this function means a regular object with `string` or
+ * {@link Symbol} properties.
+ *
+ * @remarks
+ * This function does not behave the same as JavaScript's `typeof` operator,
+ * which returns `"object"` also for {@link Array}s and `null`.
  *
  * @example
- * Returns `true` if the {@link Map} is empty
- * ```ts
- * const result = isEmpty(new Map());
+ * ```
+ * const result = isObject({});
  * console.log(result); // true
  * ```
  *
  * @example
- * Returns `false` if the {@link Map} contains elements
- * ```ts
- * const result = isEmpty(new Map([[1, 2]]));
+ * ```
+ * const result = isObject([]);
  * console.log(result); // false
  * ```
  *
- * @param map - the {@link Map} to check
- * @returns `true` if the {@link Map} is empty, otherwise `false`
+ * @param value - the value to check
+ * @returns `true` if `value` is an object, otherwise `false`
  */
-export const isEmpty = (map: ReadonlyMap&lt;unknown, unknown&gt;): boolean =&gt; {
-  return !map.size;
+export const isObject = &lt;T extends { [key: string | symbol]: unknown }&gt;(
+  value: unknown
+): value is T =&gt; {
+  return !!value &amp;&amp; typeof value === "object" &amp;&amp; !Array.isArray(value);
 };
 &nbsp;</pre></td></tr></table></pre>
 
