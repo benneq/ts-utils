@@ -1,8 +1,4 @@
-import { isArray, isSorted } from "@benneq/array";
-import { Comparator } from "@benneq/comparator";
-import { isFunction } from "@benneq/function";
-import { isObject } from "@benneq/object";
-import { SortedSet } from "./_types";
+import { SortedSet } from "./sortedSet";
 
 /**
  * Checks if a `value` is a {@link SortedSet}
@@ -19,10 +15,5 @@ import { SortedSet } from "./_types";
  * @returns `true` if `value` is a {@link SortedSet}, otherwise `false`
  */
 export const isSortedSet = <T>(value: unknown): value is SortedSet<T> => {
-  return (
-    isObject(value) &&
-    isFunction<Comparator<T>>(value["comparator"]) &&
-    isArray<T>(value["values"]) &&
-    isSorted(value["comparator"])(value["values"])
-  );
+  return value instanceof SortedSet;
 };
