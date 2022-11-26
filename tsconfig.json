@@ -41,6 +41,9 @@
       "path": "./packages/promise"
     },
     {
+      "path": "./packages/range"
+    },
+    {
       "path": "./packages/regexp"
     },
     {

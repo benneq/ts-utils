@@ -5,12 +5,10 @@ import { SortDirection } from "./_types";
  *
  * @example
  * ```ts
- * const mySort = sort([['a', 'asc']]);
- * console.log([...mySort]); // [['a', 'asc']]
+ * const sort = new Sort([['a', 'asc']]);
+ * console.log([...sort]); // [['a', 'asc']]
  * ```
  *
- * @param args - the optional initial values
- * @returns the new {@link Sort} object
+ * @typeParams P - the allowd properties
  */
-
 export class Sort<P extends string> extends Map<P, SortDirection> {}

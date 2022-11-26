@@ -1,0 +1,17 @@
+{
+  "name": "@benneq/range",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "dist/index.js",
+  "sideEffects": false,
+  "scripts": {
+    "compile": "tsc -b",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@benneq/comparator": "*"
+  }
+}

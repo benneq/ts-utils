@@ -12,6 +12,9 @@ import { SortDirectionCycler } from "./_types";
  * console.log(mySort); // Map([['b', 'asc'], ['a', 'desc']])
  * ```
  *
+ * @todo
+ * Figure out if appending is the preferred action for multi sort
+ *
  * @param sortDirectionCycler - the {@link SortDirectionCycler} to use
  * @returns the toggle {@link Function}
  */
