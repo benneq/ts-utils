@@ -25,6 +25,8 @@
 <h3>Example</h3><pre><code class="language-ts"><span class="hl-5">const</span><span class="hl-0"> </span><span class="hl-6">mySort</span><span class="hl-0"> = </span><span class="hl-4">sort</span><span class="hl-0">([[</span><span class="hl-3">&#39;a&#39;</span><span class="hl-0">, </span><span class="hl-3">&#39;asc&#39;</span><span class="hl-0">], [</span><span class="hl-3">&#39;b&#39;</span><span class="hl-0">, </span><span class="hl-3">&#39;asc&#39;</span><span class="hl-0">]]);</span><br/><span class="hl-5">const</span><span class="hl-0"> </span><span class="hl-6">toggleDirection</span><span class="hl-0"> = </span><span class="hl-4">toggle</span><span class="hl-0">(</span><span class="hl-7">defaultSortDirectionCycler</span><span class="hl-0">);</span><br/><span class="hl-5">const</span><span class="hl-0"> </span><span class="hl-6">toggleDirection</span><span class="hl-0">(</span><span class="hl-3">&#39;a&#39;</span><span class="hl-0">)(mySort);</span><br/><span class="hl-7">console</span><span class="hl-0">.</span><span class="hl-4">log</span><span class="hl-0">(</span><span class="hl-7">mySort</span><span class="hl-0">); </span><span class="hl-8">// Map([[&#39;b&#39;, &#39;asc&#39;], [&#39;a&#39;, &#39;desc&#39;]])</span>
 </code></pre>
 
+<h3>Todo</h3><p>Figure out if appending is the preferred action for multi sort</p>
+
 <h3>Returns</h3><p>the toggle Function</p>
 </div>
 <div class="tsd-parameters">
@@ -65,7 +67,7 @@
 <h5>sort: <a href="../classes/_benneq_sorting.Sort.html" class="tsd-signature-type" data-tsd-kind="Class">Sort</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type" data-tsd-kind="Type parameter">T</span><span class="tsd-signature-symbol">&gt;</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4></li></ul></li></ul></li></ul></li></ul><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/benneq/ts-utils/blob/16c9b3a/packages/sorting/src/toggle.ts#L19">packages/sorting/src/toggle.ts:19</a></li></ul></aside></li></ul></section></div>
+<li>Defined in <a href="https://github.com/benneq/ts-utils/blob/1aaef0c/packages/sorting/src/toggle.ts#L22">packages/sorting/src/toggle.ts:22</a></li></ul></aside></li></ul></section></div>
 <div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 <div class="tsd-navigation settings">
 <details class="tsd-index-accordion"><summary class="tsd-accordion-summary">
@@ -99,6 +101,7 @@
 <li class="tsd-kind-module"><a href="../modules/_benneq_object.html">@benneq/object</a></li>
 <li class="tsd-kind-module"><a href="../modules/_benneq_predicate.html">@benneq/predicate</a></li>
 <li class="tsd-kind-module"><a href="../modules/_benneq_promise.html">@benneq/promise</a></li>
+<li class="tsd-kind-module"><a href="../modules/_benneq_range.html">@benneq/range</a></li>
 <li class="tsd-kind-module"><a href="../modules/_benneq_regexp.html">@benneq/regexp</a></li>
 <li class="tsd-kind-module"><a href="../modules/_benneq_set.html">@benneq/set</a></li>
 <li class="tsd-kind-module"><a href="../modules/_benneq_sortedset.html">@benneq/sortedset</a></li>
