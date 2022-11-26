@@ -9,7 +9,11 @@ import { reduce } from "./reduce";
  * console.log(result); // 6
  * ```
  *
- * @see {@link reduce} for similar operations.
+ * @see {@link avg} and {@link reduce} for similar operations.
+ *
+ * @todo
+ * 1. what to return if iterable is empty?
+ * 2. support other types as well
  *
  * @param iterable - the {@link Iterable} to sum
  * @returns the sum of all {@link number}s

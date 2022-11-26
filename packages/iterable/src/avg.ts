@@ -1,0 +1,28 @@
+/**
+ * Calculates the average of all {@link number}s of an {@link Iterable}.
+ *
+ * @example
+ * ```ts
+ * const result = avg([1,2,3]);
+ * console.log(result); // 2
+ * ```
+ *
+ * @see {@link reduce} and {@link sum} for similar operations.
+ *
+ * @todo
+ * 1. what to return if iterable is empty?
+ * 2. support other types as well
+ *
+ * @param iterable - the {@link Iterable} to average
+ * @returns the average of all {@link number}s
+ */
+export const avg = (iterable: Iterable<number>): number => {
+  let length = 0;
+  let sum = 0;
+  for (const value of iterable) {
+    length++;
+    sum += value;
+  }
+
+  return length ? sum / length : 0;
+};
