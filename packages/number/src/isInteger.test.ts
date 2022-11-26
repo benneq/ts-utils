@@ -1,4 +1,3 @@
-import { jest } from "@jest/globals";
 import { isInteger } from "./isInteger";
 
 describe("number.isInteger", () => {

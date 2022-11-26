@@ -1,4 +1,3 @@
-import { jest } from "@jest/globals";
 import { debounce } from "./debounce";
 
 describe("function.debounce", () => {

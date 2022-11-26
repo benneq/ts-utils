@@ -1,4 +1,3 @@
-import { jest } from "@jest/globals";
 import { delay } from "./delay";
 
 describe("function.delay", () => {

@@ -1,4 +1,3 @@
-import { jest } from "@jest/globals";
 import { isPromise } from "./isPromise";
 
 describe("promise.isPromise", () => {

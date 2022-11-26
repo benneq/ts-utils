@@ -1,4 +1,3 @@
-import { jest } from "@jest/globals";
 import { isArrayBuffer } from "./isArrayBuffer";
 
 describe("object.isArrayBuffer", () => {

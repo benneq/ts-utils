@@ -1,4 +1,3 @@
-import { jest } from "@jest/globals";
 import { tap } from "./tap";
 
 describe("iterable.tap", () => {

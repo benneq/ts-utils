@@ -1,4 +1,3 @@
-import { jest } from "@jest/globals";
 import { isMultiMap } from "./isMultiMap";
 
 describe("multimap.isMultiMap", () => {

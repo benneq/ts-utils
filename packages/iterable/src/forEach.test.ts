@@ -1,4 +1,3 @@
-import { jest } from "@jest/globals";
 import { forEach } from "./forEach";
 
 describe("iterable.forEach", () => {

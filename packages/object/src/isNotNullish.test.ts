@@ -1,4 +1,3 @@
-import { jest } from "@jest/globals";
 import { isNotNullish } from "./isNotNullish";
 
 describe("object.isNotNullish", () => {

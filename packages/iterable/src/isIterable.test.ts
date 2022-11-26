@@ -1,4 +1,3 @@
-import { jest } from "@jest/globals";
 import { isIterable } from "./isIterable";
 
 describe("iterable.isIterable", () => {

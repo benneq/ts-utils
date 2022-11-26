@@ -1,4 +1,3 @@
-import { jest } from "@jest/globals";
 import { isObject } from "./isObject";
 
 describe("object.isObject", () => {

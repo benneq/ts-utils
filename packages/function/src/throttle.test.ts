@@ -1,4 +1,3 @@
-import { jest } from "@jest/globals";
 import { throttle } from "./throttle";
 
 describe("function.throttle", () => {

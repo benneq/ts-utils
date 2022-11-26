@@ -1,4 +1,3 @@
-import { jest } from "@jest/globals";
 import { isFunction } from "./isFunction";
 
 describe("function.isFunction", () => {

@@ -1,4 +1,3 @@
-import { jest } from "@jest/globals";
 import { generate } from "./generate";
 
 describe("iterable.generate", () => {
