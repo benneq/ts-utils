@@ -1,7 +1,7 @@
 import { tee } from "./tee";
 
 describe("iterable.tee", () => {
-  it("should call both mappers and return their results", () => {
+  it("should return three iterables if length is 3", () => {
     const iterable = [1, 2, 3];
 
     const [it1, it2, it3] = tee(3)(iterable);

@@ -16,32 +16,32 @@ import { Tuple } from "@benneq/object";
  * @param length - the length of the {@link Tuple}
  * @returns the tuple of {@link Iterable}s
  */
-export const tee = <T, N extends number>(length: N) => {
-  const buffers = Array.from(
-    { length: length },
-    () => [] as Array<IteratorResult<T>>
-  );
+export const tee =
+  <N extends number>(length: N) =>
+  <T>(iterable: Iterable<T>): Tuple<IterableIterator<T>, N> => {
+    const buffers = Array.from(
+      { length: length },
+      () => [] as Array<IteratorResult<T>>
+    );
 
-  return (iterable: Iterable<T>): Tuple<IterableIterator<T>, N> => {
     const iterator = iterable[Symbol.iterator]();
 
-    return buffers.map((buffer) => {
-      return (function* () {
-        while (true) {
-          if (!buffer.length) {
-            const result = iterator.next();
-            for (const buffer of buffers) {
-              buffer.push(result);
-            }
+    return buffers.map(function* (buffer) {
+      while (true) {
+        // if the buffer is empty, fetch a new value from the source iterable
+        if (!buffer.length) {
+          const result = iterator.next();
+          for (const buffer of buffers) {
+            buffer.push(result);
           }
-
-          if ((buffer[0] as IteratorResult<T>).done) {
-            return;
-          }
-
-          yield (buffer.shift() as IteratorResult<T>).value;
         }
-      })();
+
+        // source iterable is done, no more values to come
+        if ((buffer[0] as IteratorResult<T>).done) {
+          return;
+        }
+
+        yield (buffer.shift() as IteratorResult<T>).value;
+      }
     }) as Tuple<IterableIterator<T>, N>;
   };
-};
