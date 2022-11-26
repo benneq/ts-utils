@@ -18,6 +18,7 @@ export * from "./forEach";
 export * from "./generate";
 export * from "./groupBy";
 export * from "./interleave";
+export * from "./isDistinct";
 export * from "./isEmpty";
 export * from "./isIterable";
 export * from "./isSorted";
