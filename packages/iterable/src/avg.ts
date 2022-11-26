@@ -16,13 +16,14 @@
  * @param iterable - the {@link Iterable} to average
  * @returns the average of all {@link number}s
  */
-export const avg = (iterable: Iterable<number>): number => {
+export const avg = (iterable: Iterable<number>): number | undefined => {
   let length = 0;
   let sum = 0;
+
   for (const value of iterable) {
     length++;
     sum += value;
   }
 
-  return length ? sum / length : 0;
+  return length ? sum / length : undefined;
 };

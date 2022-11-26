@@ -37,5 +37,6 @@ export * from "./some";
 export * from "./sum";
 export * from "./takeWhile";
 export * from "./tap";
+export * from "./tee";
 export * from "./toArray";
 export * from "./zip";

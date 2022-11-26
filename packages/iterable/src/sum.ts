@@ -1,5 +1,3 @@
-import { reduce } from "./reduce";
-
 /**
  * Sums all {@link number}s of an {@link Iterable}.
  *
@@ -18,4 +16,14 @@ import { reduce } from "./reduce";
  * @param iterable - the {@link Iterable} to sum
  * @returns the sum of all {@link number}s
  */
-export const sum = reduce<number, number>((a, b) => a + b, 0);
+export const sum = (iterable: Iterable<number>): number | undefined => {
+  let length = 0;
+  let sum = 0;
+
+  for (const value of iterable) {
+    length++;
+    sum += value;
+  }
+
+  return length ? sum : undefined;
+};
