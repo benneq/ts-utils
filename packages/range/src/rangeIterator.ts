@@ -1,14 +1,12 @@
 import { Range } from "./range";
 
-export function* rangeIterator<T>(
-  range: Range<T>,
-  next: (value: T) => T
-): IterableIterator<T> {
-  let e = range.from;
-  yield e;
-  e = next(e);
-  while (range.comparator(e, range.to) <= 0) {
-    yield e;
-    e = next(e);
-  }
-}
+export const rangeIterator = <T>(next: (value: T) => T) => {
+  return function* (range: Range<T>) {
+    let value = range.from;
+
+    do {
+      yield value;
+      value = next(value);
+    } while (range.contains(value));
+  };
+};
