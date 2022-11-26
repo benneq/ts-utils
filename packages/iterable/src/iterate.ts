@@ -29,7 +29,7 @@ export function* iterate<T>(
   seed: T,
   next: Mapper<T, T>,
   hasNext: Predicate<[T]> = alwaysTrue
-): Iterable<T> {
+): IterableIterator<T> {
   yield seed;
   while (hasNext(seed)) {
     seed = next(seed);

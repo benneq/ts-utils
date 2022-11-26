@@ -19,6 +19,6 @@ import { takeWhile } from "./takeWhile";
  */
 export const limit = <T>(
   maxSize: number
-): ((iterable: Iterable<T>) => Iterable<T>) => {
+): ((iterable: Iterable<T>) => IterableIterator<T>) => {
   return takeWhile(() => !!maxSize--);
 };

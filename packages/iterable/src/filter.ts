@@ -20,7 +20,7 @@ import { Predicate } from "@benneq/predicate";
  * @returns an {@link Iterable} that only emits values for which the {@link Predicate} returns `true`
  */
 export const filter = <T>(predicate: Predicate<[T]>) =>
-  function* (iterable: Iterable<T>): Iterable<T> {
+  function* (iterable: Iterable<T>): IterableIterator<T> {
     for (const value of iterable) {
       if (predicate(value)) {
         yield value;

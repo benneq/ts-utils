@@ -3,6 +3,9 @@ import { Tuple } from "@benneq/object";
 /**
  * Iterates over the elements of an {@link Iterable} in pairs.
  *
+ * @remarks
+ * The behavior for `pairSize < 1` is not defined.
+ *
  * @example
  * Iterate in pairs
  * ```ts
@@ -18,7 +21,11 @@ import { Tuple } from "@benneq/object";
  * @returns the tuple emitting {@link Iterable}
  */
 export const pairwise = <L extends number = 2>(pairSize: L = 2 as L) => {
-  return function* <T>(iterable: Iterable<T>): Iterable<Tuple<T, L>> {
+  if (process.env.NODE_ENV !== "production") {
+    console.assert(pairSize >= 1, "pairSize must be >= 1");
+  }
+
+  return function* <T>(iterable: Iterable<T>): IterableIterator<Tuple<T, L>> {
     let buffer: T[] = [];
 
     for (const value of iterable) {

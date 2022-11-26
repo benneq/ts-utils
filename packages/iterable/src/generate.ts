@@ -17,7 +17,7 @@ import { Provider } from "@benneq/function";
  * @typeParam T - the {@link Iterable} value type
  * @param provider - a {@link Function} that produces values
  */
-export function* generate<T>(provider: Provider<T>): Iterable<T> {
+export function* generate<T>(provider: Provider<T>): IterableIterator<T> {
   while (true) {
     yield provider();
   }

@@ -2,9 +2,9 @@ import { Mapper } from "@benneq/function";
 import { reduce } from "./reduce";
 
 /**
- * Groups all elements of an {@link Iterable} by using a {@link Mapper}
- * function and returns a {@link Map} containing the grouped values for each
- * mapped key in an {@link Array}.
+ * Creates a {@link Function} that groups all elements of an {@link Iterable}
+ * by using a {@link Mapper} function and returns a {@link Map} containing the
+ * grouped values for each mapped key.
  *
  * @example
  * ```ts

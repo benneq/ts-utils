@@ -17,5 +17,6 @@ import { flatMap } from "./flatMap";
  * @typeParam T - the {@link Iterable} value type
  * @returns the concatenation of the {@link Iterable}s
  */
-export const concat: <T>(iterable: Iterable<Iterable<T>>) => Iterable<T> =
-  flatMap(identity);
+export const concat: <T>(
+  iterable: Iterable<Iterable<T>>
+) => IterableIterator<T> = flatMap(identity);

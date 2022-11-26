@@ -20,7 +20,7 @@ import { Mapper } from "@benneq/function";
  * @returns an {@link Iterable} that emits all elements of all mapped {@link Iterable}s
  */
 export const flatMap = <T, R>(mapper: Mapper<T, Iterable<R>>) =>
-  function* (iterable: Iterable<T>): Iterable<R> {
+  function* (iterable: Iterable<T>): IterableIterator<R> {
     for (const value of iterable) {
       for (const innerValue of mapper(value)) {
         yield innerValue;

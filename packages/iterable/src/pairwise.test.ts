@@ -20,7 +20,7 @@ describe("iterable.pairwise", () => {
     );
   });
 
-  it("should yield triplets", () => {
+  it("should yield triplets if pairSize is 3", () => {
     expectIterableToEqual(
       pairwise(3)([1, 2, 3, 4]),
       [

@@ -7,12 +7,12 @@ type ExtractValue<T extends ReadonlyArray<Iterable<unknown>>> = {
  *
  * @example
  * ```ts
- * const iterable = zip([
- *   [1, 2, 3],
- *   [4, 5]
- * ]);
+ * const iterable1 = [1, 2, 3];
+ * const iterable2 = ["a", "b"];
  *
- * console.log(iterable); // [1, 4], [2, 5], [3, undefined]
+ * const iterable = zip(iterable1, iterable2);
+ *
+ * console.log(iterable); // [1, "a"], [2, "b"], [3, undefined]
  * ```
  *
  * @see {@link chunk}, {@link concat}, {@link flatMap} and {@link pairwise} for

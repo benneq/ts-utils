@@ -29,7 +29,7 @@
  * @returns The chunked {@link Iterable}
  */
 export const chunk = <T>(chunkSize: number, ...fill: [] | [T]) =>
-  function* (iterable: Iterable<T>): Iterable<T[]> {
+  function* (iterable: Iterable<T>): IterableIterator<T[]> {
     let buffer: T[] = [];
 
     for (const value of iterable) {

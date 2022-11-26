@@ -30,7 +30,7 @@ import { identity, Mapper } from "@benneq/function";
  * @returns an {@link Iterable} containing only unique values
  */
 export const distinct = <T>(keyMapper: Mapper<T, unknown> = identity) =>
-  function* (iterable: Iterable<T>): Iterable<T> {
+  function* (iterable: Iterable<T>): IterableIterator<T> {
     const seen = new Set();
 
     for (const value of iterable) {
