@@ -7,6 +7,7 @@
 export * from "./avg";
 export * from "./chunk";
 export * from "./concat";
+export * from "./count";
 export * from "./distinct";
 export * from "./dropWhile";
 export * from "./empty";

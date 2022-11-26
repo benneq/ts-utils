@@ -1,6 +1,6 @@
 import { avg } from "./avg";
 
-describe("iterable.sum", () => {
+describe("iterable.avg", () => {
   it("should return undefined if iterable is empty", () => {
     const result = avg([]);
     expect(result).toBeUndefined();
