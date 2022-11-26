@@ -1,24 +1,22 @@
-import { sort } from "./sort";
+import { Sort } from "./sort";
 
 describe("sorting.sort", () => {
   it("should return an empty Map if no values were provided", () => {
-    const result = sort();
+    const sort = new Sort();
 
-    expect(result).toEqual(new Map());
+    expect([...sort]).toEqual([]);
   });
 
   it("should return a Map containing the provided values", () => {
-    const result = sort([
+    const sort = new Sort([
       ["a", "asc"],
       ["b", "desc"],
     ]);
 
-    expect(result).toEqual(
-      new Map([
-        ["a", "asc"],
-        ["b", "desc"],
-      ])
-    );
+    expect([...sort]).toEqual([
+      ["a", "asc"],
+      ["b", "desc"],
+    ]);
   });
 });
 

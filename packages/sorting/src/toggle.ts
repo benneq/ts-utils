@@ -1,4 +1,5 @@
-import { Sort, SortDirectionCycler } from "./_types";
+import { Sort } from "./sort";
+import { SortDirectionCycler } from "./_types";
 
 /**
  * Creates a {@link Function} that toggles properties of a {@link Sort}.

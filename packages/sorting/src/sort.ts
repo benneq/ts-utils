@@ -1,4 +1,4 @@
-import { Sort, SortDirection } from "./_types";
+import { SortDirection } from "./_types";
 
 /**
  * Creates a {@link Sort} object.
@@ -12,8 +12,5 @@ import { Sort, SortDirection } from "./_types";
  * @param args - the optional initial values
  * @returns the new {@link Sort} object
  */
-export const sort = <P extends string>(
-  ...args: ConstructorParameters<typeof Map<P, SortDirection>>
-): Sort<P> => {
-  return new Map(...args);
-};
+
+export class Sort<P extends string> extends Map<P, SortDirection> {}
