@@ -1,6 +1,6 @@
 import { Entry } from "@benneq/object";
 import { MultiMap } from "./multiMap";
-import { deleteAt, isEmpty } from "@benneq/array";
+import { deleteFirst } from "@benneq/array";
 
 /**
  * An {@link ArrayMultiMap} can contain the same value multiple times per key.
@@ -22,14 +22,12 @@ export class ArrayMultiMap<K, V> extends MultiMap<K, V> {
     this.#value = value;
 
     if (iterable) {
-      for (const [key, value] of iterable) {
-        this.add(key, value);
-      }
+      this.addAll(iterable);
     }
   }
 
   add(key: K, value: V): this {
-    const values = (this.#value.has(key) ? this.#value.get(key) : []) as V[];
+    const values = this.#value.get(key) || [];
     values.push(value);
     this.#value.set(key, values);
     return this;
@@ -37,7 +35,7 @@ export class ArrayMultiMap<K, V> extends MultiMap<K, V> {
 
   set(key: K, values: Iterable<V>): this {
     const value = [...values];
-    if (!isEmpty(value)) {
+    if (value.length) {
       this.#value.set(key, value);
     }
     return this;
@@ -50,13 +48,11 @@ export class ArrayMultiMap<K, V> extends MultiMap<K, V> {
         return false;
       }
 
-      const index = values.indexOf(value);
-      if (index < 0) {
+      if (!deleteFirst(values, value)) {
         return false;
       }
 
-      deleteAt(values, index);
-      if (!isEmpty(values)) {
+      if (values.length) {
         return true;
       }
     }

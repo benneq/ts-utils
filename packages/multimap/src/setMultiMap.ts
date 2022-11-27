@@ -21,16 +21,12 @@ export class SetMultiMap<K, V> extends MultiMap<K, V> {
     this.#value = value;
 
     if (iterable) {
-      for (const [key, value] of iterable) {
-        this.add(key, value);
-      }
+      this.addAll(iterable);
     }
   }
 
   add(key: K, value: V): this {
-    const values = (
-      this.#value.has(key) ? this.#value.get(key) : new Set<V>()
-    ) as Set<V>;
+    const values = this.#value.get(key) || new Set();
     values.add(value);
     this.#value.set(key, values);
     return this;
@@ -51,8 +47,7 @@ export class SetMultiMap<K, V> extends MultiMap<K, V> {
         return false;
       }
 
-      const deleted = values.delete(value);
-      if (!deleted) {
+      if (!values.delete(value)) {
         return false;
       }
 

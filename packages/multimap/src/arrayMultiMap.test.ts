@@ -58,8 +58,9 @@ describe("multimap.arrayMultiMap", () => {
 
       const map = new ArrayMultiMap([[key1, value]]);
 
-      map.delete(key2);
+      const result = map.delete(key2);
 
+      expect(result).toBe(false);
       expect(map).toEqual(new ArrayMultiMap([[key1, value]]));
     });
 
@@ -72,8 +73,9 @@ describe("multimap.arrayMultiMap", () => {
         [key2, value1],
       ]);
 
-      map.delete(key1);
+      const result = map.delete(key1);
 
+      expect(result).toBe(true);
       expect(map).toEqual(new ArrayMultiMap([[key2, value1]]));
     });
   });

@@ -1,4 +1,5 @@
 import { count, flatMap, map, some } from "@benneq/iterable";
+import { Entry } from "@benneq/object";
 
 /**
  * A {@link MultiMap} can have multiple values per key.
@@ -90,6 +91,14 @@ export abstract class MultiMap<K, V> {
    * @returns this {@link MultiMap}
    */
   abstract add(key: K, value: V): this;
+
+  addAll(entries: Iterable<Entry<K, V>>) {
+    if (entries) {
+      for (const [key, value] of entries) {
+        this.add(key, value);
+      }
+    }
+  }
 
   /**
    * @see {@link Map.size}
