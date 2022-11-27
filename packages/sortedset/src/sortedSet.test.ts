@@ -10,39 +10,59 @@ describe("sortedset.sortedSet", () => {
   });
 
   describe("add", () => {
+    it("should add the value at the right position to maintain the sorting", () => {
+      const sortedSet = new SortedSet(numberComparator);
+      sortedSet.add(0);
+      sortedSet.add(2);
+
+      sortedSet.add(1);
+
+      expect([...sortedSet.values()]).toEqual([0, 1, 2]);
+    });
+
+    it("should not modify the SortedSet if it already contains the value", () => {
+      const sortedSet = new SortedSet(numberComparator);
+      sortedSet.add(5);
+      sortedSet.add(4);
+
+      sortedSet.add(4);
+
+      expect([...sortedSet.values()]).toEqual([4, 5]);
+    });
+
     it("should add values at the right position to maintain the sorting", () => {
       const sortedSet = new SortedSet(numberComparator);
       sortedSet.add(0);
       sortedSet.add(2);
 
-      sortedSet.add(1, 2, 3);
+      sortedSet.add(new SortedSet(numberComparator, [1, 2, 3]));
 
       expect([...sortedSet.values()]).toEqual([0, 1, 2, 3]);
     });
 
-    it("should not modify the sorted set if it already contains all values", () => {
+    it("should not modify the SortedSet if it already contains all values", () => {
       const sortedSet = new SortedSet(numberComparator);
       sortedSet.add(5);
       sortedSet.add(4);
 
-      sortedSet.add(4, 5);
+      sortedSet.add(new SortedSet(numberComparator, [4, 5]));
 
       expect([...sortedSet.values()]).toEqual([4, 5]);
     });
 
-    it("should not modify the sorted set if values array is empty", () => {
+    it("should not modify the SortedSet if values array is empty", () => {
       const sortedSet = new SortedSet(numberComparator);
       sortedSet.add(5);
       sortedSet.add(4);
 
-      sortedSet.add();
+      sortedSet.add(new SortedSet(numberComparator));
 
       expect([...sortedSet.values()]).toEqual([4, 5]);
     });
   });
 
   describe("clear", () => {
-    it("should clear the sorted set", () => {
+    it("should clear the SortedSet", () => {
       const sortedSet = new SortedSet(numberComparator);
       sortedSet.add(5);
 
@@ -53,38 +73,50 @@ describe("sortedset.sortedSet", () => {
   });
 
   describe("delete", () => {
-    it("should remove values where comparison result equals 0", () => {
-      const sortedSet = new SortedSet(numberComparator);
-      sortedSet.add(1, 2, 3, 4, 5);
+    it("should remove the value where comparison result equals 0", () => {
+      const sortedSet = new SortedSet(numberComparator, [1, 2, 3, 4, 5]);
 
-      sortedSet.delete(1, 2, 5);
+      sortedSet.delete(2);
 
-      expect([...sortedSet.values()]).toEqual([3, 4]);
+      expect([...sortedSet.values()]).toEqual([1, 3, 4, 5]);
     });
 
-    it("should not remove values that are less than the first value of the sorted set", () => {
-      const sortedSet = new SortedSet(numberComparator);
-      sortedSet.add(1, 2);
+    it("should not modify the SortedSet if it does not contain the value", () => {
+      const sortedSet = new SortedSet(numberComparator, [1, 2]);
 
-      sortedSet.delete(0, 1);
-
-      expect([...sortedSet.values()]).toEqual([2]);
-    });
-
-    it("should not modify the sorted set if it does not contain the values", () => {
-      const sortedSet = new SortedSet(numberComparator);
-      sortedSet.add(1, 2);
-
-      sortedSet.delete(4, 5);
+      sortedSet.delete(4);
 
       expect([...sortedSet.values()]).toEqual([1, 2]);
     });
 
-    it("should not modify the sorted set if values array is empty", () => {
-      const sortedSet = new SortedSet(numberComparator);
-      sortedSet.add(1, 2);
+    it("should not remove values that are less than the first value of the SortedSet", () => {
+      const sortedSet = new SortedSet(numberComparator, [1, 2]);
 
-      sortedSet.delete();
+      sortedSet.delete(0);
+
+      expect([...sortedSet.values()]).toEqual([1, 2]);
+    });
+
+    it("should remove the values where comparison result equals 0", () => {
+      const sortedSet = new SortedSet(numberComparator, [1, 2, 3, 4, 5]);
+
+      sortedSet.delete(new SortedSet(numberComparator, [0, 2, 5]));
+
+      expect([...sortedSet.values()]).toEqual([1, 3, 4]);
+    });
+
+    it("should not modify the SortedSet if it does not contain the values", () => {
+      const sortedSet = new SortedSet(numberComparator, [1, 2]);
+
+      sortedSet.delete(new SortedSet(numberComparator, [4, 5]));
+
+      expect([...sortedSet.values()]).toEqual([1, 2]);
+    });
+
+    it("should not modify the SortedSet if no values are given", () => {
+      const sortedSet = new SortedSet(numberComparator, [1, 2]);
+
+      sortedSet.delete(new SortedSet(numberComparator));
 
       expect([...sortedSet.values()]).toEqual([1, 2]);
     });
@@ -92,8 +124,7 @@ describe("sortedset.sortedSet", () => {
 
   describe("forEach", () => {
     it("should call the callback for each element in sorted order", () => {
-      const sortedSet = new SortedSet(numberComparator);
-      sortedSet.add(1, 2);
+      const sortedSet = new SortedSet(numberComparator, [1, 2]);
 
       const callback = jest.fn();
       sortedSet.forEach(callback);
@@ -105,29 +136,42 @@ describe("sortedset.sortedSet", () => {
   });
 
   describe("has", () => {
-    it("should return true if the sorted set contains all of the values", () => {
-      const sortedSet = new SortedSet(numberComparator);
-      sortedSet.add(1, 2, 3, 4, 5);
+    it("should return true if the SortedSet contain the value", () => {
+      const sortedSet = new SortedSet(numberComparator, [1, 2, 3, 4, 5]);
 
-      const result = sortedSet.has(1, 3, 5);
+      const result = sortedSet.has(5);
 
       expect(result).toBe(true);
     });
 
-    it("should return false if the sorted set does not contain all of the values", () => {
-      const sortedSet = new SortedSet(numberComparator);
-      sortedSet.add(1, 2);
+    it("should return false if the SortedSet does not contain the value", () => {
+      const sortedSet = new SortedSet(numberComparator, [1, 2]);
 
-      const result = sortedSet.has(0, 1, 3);
+      const result = sortedSet.has(0);
+
+      expect(result).toBe(false);
+    });
+
+    it("should return true if the SortedSet contains all of the values", () => {
+      const sortedSet = new SortedSet(numberComparator, [1, 2, 3, 4, 5]);
+
+      const result = sortedSet.has(new SortedSet(numberComparator, [1, 3, 5]));
+
+      expect(result).toBe(true);
+    });
+
+    it("should return false if the SortedSet does not contain all of the values", () => {
+      const sortedSet = new SortedSet(numberComparator, [1, 2]);
+
+      const result = sortedSet.has(new SortedSet(numberComparator, [0, 1, 3]));
 
       expect(result).toBe(false);
     });
 
     it("should return true if no values are given", () => {
-      const sortedSet = new SortedSet(numberComparator);
-      sortedSet.add(1, 2, 3);
+      const sortedSet = new SortedSet(numberComparator, [1, 2, 3]);
 
-      const result = sortedSet.has();
+      const result = sortedSet.has(new SortedSet(numberComparator));
 
       expect(result).toBe(true);
     });
@@ -135,8 +179,7 @@ describe("sortedset.sortedSet", () => {
 
   describe("entries", () => {
     it("should yield all values in order as entries", () => {
-      const sortedSet = new SortedSet(numberComparator);
-      sortedSet.add(1, 2);
+      const sortedSet = new SortedSet(numberComparator, [1, 2]);
 
       expect([...sortedSet.entries()]).toEqual([
         [1, 1],
@@ -147,8 +190,7 @@ describe("sortedset.sortedSet", () => {
 
   describe("keys", () => {
     it("should yield all values in order", () => {
-      const sortedSet = new SortedSet(numberComparator);
-      sortedSet.add(1, 2);
+      const sortedSet = new SortedSet(numberComparator, [1, 2]);
 
       expect([...sortedSet.keys()]).toEqual([1, 2]);
     });
@@ -156,8 +198,7 @@ describe("sortedset.sortedSet", () => {
 
   describe("values", () => {
     it("should yield all values in order", () => {
-      const sortedSet = new SortedSet(numberComparator);
-      sortedSet.add(1, 2);
+      const sortedSet = new SortedSet(numberComparator, [1, 2]);
 
       expect([...sortedSet.values()]).toEqual([1, 2]);
     });
@@ -165,8 +206,7 @@ describe("sortedset.sortedSet", () => {
 
   describe("Symbol.iterator", () => {
     it("should yield all values in order", () => {
-      const sortedSet = new SortedSet(numberComparator);
-      sortedSet.add(1, 2);
+      const sortedSet = new SortedSet(numberComparator, [1, 2]);
 
       expect([...sortedSet[Symbol.iterator]()]).toEqual([1, 2]);
     });

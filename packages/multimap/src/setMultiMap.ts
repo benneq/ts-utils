@@ -1,9 +1,20 @@
 import { Entry } from "@benneq/object";
 import { MultiMap } from "./multiMap";
 
+/**
+ * A {@link SetMultiMap} can contain each value only once per key.
+ *
+ * @typeParam K - the key type
+ * @typeParam V - the value type
+ */
 export class SetMultiMap<K, V> extends MultiMap<K, V> {
   #value;
 
+  /**
+   * Create a new {@link SetMultiMap} from the given entries.
+   *
+   * @param iterable - the optional {@link Iterable} to consume the entries from
+   */
   constructor(iterable?: Iterable<Entry<K, V>>) {
     const value = new Map<K, Set<V>>();
     super(value);

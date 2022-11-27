@@ -2,9 +2,20 @@ import { Entry } from "@benneq/object";
 import { MultiMap } from "./multiMap";
 import { deleteAt, isEmpty } from "@benneq/array";
 
+/**
+ * An {@link ArrayMultiMap} can contain the same value multiple times per key.
+ *
+ * @typeParam K - the key type
+ * @typeParam V - the value type
+ */
 export class ArrayMultiMap<K, V> extends MultiMap<K, V> {
   #value;
 
+  /**
+   * Create a new {@link ArrayMultiMap} from the given entries.
+   *
+   * @param iterable - the optional {@link Iterable} to consume the entries from
+   */
   constructor(iterable?: Iterable<Entry<K, V>>) {
     const value = new Map<K, V[]>();
     super(value);

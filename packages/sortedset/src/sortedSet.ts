@@ -59,18 +59,22 @@ export class SortedSet<T> implements Set<T> {
    * @example
    * Add values
    * ```ts
-   * const sortedNumberSet = new SortedSet(numberComparator);
+   * const sortedSet = new SortedSet(numberComparator);
    *
-   * sortedNumberSet.add(2);
-   * sortedNumberSet.add(0);
-   * sortedNumberSet.add(1, 2, 3);
+   * sortedSet.add(2);
+   * sortedSet.add(0);
+   * sortedSet.add(new SortedSet(numberComparator, [1, 2, 3]));
    *
-   * console.log([...sortedNumberSet.values()]); // [0, 1, 2, 3]
+   * console.log([...sortedSet.values()]); // [0, 1, 2, 3]
    * ```
    *
    * @param values - the values to add
    */
-  add(...values: T[]): this {
+  add(value: T): this;
+  add(values: SortedSet<T>): this;
+  add(value: T | SortedSet<T>): this {
+    const values = value instanceof SortedSet ? [...value] : [value];
+
     let i = 0;
     let pointer = 0;
 
@@ -113,18 +117,21 @@ export class SortedSet<T> implements Set<T> {
    * @example
    * Remove values
    * ```ts
-   * const sortedNumberSet = new SortedSet(numberComparator);
-   * sortedNumberSet.add(1, 2, 3, 4, 5);
+   * const sortedSet = new SortedSet(numberComparator, [1, 2, 3, 4, 5]);
    *
-   * sortedNumberSet.delete(0, 1, 2, 5)
+   * sortedSet.delete(new SortedSet(numberComparator, [0, 1, 2, 5]))
    *
-   * console.log([...sortedNumberSet.values()]); // [3, 4]
+   * console.log([...sortedSet.values()]); // [3, 4]
    * ```
    *
    * @param values - the values to remove
    * @returns always `true`
    */
-  delete(...values: T[]): boolean {
+  delete(value: T): boolean;
+  delete(values: SortedSet<T>): boolean;
+  delete(value: T | SortedSet<T>): boolean {
+    const values = value instanceof SortedSet ? [...value] : [value];
+
     let i = 0;
     let pointer = 0;
 
@@ -179,16 +186,19 @@ export class SortedSet<T> implements Set<T> {
    * @example
    * Does the `set` contain `2` and `3`?
    * ```ts
-   * const set = new SortedSet(numberComparator);
-   * set.add(1, 2, 3);
-   * const result = set.has(2, 3);
+   * const sortedSet = new SortedSet(numberComparator, [1, 2, 3]);
+   * const result = sortedSet.has(new SortedSet(numberComparator, [1, 2]));
    * console.log(result); // true
    * ```
    *
    * @param values - the values it should contain
    * @returns `true` if this {@link SortedSet} contains all of the values, otherwise `false`
    */
-  has(...values: T[]): boolean {
+  has(value: T): boolean;
+  has(values: SortedSet<T>): boolean;
+  has(value: T | SortedSet<T>): boolean {
+    const values = value instanceof SortedSet ? [...value] : [value];
+
     let pointer = 0;
 
     for (const value of this.#values) {

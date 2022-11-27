@@ -1,8 +1,19 @@
 import { count, flatMap, map, some } from "@benneq/iterable";
 
+/**
+ * A {@link MultiMap} can have multiple values per key.
+ *
+ * @typeParam K - the key type
+ * @typeParam V - the value type
+ */
 export abstract class MultiMap<K, V> {
   #value;
 
+  /**
+   * Create a new {@link MultiMap} from the given {@link Map}.
+   *
+   * @param map - the underlying {@link Map} object to use
+   */
   protected constructor(map: Map<K, Iterable<V>>) {
     this.#value = map;
   }
