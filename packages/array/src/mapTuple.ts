@@ -15,14 +15,16 @@ import { Mapper } from "@benneq/function";
  * console.log(result); // [true, 3]
  * ```
  *
+ * @paramType TArgs - the type of the input tuple
+ * @paramType RArgs - the type of the mapped output tuple
  * @param mappers - the {@link Mapper}s to use
  * @returns the mapped tuple
  */
 export const mapTuple =
   <
     TArgs extends unknown[],
-    RArgs extends { [key in keyof TArgs]: unknown }
-  >(mappers: { [key in keyof TArgs]: Mapper<TArgs[key], RArgs[key]> }) =>
+    RArgs extends { [index in keyof TArgs]: unknown }
+  >(mappers: { [index in keyof TArgs]: Mapper<TArgs[index], RArgs[index]> }) =>
   (tuple: TArgs): RArgs => {
-    return mappers.map((mapper, i) => mapper(tuple[i])) as RArgs;
+    return mappers.map((mapper, index) => mapper(tuple[index])) as RArgs;
   };

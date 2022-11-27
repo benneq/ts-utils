@@ -1,5 +1,6 @@
 /**
- * Returns a Generator that yields the elements of the array in reverse order
+ * Returns an {@link Iterable} that yields the elements of an {@link Array} in
+ * reverse order.
  *
  * @example
  * ```ts
@@ -12,7 +13,9 @@
  *
  * @typeParam T - the {@link Array} element type
  */
-export function* toReverseIterable<T>(array: ArrayLike<T>): Iterable<T> {
+export function* toReverseIterable<T>(
+  array: ArrayLike<T>
+): IterableIterator<T> {
   for (let i = array.length - 1; i >= 0; i--) {
     yield array[i] as T;
   }

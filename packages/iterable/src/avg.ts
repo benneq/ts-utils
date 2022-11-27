@@ -14,7 +14,7 @@
  * 2. support other types as well
  *
  * @param iterable - the {@link Iterable} to average
- * @returns the average of all {@link number}s
+ * @returns the average of all {@link number}s, or `undefined` if {@link Iterable} was empty
  */
 export const avg = (iterable: Iterable<number>): number | undefined => {
   let length = 0;

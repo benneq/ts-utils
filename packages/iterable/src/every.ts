@@ -1,4 +1,5 @@
 import { Predicate } from "@benneq/predicate";
+import { some } from "./some";
 
 /**
  * Checks if all elements of an {@link Iterable} match a {@link Predicate}.
@@ -19,10 +20,5 @@ import { Predicate } from "@benneq/predicate";
 export const every =
   <T>(predicate: Predicate<[T]>) =>
   (iterable: Iterable<T>): boolean => {
-    for (const e of iterable) {
-      if (!predicate(e)) {
-        return false;
-      }
-    }
-    return true;
+    return !some<T>((value) => !predicate(value))(iterable);
   };

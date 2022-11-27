@@ -3,6 +3,9 @@ import { takeWhile } from "./takeWhile";
 /**
  * Limit the elements of an {@link Iterable} to the first `n` elements.
  *
+ * @remarks
+ * Behavior for negative `maxSize` is not defined.
+ *
  * @example
  * Only emit the first `2` elements
  * ```ts
@@ -20,5 +23,9 @@ import { takeWhile } from "./takeWhile";
 export const limit = <T>(
   maxSize: number
 ): ((iterable: Iterable<T>) => IterableIterator<T>) => {
+  if (process.env.NODE_ENV !== "production") {
+    console.assert(maxSize >= 0, "maxSize must be >= 0");
+  }
+
   return takeWhile(() => !!maxSize--);
 };
