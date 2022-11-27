@@ -107,9 +107,7 @@ export abstract class MultiMap<K, V> {
    * @see {@link Map.forEach}
    */
   values(): IterableIterator<V> {
-    return flatMap<[K, Iterable<V>], V>(([_key, values]) => values)(
-      this.#value
-    );
+    return map<[K, V], V>(([_key, value]) => value)(this);
   }
 
   [Symbol.iterator](): IterableIterator<[K, V]> {
