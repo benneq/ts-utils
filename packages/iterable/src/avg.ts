@@ -9,10 +9,6 @@
  *
  * @see {@link reduce} and {@link sum} for similar operations.
  *
- * @todo
- * 1. what to return if iterable is empty?
- * 2. support other types as well
- *
  * @param iterable - the {@link Iterable} to average
  * @returns the average of all {@link number}s, or `undefined` if {@link Iterable} was empty
  */

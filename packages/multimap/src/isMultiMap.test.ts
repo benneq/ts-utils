@@ -1,10 +1,11 @@
 import { isMultiMap } from "./isMultiMap";
+import { MultiMap } from "./multiMap";
 
 describe("multimap.isMultiMap", () => {
   it("should return true if the provided value is a MultiMap", () => {
-    expect(isMultiMap(new Map())).toEqual(true);
-    expect(isMultiMap(new Map([["a", ["b"]]]))).toEqual(true);
-    expect(isMultiMap(new Map([[1, [true, null]]]))).toEqual(true);
+    expect(isMultiMap(new MultiMap())).toEqual(true);
+    expect(isMultiMap(new MultiMap([["a", ["b"]]]))).toEqual(true);
+    expect(isMultiMap(new MultiMap([[1, [true, null]]]))).toEqual(true);
   });
 
   it("should return false if the provided value is not a MultiMap", () => {
@@ -18,7 +19,7 @@ describe("multimap.isMultiMap", () => {
     expect(isMultiMap([])).toEqual(false);
     expect(isMultiMap(new Set())).toEqual(false);
     expect(isMultiMap(jest.fn())).toEqual(false);
-    expect(isMultiMap(new Map([["a", "b"]]))).toEqual(false);
+    expect(isMultiMap(new Map())).toEqual(false);
   });
 });
 

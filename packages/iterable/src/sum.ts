@@ -11,10 +11,6 @@ import { reduce } from "./reduce";
  *
  * @see {@link avg} and {@link reduce} for similar operations.
  *
- * @todo
- * 1. what to return if iterable is empty?
- * 2. support other types as well
- *
  * @param iterable - the {@link Iterable} to sum
  * @returns the sum of all {@link number}s, or `undefined` if {@link Iterable} was empty
  */

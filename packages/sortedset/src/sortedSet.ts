@@ -164,11 +164,10 @@ export class SortedSet<T> implements Set<T> {
    *
    * @param callbackfn - the callback function to run
    */
-  forEach(
-    callbackfn: (value: T, value2: T, set: Set<T>) => void,
-    thisArg?: unknown
-  ): void {
-    this.#values.forEach((value) => callbackfn(value, value, this), thisArg);
+  forEach(callbackfn: (value: T, value2: T, set: Set<T>) => void): void {
+    for (const value of this) {
+      callbackfn(value, value, this);
+    }
   }
 
   /**

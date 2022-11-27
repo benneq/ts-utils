@@ -9,6 +9,6 @@ import { SortDirection } from "./_types";
  * console.log([...sort]); // [['a', 'asc']]
  * ```
  *
- * @typeParams P - the allowd properties
+ * @typeParams P - the allowed properties
  */
 export class Sort<P extends string> extends Map<P, SortDirection> {}

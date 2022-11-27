@@ -1,8 +1,4 @@
-import { isArray } from "@benneq/array";
-import { every } from "@benneq/iterable";
-import { isMap } from "@benneq/map";
-import { Entry } from "@benneq/object";
-import { MultiMap } from "./_types";
+import { MultiMap } from "./multiMap";
 
 /**
  * Checks if a `value` is a {@link MultiMap}.
@@ -10,7 +6,7 @@ import { MultiMap } from "./_types";
  * @example
  * Returns `true` if the value is a {@link MultiMap}
  * ```ts
- * const value = new Map([["a", ["b"]]]);
+ * const value = new MultiMap();
  * const result = isMultiMap(value);
  * console.log(result); // true
  * ```
@@ -21,7 +17,5 @@ import { MultiMap } from "./_types";
  * @returns `true` if `value` is a {@link MultiMap}, otherwise `false`
  */
 export const isMultiMap = <K, V>(value: unknown): value is MultiMap<K, V> => {
-  return (
-    isMap(value) && every<Entry>(([_key, values]) => isArray(values))(value)
-  );
+  return value instanceof MultiMap;
 };
