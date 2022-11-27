@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">68.96% </span>
+                <span class="strong">73.07% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>20/29</span>
+                <span class='fraction'>19/26</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">68.96% </span>
+                <span class="strong">73.07% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>20/29</span>
+                <span class='fraction'>19/26</span>
             </div>
         
             
@@ -125,11 +125,7 @@
 <a name='L60'></a><a href='#L60'>60</a>
 <a name='L61'></a><a href='#L61'>61</a>
 <a name='L62'></a><a href='#L62'>62</a>
-<a name='L63'></a><a href='#L63'>63</a>
-<a name='L64'></a><a href='#L64'>64</a>
-<a name='L65'></a><a href='#L65'>65</a>
-<a name='L66'></a><a href='#L66'>66</a>
-<a name='L67'></a><a href='#L67'>67</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L63'></a><a href='#L63'>63</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -154,8 +150,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">25x</span>
 <span class="cline-any cline-yes">20x</span>
-<span class="cline-any cline-yes">40x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -183,10 +177,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -197,7 +189,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Entry } from "@benneq/object";
 import { MultiMap } from "./multiMap";
-import { deleteAt, isEmpty } from "@benneq/array";
+import { deleteFirst } from "@benneq/array";
 &nbsp;
 /**
  * An {@link ArrayMultiMap} can contain the same value multiple times per key.
@@ -219,14 +211,12 @@ export class ArrayMultiMap&lt;K, V&gt; extends MultiMap&lt;K, V&gt; {
     this.#value = value;
 &nbsp;
     if (iterable) {
-      for (const [key, value] of iterable) {
-        this.add(key, value);
-      }
+      this.addAll(iterable);
     }
   }
 &nbsp;
   add(key: K, value: V): this {
-    const values = (this.#value.has(key) ? this.#value.get(key) : []) as V[];
+    const values = this.#value.get(key) || [];
     values.push(value);
     this.#value.set(key, values);
     return this;
@@ -234,7 +224,7 @@ export class ArrayMultiMap&lt;K, V&gt; extends MultiMap&lt;K, V&gt; {
 &nbsp;
   set(key: K, values: Iterable&lt;V&gt;): this {
     const value = [...values];
-    if (!isEmpty(value)) {
+    if (value.length) {
       this.#value.set(key, value);
     }
     return this;
@@ -247,13 +237,11 @@ export class ArrayMultiMap&lt;K, V&gt; extends MultiMap&lt;K, V&gt; {
 <span class="cstat-no" title="statement not covered" >        return false;</span>
       }
 &nbsp;
-      const index = <span class="cstat-no" title="statement not covered" >values.indexOf(value);</span>
-<span class="cstat-no" title="statement not covered" >      <span class="missing-if-branch" title="if path not taken" >I</span>if (index &lt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >      <span class="missing-if-branch" title="if path not taken" >I</span>if (!deleteFirst(values, value)) {</span>
 <span class="cstat-no" title="statement not covered" >        return false;</span>
       }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >      deleteAt(values, index);</span>
-<span class="cstat-no" title="statement not covered" >      <span class="missing-if-branch" title="if path not taken" >I</span>if (!isEmpty(values)) {</span>
+<span class="cstat-no" title="statement not covered" >      <span class="missing-if-branch" title="if path not taken" >I</span>if (values.length) {</span>
 <span class="cstat-no" title="statement not covered" >        return true;</span>
       }
     }
@@ -268,7 +256,7 @@ export class ArrayMultiMap&lt;K, V&gt; extends MultiMap&lt;K, V&gt; {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2022-11-27T19:09:13.052Z
+                at 2022-11-27T19:37:51.250Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
