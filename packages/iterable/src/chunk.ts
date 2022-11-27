@@ -1,6 +1,9 @@
 /**
  * Chunks the elements of an {@link Iterable}.
  *
+ * @remarks
+ * Behavior for negative `chunkSize` is not defined.
+ *
  * @example
  * Chunk in pairs
  * ```ts
@@ -25,29 +28,34 @@
  *
  * @typeParam T - the {@link Iterable} value type
  * @param chunkSize - the chunk size
- * @param fill - the fill value
+ * @param fill - the optional fill value
  * @returns The chunked {@link Iterable}
  */
-export const chunk = <T>(chunkSize: number, ...fill: [] | [T]) =>
-  function* (iterable: Iterable<T>): IterableIterator<T[]> {
+export const chunk = <T>(chunkSize: number, ...fill: [] | [T]) => {
+  if (process.env.NODE_ENV !== "production") {
+    console.assert(chunkSize >= 1, "chunkSize must be >= 1");
+  }
+
+  return function* (iterable: Iterable<T>): IterableIterator<T[]> {
     let buffer: T[] = [];
 
     for (const value of iterable) {
-      buffer.push(value);
-
-      if (buffer.length >= chunkSize) {
+      if (buffer.push(value) >= chunkSize) {
         yield buffer;
         buffer = [];
       }
     }
 
-    if (fill.length) {
-      while (buffer.length < chunkSize) {
-        buffer.push(fill[0]);
-      }
+    // last buffer was complete
+    if (!buffer.length) {
+      return;
     }
 
-    if (buffer.length) {
-      yield buffer;
+    // fill remaining spaces if fill was provided
+    if (fill.length) {
+      while (buffer.push(fill[0]) < chunkSize);
     }
+
+    yield buffer;
   };
+};

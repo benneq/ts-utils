@@ -20,8 +20,8 @@ import { Predicate } from "@benneq/predicate";
 export const some =
   <T>(predicate: Predicate<[T]>) =>
   (iterable: Iterable<T>): boolean => {
-    for (const e of iterable) {
-      if (predicate(e)) {
+    for (const value of iterable) {
+      if (predicate(value)) {
         return true;
       }
     }

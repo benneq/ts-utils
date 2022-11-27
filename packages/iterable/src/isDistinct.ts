@@ -8,7 +8,7 @@ import { Predicate } from "@benneq/predicate";
  * @example
  * ```ts
  * const iterable = [1,2,3,2];
- * const result = isDistinct(iterable);
+ * const result = isDistinct()(iterable);
  * console.log(result); // false
  * ```
  *

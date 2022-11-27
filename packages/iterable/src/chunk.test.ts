@@ -8,29 +8,22 @@ describe("iterable.concat", () => {
   });
 
   it("should fill the remaining empty spaces", () => {
-    const iterable = chunk(2, 0)([1, 2, 3, 4, 5]);
+    const iterable = chunk(4, 0)([1, 2, 3, 4, 5]);
 
     expectIterableToEqual(
       iterable,
       [
-        [1, 2],
-        [3, 4],
-        [5, 0],
+        [1, 2, 3, 4],
+        [5, 0, 0, 0],
       ],
       { toEqual: true }
     );
   });
 
-  it("should chunk with size 1 if given chunkSize is 0", () => {
-    const iterable = chunk(0)([1, 2, 3]);
+  it("should not fill if there are no remaining spaces", () => {
+    const iterable = chunk(4, 0)([1, 2, 3, 4]);
 
-    expectIterableToEqual(iterable, [[1], [2], [3]], { toEqual: true });
-  });
-
-  it("should chunk with size 1 if given chunkSize is negative", () => {
-    const iterable = chunk(-1)([1, 2, 3]);
-
-    expectIterableToEqual(iterable, [[1], [2], [3]], { toEqual: true });
+    expectIterableToEqual(iterable, [[1, 2, 3, 4]], { toEqual: true });
   });
 });
 

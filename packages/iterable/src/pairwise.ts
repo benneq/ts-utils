@@ -29,9 +29,7 @@ export const pairwise = <L extends number = 2>(pairSize: L = 2 as L) => {
     let buffer: T[] = [];
 
     for (const value of iterable) {
-      buffer.push(value);
-
-      if (buffer.length >= pairSize) {
+      if (buffer.push(value) >= pairSize) {
         yield buffer as Tuple<T, L>;
         buffer = buffer.slice(1);
       }
