@@ -237,7 +237,7 @@ export class SortedSet<T> implements Set<T> {
    * @returns an {@link Iterable} of `[value, value]` entries.
    */
   entries(): IterableIterator<[T, T]> {
-    return map<T, [T, T]>((value) => [value, value])(this.#values);
+    return map<T, [T, T]>((value) => [value, value])(this);
   }
 
   /**

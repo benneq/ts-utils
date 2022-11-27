@@ -1,7 +1,7 @@
 import { numberComparator } from "@benneq/comparator";
 import { SortedSet } from "./sortedSet";
 
-describe("sortedset.sortedSet", () => {
+describe("collections.sortedSet", () => {
   describe("constructor", () => {
     it("should create an empty SortedSet", () => {
       const sortedSet = new SortedSet(numberComparator);
