@@ -114,6 +114,25 @@ describe("multimap.multiMap", () => {
     });
   });
 
+  describe("size", () => {
+    it("should return 0 if MultiMap has no entries", () => {
+      const [key1, key2, value1, value2] = symbolGenerator();
+
+      const map = new MultiMap();
+
+      expect(map.size).toBe(0);
+    });
+
+    it("should return the number of entries", () => {
+      const map = new MultiMap([
+        [Symbol(), Symbol()],
+        [Symbol(), Symbol()],
+      ]);
+
+      expect(map.size).toBe(2);
+    });
+  });
+
   describe("entries", () => {
     it("should yield all entries", () => {
       const [key1, key2, value1, value2] = symbolGenerator();

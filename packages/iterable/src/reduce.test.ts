@@ -14,6 +14,16 @@ describe("iterable.reduce", () => {
   it("should return the sum", () => {
     expect(reduce((acc, val: number) => acc + val, 0)([1, 2, 3])).toBe(6);
   });
+
+  it("should reset its internal state every time", () => {
+    const iterable = [1];
+
+    const count = reduce((acc) => acc + 1, 0);
+    count(iterable);
+    const result = count(iterable);
+
+    expect(result).toBe(1);
+  });
 });
 
 export {};

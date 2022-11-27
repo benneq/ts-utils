@@ -1,5 +1,5 @@
 import { deleteAt, isEmpty } from "@benneq/array";
-import { flatMap } from "@benneq/iterable";
+import { count, flatMap } from "@benneq/iterable";
 import { Entry } from "@benneq/object";
 
 export class MultiMap<K, V> {
@@ -119,7 +119,7 @@ export class MultiMap<K, V> {
    * @see {@link Map.size}
    */
   get size(): number {
-    return this.#value.size;
+    return count(this) || 0;
   }
 
   /**
