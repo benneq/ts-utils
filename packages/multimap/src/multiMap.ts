@@ -1,20 +1,10 @@
 import { count, flatMap, map, some } from "@benneq/iterable";
-import { Entry } from "@benneq/object";
 
 export abstract class MultiMap<K, V> {
   #value;
 
-  protected constructor(
-    map: Map<K, Iterable<V>>,
-    iterable?: Iterable<Entry<K, V>>
-  ) {
+  protected constructor(map: Map<K, Iterable<V>>) {
     this.#value = map;
-
-    if (iterable) {
-      for (const [key, value] of iterable) {
-        this.add(key, value);
-      }
-    }
   }
 
   /**

@@ -6,8 +6,14 @@ export class SetMultiMap<K, V> extends MultiMap<K, V> {
 
   constructor(iterable?: Iterable<Entry<K, V>>) {
     const value = new Map<K, Set<V>>();
-    super(value, iterable);
+    super(value);
     this.#value = value;
+
+    if (iterable) {
+      for (const [key, value] of iterable) {
+        this.add(key, value);
+      }
+    }
   }
 
   add(key: K, value: V): this {
