@@ -1,12 +1,14 @@
-import { deleteAt, isEmpty } from "@benneq/array";
-import { count, flatMap } from "@benneq/iterable";
+import { count, flatMap, map, some } from "@benneq/iterable";
 import { Entry } from "@benneq/object";
 
-export class MultiMap<K, V> {
+export abstract class MultiMap<K, V> {
   #value;
 
-  constructor(iterable?: Iterable<Entry<K, V>>) {
-    this.#value = new Map<K, V[]>();
+  protected constructor(
+    map: Map<K, Iterable<V>>,
+    iterable?: Iterable<Entry<K, V>>
+  ) {
+    this.#value = map;
 
     if (iterable) {
       for (const [key, value] of iterable) {
@@ -34,26 +36,7 @@ export class MultiMap<K, V> {
    * @param value - the optional value
    * @returns `true` if an entry was deleted, otherwise `false`
    */
-  delete(key: K, value?: V): boolean {
-    if (value) {
-      const values = this.#value.get(key);
-      if (!values) {
-        return false;
-      }
-
-      const index = values.indexOf(value);
-      if (index < 0) {
-        return false;
-      }
-
-      deleteAt(values, index);
-      if (!isEmpty(values)) {
-        return true;
-      }
-    }
-
-    return this.#value.delete(key);
-  }
+  abstract delete(key: K, value?: V): boolean;
 
   /**
    * @see {@link Map.forEach}
@@ -83,7 +66,7 @@ export class MultiMap<K, V> {
   has(key: K, value?: V): boolean {
     return (
       this.#value.has(key) &&
-      (!value || (this.#value.get(key) as V[]).includes(value))
+      (!value || some((e) => e === value)(this.#value.get(key) as Iterable<V>))
     );
   }
 
@@ -96,10 +79,7 @@ export class MultiMap<K, V> {
    * @param value - the values to set
    * @returns this {@link MultiMap}
    */
-  set(key: K, values: Iterable<V>): this {
-    this.#value.set(key, [...values]);
-    return this;
-  }
+  abstract set(key: K, values: Iterable<V>): this;
 
   /**
    * Adds a value for a key to this {@link MultiMap}.
@@ -108,12 +88,7 @@ export class MultiMap<K, V> {
    * @param value - the value to add
    * @returns this {@link MultiMap}
    */
-  add(key: K, value: V): this {
-    const values = (this.#value.has(key) ? this.#value.get(key) : []) as V[];
-    values.push(value);
-    this.#value.set(key, values);
-    return this;
-  }
+  abstract add(key: K, value: V): this;
 
   /**
    * @see {@link Map.size}
@@ -126,8 +101,8 @@ export class MultiMap<K, V> {
    * @see {@link Map.entries}
    */
   entries(): IterableIterator<[K, V]> {
-    return flatMap<[K, V[]], [K, V]>(([key, values]) =>
-      values.map((value) => [key, value])
+    return flatMap<[K, Iterable<V>], [K, V]>(([key, values]) =>
+      map<V, [K, V]>((value) => [key, value])(values)
     )(this.#value);
   }
 
@@ -142,7 +117,9 @@ export class MultiMap<K, V> {
    * @see {@link Map.forEach}
    */
   values(): IterableIterator<V> {
-    return flatMap<[K, V[]], V>(([_key, values]) => values)(this.#value);
+    return flatMap<[K, Iterable<V>], V>(([_key, values]) => values)(
+      this.#value
+    );
   }
 
   [Symbol.iterator](): IterableIterator<[K, V]> {

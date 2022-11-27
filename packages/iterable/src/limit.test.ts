@@ -18,6 +18,12 @@ describe("iterable.limit", () => {
 
     expectIterableToEqual(iterable, [0, 1, 2]);
   });
+
+  it("should yield all elements if maxSize is negative", () => {
+    const iterable = limit(-1)([0, 1, 2, 3]);
+
+    expectIterableToEqual(iterable, [0, 1, 2, 3]);
+  });
 });
 
 export {};
