@@ -1,7 +1,7 @@
 import { Range } from "./range";
 
 export const rangeIterator = <T>(next: (value: T) => T) => {
-  return function* (range: Range<T>) {
+  return function* (range: Range<T>): IterableIterator<T> {
     let value = range.from;
 
     do {

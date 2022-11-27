@@ -26,9 +26,7 @@ export class SetMultiMap<K, V> extends MultiMap<K, V> {
   }
 
   add(key: K, value: V): this {
-    const values = this.#value.get(key) || new Set();
-    values.add(value);
-    this.#value.set(key, values);
+    this.#value.set(key, (this.#value.get(key) || new Set()).add(value));
     return this;
   }
 

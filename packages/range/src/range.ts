@@ -13,17 +13,17 @@ export abstract class Range<T> {
 
   abstract contains(value: T): boolean;
 
-  empty = false;
+  readonly empty: boolean = false;
 
-  get comparator() {
+  get comparator(): Comparator<T> {
     return this.#comparator;
   }
 
-  get from() {
+  get from(): T {
     return this.#from;
   }
 
-  get to() {
+  get to(): T {
     return this.#to;
   }
 }

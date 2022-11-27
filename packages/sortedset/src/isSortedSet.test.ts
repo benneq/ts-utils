@@ -5,7 +5,6 @@ import { SortedSet } from "./sortedSet";
 describe("sortedset.isSortedSet", () => {
   it("should return true if value is a SortedSet", () => {
     const value = new SortedSet(numberComparator);
-    value.add(1, 2);
 
     expect(isSortedSet(value)).toBe(true);
   });

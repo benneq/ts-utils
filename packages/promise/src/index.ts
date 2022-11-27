@@ -1,7 +1,7 @@
 /**
  * @packageDocumentation
  *
- * This module contains utilities for working with Promises
+ * This module contains utilities for working with {@link Promise}s.
  */
 
 export * from "./_types";

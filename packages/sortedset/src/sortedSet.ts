@@ -11,9 +11,15 @@ import { pairwise } from "@benneq/iterable/src/pairwise";
  * Add, delete and iterate
  * ```ts
  * const sortedSet = new SortedSet(numberComparator);
- *
  * sortedSet.add(2);
- * sortedSet.add(1, 2, 3);
+ *
+ * const otherSortedSet = new SortedSet(numberComparator);
+ * otherSortedSet.add(2);
+ * otherSortedSet.add(3);
+ * otherSortedSet.add(1);
+ *
+ * sortedSet.add(otherSortedSet);
+ *
  * sortedSet.delete(1);
  *
  * const result = sortedSet.has(2);
