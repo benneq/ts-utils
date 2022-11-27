@@ -25,7 +25,10 @@ export class ArrayMultiMap<K, V> extends MultiMap<K, V> {
   }
 
   set(key: K, values: Iterable<V>): this {
-    this.#value.set(key, [...values]);
+    const value = [...values];
+    if (!isEmpty(value)) {
+      this.#value.set(key, value);
+    }
     return this;
   }
 

@@ -108,6 +108,14 @@ describe("multimap.setMultiMap", () => {
         ])
       );
     });
+
+    it("should not add key if no values provided", () => {
+      const map = new SetMultiMap();
+
+      map.set(Symbol(), []);
+
+      expect(map).toEqual(new SetMultiMap());
+    });
   });
 });
 
