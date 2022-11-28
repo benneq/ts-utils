@@ -1,17 +1,18 @@
 import { count, flatMap, map, some } from "@benneq/iterable";
 import { Entry } from "@benneq/object";
+import { MultiMap } from "./_types";
 
 /**
- * A {@link MultiMap} can have multiple values per key.
+ * A {@link AbstractMultiMap} can have multiple values per key.
  *
  * @typeParam K - the key type
  * @typeParam V - the value type
  */
-export abstract class MultiMap<K, V> {
+export abstract class AbstractMultiMap<K, V> implements MultiMap<K, V> {
   #value;
 
   /**
-   * Create a new {@link MultiMap} from the given {@link Map}.
+   * Create a new {@link AbstractMultiMap} from the given {@link Map}.
    *
    * @param map - the underlying {@link Map} object to use
    */
@@ -43,7 +44,7 @@ export abstract class MultiMap<K, V> {
   /**
    * @see {@link Map.forEach}
    */
-  forEach(callbackfn: (value: V, key: K, map: MultiMap<K, V>) => void): void {
+  forEach(callbackfn: (value: V, key: K, map: this) => void): void {
     for (const [key, value] of this) {
       callbackfn(value, key, this);
     }
@@ -57,7 +58,7 @@ export abstract class MultiMap<K, V> {
   }
 
   /**
-   * Checks if this {@link MultiMap} contains an entry with the key and value.
+   * Checks if this {@link AbstractMultiMap} contains an entry with the key and value.
    *
    * @see {@link Map.has}
    *
@@ -79,16 +80,16 @@ export abstract class MultiMap<K, V> {
    *
    * @param key - the key to set
    * @param value - the values to set
-   * @returns this {@link MultiMap}
+   * @returns this {@link AbstractMultiMap}
    */
   abstract set(key: K, values: Iterable<V>): this;
 
   /**
-   * Adds a value for a key to this {@link MultiMap}.
+   * Adds a value for a key to this {@link AbstractMultiMap}.
    *
    * @param key - the key to look up
    * @param value - the value to add
-   * @returns this {@link MultiMap}
+   * @returns this {@link AbstractMultiMap}
    */
   abstract add(key: K, value: V): this;
 

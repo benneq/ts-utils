@@ -1,11 +1,12 @@
 import { Mapper } from "@benneq/function";
-import { map } from "@benneq/iterable";
+import { AbstractSet } from "./abstractSet";
 
-export class MappedSet<T> implements Set<T> {
+export class MappedSet<T> extends AbstractSet<T> {
   #mapper;
   #value;
 
   constructor(mapper: Mapper<T, unknown>) {
+    super();
     this.#mapper = mapper;
     this.#value = new Map<unknown, T>();
   }
@@ -23,12 +24,6 @@ export class MappedSet<T> implements Set<T> {
     return this.#value.delete(this.#mapper(value));
   }
 
-  forEach(callbackfn: (value: T, value2: T, set: Set<T>) => void): void {
-    for (const value of this) {
-      callbackfn(value, value, this);
-    }
-  }
-
   has(value: T): boolean {
     return this.#value.has(this.#mapper(value));
   }
@@ -36,21 +31,8 @@ export class MappedSet<T> implements Set<T> {
   get size(): number {
     return this.#value.size;
   }
-
-  entries(): IterableIterator<[T, T]> {
-    return map<T, [T, T]>((value) => [value, value])(this.values());
-  }
-
-  keys(): IterableIterator<T> {
-    return this.values();
-  }
-
   values(): IterableIterator<T> {
     return this.#value.values();
-  }
-
-  [Symbol.iterator](): IterableIterator<T> {
-    return this.values();
   }
 
   [Symbol.toStringTag] = "MappedSet";

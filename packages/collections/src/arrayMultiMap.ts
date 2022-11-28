@@ -1,5 +1,5 @@
 import { Entry } from "@benneq/object";
-import { MultiMap } from "./multiMap";
+import { AbstractMultiMap } from "./abstractMultiMap";
 import { deleteFirst } from "@benneq/array";
 
 /**
@@ -8,7 +8,7 @@ import { deleteFirst } from "@benneq/array";
  * @typeParam K - the key type
  * @typeParam V - the value type
  */
-export class ArrayMultiMap<K, V> extends MultiMap<K, V> {
+export class ArrayMultiMap<K, V> extends AbstractMultiMap<K, V> {
   #value;
 
   /**

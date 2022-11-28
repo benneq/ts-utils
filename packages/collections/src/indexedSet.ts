@@ -1,5 +1,5 @@
 import { clear, deleteFirst, insertAt, move } from "@benneq/array";
-import { isDistinct, map } from "@benneq/iterable";
+import { isDistinct } from "@benneq/iterable";
 import { AbstractSet } from "./abstractSet";
 
 /**

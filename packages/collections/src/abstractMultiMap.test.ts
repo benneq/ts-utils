@@ -1,6 +1,6 @@
 import { ArrayMultiMap } from "./arrayMultiMap";
 
-describe("multimap.multiMap", () => {
+describe("multimap.abstractMultiMap", () => {
   describe("has", () => {
     it("should return true if MultiMap contains at least one entry with this key", () => {
       const [key, value] = symbolGenerator();

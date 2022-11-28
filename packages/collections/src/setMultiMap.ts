@@ -1,5 +1,5 @@
 import { Entry } from "@benneq/object";
-import { MultiMap } from "./multiMap";
+import { AbstractMultiMap } from "./abstractMultiMap";
 
 /**
  * A {@link SetMultiMap} can contain each value only once per key.
@@ -7,7 +7,7 @@ import { MultiMap } from "./multiMap";
  * @typeParam K - the key type
  * @typeParam V - the value type
  */
-export class SetMultiMap<K, V> extends MultiMap<K, V> {
+export class SetMultiMap<K, V> extends AbstractMultiMap<K, V> {
   #value;
 
   /**
