@@ -19,13 +19,15 @@
  * console.log(array); // [1, 4]
  * ```
  *
- * @param array
- * @param index
+ * @param array - the {@link Array} to modify
+ * @param index - the index to start deletion
+ * @param deleteCount - the optional number of elements to delete
+ * @returns `true` if an element was deleted, otherwise `false`
  */
 export const deleteAt = (
   array: unknown[],
   index: number,
   deleteCount = 1
-): void => {
-  array.splice(index, deleteCount);
+): boolean => {
+  return !!array.splice(index, deleteCount).length;
 };

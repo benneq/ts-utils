@@ -20,9 +20,10 @@ import { deleteAt } from "./deleteAt";
  */
 export const deleteFirst = <T>(array: T[], value: T): boolean => {
   const index = array.indexOf(value);
-  if (index > -1) {
-    deleteAt(array, index);
-    return true;
+
+  if (index >= 0) {
+    return deleteAt(array, index);
   }
+
   return false;
 };
