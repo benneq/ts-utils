@@ -1,5 +1,5 @@
 import { clear, deleteFirst, insertAt, move } from "@benneq/array";
-import { map } from "@benneq/iterable";
+import { isDistinct, map } from "@benneq/iterable";
 
 /**
  * A {@link Set} implementation that provides index-based access.
@@ -32,6 +32,10 @@ export class IndexedSet<T> implements Set<T> {
    * @param values - optional {@link Array} of values for initialization
    */
   constructor(values: T[] = []) {
+    if (process.env.NODE_ENV !== "production") {
+      console.assert(isDistinct()(values), "values must be unique");
+    }
+
     this.#values = values;
   }
 
@@ -79,7 +83,7 @@ export class IndexedSet<T> implements Set<T> {
    * ```ts
    * const indexedSet = new IndexedSet([1, 2, 3]);
    *
-   * indexedSet.delete(1)
+   * indexedSet.delete(1);
    *
    * console.log([...indexedSet.values()]); // [2, 3]
    * ```

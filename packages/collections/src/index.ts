@@ -1,7 +1,7 @@
 /**
  * @packageDocumentation
  *
- * This module contains utilities for working with {@link SortedSet}s
+ * This module contains utilities for working with collections.
  */
 
 export * from "./arrayMultiMap";
