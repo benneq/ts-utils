@@ -1,5 +1,6 @@
 import { clear, deleteFirst, insertAt, move } from "@benneq/array";
 import { isDistinct, map } from "@benneq/iterable";
+import { AbstractSet } from "./abstractSet";
 
 /**
  * A {@link Set} implementation that provides index-based access.
@@ -25,13 +26,14 @@ import { isDistinct, map } from "@benneq/iterable";
  *
  * @typeParam T - the {@link IndexedSet} element type
  */
-export class IndexedSet<T> implements Set<T> {
+export class IndexedSet<T> extends AbstractSet<T> {
   readonly #values;
 
   /**
    * @param values - optional {@link Array} of values for initialization
    */
   constructor(values: T[] = []) {
+    super();
     if (process.env.NODE_ENV !== "production") {
       console.assert(isDistinct()(values), "values must be unique");
     }
@@ -132,18 +134,6 @@ export class IndexedSet<T> implements Set<T> {
   }
 
   /**
-   * Executes a callback function once for every element in this
-   * {@link IndexedSet}.
-   *
-   * @param callbackfn - the callback function to run
-   */
-  forEach(callbackfn: (value: T, value2: T, set: Set<T>) => void): void {
-    for (const value of this) {
-      callbackfn(value, value, this);
-    }
-  }
-
-  /**
    * Checks if this {@link IndexedSet} contains the value.
    *
    * @example
@@ -169,28 +159,10 @@ export class IndexedSet<T> implements Set<T> {
   }
 
   /**
-   * @returns an {@link Iterable} of `[value, value]` entries.
-   */
-  entries(): IterableIterator<[T, T]> {
-    return map<T, [T, T]>((value) => [value, value])(this);
-  }
-
-  /**
-   * @returns an {@link Iterable} of the values of this {@link IndexedSet}.
-   */
-  keys(): IterableIterator<T> {
-    return this.values();
-  }
-
-  /**
    * @returns an {@link Iterable} of the values of this {@link IndexedSet}.
    */
   values(): IterableIterator<T> {
     return this.#values[Symbol.iterator]();
-  }
-
-  [Symbol.iterator](): IterableIterator<T> {
-    return this.values();
   }
 
   [Symbol.toStringTag] = "IndexedSet";

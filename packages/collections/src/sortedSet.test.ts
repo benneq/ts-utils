@@ -122,19 +122,6 @@ describe("collections.sortedSet", () => {
     });
   });
 
-  describe("forEach", () => {
-    it("should call the callback for each element in sorted order", () => {
-      const sortedSet = new SortedSet(numberComparator, [1, 2]);
-
-      const callback = jest.fn();
-      sortedSet.forEach(callback);
-
-      expect(callback).toHaveBeenNthCalledWith(1, 1, 1, sortedSet);
-      expect(callback).toHaveBeenNthCalledWith(2, 2, 2, sortedSet);
-      expect(callback).toHaveBeenCalledTimes(2);
-    });
-  });
-
   describe("has", () => {
     it("should return true if the SortedSet contain the value", () => {
       const sortedSet = new SortedSet(numberComparator, [1, 2, 3, 4, 5]);
@@ -177,38 +164,11 @@ describe("collections.sortedSet", () => {
     });
   });
 
-  describe("entries", () => {
-    it("should yield all values in order as entries", () => {
-      const sortedSet = new SortedSet(numberComparator, [1, 2]);
-
-      expect([...sortedSet.entries()]).toEqual([
-        [1, 1],
-        [2, 2],
-      ]);
-    });
-  });
-
-  describe("keys", () => {
-    it("should yield all values in order", () => {
-      const sortedSet = new SortedSet(numberComparator, [1, 2]);
-
-      expect([...sortedSet.keys()]).toEqual([1, 2]);
-    });
-  });
-
   describe("values", () => {
     it("should yield all values in order", () => {
       const sortedSet = new SortedSet(numberComparator, [1, 2]);
 
       expect([...sortedSet.values()]).toEqual([1, 2]);
-    });
-  });
-
-  describe("Symbol.iterator", () => {
-    it("should yield all values in order", () => {
-      const sortedSet = new SortedSet(numberComparator, [1, 2]);
-
-      expect([...sortedSet[Symbol.iterator]()]).toEqual([1, 2]);
     });
   });
 

@@ -4,6 +4,7 @@
  * This module contains utilities for working with collections.
  */
 
+export * from "./abstractSet";
 export * from "./arrayMultiMap";
 export * from "./indexedSet";
 export * from "./isMappedSet";

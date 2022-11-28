@@ -94,19 +94,6 @@ describe("collections.indexedSet", () => {
     });
   });
 
-  describe("forEach", () => {
-    it("should call the callback for each element in sorted order", () => {
-      const indexedSet = new IndexedSet([1, 2]);
-
-      const callback = jest.fn();
-      indexedSet.forEach(callback);
-
-      expect(callback).toHaveBeenNthCalledWith(1, 1, 1, indexedSet);
-      expect(callback).toHaveBeenNthCalledWith(2, 2, 2, indexedSet);
-      expect(callback).toHaveBeenCalledTimes(2);
-    });
-  });
-
   describe("has", () => {
     it("should return true if the IndexedSet contains the value", () => {
       const indexedSet = new IndexedSet([1, 2, 3]);
@@ -125,38 +112,11 @@ describe("collections.indexedSet", () => {
     });
   });
 
-  describe("entries", () => {
-    it("should yield all values in order as entries", () => {
-      const indexedSet = new IndexedSet([1, 2]);
-
-      expect([...indexedSet.entries()]).toEqual([
-        [1, 1],
-        [2, 2],
-      ]);
-    });
-  });
-
-  describe("keys", () => {
-    it("should yield all values in order", () => {
-      const indexedSet = new IndexedSet([1, 2]);
-
-      expect([...indexedSet.keys()]).toEqual([1, 2]);
-    });
-  });
-
   describe("values", () => {
     it("should yield all values in order", () => {
       const indexedSet = new IndexedSet([1, 2]);
 
       expect([...indexedSet.values()]).toEqual([1, 2]);
-    });
-  });
-
-  describe("Symbol.iterator", () => {
-    it("should yield all values in order", () => {
-      const indexedSet = new IndexedSet([1, 2]);
-
-      expect([...indexedSet[Symbol.iterator]()]).toEqual([1, 2]);
     });
   });
 

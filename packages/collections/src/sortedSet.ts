@@ -1,7 +1,8 @@
 import { clear, deleteAt, insertAt, isSorted } from "@benneq/array";
 import { Comparator } from "@benneq/comparator";
-import { map, every } from "@benneq/iterable";
+import { every } from "@benneq/iterable";
 import { pairwise } from "@benneq/iterable/src/pairwise";
+import { AbstractSet } from "./abstractSet";
 
 /**
  * A {@link SortedSet} uses a {@link Comparator} for sorting the values and
@@ -32,7 +33,7 @@ import { pairwise } from "@benneq/iterable/src/pairwise";
  *
  * @typeParam T - the {@link SortedSet} element type
  */
-export class SortedSet<T> implements Set<T> {
+export class SortedSet<T> extends AbstractSet<T> {
   readonly #comparator;
   readonly #values;
 
@@ -41,6 +42,7 @@ export class SortedSet<T> implements Set<T> {
    * @param values - optional {@link Array} of sorted and unique values for initialization
    */
   constructor(comparator: Comparator<T>, values: T[] = []) {
+    super();
     if (process.env.NODE_ENV !== "production") {
       console.assert(isSorted(comparator)(values), "values must be sorted");
       console.assert(
@@ -166,18 +168,6 @@ export class SortedSet<T> implements Set<T> {
   }
 
   /**
-   * Executes a callback function once for every element in this
-   * {@link SortedSet}, in sorted order according to the {@link Comparator}.
-   *
-   * @param callbackfn - the callback function to run
-   */
-  forEach(callbackfn: (value: T, value2: T, set: Set<T>) => void): void {
-    for (const value of this) {
-      callbackfn(value, value, this);
-    }
-  }
-
-  /**
    * Checks if this {@link SortedSet} contains all of the values.
    *
    * @example
@@ -225,28 +215,10 @@ export class SortedSet<T> implements Set<T> {
   }
 
   /**
-   * @returns an {@link Iterable} of `[value, value]` entries.
-   */
-  entries(): IterableIterator<[T, T]> {
-    return map<T, [T, T]>((value) => [value, value])(this);
-  }
-
-  /**
-   * @returns an {@link Iterable} of the values of this {@link SortedSet}.
-   */
-  keys(): IterableIterator<T> {
-    return this.values();
-  }
-
-  /**
    * @returns an {@link Iterable} of the values of this {@link SortedSet}.
    */
   values(): IterableIterator<T> {
     return this.#values[Symbol.iterator]();
-  }
-
-  [Symbol.iterator](): IterableIterator<T> {
-    return this.values();
   }
 
   [Symbol.toStringTag] = "SortedSet";
