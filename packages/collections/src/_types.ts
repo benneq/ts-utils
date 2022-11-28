@@ -1,21 +1,19 @@
 import { Entry } from "@benneq/object";
 
-export interface ReadonlyMultiMap<K, V> {
-  forEach(callbackfn: (value: V, key: K, map: this) => void): void;
+export interface ReadonlyMultiMap<K, V> extends Iterable<Entry<K, V>> {
+  forEach(callbackfn: (value: V, key: K, multiMap: this) => void): void;
 
   get(key: K): Iterable<V>;
 
   has(key: K, value?: V): boolean;
 
-  size: number;
+  readonly size: number;
 
   entries(): IterableIterator<[K, V]>;
 
   keys(): IterableIterator<K>;
 
   values(): IterableIterator<V>;
-
-  [Symbol.iterator](): IterableIterator<[K, V]>;
 
   [Symbol.toStringTag]: string;
 }

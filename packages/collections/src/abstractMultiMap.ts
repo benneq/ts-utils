@@ -44,7 +44,7 @@ export abstract class AbstractMultiMap<K, V> implements MultiMap<K, V> {
   /**
    * @see {@link Map.forEach}
    */
-  forEach(callbackfn: (value: V, key: K, map: this) => void): void {
+  forEach(callbackfn: (value: V, key: K, multiMap: this) => void): void {
     for (const [key, value] of this) {
       callbackfn(value, key, this);
     }
