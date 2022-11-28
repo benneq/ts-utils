@@ -31,6 +31,7 @@ export class MappedSet<T> extends AbstractSet<T> {
   get size(): number {
     return this.#value.size;
   }
+
   values(): IterableIterator<T> {
     return this.#value.values();
   }

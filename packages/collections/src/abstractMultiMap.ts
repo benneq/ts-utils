@@ -93,7 +93,7 @@ export abstract class AbstractMultiMap<K, V> implements MultiMap<K, V> {
    */
   abstract add(key: K, value: V): this;
 
-  addAll(entries: Iterable<Entry<K, V>>) {
+  addAll(entries: Iterable<Entry<K, V>>): void {
     if (entries) {
       for (const [key, value] of entries) {
         this.add(key, value);
