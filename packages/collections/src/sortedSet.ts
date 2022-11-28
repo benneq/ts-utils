@@ -59,9 +59,6 @@ export class SortedSet<T> implements Set<T> {
    *
    * @mutation
    *
-   * @remarks
-   * The values provided must be a sorted and unique.
-   *
    * @example
    * Add values
    * ```ts
@@ -116,9 +113,6 @@ export class SortedSet<T> implements Set<T> {
    * Values are considered equal if the {@link Comparator} returns `0`.
    *
    * @mutation
-   *
-   * @remarks
-   * The values provided must be a sorted and unique.
    *
    * @example
    * Remove values
@@ -186,11 +180,8 @@ export class SortedSet<T> implements Set<T> {
   /**
    * Checks if this {@link SortedSet} contains all of the values.
    *
-   * @remarks
-   * The values provided must be a sorted and unique.
-   *
    * @example
-   * Does the `set` contain `2` and `3`?
+   * Does the `set` contain `1` and `2`?
    * ```ts
    * const sortedSet = new SortedSet(numberComparator, [1, 2, 3]);
    * const result = sortedSet.has(new SortedSet(numberComparator, [1, 2]));

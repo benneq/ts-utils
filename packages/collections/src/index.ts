@@ -5,6 +5,7 @@
  */
 
 export * from "./arrayMultiMap";
+export * from "./indexedSet";
 export * from "./isMappedSet";
 export * from "./isSortedSet";
 export * from "./mappedSet";

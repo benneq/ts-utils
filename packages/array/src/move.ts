@@ -24,7 +24,7 @@ export const move = (
 ): ((
   sourceIndex: RelativeIndex,
   targetIndex: RelativeIndex,
-  moveCount: number
+  moveCount?: number
 ) => void) => {
   const isRelativeIndexOfArray = isRelativeIndex(array);
   const normalizeIndexForArray = normalizeIndex(array);
