@@ -41,11 +41,7 @@ export class SetMultiMap<K, V> extends AbstractMultiMap<K, V> {
   delete(key: K, value?: V): boolean {
     if (value) {
       const values = this.#value.get(key);
-      if (!values) {
-        return false;
-      }
-
-      if (!values.delete(value)) {
+      if (!values || !values.delete(value)) {
         return false;
       }
 

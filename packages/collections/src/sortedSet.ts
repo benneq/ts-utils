@@ -188,7 +188,7 @@ export class SortedSet<T> extends AbstractSet<T> {
 
     let pointer = 0;
 
-    for (const value of this.#values) {
+    for (const value of this) {
       if (pointer >= values.length) {
         break;
       }
