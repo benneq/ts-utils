@@ -46,7 +46,7 @@ export class SortedSet<T> extends AbstractSet<T> {
     if (process.env.NODE_ENV !== "production") {
       console.assert(isSorted(comparator)(values), "values must be sorted");
       console.assert(
-        every<[T, T]>(([a, b]) => comparator(a, b) !== 0)(pairwise()(values)),
+        every<[T, T]>(([a, b]) => !!comparator(a, b))(pairwise()(values)),
         "values must be unique"
       );
     }
@@ -144,7 +144,7 @@ export class SortedSet<T> extends AbstractSet<T> {
       );
 
       if (comparisonResult <= 0) {
-        if (comparisonResult === 0) {
+        if (!comparisonResult) {
           deleteAt(this.#values, i);
         }
 
@@ -199,7 +199,7 @@ export class SortedSet<T> extends AbstractSet<T> {
         return false;
       }
 
-      if (comparisonResult === 0) {
+      if (!comparisonResult) {
         pointer++;
       }
     }
