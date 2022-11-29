@@ -1,6 +1,7 @@
 import { Entry } from "@benneq/object";
 import { AbstractMultiMap } from "./abstractMultiMap";
 import { deleteFirst } from "@benneq/array";
+import { computeIfAbsent } from "@benneq/map";
 
 /**
  * An {@link ArrayMultiMap} can contain the same value multiple times per key.
@@ -27,9 +28,7 @@ export class ArrayMultiMap<K, V> extends AbstractMultiMap<K, V> {
   }
 
   add(key: K, value: V): this {
-    const values = this.#value.get(key) || [];
-    values.push(value);
-    this.#value.set(key, values);
+    (computeIfAbsent(this.#value)(key, () => []) as V[]).push(value);
     return this;
   }
 

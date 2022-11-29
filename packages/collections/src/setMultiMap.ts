@@ -1,3 +1,4 @@
+import { computeIfAbsent } from "@benneq/map";
 import { Entry } from "@benneq/object";
 import { AbstractMultiMap } from "./abstractMultiMap";
 
@@ -26,7 +27,7 @@ export class SetMultiMap<K, V> extends AbstractMultiMap<K, V> {
   }
 
   add(key: K, value: V): this {
-    this.#value.set(key, (this.#value.get(key) || new Set()).add(value));
+    (computeIfAbsent(this.#value)(key, () => new Set()) as Set<V>).add(value);
     return this;
   }
 

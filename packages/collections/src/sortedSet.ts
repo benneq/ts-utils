@@ -3,6 +3,10 @@ import { Comparator } from "@benneq/comparator";
 import { distinct } from "@benneq/iterable";
 import { AbstractSet } from "./abstractSet";
 
+const valueToSortedSet = <T>(value: SortedSet<T> | T): Iterable<T> => {
+  return value instanceof SortedSet ? value : [value];
+};
+
 /**
  * A {@link SortedSet} uses a {@link Comparator} for sorting the values and
  * checking for equality.
@@ -70,9 +74,7 @@ export class SortedSet<T> extends AbstractSet<T> {
   add(value: T): this;
   add(values: SortedSet<T>): this;
   add(value: T | SortedSet<T>): this {
-    const iterator = (value instanceof SortedSet ? value : [value])[
-      Symbol.iterator
-    ]();
+    const iterator = valueToSortedSet(value)[Symbol.iterator]();
 
     let i = 0;
     let next = iterator.next();
@@ -132,9 +134,7 @@ export class SortedSet<T> extends AbstractSet<T> {
   delete(value: T): boolean;
   delete(values: SortedSet<T>): boolean;
   delete(value: T | SortedSet<T>): boolean {
-    const iterator = (value instanceof SortedSet ? value : [value])[
-      Symbol.iterator
-    ]();
+    const iterator = valueToSortedSet(value)[Symbol.iterator]();
 
     const values = this.#values;
     let i = 0;
@@ -184,9 +184,7 @@ export class SortedSet<T> extends AbstractSet<T> {
   has(value: T): boolean;
   has(values: SortedSet<T>): boolean;
   has(value: T | SortedSet<T>): boolean {
-    const iterator = (value instanceof SortedSet ? value : [value])[
-      Symbol.iterator
-    ]();
+    const iterator = valueToSortedSet(value)[Symbol.iterator]();
 
     let next = iterator.next();
     for (const value of this) {
