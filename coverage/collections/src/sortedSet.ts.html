@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">98.18% </span>
+                <span class="strong">98.33% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>54/55</span>
+                <span class='fraction'>59/60</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">98.14% </span>
+                <span class="strong">98.3% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>53/54</span>
+                <span class='fraction'>58/59</span>
             </div>
         
             
@@ -288,7 +288,17 @@
 <a name='L223'></a><a href='#L223'>223</a>
 <a name='L224'></a><a href='#L224'>224</a>
 <a name='L225'></a><a href='#L225'>225</a>
-<a name='L226'></a><a href='#L226'>226</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">2x</span>
+<a name='L226'></a><a href='#L226'>226</a>
+<a name='L227'></a><a href='#L227'>227</a>
+<a name='L228'></a><a href='#L228'>228</a>
+<a name='L229'></a><a href='#L229'>229</a>
+<a name='L230'></a><a href='#L230'>230</a>
+<a name='L231'></a><a href='#L231'>231</a>
+<a name='L232'></a><a href='#L232'>232</a>
+<a name='L233'></a><a href='#L233'>233</a>
+<a name='L234'></a><a href='#L234'>234</a>
+<a name='L235'></a><a href='#L235'>235</a>
+<a name='L236'></a><a href='#L236'>236</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
@@ -368,9 +378,14 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">16x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">16x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">16x</span>
@@ -390,6 +405,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">16x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -424,14 +443,14 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-yes">13x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">13x</span>
 <span class="cline-any cline-yes">5x</span>
@@ -476,8 +495,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">13x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -589,32 +609,41 @@ export class SortedSet&lt;T&gt; extends AbstractSet&lt;T&gt; {
    * ```
    *
    * @param values - the values to add
+   * @returns this
    */
   add(value: T): this;
   add(values: SortedSet&lt;T&gt;): this;
   add(value: T | SortedSet&lt;T&gt;): this {
-    const values = value instanceof SortedSet ? [...value] : [value];
+    const iterator = (value instanceof SortedSet ? value : [value])[
+      Symbol.iterator
+    ]();
 &nbsp;
     let i = 0;
-    let pointer = 0;
+    let next = iterator.next();
 &nbsp;
-    while (i &lt; this.#values.length &amp;&amp; pointer &lt; values.length) {
-      const value = values[pointer] as T;
+    const values = this.#values;
 &nbsp;
-      const comparisonResult = this.#comparator(value, this.#values[i] as T);
+    while (i &lt; values.length &amp;&amp; !next.done) {
+      const value = next.value;
+&nbsp;
+      const comparisonResult = this.#comparator(value, values[i] as T);
 &nbsp;
       if (comparisonResult &lt;= 0) {
         if (comparisonResult &lt; 0) {
-          insertAt(this.#values, i, value);
+          insertAt(values, i, value);
         }
 &nbsp;
-        pointer++;
+        next = iterator.next();
       }
 &nbsp;
       i++;
     }
 &nbsp;
-    this.#values.push(...values.slice(pointer));
+    while (!next.done) {
+      values.push(next.value);
+      next = iterator.next();
+    }
+&nbsp;
     return this;
   }
 &nbsp;
@@ -642,34 +671,34 @@ export class SortedSet&lt;T&gt; extends AbstractSet&lt;T&gt; {
    * ```
    *
    * @param values - the values to remove
-   * @returns always `true`
+   * @returns `true` if this {@link SortedSet} has ben modified, otherwise `false`
    */
   delete(value: T): boolean;
   delete(values: SortedSet&lt;T&gt;): boolean;
   delete(value: T | SortedSet&lt;T&gt;): boolean {
-    const values = value instanceof SortedSet ? [...value] : [value];
+    const iterator = (value instanceof SortedSet ? value : [value])[
+      Symbol.iterator
+    ]();
 &nbsp;
+    const values = this.#values;
     let i = 0;
-    let pointer = 0;
-&nbsp;
-    while (i &lt; this.#values.length &amp;&amp; pointer &lt; values.length) {
-      const comparisonResult = this.#comparator(
-        values[pointer] as T,
-        this.#values[i] as T
-      );
+    let next = iterator.next();
+    let modified = false;
+    while (i &lt; values.length &amp;&amp; !next.done) {
+      const comparisonResult = this.#comparator(next.value, values[i] as T);
 &nbsp;
       if (comparisonResult &lt;= 0) {
         if (!comparisonResult) {
-          deleteAt(this.#values, i);
+          modified = deleteAt(values, i);
         }
 &nbsp;
-        pointer++;
+        next = iterator.next();
       } else {
         i++;
       }
     }
 &nbsp;
-    return true;
+    return modified;
   }
 &nbsp;
   /**
@@ -699,23 +728,24 @@ export class SortedSet&lt;T&gt; extends AbstractSet&lt;T&gt; {
   has(value: T): boolean;
   has(values: SortedSet&lt;T&gt;): boolean;
   has(value: T | SortedSet&lt;T&gt;): boolean {
-    const values = value instanceof SortedSet ? [...value] : [value];
+    const iterator = (value instanceof SortedSet ? value : [value])[
+      Symbol.iterator
+    ]();
 &nbsp;
-    let pointer = 0;
-&nbsp;
+    let next = iterator.next();
     for (const value of this) {
-      if (pointer &gt;= values.length) {
+      if (next.done) {
         break;
       }
 &nbsp;
-      const comparisonResult = this.#comparator(values[pointer] as T, value);
+      const comparisonResult = this.#comparator(next.value, value);
 &nbsp;
       if (comparisonResult &lt; 0) {
         return false;
       }
 &nbsp;
       if (!comparisonResult) {
-        pointer++;
+        next = iterator.next();
       }
     }
 &nbsp;
@@ -745,7 +775,7 @@ export class SortedSet&lt;T&gt; extends AbstractSet&lt;T&gt; {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2022-11-28T23:54:32.995Z
+                at 2022-11-29T02:12:54.711Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
