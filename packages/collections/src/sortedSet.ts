@@ -74,32 +74,41 @@ export class SortedSet<T> extends AbstractSet<T> {
    * ```
    *
    * @param values - the values to add
+   * @returns this
    */
   add(value: T): this;
   add(values: SortedSet<T>): this;
   add(value: T | SortedSet<T>): this {
-    const values = value instanceof SortedSet ? [...value] : [value];
+    const iterator = (value instanceof SortedSet ? value : [value])[
+      Symbol.iterator
+    ]();
 
     let i = 0;
-    let pointer = 0;
+    let next = iterator.next();
 
-    while (i < this.#values.length && pointer < values.length) {
-      const value = values[pointer] as T;
+    const values = this.#values;
 
-      const comparisonResult = this.#comparator(value, this.#values[i] as T);
+    while (i < values.length && !next.done) {
+      const value = next.value;
+
+      const comparisonResult = this.#comparator(value, values[i] as T);
 
       if (comparisonResult <= 0) {
         if (comparisonResult < 0) {
-          insertAt(this.#values, i, value);
+          insertAt(values, i, value);
         }
 
-        pointer++;
+        next = iterator.next();
       }
 
       i++;
     }
 
-    this.#values.push(...values.slice(pointer));
+    while (!next.done) {
+      values.push(next.value);
+      next = iterator.next();
+    }
+
     return this;
   }
 
@@ -127,34 +136,34 @@ export class SortedSet<T> extends AbstractSet<T> {
    * ```
    *
    * @param values - the values to remove
-   * @returns always `true`
+   * @returns `true` if this {@link SortedSet} has ben modified, otherwise `false`
    */
   delete(value: T): boolean;
   delete(values: SortedSet<T>): boolean;
   delete(value: T | SortedSet<T>): boolean {
-    const values = value instanceof SortedSet ? [...value] : [value];
+    const iterator = (value instanceof SortedSet ? value : [value])[
+      Symbol.iterator
+    ]();
 
+    const values = this.#values;
     let i = 0;
-    let pointer = 0;
-
-    while (i < this.#values.length && pointer < values.length) {
-      const comparisonResult = this.#comparator(
-        values[pointer] as T,
-        this.#values[i] as T
-      );
+    let next = iterator.next();
+    let modified = false;
+    while (i < values.length && !next.done) {
+      const comparisonResult = this.#comparator(next.value, values[i] as T);
 
       if (comparisonResult <= 0) {
         if (!comparisonResult) {
-          deleteAt(this.#values, i);
+          modified = deleteAt(values, i);
         }
 
-        pointer++;
+        next = iterator.next();
       } else {
         i++;
       }
     }
 
-    return true;
+    return modified;
   }
 
   /**
@@ -184,23 +193,24 @@ export class SortedSet<T> extends AbstractSet<T> {
   has(value: T): boolean;
   has(values: SortedSet<T>): boolean;
   has(value: T | SortedSet<T>): boolean {
-    const values = value instanceof SortedSet ? [...value] : [value];
+    const iterator = (value instanceof SortedSet ? value : [value])[
+      Symbol.iterator
+    ]();
 
-    let pointer = 0;
-
+    let next = iterator.next();
     for (const value of this) {
-      if (pointer >= values.length) {
+      if (next.done) {
         break;
       }
 
-      const comparisonResult = this.#comparator(values[pointer] as T, value);
+      const comparisonResult = this.#comparator(next.value, value);
 
       if (comparisonResult < 0) {
         return false;
       }
 
       if (!comparisonResult) {
-        pointer++;
+        next = iterator.next();
       }
     }
 
