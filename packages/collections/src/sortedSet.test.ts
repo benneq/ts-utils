@@ -7,6 +7,11 @@ describe("collections.sortedSet", () => {
       const sortedSet = new SortedSet(numberComparator);
       expect(sortedSet.size).toBe(0);
     });
+
+    it("should make values unique and sorted", () => {
+      const sortedSet = new SortedSet(numberComparator, [3, 1, 3, 2, 2]);
+      expect([...sortedSet]).toEqual([1, 2, 3]);
+    });
   });
 
   describe("add", () => {

@@ -6,6 +6,11 @@ describe("collections.indexedSet", () => {
       const indexedSet = new IndexedSet();
       expect(indexedSet.size).toBe(0);
     });
+
+    it("should make values unique and keep order", () => {
+      const sortedSet = new IndexedSet([3, 1, 3, 2, 2]);
+      expect([...sortedSet]).toEqual([3, 1, 2]);
+    });
   });
 
   describe("add", () => {

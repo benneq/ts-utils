@@ -1,5 +1,4 @@
 import { clear, deleteAt, deleteFirst, insertAt, move } from "@benneq/array";
-import { isDistinct } from "@benneq/iterable";
 import { AbstractSet } from "./abstractSet";
 
 /**
@@ -30,16 +29,11 @@ export class IndexedSet<T> extends AbstractSet<T> {
   readonly #values;
 
   /**
-   * @param values - optional {@link Array} of values for initialization
+   * @param values - optional {@link Iterable} of values for initialization
    */
-  constructor(values: T[] = []) {
+  constructor(values?: Iterable<T>) {
     super();
-    if (process.env.NODE_ENV !== "production") {
-      console.assert(isDistinct()(values), "values must be unique");
-    }
-
-    // @todo defentive copy, ensure distinct
-    this.#values = values;
+    this.#values = [...new Set(values)];
   }
 
   add(value: T): this {
