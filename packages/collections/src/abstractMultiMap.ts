@@ -28,18 +28,25 @@ export abstract class AbstractMultiMap<K, V> implements MultiMap<K, V> {
   }
 
   /**
-   * Deletes the first entry with the given `key` and `value`.
+   * Deletes the key with all its values.
    *
-   * If this function is being called with a `value`, all values for the `key`
-   * get deleted.
+   * @see {@link Map.delete}
+   *
+   * @param key - the key to delete
+   * @returns `true` if an entry was deleted, otherwise `false`
+   */
+  abstract delete(key: K): boolean;
+
+  /**
+   * Deletes the first entry with the given `key` and `value`.
    *
    * @see {@link Map.delete}
    *
    * @param key - the key to look for
-   * @param value - the optional value
+   * @param value - the value to delete
    * @returns `true` if an entry was deleted, otherwise `false`
    */
-  abstract delete(key: K, value?: V): boolean;
+  abstract delete(key: K, value: V): boolean;
 
   /**
    * @see {@link Map.forEach}
@@ -51,21 +58,38 @@ export abstract class AbstractMultiMap<K, V> implements MultiMap<K, V> {
   }
 
   /**
-   * @see {@link Map.get}
+   * Gets all values for this key.
+   *
+   * Returns an empty iterable if the key does not exist.
+   *
+   * @param key - the key to look up
+   * @returns an {@link Iterable} containing all values for this key
    */
   get(key: K): Iterable<V> {
     return this.#value.get(key) || [];
   }
 
   /**
-   * Checks if this {@link AbstractMultiMap} contains an entry with the key and value.
+   * Checks if this {@link MultiMap} contains an entry for this key.
    *
    * @see {@link Map.has}
    *
-   * @param key - the key to look for
-   * @param value - the optional value
+   * @param key - the key to look up
+   * @returns `true` if an entry with the given key exists, otherwise `false`
+   */
+  has(key: K): boolean;
+
+  /**
+   * Checks if this {@link MultiMap} contains an entry with the key and value.
+   *
+   * @see {@link Map.has}
+   *
+   * @param key - the key to look up
+   * @param value - the value to look for
    * @returns `true` if an entry with the given key and value exists, otherwise `false`
    */
+  has(key: K, value: V): boolean;
+
   has(key: K, value?: V): boolean {
     return (
       this.#value.has(key) &&
@@ -75,6 +99,8 @@ export abstract class AbstractMultiMap<K, V> implements MultiMap<K, V> {
 
   /**
    * Set the values for a key and replaces all previous values for this key.
+   *
+   * If no values are provided all previous entries will be removed.
    *
    * @see {@link Map.set}
    *
@@ -102,7 +128,7 @@ export abstract class AbstractMultiMap<K, V> implements MultiMap<K, V> {
   }
 
   /**
-   * @see {@link Map.size}
+   * @returns the number of entries in this {@link MultiMap}
    */
   get size(): number {
     return count(this) || 0;

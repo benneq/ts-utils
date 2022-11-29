@@ -113,6 +113,16 @@ describe("multimap.arrayMultiMap", () => {
       );
     });
 
+    it("should remove the key if values are empty", () => {
+      const [key1, value1] = symbolGenerator();
+
+      const map = new ArrayMultiMap([[key1, value1]]);
+
+      map.set(key1, []);
+
+      expect(map).toEqual(new ArrayMultiMap());
+    });
+
     it("should not add key if no values provided", () => {
       const map = new ArrayMultiMap();
 

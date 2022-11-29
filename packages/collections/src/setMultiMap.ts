@@ -34,6 +34,8 @@ export class SetMultiMap<K, V> extends AbstractMultiMap<K, V> {
     const value = new Set(values);
     if (value.size) {
       this.#value.set(key, value);
+    } else {
+      this.#value.delete(key);
     }
     return this;
   }

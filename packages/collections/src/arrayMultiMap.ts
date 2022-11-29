@@ -37,6 +37,8 @@ export class ArrayMultiMap<K, V> extends AbstractMultiMap<K, V> {
     const value = [...values];
     if (value.length) {
       this.#value.set(key, value);
+    } else {
+      this.#value.delete(key);
     }
     return this;
   }
