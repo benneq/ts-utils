@@ -15,7 +15,7 @@ describe("collections.mappedSet", () => {
       mappedSet.add("ccc");
       mappedSet.add("bb");
 
-      expect([...mappedSet.values()]).toEqual(["a", "ccc", "bb"]);
+      expect([...mappedSet]).toEqual(["a", "ccc", "bb"]);
     });
 
     it("should not modify the MappedSet if it already the mapped value", () => {
@@ -25,7 +25,7 @@ describe("collections.mappedSet", () => {
 
       mappedSet.add("ab");
 
-      expect([...mappedSet.values()]).toEqual(["a", "ab"]);
+      expect([...mappedSet]).toEqual(["a", "ab"]);
     });
   });
 
@@ -36,7 +36,7 @@ describe("collections.mappedSet", () => {
 
       mappedSet.clear();
 
-      expect([...mappedSet.values()]).toEqual([]);
+      expect([...mappedSet]).toEqual([]);
     });
   });
 
@@ -48,7 +48,7 @@ describe("collections.mappedSet", () => {
 
       mappedSet.delete("bb");
 
-      expect([...mappedSet.values()]).toEqual(["a"]);
+      expect([...mappedSet]).toEqual(["a"]);
     });
 
     it("should not modify the MappedSet if it does not contain the value", () => {
@@ -57,7 +57,7 @@ describe("collections.mappedSet", () => {
 
       mappedSet.delete("bb");
 
-      expect([...mappedSet.values()]).toEqual(["a"]);
+      expect([...mappedSet]).toEqual(["a"]);
     });
   });
 
@@ -125,7 +125,7 @@ describe("collections.mappedSet", () => {
       mappedSet.add("a");
       mappedSet.add("ab");
 
-      expect([...mappedSet.values()]).toEqual(["a", "ab"]);
+      expect([...mappedSet]).toEqual(["a", "ab"]);
     });
   });
 

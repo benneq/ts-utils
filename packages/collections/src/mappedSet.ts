@@ -1,14 +1,18 @@
 import { Mapper } from "@benneq/function";
+import { map } from "@benneq/iterable";
 import { AbstractSet } from "./abstractSet";
 
 export class MappedSet<T> extends AbstractSet<T> {
   #mapper;
   #value;
 
-  constructor(mapper: Mapper<T, unknown>) {
+  constructor(mapper: Mapper<T, unknown>, iterable?: Iterable<T>) {
     super();
     this.#mapper = mapper;
-    this.#value = new Map<unknown, T>();
+    this.#value = new Map(
+      iterable &&
+        map<T, [unknown, T]>((value) => [mapper(value), value])(iterable)
+    );
   }
 
   add(value: T): this {

@@ -22,7 +22,7 @@ describe("collections.sortedSet", () => {
 
       sortedSet.add(1);
 
-      expect([...sortedSet.values()]).toEqual([0, 1, 2]);
+      expect([...sortedSet]).toEqual([0, 1, 2]);
     });
 
     it("should not modify the SortedSet if it already contains the value", () => {
@@ -32,7 +32,7 @@ describe("collections.sortedSet", () => {
 
       sortedSet.add(4);
 
-      expect([...sortedSet.values()]).toEqual([4, 5]);
+      expect([...sortedSet]).toEqual([4, 5]);
     });
 
     it("should add values at the right position to maintain the sorting", () => {
@@ -42,7 +42,7 @@ describe("collections.sortedSet", () => {
 
       sortedSet.add(new SortedSet(numberComparator, [1, 2, 3]));
 
-      expect([...sortedSet.values()]).toEqual([0, 1, 2, 3]);
+      expect([...sortedSet]).toEqual([0, 1, 2, 3]);
     });
 
     it("should not modify the SortedSet if it already contains all values", () => {
@@ -52,7 +52,7 @@ describe("collections.sortedSet", () => {
 
       sortedSet.add(new SortedSet(numberComparator, [4, 5]));
 
-      expect([...sortedSet.values()]).toEqual([4, 5]);
+      expect([...sortedSet]).toEqual([4, 5]);
     });
 
     it("should not modify the SortedSet if values array is empty", () => {
@@ -62,7 +62,7 @@ describe("collections.sortedSet", () => {
 
       sortedSet.add(new SortedSet(numberComparator));
 
-      expect([...sortedSet.values()]).toEqual([4, 5]);
+      expect([...sortedSet]).toEqual([4, 5]);
     });
   });
 
@@ -73,7 +73,7 @@ describe("collections.sortedSet", () => {
 
       sortedSet.clear();
 
-      expect([...sortedSet.values()]).toEqual([]);
+      expect([...sortedSet]).toEqual([]);
     });
   });
 
@@ -83,7 +83,7 @@ describe("collections.sortedSet", () => {
 
       sortedSet.delete(2);
 
-      expect([...sortedSet.values()]).toEqual([1, 3, 4, 5]);
+      expect([...sortedSet]).toEqual([1, 3, 4, 5]);
     });
 
     it("should not modify the SortedSet if it does not contain the value", () => {
@@ -91,7 +91,7 @@ describe("collections.sortedSet", () => {
 
       sortedSet.delete(4);
 
-      expect([...sortedSet.values()]).toEqual([1, 2]);
+      expect([...sortedSet]).toEqual([1, 2]);
     });
 
     it("should not remove values that are less than the first value of the SortedSet", () => {
@@ -99,7 +99,7 @@ describe("collections.sortedSet", () => {
 
       sortedSet.delete(0);
 
-      expect([...sortedSet.values()]).toEqual([1, 2]);
+      expect([...sortedSet]).toEqual([1, 2]);
     });
 
     it("should remove the values where comparison result equals 0", () => {
@@ -107,7 +107,7 @@ describe("collections.sortedSet", () => {
 
       sortedSet.delete(new SortedSet(numberComparator, [0, 2, 5]));
 
-      expect([...sortedSet.values()]).toEqual([1, 3, 4]);
+      expect([...sortedSet]).toEqual([1, 3, 4]);
     });
 
     it("should not modify the SortedSet if it does not contain the values", () => {
@@ -115,7 +115,7 @@ describe("collections.sortedSet", () => {
 
       sortedSet.delete(new SortedSet(numberComparator, [4, 5]));
 
-      expect([...sortedSet.values()]).toEqual([1, 2]);
+      expect([...sortedSet]).toEqual([1, 2]);
     });
 
     it("should not modify the SortedSet if no values are given", () => {
@@ -123,7 +123,7 @@ describe("collections.sortedSet", () => {
 
       sortedSet.delete(new SortedSet(numberComparator));
 
-      expect([...sortedSet.values()]).toEqual([1, 2]);
+      expect([...sortedSet]).toEqual([1, 2]);
     });
   });
 
@@ -173,7 +173,7 @@ describe("collections.sortedSet", () => {
     it("should yield all values in order", () => {
       const sortedSet = new SortedSet(numberComparator, [1, 2]);
 
-      expect([...sortedSet.values()]).toEqual([1, 2]);
+      expect([...sortedSet]).toEqual([1, 2]);
     });
   });
 

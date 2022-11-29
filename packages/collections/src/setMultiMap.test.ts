@@ -5,7 +5,7 @@ describe("multimap.setMultiMap", () => {
     it("should create an empty SetMultiMap", () => {
       const map = new SetMultiMap();
 
-      expect([...map.entries()]).toEqual([]);
+      expect([...map]).toEqual([]);
     });
 
     it("should create a pre initialized SetMultiMap", () => {
@@ -16,7 +16,7 @@ describe("multimap.setMultiMap", () => {
         [1, "b"],
       ]);
 
-      expect([...map.entries()]).toEqual([
+      expect([...map]).toEqual([
         [1, "a"],
         [1, "b"],
         [2, "b"],

@@ -20,7 +20,7 @@ describe("collections.indexedSet", () => {
 
       indexedSet.add(1);
 
-      expect([...indexedSet.values()]).toEqual([2, 1]);
+      expect([...indexedSet]).toEqual([2, 1]);
     });
 
     it("should not modify the IndexedSet if it already contains the value", () => {
@@ -30,7 +30,7 @@ describe("collections.indexedSet", () => {
 
       indexedSet.add(5);
 
-      expect([...indexedSet.values()]).toEqual([5, 4]);
+      expect([...indexedSet]).toEqual([5, 4]);
     });
   });
 
@@ -41,7 +41,7 @@ describe("collections.indexedSet", () => {
 
       indexedSet.clear();
 
-      expect([...indexedSet.values()]).toEqual([]);
+      expect([...indexedSet]).toEqual([]);
     });
   });
 
@@ -51,7 +51,7 @@ describe("collections.indexedSet", () => {
 
       indexedSet.delete(2);
 
-      expect([...indexedSet.values()]).toEqual([1, 3]);
+      expect([...indexedSet]).toEqual([1, 3]);
     });
 
     it("should not modify the IndexedSet if it does not contain the value", () => {
@@ -59,7 +59,7 @@ describe("collections.indexedSet", () => {
 
       indexedSet.delete(4);
 
-      expect([...indexedSet.values()]).toEqual([1, 2]);
+      expect([...indexedSet]).toEqual([1, 2]);
     });
   });
 
@@ -87,7 +87,7 @@ describe("collections.indexedSet", () => {
 
       indexedSet.set(1, 1);
 
-      expect([...indexedSet.values()]).toEqual([2, 1, 3]);
+      expect([...indexedSet]).toEqual([2, 1, 3]);
     });
 
     it("should insert the value if it did not exist", () => {
@@ -95,7 +95,7 @@ describe("collections.indexedSet", () => {
 
       indexedSet.set(0, 0);
 
-      expect([...indexedSet.values()]).toEqual([0, 1, 2, 3]);
+      expect([...indexedSet]).toEqual([0, 1, 2, 3]);
     });
   });
 
@@ -121,7 +121,7 @@ describe("collections.indexedSet", () => {
     it("should yield all values in order", () => {
       const indexedSet = new IndexedSet([1, 2]);
 
-      expect([...indexedSet.values()]).toEqual([1, 2]);
+      expect([...indexedSet]).toEqual([1, 2]);
     });
   });
 
