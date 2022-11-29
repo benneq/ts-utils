@@ -74,7 +74,7 @@ export interface ReadonlyMultiMap<K, V> extends Iterable<Entry<K, V>> {
  */
 export interface MultiMap<K, V> extends ReadonlyMultiMap<K, V> {
   /**
-   * Removes all entries from this {@link MultiMap}.
+   * Removes all entries.
    */
   clear(): void;
 

@@ -3,14 +3,14 @@ import { Predicate } from "@benneq/predicate";
 
 /**
  * Creates a {@link Predicate} function that checks if all elements of an
- * {@link Array} are sorted according to a {@link Comparator}.
+ * {@link Array} are monotonic sorted according to a {@link Comparator}.
  *
  * @exmaple
  * Check if `array` is sorted
  * ```ts
- * const isSortedByNumber = isSorted(numberComparator);
- * const array = [1,2,2,3];
- * const result = isSortedByNumber(array);
+ * const isMonotoneSortedByNumber = isMonotone(numberComparator);
+ * const array = [1,2,3];
+ * const result = isMonotoneSortedByNumber(array);
  * console.log(result); // true
  * ```
  *
@@ -18,11 +18,11 @@ import { Predicate } from "@benneq/predicate";
  * @param comparator - the {@link Comparator} to use
  * @returns the {@link Predicate}
  */
-export const isSorted = <T>(
+export const isMonotone = <T>(
   comparator: Comparator<T>
 ): Predicate<[readonly T[]]> => {
   return (array) =>
     array.every(
-      (value, index) => !index || comparator(array[index - 1] as T, value) <= 0
+      (value, index) => !index || comparator(array[index - 1] as T, value) < 0
     );
 };

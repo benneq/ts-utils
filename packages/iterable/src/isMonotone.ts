@@ -6,14 +6,14 @@ import { pairwise } from "./pairwise";
 
 /**
  * Creates a {@link Predicate} function that checks if all elements of an
- * {@link Iterable} are sorted according to a {@link Comparator}.
+ * {@link Iterable} are monotonic sorted according to a {@link Comparator}.
  *
  * @exmaple
- * Check if `iterable` is sorted
+ * Check if `iterable` is monotonic sorted
  * ```ts
- * const isSortedByNumber = isSorted(numberComparator);
- * const iterable = [1,2,2,3];
- * const result = isSortedByNumber(iterable);
+ * const isMonotoneSortedByNumber = isMonotone(numberComparator);
+ * const iterable = [1,2,3];
+ * const result = isMonotoneSortedByNumber(iterable);
  * console.log(result); // true
  * ```
  *
@@ -21,11 +21,11 @@ import { pairwise } from "./pairwise";
  * @param comparator - the {@link Comparator} to use
  * @returns the {@link Predicate}
  */
-export const isSorted = <T>(
+export const isMonotone = <T>(
   comparator: Comparator<T>
 ): Predicate<[Iterable<T>]> => {
   return pipe(
     pairwise()<T>,
-    every<[T, T]>(([a, b]) => comparator(a, b) <= 0)
+    every<[T, T]>(([a, b]) => comparator(a, b) < 0)
   );
 };

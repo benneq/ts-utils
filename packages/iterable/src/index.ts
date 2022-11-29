@@ -23,6 +23,7 @@ export * from "./interleave";
 export * from "./isDistinct";
 export * from "./isEmpty";
 export * from "./isIterable";
+export * from "./isMonotone";
 export * from "./isSorted";
 export * from "./iterableComparator";
 export * from "./iterate";

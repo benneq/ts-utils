@@ -1,4 +1,4 @@
-import { clear, deleteFirst, insertAt, move } from "@benneq/array";
+import { clear, deleteAt, deleteFirst, insertAt, move } from "@benneq/array";
 import { isDistinct } from "@benneq/iterable";
 import { AbstractSet } from "./abstractSet";
 
@@ -38,29 +38,10 @@ export class IndexedSet<T> extends AbstractSet<T> {
       console.assert(isDistinct()(values), "values must be unique");
     }
 
+    // @todo defentive copy, ensure distinct
     this.#values = values;
   }
 
-  /**
-   * Adds a `value` to the end of this {@link IndexedSet} if it does not
-   * already contain it.
-   *
-   * @mutation
-   *
-   * @example
-   * Add value
-   * ```ts
-   * const indexedSet = new IndexedSet();
-   *
-   * indexedSet.add(2);
-   * indexedSet.add(0);
-   * indexedSet.add(2);
-   *
-   * console.log([...indexedSet.values()]); // [2, 0]
-   * ```
-   *
-   * @param value - the value to add
-   */
   add(value: T): this {
     if (!this.has(value)) {
       this.#values.push(value);
@@ -68,33 +49,34 @@ export class IndexedSet<T> extends AbstractSet<T> {
     return this;
   }
 
-  /**
-   * Removes all elements from this {@link IndexedSet}.
-   */
   clear(): void {
     clear(this.#values);
   }
 
+  delete(value: T): boolean {
+    return deleteFirst(this.#values, value);
+  }
+
   /**
-   * Removes a `value` from this {@link IndexedSet} if it does contain it.
+   * Deletes the element at the given `index`.
    *
    * @mutation
    *
    * @example
-   * Remove value
+   * Remove value at index 1
    * ```ts
    * const indexedSet = new IndexedSet([1, 2, 3]);
    *
-   * indexedSet.delete(1);
+   * indexedSet.deleteAt(1);
    *
-   * console.log([...indexedSet.values()]); // [2, 3]
+   * console.log([...indexedSet.values()]); // [1, 3]
    * ```
    *
-   * @param value - the value to remove
+   * @param index - the index to delete
    * @returns `true` if the {@link IndexedSet} was modified, otherwise `false`
    */
-  delete(value: T): boolean {
-    return deleteFirst(this.#values, value);
+  deleteAt(index: number, deleteCount?: number): boolean {
+    return deleteAt(this.#values, index, deleteCount);
   }
 
   /**
@@ -133,34 +115,14 @@ export class IndexedSet<T> extends AbstractSet<T> {
     }
   }
 
-  /**
-   * Checks if this {@link IndexedSet} contains the value.
-   *
-   * @example
-   * Does the `set` contain `2`?
-   * ```ts
-   * const indexedSet = new IndexedSet([1, 2, 3]);
-   * const result = indexedSet.has(2));
-   * console.log(result); // true
-   * ```
-   *
-   * @param value - the value it should contain
-   * @returns `true` if this {@link IndexedSet} contains the value, otherwise `false`
-   */
   has(value: T): boolean {
     return this.#values.includes(value);
   }
 
-  /**
-   * @returns the number of elements in this {@link IndexedSet}
-   */
   get size(): number {
     return this.#values.length;
   }
 
-  /**
-   * @returns an {@link Iterable} of the values of this {@link IndexedSet}.
-   */
   values(): IterableIterator<T> {
     return this.#values[Symbol.iterator]();
   }

@@ -18,6 +18,7 @@ export * from "./isArray";
 export * from "./isArrayLike";
 export * from "./isEmpty";
 export * from "./isIndex";
+export * from "./isMonotone";
 export * from "./isRelativeIndex";
 export * from "./isSorted";
 export * from "./mapTuple";

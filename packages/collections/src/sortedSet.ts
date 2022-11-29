@@ -1,7 +1,6 @@
-import { clear, deleteAt, insertAt, isSorted } from "@benneq/array";
+import { clear, deleteAt, insertAt } from "@benneq/array";
+import { isMonotone } from "@benneq/array/src/isMonotone";
 import { Comparator } from "@benneq/comparator";
-import { every } from "@benneq/iterable";
-import { pairwise } from "@benneq/iterable/src/pairwise";
 import { AbstractSet } from "./abstractSet";
 
 /**
@@ -44,15 +43,12 @@ export class SortedSet<T> extends AbstractSet<T> {
   constructor(comparator: Comparator<T>, values: T[] = []) {
     super();
     if (process.env.NODE_ENV !== "production") {
-      console.assert(isSorted(comparator)(values), "values must be sorted");
-      console.assert(
-        every<[T, T]>(([a, b]) => !!comparator(a, b))(pairwise()(values)),
-        "values must be unique"
-      );
+      console.assert(isMonotone(comparator)(values), "values must be sorted");
     }
 
     this.#comparator = comparator;
-    this.#values = values;
+    // @todo defentive copy, ensure sorted and distinct
+    this.#values = [...values];
   }
 
   /**
