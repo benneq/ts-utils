@@ -15,7 +15,7 @@ export class ArrayMultiMap<K, V> extends AbstractMultiMap<K, V> {
   /**
    * Create a new {@link ArrayMultiMap} from the given entries.
    *
-   * @param iterable - the optional {@link Iterable} to consume the entries from
+   * @param iterable - the optional {@link Iterable} of entries
    */
   constructor(iterable?: Iterable<Entry<K, V>>) {
     const value = new Map<K, V[]>();

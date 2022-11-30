@@ -2,7 +2,7 @@ import { map } from "@benneq/iterable";
 
 /**
  * An abstract helper class that implements the common base functionality of a
- * {@link Set}.
+ * {@link Map}.
  */
 export abstract class AbstractMap<K, V> implements Map<K, V> {
   /**

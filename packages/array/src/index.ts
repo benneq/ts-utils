@@ -25,5 +25,6 @@ export * from "./isSorted";
 export * from "./mapTuple";
 export * from "./move";
 export * from "./normalizeIndex";
+export * from "./some";
 export * from "./swap";
 export * from "./toReverseIterable";
