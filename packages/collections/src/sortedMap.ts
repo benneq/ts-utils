@@ -1,18 +1,16 @@
 import { clear, deleteAt, insertAt } from "@benneq/array";
 import { Comparator, entryKeyComparator } from "@benneq/comparator";
-import { distinct, map } from "@benneq/iterable";
+import { distinct } from "@benneq/iterable";
 import { Entry } from "@benneq/object";
+import { AbstractMap } from "./abstractMap";
 import { SortedSet } from "./sortedSet";
 
-const valueToSortedSet = <T>(value: SortedSet<T> | T): Iterable<T> => {
-  return value instanceof SortedSet ? value : [value];
-};
-
-export class SortedMap<K, V> implements Map<K, V> {
+export class SortedMap<K, V> extends AbstractMap<K, V> {
   readonly #comparator;
   readonly #value;
 
   constructor(comparator: Comparator<K>, entries?: Iterable<Entry<K, V>>) {
+    super();
     this.#comparator = comparator;
     this.#value = entries
       ? [...distinct<Entry<K, V>>((entry) => entry[0])(entries)].sort(
@@ -25,10 +23,18 @@ export class SortedMap<K, V> implements Map<K, V> {
     clear(this.#value);
   }
 
-  delete(value: K): boolean;
-  delete(values: SortedSet<K>): boolean;
-  delete(value: K | SortedSet<K>): boolean {
-    const iterator = valueToSortedSet(value)[Symbol.iterator]();
+  delete(key: K): boolean {
+    const index = this.#value.findIndex(
+      (entry) => !this.#comparator(key, entry[0])
+    );
+    if (index >= 0) {
+      return deleteAt(this.#value, index);
+    }
+    return false;
+  }
+
+  deleteAll(keys: SortedSet<K>) {
+    const iterator = keys[Symbol.iterator]();
 
     const values = this.#value;
     let i = 0;
@@ -58,39 +64,36 @@ export class SortedMap<K, V> implements Map<K, V> {
     return this.#value.at(index);
   }
 
-  forEach(callbackfn: (value: V, key: K, sortedMap: this) => void): void {
-    for (const [key, value] of this) {
-      callbackfn(value, key, this);
-    }
-  }
-
   get(key: K): V | undefined {
     return this.#value.find((value) => !this.#comparator(value[0], key))?.[1];
   }
 
-  has(value: K): boolean;
-  has(values: SortedSet<K>): boolean;
-  has(value: K | SortedSet<K>): boolean {
-    const iterator = valueToSortedSet(value)[Symbol.iterator]();
+  has(key: K): boolean {
+    return this.#value.some((entry) => !this.#comparator(key, entry[0]));
+  }
 
-    let next = iterator.next();
-    for (const [entryKey] of this) {
+  hasAll(keys: SortedSet<K>): boolean {
+    const it = keys[Symbol.iterator]();
+
+    let next = it.next();
+
+    for (const [key] of this) {
       if (next.done) {
         break;
       }
 
-      const comparisonResult = this.#comparator(next.value, entryKey);
+      const comparisonResult = this.#comparator(next.value, key);
 
       if (comparisonResult < 0) {
         return false;
       }
 
       if (!comparisonResult) {
-        next = iterator.next();
+        next = it.next();
       }
     }
 
-    return true;
+    return !!next.done;
   }
 
   set(key: K, value: V): this {
@@ -117,24 +120,48 @@ export class SortedMap<K, V> implements Map<K, V> {
     return this;
   }
 
+  setAll(entries: SortedMap<K, V>): this {
+    const iterator = entries[Symbol.iterator]();
+
+    let i = 0;
+    let next = iterator.next();
+
+    while (i < this.#value.length && !next.done) {
+      const [key, value] = next.value;
+
+      const comparisonResult = this.#comparator(
+        key,
+        (this.#value[i] as Entry<K, V>)[0]
+      );
+
+      if (comparisonResult === 0) {
+        (this.#value[i] as Entry<K, V>)[1] = value;
+        next = iterator.next();
+      }
+
+      if (comparisonResult < 0) {
+        insertAt(this.#value, i, [key, value]);
+        next = iterator.next();
+      }
+
+      i++;
+    }
+
+    while (!next.done) {
+      const [key, value] = next.value;
+      this.#value.push([key, value]);
+      next = iterator.next();
+    }
+
+    return this;
+  }
+
   get size(): number {
     return this.#value.length;
   }
 
   entries(): IterableIterator<[K, V]> {
     return this.#value[Symbol.iterator]();
-  }
-
-  keys(): IterableIterator<K> {
-    return map<[K, V], K>((entry) => entry[0])(this);
-  }
-
-  values(): IterableIterator<V> {
-    return map<[K, V], V>((entry) => entry[1])(this);
-  }
-
-  [Symbol.iterator](): IterableIterator<[K, V]> {
-    return this.entries();
   }
 
   [Symbol.toStringTag] = "SortedMap";

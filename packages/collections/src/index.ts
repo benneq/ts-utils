@@ -5,6 +5,7 @@
  */
 
 export * from "./_types";
+export * from "./abstractMap";
 export * from "./abstractMultiMap";
 export * from "./abstractSet";
 export * from "./arrayMultiMap";

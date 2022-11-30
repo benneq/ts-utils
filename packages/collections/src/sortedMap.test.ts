@@ -53,6 +53,63 @@ describe("collections.sortedMap", () => {
     });
   });
 
+  describe("setAll", () => {
+    it("should set entries at the right position to maintain the sorting", () => {
+      const sortedMap = new SortedMap(numberComparator, [
+        [0, 0],
+        [2, 2],
+      ]);
+
+      sortedMap.setAll(
+        new SortedMap(numberComparator, [
+          [1, 1],
+          [2, 2],
+          [3, 3],
+        ])
+      );
+
+      expect([...sortedMap]).toEqual([
+        [0, 0],
+        [1, 1],
+        [2, 2],
+        [3, 3],
+      ]);
+    });
+
+    it("should override the values if the keys already exist", () => {
+      const sortedMap = new SortedMap(numberComparator, [
+        [0, 0],
+        [2, 2],
+      ]);
+
+      sortedMap.setAll(
+        new SortedMap(numberComparator, [
+          [0, 1],
+          [2, 3],
+        ])
+      );
+
+      expect([...sortedMap]).toEqual([
+        [0, 1],
+        [2, 3],
+      ]);
+    });
+
+    it("should not modify the SortedMap if entries is empty", () => {
+      const sortedMap = new SortedMap(numberComparator, [
+        [0, 0],
+        [2, 2],
+      ]);
+
+      sortedMap.setAll(new SortedMap(numberComparator));
+
+      expect([...sortedMap]).toEqual([
+        [0, 0],
+        [2, 2],
+      ]);
+    });
+  });
+
   describe("clear", () => {
     it("should clear the SortedMap", () => {
       const sortedMap = new SortedMap(numberComparator, [[5, 5]]);
@@ -110,7 +167,9 @@ describe("collections.sortedMap", () => {
         [3, 3],
       ]);
     });
+  });
 
+  describe("deleteAll", () => {
     it("should remove the values where comparison result equals 0", () => {
       const sortedMap = new SortedMap(numberComparator, [
         [1, 1],
@@ -118,7 +177,7 @@ describe("collections.sortedMap", () => {
         [3, 3],
       ]);
 
-      sortedMap.delete(new SortedSet(numberComparator, [0, 1]));
+      sortedMap.deleteAll(new SortedSet(numberComparator, [0, 1]));
 
       expect([...sortedMap]).toEqual([
         [2, 2],
@@ -133,7 +192,7 @@ describe("collections.sortedMap", () => {
         [3, 3],
       ]);
 
-      sortedMap.delete(new SortedSet(numberComparator, [4, 5]));
+      sortedMap.deleteAll(new SortedSet(numberComparator, [4, 5]));
 
       expect([...sortedMap]).toEqual([
         [1, 1],
@@ -149,7 +208,7 @@ describe("collections.sortedMap", () => {
         [3, 3],
       ]);
 
-      sortedMap.delete(new SortedSet(numberComparator));
+      sortedMap.deleteAll(new SortedSet(numberComparator));
 
       expect([...sortedMap]).toEqual([
         [1, 1],
@@ -184,6 +243,19 @@ describe("collections.sortedMap", () => {
       expect(result).toBe(false);
     });
 
+    it("should return false if value is out of bounds", () => {
+      const sortedMap = new SortedMap(numberComparator, [
+        [1, 1],
+        [2, 2],
+        [3, 3],
+      ]);
+
+      const result = sortedMap.has(4);
+
+      expect(result).toBe(false);
+    });
+  });
+  describe("hasAll", () => {
     it("should return true if the SortedMap contains all of the values", () => {
       const sortedMap = new SortedMap(numberComparator, [
         [1, 1],
@@ -191,7 +263,7 @@ describe("collections.sortedMap", () => {
         [3, 3],
       ]);
 
-      const result = sortedMap.has(new SortedSet(numberComparator, [2, 3]));
+      const result = sortedMap.hasAll(new SortedSet(numberComparator, [2, 3]));
 
       expect(result).toBe(true);
     });
@@ -203,7 +275,9 @@ describe("collections.sortedMap", () => {
         [3, 3],
       ]);
 
-      const result = sortedMap.has(new SortedSet(numberComparator, [0, 1, 3]));
+      const result = sortedMap.hasAll(
+        new SortedSet(numberComparator, [0, 1, 3])
+      );
 
       expect(result).toBe(false);
     });
@@ -215,7 +289,7 @@ describe("collections.sortedMap", () => {
         [3, 3],
       ]);
 
-      const result = sortedMap.has(new SortedSet(numberComparator));
+      const result = sortedMap.hasAll(new SortedSet(numberComparator));
 
       expect(result).toBe(true);
     });
@@ -243,28 +317,6 @@ describe("collections.sortedMap", () => {
         [1, 2],
         [3, 4],
       ]);
-    });
-  });
-
-  describe("keys", () => {
-    it("should yield all keys in order", () => {
-      const sortedMap = new SortedMap(numberComparator, [
-        [1, 2],
-        [3, 4],
-      ]);
-
-      expect([...sortedMap.keys()]).toEqual([1, 3]);
-    });
-  });
-
-  describe("values", () => {
-    it("should yield all values in order", () => {
-      const sortedMap = new SortedMap(numberComparator, [
-        [1, 2],
-        [3, 4],
-      ]);
-
-      expect([...sortedMap.values()]).toEqual([2, 4]);
     });
   });
 

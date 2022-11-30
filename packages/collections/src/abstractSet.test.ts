@@ -1,6 +1,6 @@
 import { IndexedSet } from "./indexedSet";
 
-describe("collections.indexedSet", () => {
+describe("collections.abstractSet", () => {
   describe("constructor", () => {
     it("should create an empty IndexedSet", () => {
       const indexedSet = new IndexedSet();
