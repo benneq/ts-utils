@@ -13,4 +13,5 @@ export * from "./isMappedSet";
 export * from "./isSortedSet";
 export * from "./mappedSet";
 export * from "./setMultiMap";
+export * from "./sortedMap";
 export * from "./sortedSet";

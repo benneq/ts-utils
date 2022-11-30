@@ -173,7 +173,7 @@ describe("collections.sortedSet", () => {
     it("should yield all values in order", () => {
       const sortedSet = new SortedSet(numberComparator, [1, 2]);
 
-      expect([...sortedSet]).toEqual([1, 2]);
+      expect([...sortedSet.values()]).toEqual([1, 2]);
     });
   });
 
