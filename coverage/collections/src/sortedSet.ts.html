@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">98.18% </span>
+                <span class="strong">98.24% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>54/55</span>
+                <span class='fraction'>56/57</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>20/20</span>
+                <span class='fraction'>16/16</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">88.88% </span>
+                <span class="strong">90% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>8/9</span>
+                <span class='fraction'>9/10</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">98.14% </span>
+                <span class="strong">98.21% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>53/54</span>
+                <span class='fraction'>55/56</span>
             </div>
         
             
@@ -287,12 +287,14 @@
 <a name='L222'></a><a href='#L222'>222</a>
 <a name='L223'></a><a href='#L223'>223</a>
 <a name='L224'></a><a href='#L224'>224</a>
-<a name='L225'></a><a href='#L225'>225</a>
-<a name='L226'></a><a href='#L226'>226</a>
-<a name='L227'></a><a href='#L227'>227</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">2x</span>
+<a name='L225'></a><a href='#L225'>225</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">27x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -363,8 +365,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">16x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">16x</span>
 <span class="cline-any cline-yes">16x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -424,8 +424,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-yes">6x</span>
@@ -477,8 +475,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">13x</span>
@@ -519,6 +515,10 @@
 import { Comparator } from "@benneq/comparator";
 import { distinct } from "@benneq/iterable";
 import { AbstractSet } from "./abstractSet";
+&nbsp;
+const valueToSortedSet = &lt;T&gt;(value: SortedSet&lt;T&gt; | T): Iterable&lt;T&gt; =&gt; {
+  return value instanceof SortedSet ? value : [value];
+};
 &nbsp;
 /**
  * A {@link SortedSet} uses a {@link Comparator} for sorting the values and
@@ -587,9 +587,7 @@ export class SortedSet&lt;T&gt; extends AbstractSet&lt;T&gt; {
   add(value: T): this;
   add(values: SortedSet&lt;T&gt;): this;
   add(value: T | SortedSet&lt;T&gt;): this {
-    const iterator = (value instanceof SortedSet ? value : [value])[
-      Symbol.iterator
-    ]();
+    const iterator = valueToSortedSet(value)[Symbol.iterator]();
 &nbsp;
     let i = 0;
     let next = iterator.next();
@@ -649,9 +647,7 @@ export class SortedSet&lt;T&gt; extends AbstractSet&lt;T&gt; {
   delete(value: T): boolean;
   delete(values: SortedSet&lt;T&gt;): boolean;
   delete(value: T | SortedSet&lt;T&gt;): boolean {
-    const iterator = (value instanceof SortedSet ? value : [value])[
-      Symbol.iterator
-    ]();
+    const iterator = valueToSortedSet(value)[Symbol.iterator]();
 &nbsp;
     const values = this.#values;
     let i = 0;
@@ -701,9 +697,7 @@ export class SortedSet&lt;T&gt; extends AbstractSet&lt;T&gt; {
   has(value: T): boolean;
   has(values: SortedSet&lt;T&gt;): boolean;
   has(value: T | SortedSet&lt;T&gt;): boolean {
-    const iterator = (value instanceof SortedSet ? value : [value])[
-      Symbol.iterator
-    ]();
+    const iterator = valueToSortedSet(value)[Symbol.iterator]();
 &nbsp;
     let next = iterator.next();
     for (const value of this) {
@@ -748,7 +742,7 @@ export class SortedSet&lt;T&gt; extends AbstractSet&lt;T&gt; {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2022-11-29T10:25:12.009Z
+                at 2022-11-30T08:32:48.083Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
