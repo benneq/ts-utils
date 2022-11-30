@@ -69,7 +69,7 @@ export abstract class AbstractMap<K, V> implements Map<K, V> {
   }
 
   /**
-   * @see {@link Set[Symbol.iterator]}
+   * @see {@link Map[Symbol.iterator]}
    */
   [Symbol.iterator](): IterableIterator<[K, V]> {
     return this.entries();

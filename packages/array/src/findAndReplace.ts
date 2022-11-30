@@ -28,7 +28,7 @@ export const findAndReplace = <T>(
   const index = isFunction(predicate)
     ? array.findIndex(predicate)
     : array.indexOf(predicate);
-  if (index > -1) {
+  if (index >= 0) {
     array[index] = valueOrProviderResult(value, array[index] as T);
   }
 };

@@ -1,4 +1,5 @@
 import { clear, deleteAt, insertAt } from "@benneq/array";
+import { findAndDelete } from "@benneq/array/src/findAndDelete";
 import { Comparator, entryKeyComparator } from "@benneq/comparator";
 import { distinct } from "@benneq/iterable";
 import { Entry } from "@benneq/object";
@@ -24,13 +25,9 @@ export class SortedMap<K, V> extends AbstractMap<K, V> {
   }
 
   delete(key: K): boolean {
-    const index = this.#value.findIndex(
+    return findAndDelete<Entry<K, V>>(
       (entry) => !this.#comparator(key, entry[0])
-    );
-    if (index >= 0) {
-      return deleteAt(this.#value, index);
-    }
-    return false;
+    )(this.#value);
   }
 
   deleteAll(keys: SortedSet<K>) {
@@ -58,6 +55,10 @@ export class SortedMap<K, V> extends AbstractMap<K, V> {
     }
 
     return modified;
+  }
+
+  deleteAt(index: number, deleteCount?: number): boolean {
+    return deleteAt(this.#value, index, deleteCount);
   }
 
   at(index: number): [K, V] | undefined {
@@ -102,12 +103,10 @@ export class SortedMap<K, V> extends AbstractMap<K, V> {
     for (const entry of this) {
       const comparisonResult = this.#comparator(key, entry[0]);
 
-      if (comparisonResult === 0) {
+      if (!comparisonResult) {
         entry[1] = value;
         return this;
-      }
-
-      if (comparisonResult < 0) {
+      } else if (comparisonResult < 0) {
         insertAt(this.#value, i, [key, value]);
         return this;
       }
@@ -134,12 +133,10 @@ export class SortedMap<K, V> extends AbstractMap<K, V> {
         (this.#value[i] as Entry<K, V>)[0]
       );
 
-      if (comparisonResult === 0) {
+      if (!comparisonResult) {
         (this.#value[i] as Entry<K, V>)[1] = value;
         next = iterator.next();
-      }
-
-      if (comparisonResult < 0) {
+      } else if (comparisonResult < 0) {
         insertAt(this.#value, i, [key, value]);
         next = iterator.next();
       }
@@ -148,8 +145,7 @@ export class SortedMap<K, V> extends AbstractMap<K, V> {
     }
 
     while (!next.done) {
-      const [key, value] = next.value;
-      this.#value.push([key, value]);
+      this.#value.push(next.value);
       next = iterator.next();
     }
 
