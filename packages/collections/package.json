@@ -14,6 +14,7 @@
   "dependencies": {
     "@benneq/array": "*",
     "@benneq/comparator": "*",
-    "@benneq/iterable": "*"
+    "@benneq/iterable": "*",
+    "@benneq/map": "*"
   }
 }
