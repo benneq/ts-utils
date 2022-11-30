@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">93.75% </span>
+                <span class="strong">92.3% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>75/80</span>
+                <span class='fraction'>72/78</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>17/17</span>
+                <span class='fraction'>18/18</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">82.35% </span>
+                <span class="strong">77.77% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>14/17</span>
+                <span class='fraction'>14/18</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">94.8% </span>
+                <span class="strong">93.33% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>73/77</span>
+                <span class='fraction'>70/75</span>
             </div>
         
             
@@ -227,11 +227,8 @@
 <a name='L162'></a><a href='#L162'>162</a>
 <a name='L163'></a><a href='#L163'>163</a>
 <a name='L164'></a><a href='#L164'>164</a>
-<a name='L165'></a><a href='#L165'>165</a>
-<a name='L166'></a><a href='#L166'>166</a>
-<a name='L167'></a><a href='#L167'>167</a>
-<a name='L168'></a><a href='#L168'>168</a>
-<a name='L169'></a><a href='#L169'>169</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">2x</span>
+<a name='L165'></a><a href='#L165'>165</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -260,10 +257,6 @@
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -291,6 +284,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -338,8 +335,6 @@
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -370,9 +365,7 @@
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -381,7 +374,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -400,6 +392,7 @@
 <span class="cline-any cline-yes">31x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { clear, deleteAt, insertAt } from "@benneq/array";
+import { findAndDelete } from "@benneq/array/src/findAndDelete";
 import { Comparator, entryKeyComparator } from "@benneq/comparator";
 import { distinct } from "@benneq/iterable";
 import { Entry } from "@benneq/object";
@@ -425,13 +418,9 @@ export class SortedMap&lt;K, V&gt; extends AbstractMap&lt;K, V&gt; {
   }
 &nbsp;
   delete(key: K): boolean {
-    const index = this.#value.findIndex(
+    return findAndDelete&lt;Entry&lt;K, V&gt;&gt;(
       (entry) =&gt; !this.#comparator(key, entry[0])
-    );
-    if (index &gt;= 0) {
-      return deleteAt(this.#value, index);
-    }
-    return false;
+    )(this.#value);
   }
 &nbsp;
   deleteAll(keys: SortedSet&lt;K&gt;) {
@@ -459,6 +448,10 @@ export class SortedMap&lt;K, V&gt; extends AbstractMap&lt;K, V&gt; {
     }
 &nbsp;
     return modified;
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  deleteAt(i</span>ndex: number, deleteCount?: number): boolean {
+<span class="cstat-no" title="statement not covered" >    return deleteAt(this.#value, index, deleteCount);</span>
   }
 &nbsp;
 <span class="fstat-no" title="function not covered" >  at(i</span>ndex: number): [K, V] | undefined {
@@ -503,12 +496,10 @@ export class SortedMap&lt;K, V&gt; extends AbstractMap&lt;K, V&gt; {
     for (const entry of this) {
       const comparisonResult = this.#comparator(key, entry[0]);
 &nbsp;
-      if (comparisonResult === 0) {
+      if (!comparisonResult) {
         entry[1] = value;
         return this;
-      }
-&nbsp;
-      if (comparisonResult &lt; 0) {
+      } else if (comparisonResult &lt; 0) {
         insertAt(this.#value, i, [key, value]);
         return this;
       }
@@ -535,12 +526,10 @@ export class SortedMap&lt;K, V&gt; extends AbstractMap&lt;K, V&gt; {
         (this.#value[i] as Entry&lt;K, V&gt;)[0]
       );
 &nbsp;
-      if (comparisonResult === 0) {
+      if (!comparisonResult) {
         (this.#value[i] as Entry&lt;K, V&gt;)[1] = value;
         next = iterator.next();
-      }
-&nbsp;
-      if (comparisonResult &lt; 0) {
+      } else if (comparisonResult &lt; 0) {
         insertAt(this.#value, i, [key, value]);
         next = iterator.next();
       }
@@ -549,8 +538,7 @@ export class SortedMap&lt;K, V&gt; extends AbstractMap&lt;K, V&gt; {
     }
 &nbsp;
     while (!next.done) {
-      const [key, value] = next.value;
-      this.#value.push([key, value]);
+      this.#value.push(next.value);
       next = iterator.next();
     }
 &nbsp;
@@ -574,7 +562,7 @@ export class SortedMap&lt;K, V&gt; extends AbstractMap&lt;K, V&gt; {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2022-11-30T22:29:22.544Z
+                at 2022-11-30T23:15:38.475Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
