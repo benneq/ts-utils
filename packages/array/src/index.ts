@@ -14,6 +14,7 @@ export * from "./deleteIf";
 export * from "./equal";
 export * from "./findAndDelete";
 export * from "./findAndReplace";
+export * from "./findIndex";
 export * from "./insertAt";
 export * from "./isArray";
 export * from "./isArrayLike";

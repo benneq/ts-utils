@@ -1,12 +1,8 @@
 import { Predicate } from "@benneq/predicate";
+import { findIndex } from "./findIndex";
 
 export const some =
-  <T>(predicate: Predicate<[T]>, startIndex = 0) =>
+  <T>(predicate: Predicate<[T, number, T[]]>, fromIndex?: number) =>
   (array: T[]) => {
-    for (let i = startIndex; i < array.length; i++) {
-      if (predicate(array[i] as T)) {
-        return true;
-      }
-    }
-    return false;
+    return findIndex(predicate, fromIndex)(array) >= 0;
   };

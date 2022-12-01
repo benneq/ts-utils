@@ -1,7 +1,12 @@
-import { clear, deleteAt, insertAt } from "@benneq/array";
-import { findAndDelete } from "@benneq/array/src/findAndDelete";
+import {
+  clear,
+  deleteAt,
+  findIndex,
+  insertAt,
+  findAndDelete,
+} from "@benneq/array";
 import { Comparator, entryKeyComparator } from "@benneq/comparator";
-import { distinct } from "@benneq/iterable";
+import { distinct, every } from "@benneq/iterable";
 import { Entry } from "@benneq/object";
 import { AbstractMap } from "./abstractMap";
 import { SortedSet } from "./sortedSet";
@@ -69,32 +74,23 @@ export class SortedMap<K, V> extends AbstractMap<K, V> {
     return this.#value.find((value) => !this.#comparator(value[0], key))?.[1];
   }
 
-  has(key: K): boolean {
-    return this.#value.some((entry) => !this.#comparator(key, entry[0]));
+  indexOf(key: K, fromIndex?: number): number {
+    return findIndex<Entry<K, V>>(
+      (entry) => !this.#comparator(key, entry[0]),
+      fromIndex
+    )(this.#value);
+  }
+
+  has(key: K, fromIndex?: number): boolean {
+    return this.indexOf(key, fromIndex) >= 0;
   }
 
   hasAll(keys: SortedSet<K>): boolean {
-    const it = keys[Symbol.iterator]();
-
-    let next = it.next();
-
-    for (const [key] of this) {
-      if (next.done) {
-        break;
-      }
-
-      const comparisonResult = this.#comparator(next.value, key);
-
-      if (comparisonResult < 0) {
-        return false;
-      }
-
-      if (!comparisonResult) {
-        next = it.next();
-      }
-    }
-
-    return !!next.done;
+    let fromIndex = 0;
+    return every((key: K) => {
+      fromIndex = this.indexOf(key, fromIndex);
+      return fromIndex >= 0;
+    })(keys);
   }
 
   set(key: K, value: V): this {
