@@ -20,7 +20,14 @@ import { findIndex } from "./findIndex";
  * @param predicate - the {@link Predicate} to match
  * @param value - the new value
  */
-export const findAndReplace =
+
+type FindAndReplace = <T>(
+  predicate: Predicate<[T]>,
+  value: ValueOrProvider<T, [T]>,
+  fromIndex?: number
+) => (array: T[]) => void;
+
+export const findAndReplace: FindAndReplace =
   <T>(
     predicate: Predicate<[T]>,
     value: ValueOrProvider<T, [T]>,

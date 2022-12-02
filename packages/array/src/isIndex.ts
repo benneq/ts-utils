@@ -23,7 +23,7 @@
  * @returns `true` if the `index` is between `0` and `array.length`, otherwise `false`
  */
 export const isIndex =
-  (array: ArrayLike<unknown>) =>
-  (index: number): boolean => {
+  (index: number) =>
+  (array: ArrayLike<unknown>): boolean => {
     return index >= 0 && index < array.length;
   };

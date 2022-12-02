@@ -30,8 +30,7 @@ export const swap =
 //   indexA: RelativeIndex,
 //   indexB: RelativeIndex
 // ): void => {
-//   const isRelativeIndexOfArray = isRelativeIndex(array);
-//   if (isRelativeIndexOfArray(indexA) && isRelativeIndexOfArray(indexB)) {
+//   if (isRelativeIndex(indexA)(array) && isRelativeIndexOfArray(indexB)(array)) {
 //     array.splice(indexB, 1, array.splice(indexA, 1, array.at(indexB))[0]);
 //   }
 // };

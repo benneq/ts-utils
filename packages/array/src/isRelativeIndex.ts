@@ -1,5 +1,3 @@
-import { RelativeIndex } from "./_types";
-
 /**
  * Checks if a Number is a {@link RelativeIndex} of an {@link ArrayLike}
  *
@@ -24,8 +22,12 @@ import { RelativeIndex } from "./_types";
  *
  * @returns `true` if the `index` is between `-array.length` and `array.length`, otherwise `false`
  */
-export const isRelativeIndex =
-  (array: ArrayLike<unknown>) =>
-  (index: number, length = array.length): index is RelativeIndex => {
+type IsRelativeIndex = (
+  index: number
+) => (array: ArrayLike<unknown>) => boolean;
+
+export const isRelativeIndex: IsRelativeIndex =
+  (index) =>
+  (array, length = array.length) => {
     return index >= -length && index < length;
   };

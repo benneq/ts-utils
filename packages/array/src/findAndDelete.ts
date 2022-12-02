@@ -18,7 +18,12 @@ import { findIndex } from "./findIndex";
  * @typeParam T - the {@link Array} element type
  * @param predicate - the {@link Predicate} to match
  */
-export const findAndDelete =
+type FindAndDelete = <T>(
+  predicate: Predicate<[T]>,
+  fromIndex?: number
+) => (array: T[]) => boolean;
+
+export const findAndDelete: FindAndDelete =
   <T>(predicate: Predicate<[T]>, fromIndex?: number) =>
   (array: T[], index = findIndex<T>(predicate, fromIndex)(array)): boolean => {
     if (index >= 0) {

@@ -26,12 +26,10 @@ export const move = (
   targetIndex: RelativeIndex,
   moveCount?: number
 ) => void) => {
-  const isRelativeIndexOfArray = isRelativeIndex(array);
-
   return (sourceIndex, targetIndex, moveCount = 1) => {
     if (
-      isRelativeIndexOfArray(sourceIndex) &&
-      isRelativeIndexOfArray(targetIndex)
+      isRelativeIndex(sourceIndex)(array) &&
+      isRelativeIndex(targetIndex)(array)
     ) {
       // adjust the count to stay in bounds of the array
       moveCount = Math.min(
