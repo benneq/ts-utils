@@ -30,9 +30,5 @@ export const findAndDelete: FindAndDelete =
     // internal variables:
     index = findIndex<T>(predicate, fromIndex)(array)
   ) => {
-    if (index >= 0) {
-      return deleteAt(index)(array);
-    }
-
-    return false;
+    return index >= 0 && deleteAt(index)(array);
   };

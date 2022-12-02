@@ -1,4 +1,4 @@
-import { deleteAt } from "./deleteAt";
+import { findAndDelete } from "./findAndDelete";
 
 /**
  * Removes the first element from an Array that is equal to a value.
@@ -18,18 +18,6 @@ import { deleteAt } from "./deleteAt";
  * @param value - the value to delete from the {@link Array}
  * @returns `true` if an element was deleted, otherwise `false`
  */
-type DelteFirst = <T>(value: T) => (array: T[]) => boolean;
-
-export const deleteFirst: DelteFirst =
-  (value) =>
-  (
-    array,
-    // internal variables:
-    index = array.indexOf(value)
-  ) => {
-    if (index >= 0) {
-      return deleteAt(index)(array);
-    }
-
-    return false;
-  };
+export const deleteFirst = <T>(value: T): ((array: T[]) => boolean) => {
+  return findAndDelete((v) => v === value);
+};

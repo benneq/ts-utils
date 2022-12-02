@@ -20,9 +20,10 @@
  * @returns a {@link Promise} that executes all {@link Promise}s in serial
  */
 export const allSerial = async <T>(
-  promises: Iterable<Promise<T>>
+  promises: Iterable<Promise<T>>,
+  // internal variables:
+  values: T[] = []
 ): Promise<T[]> => {
-  const values: T[] = [];
   for (const promise of promises) {
     values.push(await promise);
   }

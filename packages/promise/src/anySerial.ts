@@ -30,9 +30,10 @@ export const anySerial: {
   <T>(promises: Iterable<Promise<T>>, defaultValue: T): Promise<T>;
 } = async <T>(
   promises: Iterable<Promise<T>>,
-  defaultValue?: T
+  defaultValue?: T,
+  // internal variables:
+  errors: unknown[] = []
 ): Promise<T | undefined> => {
-  const errors = [];
   for (const promise of promises) {
     try {
       return await promise;
