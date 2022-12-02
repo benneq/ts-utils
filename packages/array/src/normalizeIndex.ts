@@ -1,4 +1,5 @@
 import { mod } from "@benneq/number";
+import { RelativeIndex } from "./_types";
 
 /**
  *
@@ -15,7 +16,12 @@ import { mod } from "@benneq/number";
  * @returns the normalized index, or `0` if the array is empty
  */
 export const normalizeIndex =
-  (index: number) =>
+  (index: RelativeIndex) =>
   (array: ArrayLike<unknown>): number => {
+    if (process.env.NODE_ENV !== "production") {
+      console.assert(index >= -array.length);
+      console.assert(index < array.length);
+    }
+
     return mod(index, array.length);
   };

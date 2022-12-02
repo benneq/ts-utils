@@ -27,6 +27,7 @@ export const pairwise = <L extends number = 2>(pairSize: L = 2 as L) => {
 
   return function* <T>(
     iterable: Iterable<T>,
+    // internal variables:
     buffer: T[] = []
   ): IterableIterator<Tuple<T, L>> {
     for (const value of iterable) {

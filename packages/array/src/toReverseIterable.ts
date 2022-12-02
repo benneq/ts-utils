@@ -13,6 +13,7 @@
  *
  * @typeParam T - the {@link Array} element type
  */
+export function toReverseIterable<T>(array: ArrayLike<T>): IterableIterator<T>;
 export function* toReverseIterable<T>(
   array: ArrayLike<T>,
   // internal variables:

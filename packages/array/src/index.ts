@@ -12,6 +12,7 @@ export * from "./deleteAt";
 export * from "./deleteFirst";
 export * from "./deleteIf";
 export * from "./equal";
+export * from "./every";
 export * from "./findAndDelete";
 export * from "./findAndReplace";
 export * from "./findIndex";

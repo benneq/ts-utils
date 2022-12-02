@@ -28,9 +28,7 @@ export const dropWhile: DropWhile = (predicate) =>
     drop = true
   ) {
     for (const value of iterable) {
-      if (!predicate(value)) {
-        drop = false;
-      }
+      drop &&= predicate(value);
 
       if (!drop) {
         yield value;

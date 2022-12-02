@@ -1,4 +1,4 @@
-import { Predicate } from "@benneq/predicate";
+import { not, Predicate } from "@benneq/predicate";
 import { some } from "./some";
 
 /**
@@ -20,5 +20,5 @@ import { some } from "./some";
 export const every =
   <T>(predicate: Predicate<[T]>) =>
   (iterable: Iterable<T>): boolean => {
-    return !some<T>((value) => !predicate(value))(iterable);
+    return !some<T>(not(predicate))(iterable);
   };

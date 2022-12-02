@@ -1,5 +1,3 @@
-import { isRelativeIndex } from "./isRelativeIndex";
-import { normalizeIndex } from "./normalizeIndex";
 import { RelativeIndex } from "./_types";
 
 /**

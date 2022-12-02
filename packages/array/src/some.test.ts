@@ -8,7 +8,7 @@ describe("array.some", () => {
     expect(result).toBe(false);
   });
 
-  it("should return true if any element matches thee predicate", () => {
+  it("should return true if any element matches the predicate", () => {
     const result = some((e) => e === 2)([1, 2, 3]);
 
     expect(result).toBe(true);
