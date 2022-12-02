@@ -6,7 +6,7 @@ describe("array.removeAt", () => {
 
     const array = [value1, value2];
 
-    deleteAt(array, 1);
+    deleteAt(1)(array);
 
     expect(array).toEqual([value1]);
   });
@@ -14,7 +14,7 @@ describe("array.removeAt", () => {
   it("should not modify the Array if it is empty", () => {
     const array: unknown[] = [];
 
-    deleteAt(array, 1);
+    deleteAt(1)(array);
 
     expect(array).toEqual([]);
   });
@@ -24,7 +24,7 @@ describe("array.removeAt", () => {
 
     const array = [value1, value2];
 
-    deleteAt(array, -2);
+    deleteAt(-2)(array);
 
     expect(array).toEqual([value2]);
   });
@@ -34,7 +34,7 @@ describe("array.removeAt", () => {
 
     const array = [value1, value2];
 
-    deleteAt(array, 2);
+    deleteAt(2)(array);
 
     expect(array).toEqual([value1, value2]);
   });
@@ -44,11 +44,11 @@ describe("array.removeAt", () => {
 
     const array = [value];
 
-    deleteAt(array, 0, 0);
+    deleteAt(0, 0)(array);
 
     expect(array).toEqual([value]);
 
-    deleteAt(array, 0, -1);
+    deleteAt(0, -1)(array);
 
     expect(array).toEqual([value]);
   });
@@ -58,7 +58,7 @@ describe("array.removeAt", () => {
 
     const array = [value1, value2, value3];
 
-    deleteAt(array, 1, 2);
+    deleteAt(1, 2)(array);
 
     expect(array).toEqual([value1]);
   });

@@ -88,7 +88,7 @@ export class SortedSet<T> extends AbstractSet<T> {
 
       if (comparisonResult <= 0) {
         if (comparisonResult < 0) {
-          insertAt(values, i, value);
+          insertAt(i, value)(values);
         }
 
         next = iterator.next();
@@ -145,7 +145,7 @@ export class SortedSet<T> extends AbstractSet<T> {
 
       if (comparisonResult <= 0) {
         if (!comparisonResult) {
-          modified = deleteAt(values, i);
+          modified = deleteAt(i)(values);
         }
 
         next = iterator.next();

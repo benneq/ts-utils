@@ -50,7 +50,7 @@ export class SortedMap<K, V> extends AbstractMap<K, V> {
 
       if (comparisonResult <= 0) {
         if (!comparisonResult) {
-          modified = deleteAt(values, i);
+          modified = deleteAt(i)(values);
         }
 
         next = iterator.next();
@@ -63,7 +63,7 @@ export class SortedMap<K, V> extends AbstractMap<K, V> {
   }
 
   deleteAt(index: number, deleteCount?: number): boolean {
-    return deleteAt(this.#value, index, deleteCount);
+    return deleteAt(index, deleteCount)(this.#value);
   }
 
   at(index: number): [K, V] | undefined {
@@ -103,7 +103,7 @@ export class SortedMap<K, V> extends AbstractMap<K, V> {
         entry[1] = value;
         return this;
       } else if (comparisonResult < 0) {
-        insertAt(this.#value, i, [key, value]);
+        insertAt(i, [key, value])(this.#value);
         return this;
       }
 
@@ -133,7 +133,7 @@ export class SortedMap<K, V> extends AbstractMap<K, V> {
         (this.#value[i] as Entry<K, V>)[1] = value;
         next = iterator.next();
       } else if (comparisonResult < 0) {
-        insertAt(this.#value, i, [key, value]);
+        insertAt(i, [key, value])(this.#value);
         next = iterator.next();
       }
 

@@ -18,12 +18,14 @@ import { deleteAt } from "./deleteAt";
  * @param value - the value to delete from the {@link Array}
  * @returns `true` if an element was deleted, otherwise `false`
  */
-export const deleteFirst = <T>(array: T[], value: T): boolean => {
-  const index = array.indexOf(value);
+export const deleteFirst =
+  <T>(value: T) =>
+  (array: T[]): boolean => {
+    const index = array.indexOf(value);
 
-  if (index >= 0) {
-    return deleteAt(array, index);
-  }
+    if (index >= 0) {
+      return deleteAt(index)(array);
+    }
 
-  return false;
-};
+    return false;
+  };

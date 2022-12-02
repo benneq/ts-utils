@@ -7,17 +7,7 @@ describe("array.findAndReplace", () => {
 
     const array = [value1, value2];
 
-    findAndReplace(array, alwaysTrue, value3);
-
-    expect(array).toEqual([value3, value2]);
-  });
-
-  it("should replace the first element that equals the predicate value", () => {
-    const [value1, value2, value3] = symbolGenerator();
-
-    const array = [value1, value2];
-
-    findAndReplace(array, value1, value3);
+    findAndReplace(alwaysTrue, value3)(array);
 
     expect(array).toEqual([value3, value2]);
   });
@@ -27,7 +17,7 @@ describe("array.findAndReplace", () => {
 
     const array = [value1];
 
-    findAndReplace(array, alwaysFalse, value2);
+    findAndReplace(alwaysFalse, value2)(array);
 
     expect(array).toEqual([value1]);
   });

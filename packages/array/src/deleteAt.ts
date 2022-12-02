@@ -1,3 +1,5 @@
+import { RelativeIndex } from "./_types";
+
 /**
  * Removes elements of an Array at a given index
  *
@@ -24,10 +26,8 @@
  * @param deleteCount - the optional number of elements to delete
  * @returns `true` if an element was deleted, otherwise `false`
  */
-export const deleteAt = (
-  array: unknown[],
-  index: number,
-  deleteCount = 1
-): boolean => {
-  return !!array.splice(index, deleteCount).length;
-};
+export const deleteAt =
+  (index: RelativeIndex, deleteCount = 1) =>
+  (array: unknown[]): boolean => {
+    return !!array.splice(index, deleteCount).length;
+  };

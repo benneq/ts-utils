@@ -1,6 +1,6 @@
-import { isFunction } from "@benneq/function";
 import { Predicate } from "@benneq/predicate";
 import { ValueOrProvider, valueOrProviderResult } from "../../object/dist";
+import { findIndex } from "./findIndex";
 
 /**
  * Replaces the first element from an Array that matches a {@link Predicate}.
@@ -20,15 +20,16 @@ import { ValueOrProvider, valueOrProviderResult } from "../../object/dist";
  * @param predicate - the {@link Predicate} to match
  * @param value - the new value
  */
-export const findAndReplace = <T>(
-  array: T[],
-  predicate: T | Predicate<[T]>,
-  value: ValueOrProvider<T, [T]>
-) => {
-  const index = isFunction(predicate)
-    ? array.findIndex(predicate)
-    : array.indexOf(predicate);
-  if (index >= 0) {
-    array[index] = valueOrProviderResult(value, array[index] as T);
-  }
-};
+export const findAndReplace =
+  <T>(
+    predicate: Predicate<[T]>,
+    value: ValueOrProvider<T, [T]>,
+    fromIndex?: number
+  ) =>
+  (array: T[]): void => {
+    const index = findIndex<T>(predicate, fromIndex)(array);
+
+    if (index >= 0) {
+      array[index] = valueOrProviderResult(value, array[index] as T);
+    }
+  };

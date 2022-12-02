@@ -13,10 +13,8 @@
  *
  * @typeParam T - the {@link Array} element type
  */
-export const insertAt = <T>(
-  array: T[],
-  index: number,
-  ...values: T[]
-): void => {
-  array.splice(index, 0, ...values);
-};
+export const insertAt =
+  <T>(index: number, ...values: T[]) =>
+  (array: T[]): void => {
+    array.splice(index, 0, ...values);
+  };

@@ -6,10 +6,10 @@ describe("array.insertAt", () => {
 
     const array: unknown[] = [];
 
-    insertAt(array, 0, value1, value2);
+    insertAt(0, value1, value2)(array);
     expect(array).toEqual([value1, value2]);
 
-    insertAt(array, -1, value3);
+    insertAt(-1, value3)(array);
     expect(array).toEqual([value1, value3, value2]);
   });
 
@@ -18,10 +18,10 @@ describe("array.insertAt", () => {
 
     const array = [value1, value2];
 
-    insertAt(array, 0);
+    insertAt(0)(array);
     expect(array).toEqual([value1, value2]);
 
-    insertAt(array, 1);
+    insertAt(1)(array);
     expect(array).toEqual([value1, value2]);
   });
 });

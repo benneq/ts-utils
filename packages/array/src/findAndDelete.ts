@@ -1,4 +1,3 @@
-import { Callback } from "@benneq/function";
 import { Predicate } from "@benneq/predicate";
 import { deleteAt } from "./deleteAt";
 import { findIndex } from "./findIndex";
@@ -20,12 +19,12 @@ import { findIndex } from "./findIndex";
  * @param predicate - the {@link Predicate} to match
  */
 export const findAndDelete =
-  <T>(predicate: Predicate<[T]>, fromIndex = 0) =>
+  <T>(predicate: Predicate<[T]>, fromIndex?: number) =>
   (array: T[]): boolean => {
     const index = findIndex<T>(predicate, fromIndex)(array);
 
     if (index >= 0) {
-      return deleteAt(array, index);
+      return deleteAt(index)(array);
     }
 
     return false;

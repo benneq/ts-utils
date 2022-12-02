@@ -45,7 +45,7 @@ export class ArrayMultiMap<K, V> extends AbstractMultiMap<K, V> {
   delete(key: K, value?: V): boolean {
     if (value) {
       const values = this.#value.get(key);
-      if (!values || !deleteFirst(values, value)) {
+      if (!values || !deleteFirst<V>(value)(values)) {
         return false;
       }
 

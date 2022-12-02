@@ -7,7 +7,7 @@ describe("array.deleteFirst", () => {
 
     const array = [value, value];
 
-    deleteIf(array, (e) => e === value);
+    deleteIf((e) => e === value)(array);
 
     expect(array).toEqual([value]);
   });
@@ -15,7 +15,7 @@ describe("array.deleteFirst", () => {
   it("should not modify the Array if it is empty", () => {
     const array: unknown[] = [];
 
-    deleteIf(array, alwaysTrue);
+    deleteIf(alwaysTrue)(array);
 
     expect(array).toEqual([]);
   });

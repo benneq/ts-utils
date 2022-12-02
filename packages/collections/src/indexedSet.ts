@@ -48,7 +48,7 @@ export class IndexedSet<T> extends AbstractSet<T> {
   }
 
   delete(value: T): boolean {
-    return deleteFirst(this.#values, value);
+    return deleteFirst(value)(this.#values);
   }
 
   /**
@@ -70,7 +70,7 @@ export class IndexedSet<T> extends AbstractSet<T> {
    * @returns `true` if the {@link IndexedSet} was modified, otherwise `false`
    */
   deleteAt(index: number, deleteCount?: number): boolean {
-    return deleteAt(this.#values, index, deleteCount);
+    return deleteAt(index, deleteCount)(this.#values);
   }
 
   /**
@@ -103,7 +103,7 @@ export class IndexedSet<T> extends AbstractSet<T> {
   set(index: number, value: T): void {
     const sourceIndex = this.#values.indexOf(value);
     if (sourceIndex < 0) {
-      insertAt(this.#values, index, value);
+      insertAt(index, value)(this.#values);
     } else {
       move(this.#values)(sourceIndex, index);
     }

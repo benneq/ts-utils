@@ -1,6 +1,3 @@
-import { isRelativeIndex } from "./isRelativeIndex";
-import { RelativeIndex } from "./_types";
-
 /**
  * Swaps the elements at the given indexes of an {@link Array}.
  *
