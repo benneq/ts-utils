@@ -14,14 +14,16 @@
  * @param indexA
  * @param indexB
  */
-export const swap = (indexA: number, indexB: number) => (array: unknown[]) => {
-  if (process.env.NODE_ENV !== "production") {
-    console.assert(indexA >= 0);
-    console.assert(indexB >= 0);
-  }
+export const swap =
+  (indexA: number, indexB: number) =>
+  (array: unknown[]): void => {
+    if (process.env.NODE_ENV !== "production") {
+      console.assert(indexA >= 0);
+      console.assert(indexB >= 0);
+    }
 
-  [array[indexA], array[indexB]] = [array[indexB], array[indexA]];
-};
+    [array[indexA], array[indexB]] = [array[indexB], array[indexA]];
+  };
 
 // export const swap = (
 //   array: Array<unknown>,

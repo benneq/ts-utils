@@ -26,9 +26,7 @@ export const findAndReplace =
     value: ValueOrProvider<T, [T]>,
     fromIndex?: number
   ) =>
-  (array: T[]): void => {
-    const index = findIndex<T>(predicate, fromIndex)(array);
-
+  (array: T[], index = findIndex<T>(predicate, fromIndex)(array)): void => {
     if (index >= 0) {
       array[index] = valueOrProviderResult(value, array[index] as T);
     }

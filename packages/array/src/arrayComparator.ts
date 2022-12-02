@@ -23,16 +23,21 @@ import { Comparator } from "../../comparator/src/_types";
 export const arrayComparator = <T>(
   comparator: Comparator<T>
 ): Comparator<ArrayLike<T>> => {
-  return (arrayA, arrayB) => {
-    const length = Math.min(arrayA.length, arrayB.length);
-
-    for (let i = 0; i < length; i++) {
-      const result = comparator(arrayA[i] as T, arrayB[i] as T);
+  return (
+    arrayA,
+    arrayB,
+    aLength = arrayA.length,
+    bLength = arrayB.length,
+    length = aLength < bLength ? aLength : bLength,
+    i = 0
+  ) => {
+    while (i < length) {
+      const result = comparator(arrayA[i] as T, arrayB[i++] as T);
       if (result) {
         return result;
       }
     }
 
-    return arrayA.length - arrayB.length;
+    return aLength - bLength;
   };
 };

@@ -14,9 +14,10 @@
  * @typeParam T - the {@link Array} element type
  */
 export function* toReverseIterable<T>(
-  array: ArrayLike<T>
+  array: ArrayLike<T>,
+  i = array.length
 ): IterableIterator<T> {
-  for (let i = array.length - 1; i >= 0; i--) {
-    yield array[i] as T;
+  while (i) {
+    yield array[--i] as T;
   }
 }

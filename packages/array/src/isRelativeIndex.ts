@@ -26,6 +26,6 @@ import { RelativeIndex } from "./_types";
  */
 export const isRelativeIndex =
   (array: ArrayLike<unknown>) =>
-  (index: number): index is RelativeIndex => {
-    return index >= -array.length && index < array.length;
+  (index: number, length = array.length): index is RelativeIndex => {
+    return index >= -length && index < length;
   };

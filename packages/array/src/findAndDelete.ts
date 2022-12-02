@@ -20,9 +20,7 @@ import { findIndex } from "./findIndex";
  */
 export const findAndDelete =
   <T>(predicate: Predicate<[T]>, fromIndex?: number) =>
-  (array: T[]): boolean => {
-    const index = findIndex<T>(predicate, fromIndex)(array);
-
+  (array: T[], index = findIndex<T>(predicate, fromIndex)(array)): boolean => {
     if (index >= 0) {
       return deleteAt(index)(array);
     }

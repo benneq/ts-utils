@@ -27,7 +27,6 @@ export const move = (
   moveCount?: number
 ) => void) => {
   const isRelativeIndexOfArray = isRelativeIndex(array);
-  const normalizeIndexForArray = normalizeIndex(array);
 
   return (sourceIndex, targetIndex, moveCount = 1) => {
     if (
@@ -37,11 +36,11 @@ export const move = (
       // adjust the count to stay in bounds of the array
       moveCount = Math.min(
         moveCount,
-        array.length - normalizeIndexForArray(sourceIndex)
+        array.length - normalizeIndex(sourceIndex)(array)
       );
 
       array.splice(
-        normalizeIndexForArray(targetIndex) - moveCount + 1,
+        normalizeIndex(targetIndex)(array) - moveCount + 1,
         0,
         ...array.splice(sourceIndex, moveCount)
       );

@@ -15,7 +15,7 @@ import { mod } from "@benneq/number";
  * @returns the normalized index, or `0` if the array is empty
  */
 export const normalizeIndex =
-  (array: ArrayLike<unknown>) =>
-  (index: number): number => {
+  (index: number) =>
+  (array: ArrayLike<unknown>): number => {
     return mod(index, array.length);
   };
