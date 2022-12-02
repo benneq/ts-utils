@@ -19,14 +19,9 @@ import { RelativeIndex } from "./_types";
  * @param sourceIndex
  * @param targetIndex
  */
-export const move = (
-  array: unknown[]
-): ((
-  sourceIndex: RelativeIndex,
-  targetIndex: RelativeIndex,
-  moveCount?: number
-) => void) => {
-  return (sourceIndex, targetIndex, moveCount = 1) => {
+export const move =
+  (sourceIndex: RelativeIndex, targetIndex: RelativeIndex, moveCount = 1) =>
+  (array: unknown[]): void => {
     if (
       isRelativeIndex(sourceIndex)(array) &&
       isRelativeIndex(targetIndex)(array)
@@ -44,4 +39,3 @@ export const move = (
       );
     }
   };
-};

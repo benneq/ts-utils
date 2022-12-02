@@ -102,11 +102,9 @@ export class IndexedSet<T> extends AbstractSet<T> {
    */
   set(index: number, value: T): void {
     const sourceIndex = this.#values.indexOf(value);
-    if (sourceIndex < 0) {
-      insertAt(index, value)(this.#values);
-    } else {
-      move(this.#values)(sourceIndex, index);
-    }
+    (sourceIndex < 0 ? insertAt(index, value) : move(sourceIndex, index))(
+      this.#values
+    );
   }
 
   has(value: T): boolean {

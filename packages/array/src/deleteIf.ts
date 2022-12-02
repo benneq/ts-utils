@@ -20,8 +20,7 @@ import { deleteAt } from "./deleteAt";
  */
 export const deleteIf =
   <T>(predicate: Predicate<[T]>) =>
-  (array: T[]) => {
+  (array: T[]) =>
     array.forEach(
       (element, index) => predicate(element) && deleteAt(index)(array)
     );
-  };

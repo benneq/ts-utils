@@ -86,7 +86,7 @@ export class SortedMap<K, V> extends AbstractMap<K, V> {
   }
 
   hasAll(keys: SortedSet<K>): boolean {
-    let fromIndex = 0;
+    let fromIndex: number | undefined;
     return every((key: K) => {
       fromIndex = this.indexOf(key, fromIndex);
       return fromIndex >= 0;
