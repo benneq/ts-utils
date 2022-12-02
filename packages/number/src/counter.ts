@@ -1,8 +1,8 @@
 export type Counter = {
-  value: number;
+  get: () => number;
+  set: (value: number) => void;
   inc: (delta?: number) => void;
   dec: (delta?: number) => void;
-  reset: () => void;
 };
 
 /**
@@ -16,9 +16,9 @@ export type Counter = {
  * const handleClickEvent = () => {
  *   clickCountdown.dec();
  *
- *   if(clickCountdown.value === 0) {
+ *   if(clickCountdown.get() === 0) {
  *     console.log("0");
- *     clickCountdown.value = 5;
+ *     clickCountdown.set(5);
  *   }
  * };
  * ```
@@ -26,28 +26,19 @@ export type Counter = {
  * @param initialValue - the initial value
  * @returns the Counter object
  */
-type CounterFactory = (initialValue?: number) => Counter;
-
-export const counter: CounterFactory = (
-  initialValue = 0,
-  // internal variables:
-  value = initialValue
-) => {
+export const counter = (initialValue = 0): Counter => {
   return {
-    get value() {
-      return value;
+    get() {
+      return initialValue;
     },
-    set value(newValue: number) {
-      value = newValue;
+    set(newValue) {
+      initialValue = newValue;
     },
     inc(delta = 1) {
-      value = value + delta;
+      initialValue = initialValue + delta;
     },
     dec(delta = 1) {
-      value = value - delta;
-    },
-    reset() {
-      value = initialValue;
+      initialValue = initialValue - delta;
     },
   };
 };

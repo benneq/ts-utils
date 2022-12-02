@@ -17,10 +17,12 @@
  *
  * @returns the parsed Float if successful, otherwise `undefined`
  */
-export const parseFloat = (
-  str: string,
+type ParseFloat = (str: string) => number | undefined;
+
+export const parseFloat: ParseFloat = (
+  str,
   // internal variables:
   number = Number.parseFloat(str)
-): number | undefined => {
+) => {
   return Number.isNaN(number) ? undefined : number;
 };

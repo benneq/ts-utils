@@ -17,10 +17,12 @@
  *
  * @returns the parsed Iloat if successful, otherwise `undefined`
  */
-export const parseInteger = (
-  str: string,
+type ParseInteger = (str: string) => number | undefined;
+
+export const parseInteger: ParseInteger = (
+  str,
   // internal variables:
   number = Number.parseInt(str)
-): number | undefined => {
+) => {
   return Number.isNaN(number) ? undefined : number;
 };
