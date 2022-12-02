@@ -21,15 +21,18 @@ import { Callback, CancelCallback } from "./_types";
  * @param callback
  * @returns
  */
-export const debounce = <TArgs extends unknown[] = []>(
+type Debounce = <TArgs extends unknown[] = []>(
   callback: Callback<TArgs>
-): ((ms: number, ...args: TArgs) => CancelCallback) => {
-  let timeout: NodeJS.Timeout | undefined;
+) => (ms: number, ...args: TArgs) => CancelCallback;
 
-  const cancel = () => {
+export const debounce: Debounce = (
+  callback,
+  // internal variables:
+  timeout?: NodeJS.Timeout,
+  cancel = () => {
     clearTimeout(timeout);
-  };
-
+  }
+) => {
   return (ms, ...args) => {
     cancel();
     timeout = setTimeout(callback, ms, ...args);

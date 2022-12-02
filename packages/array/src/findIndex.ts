@@ -1,6 +1,11 @@
 import { Predicate } from "@benneq/predicate";
 
-export const findIndex = <T>(
+type FindIndex = <T>(
+  predicate: Predicate<[T, number, ArrayLike<T>]>,
+  fromIndex?: number
+) => (array: ArrayLike<T>) => number;
+
+export const findIndex: FindIndex = <T>(
   predicate: Predicate<[T, number, ArrayLike<T>]>,
   fromIndex = 0
 ) => {
@@ -8,7 +13,11 @@ export const findIndex = <T>(
     console.assert(fromIndex >= 0);
   }
 
-  return (array: ArrayLike<T>, i = fromIndex): number => {
+  return (
+    array: ArrayLike<T>,
+    // internal variables:
+    i = fromIndex
+  ): number => {
     for (; i < array.length; i++) {
       if (predicate(array[i] as T, i, array)) {
         return i;

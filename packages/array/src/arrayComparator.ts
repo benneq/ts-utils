@@ -26,6 +26,7 @@ export const arrayComparator = <T>(
   return (
     arrayA,
     arrayB,
+    // internal variables:
     aLength = arrayA.length,
     bLength = arrayB.length,
     length = aLength < bLength ? aLength : bLength,

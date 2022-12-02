@@ -15,6 +15,7 @@
  */
 export function* toReverseIterable<T>(
   array: ArrayLike<T>,
+  // internal variables:
   i = array.length
 ): IterableIterator<T> {
   while (i) {

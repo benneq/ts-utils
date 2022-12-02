@@ -25,7 +25,11 @@ type FindAndDelete = <T>(
 
 export const findAndDelete: FindAndDelete =
   <T>(predicate: Predicate<[T]>, fromIndex?: number) =>
-  (array: T[], index = findIndex<T>(predicate, fromIndex)(array)): boolean => {
+  (
+    array: T[],
+    // internal variables:
+    index = findIndex<T>(predicate, fromIndex)(array)
+  ) => {
     if (index >= 0) {
       return deleteAt(index)(array);
     }
