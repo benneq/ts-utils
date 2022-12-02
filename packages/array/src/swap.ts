@@ -18,6 +18,11 @@ import { RelativeIndex } from "./_types";
  * @param indexB
  */
 export const swap = (indexA: number, indexB: number) => (array: unknown[]) => {
+  if (process.env.NODE_ENV !== "production") {
+    console.assert(indexA >= 0);
+    console.assert(indexB >= 0);
+  }
+
   [array[indexA], array[indexB]] = [array[indexB], array[indexA]];
 };
 

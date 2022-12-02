@@ -41,14 +41,13 @@ export interface PriorityQueue<T> {
  */
 export const priorityQueue: {
   <T>(comparator: Comparator<T>): PriorityQueue<T>;
-} = <T>(comparator: Comparator<T>, init: T[] = []): PriorityQueue<T> => {
-  const heap = init;
-
-  const isGreater = (a: number, b: number) =>
-    comparator(init[a] as T, init[b] as T) > 0;
-
-  const size = () => heap.length;
-
+} = <T>(
+  comparator: Comparator<T>,
+  heap: T[] = [],
+  isGreater = (a: number, b: number) =>
+    comparator(heap[a] as T, heap[b] as T) > 0,
+  size = () => heap.length
+): PriorityQueue<T> => {
   const siftUp = (node = size() - 1, parent = ((node + 1) >>> 1) - 1) => {
     for (
       ;
@@ -62,7 +61,7 @@ export const priorityQueue: {
   const siftDown = (s = size(), node = 0) => {
     for (;;) {
       const leftNode = 2 * node + 1;
-      const rightNode = 2 * node + 2;
+      const rightNode = leftNode + 1;
 
       if (
         (leftNode >= s || isGreater(node, leftNode)) &&
