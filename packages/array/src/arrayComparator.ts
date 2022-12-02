@@ -1,4 +1,4 @@
-import { Comparator } from "../../comparator/src/_types";
+import { Comparator } from "@benneq/comparator";
 
 /**
  * Creates a {@link @benneq/comparator!Comparator} that compares the elements of two
@@ -30,15 +30,13 @@ export const arrayComparator = <T>(
     aLength = arrayA.length,
     bLength = arrayB.length,
     length = aLength < bLength ? aLength : bLength,
-    i = 0
+    i = 0,
+    result = 0
   ) => {
-    while (i < length) {
-      const result = comparator(arrayA[i] as T, arrayB[i++] as T);
-      if (result) {
-        return result;
-      }
+    while (i < length && !result) {
+      result = comparator(arrayA[i] as T, arrayB[i++] as T);
     }
 
-    return aLength - bLength;
+    return result || aLength - bLength;
   };
 };

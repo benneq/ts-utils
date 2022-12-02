@@ -35,9 +35,14 @@ export const iterableComparator = <T>(
 ): Comparator<Iterable<T>> => {
   comparator = undefinedFirst(comparator);
 
-  return (iterableA, iterableB) => {
+  return (
+    iterableA,
+    iterableB,
+    // internal variables:
+    result = 0
+  ) => {
     for (const [valueA, valueB] of zip(iterableA, iterableB)) {
-      const result = comparator(valueA, valueB);
+      result = comparator(valueA, valueB);
       if (result) {
         return result;
       }

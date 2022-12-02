@@ -22,7 +22,11 @@ type DropWhile = <T>(
 ) => (iterable: Iterable<T>) => IterableIterator<T>;
 
 export const dropWhile: DropWhile = (predicate) =>
-  function* (iterable, drop = true) {
+  function* (
+    iterable,
+    // internal variables:
+    drop = true
+  ) {
     for (const value of iterable) {
       if (!predicate(value)) {
         drop = false;

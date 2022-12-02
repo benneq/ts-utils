@@ -34,7 +34,12 @@ type Distinct = <T>(
 ) => (iterable: Iterable<T>) => IterableIterator<T>;
 
 export const distinct: Distinct = (keyMapper = identity) =>
-  function* (iterable, seen = new Set<unknown>(), key: unknown = undefined) {
+  function* (
+    iterable,
+    // internal variables:
+    seen = new Set<unknown>(),
+    key: unknown = undefined
+  ) {
     for (const value of iterable) {
       key = keyMapper(value);
 
