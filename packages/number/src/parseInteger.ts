@@ -19,6 +19,7 @@
  */
 export const parseInteger = (
   str: string,
+  // internal variables:
   number = Number.parseInt(str)
 ): number | undefined => {
   return Number.isNaN(number) ? undefined : number;

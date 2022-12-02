@@ -2,6 +2,7 @@ import { Entry } from "@benneq/object";
 import { Comparator } from "./_types";
 
 /**
+ * Creates a {@link Comparator} for {@link Entry} values.
  *
  * @example
  * entryValueComparator(numberComparator)([0, 1], [0, 0]) => 1
@@ -11,7 +12,7 @@ import { Comparator } from "./_types";
  * @typeParam K - the {@link Entry} key type
  * @typeParam V - the {@link Entry} value type
  * @param comparator
- * @returns a {@link Comparator} for Entry values
+ * @returns a {@link Comparator} for {@link Entry} values
  */
 export const entryValueComparator = <K, V>(
   comparator: Comparator<V>

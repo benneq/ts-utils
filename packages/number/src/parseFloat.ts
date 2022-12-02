@@ -19,6 +19,7 @@
  */
 export const parseFloat = (
   str: string,
+  // internal variables:
   number = Number.parseFloat(str)
 ): number | undefined => {
   return Number.isNaN(number) ? undefined : number;

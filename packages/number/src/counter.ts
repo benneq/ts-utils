@@ -26,7 +26,13 @@ export type Counter = {
  * @param initialValue - the initial value
  * @returns the Counter object
  */
-export const counter = (initialValue = 0, value = initialValue): Counter => {
+type CounterFactory = (initialValue?: number) => Counter;
+
+export const counter: CounterFactory = (
+  initialValue = 0,
+  // internal variables:
+  value = initialValue
+) => {
   return {
     get value() {
       return value;

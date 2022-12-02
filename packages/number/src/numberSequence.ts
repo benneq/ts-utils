@@ -23,7 +23,7 @@
  */
 export function* numberSequence(
   initialNumber: number,
-  stepSize: number
+  stepSize = 1
 ): Generator<number, void, unknown> {
   while (true) {
     yield initialNumber;
