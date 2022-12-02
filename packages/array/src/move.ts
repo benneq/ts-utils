@@ -24,23 +24,16 @@ export const move =
   (array: unknown[]): void => {
     if (process.env.NODE_ENV !== "production") {
       console.assert(sourceIndex >= 0);
+      console.assert(sourceIndex < array.length);
       console.assert(targetIndex >= 0);
+      console.assert(targetIndex < array.length);
+      console.assert(moveCount >= 0);
+      console.assert(moveCount <= array.length - sourceIndex);
     }
 
-    if (
-      isRelativeIndex(sourceIndex)(array) &&
-      isRelativeIndex(targetIndex)(array)
-    ) {
-      // adjust the count to stay in bounds of the array
-      moveCount = Math.min(
-        moveCount,
-        array.length - normalizeIndex(sourceIndex)(array)
-      );
-
-      array.splice(
-        normalizeIndex(targetIndex)(array) - moveCount + 1,
-        0,
-        ...array.splice(sourceIndex, moveCount)
-      );
-    }
+    array.splice(
+      targetIndex - moveCount + 1,
+      0,
+      ...array.splice(sourceIndex, moveCount)
+    );
   };
