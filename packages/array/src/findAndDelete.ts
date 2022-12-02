@@ -1,5 +1,7 @@
+import { Callback } from "@benneq/function";
 import { Predicate } from "@benneq/predicate";
 import { deleteAt } from "./deleteAt";
+import { findIndex } from "./findIndex";
 
 /**
  * Removes the first element from an Array that matches a {@link Predicate}.
@@ -18,9 +20,9 @@ import { deleteAt } from "./deleteAt";
  * @param predicate - the {@link Predicate} to match
  */
 export const findAndDelete =
-  <T>(predicate: Predicate<[T]>) =>
+  <T>(predicate: Predicate<[T]>, fromIndex = 0) =>
   (array: T[]): boolean => {
-    const index = array.findIndex(predicate);
+    const index = findIndex<T>(predicate, fromIndex)(array);
 
     if (index >= 0) {
       return deleteAt(array, index);

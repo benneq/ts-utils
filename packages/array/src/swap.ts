@@ -2,8 +2,7 @@ import { isRelativeIndex } from "./isRelativeIndex";
 import { RelativeIndex } from "./_types";
 
 /**
- * Swaps the elements at the given indexes of the provided Array.
- * Also works with relative indexes like {@link Array.prototype.at}
+ * Swaps the elements at the given indexes of an {@link Array}.
  *
  * @mutation
  *
@@ -18,13 +17,17 @@ import { RelativeIndex } from "./_types";
  * @param indexA
  * @param indexB
  */
-export const swap = (
-  array: Array<unknown>,
-  indexA: RelativeIndex,
-  indexB: RelativeIndex
-): void => {
-  const isRelativeIndexOfArray = isRelativeIndex(array);
-  if (isRelativeIndexOfArray(indexA) && isRelativeIndexOfArray(indexB)) {
-    array.splice(indexB, 1, array.splice(indexA, 1, array.at(indexB))[0]);
-  }
+export const swap = (indexA: number, indexB: number) => (array: unknown[]) => {
+  [array[indexA], array[indexB]] = [array[indexB], array[indexA]];
 };
+
+// export const swap = (
+//   array: Array<unknown>,
+//   indexA: RelativeIndex,
+//   indexB: RelativeIndex
+// ): void => {
+//   const isRelativeIndexOfArray = isRelativeIndex(array);
+//   if (isRelativeIndexOfArray(indexA) && isRelativeIndexOfArray(indexB)) {
+//     array.splice(indexB, 1, array.splice(indexA, 1, array.at(indexB))[0]);
+//   }
+// };
