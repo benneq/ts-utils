@@ -22,6 +22,11 @@ import { RelativeIndex } from "./_types";
 export const move =
   (sourceIndex: RelativeIndex, targetIndex: RelativeIndex, moveCount = 1) =>
   (array: unknown[]): void => {
+    if (process.env.NODE_ENV !== "production") {
+      console.assert(sourceIndex >= 0);
+      console.assert(targetIndex >= 0);
+    }
+
     if (
       isRelativeIndex(sourceIndex)(array) &&
       isRelativeIndex(targetIndex)(array)

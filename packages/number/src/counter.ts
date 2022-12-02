@@ -26,9 +26,7 @@ export type Counter = {
  * @param initialValue - the initial value
  * @returns the Counter object
  */
-export const counter = (initialValue = 0): Counter => {
-  let value = initialValue;
-
+export const counter = (initialValue = 0, value = initialValue): Counter => {
   return {
     get value() {
       return value;

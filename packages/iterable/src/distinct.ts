@@ -29,12 +29,14 @@ import { identity, Mapper } from "@benneq/function";
  * @param keyMapper - a {@link Function} that maps an element into a key
  * @returns an {@link Iterable} containing only unique values
  */
-export const distinct = <T>(keyMapper: Mapper<T, unknown> = identity) =>
-  function* (iterable: Iterable<T>): IterableIterator<T> {
-    const seen = new Set();
+type Distinct = <T>(
+  keyMapper?: Mapper<T, unknown>
+) => (iterable: Iterable<T>) => IterableIterator<T>;
 
+export const distinct: Distinct = (keyMapper = identity) =>
+  function* (iterable, seen = new Set<unknown>(), key: unknown = undefined) {
     for (const value of iterable) {
-      const key = keyMapper(value);
+      key = keyMapper(value);
 
       if (!seen.has(key)) {
         seen.add(key);

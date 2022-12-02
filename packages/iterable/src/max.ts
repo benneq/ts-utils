@@ -19,10 +19,9 @@ import { reduce } from "./reduce";
  * @returns the maximum element, or `undefined` if the {@link Iterable} is empty
  */
 export const max = <T>(
-  comparator: Comparator<T>
+  comparator: Comparator<T>,
+  maxValueIsLess = isLessThan(comparator)
 ): ((iterable: Iterable<T>) => T | undefined) => {
-  const maxValueIsLess = isLessThan(comparator);
-
   return reduce<T, T | undefined>((maxValue, value) => {
     if (isUndefined(maxValue) || maxValueIsLess(maxValue, value)) {
       return value;

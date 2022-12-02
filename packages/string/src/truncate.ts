@@ -35,8 +35,8 @@ import { splice } from "./splice";
  */
 export const truncate =
   (maxLength: number, suffix = "", separator = "") =>
-  (str: string): string => {
-    if (str.length < maxLength) {
+  (str: string, length = str.length): string => {
+    if (length < maxLength) {
       return str;
     }
 
@@ -47,5 +47,5 @@ export const truncate =
     const startIndex =
       separator && lastSeparatorIndex > 0 ? lastSeparatorIndex : maxLength;
 
-    return splice(startIndex, str.length, suffix)(str);
+    return splice(startIndex, length, suffix)(str);
   };

@@ -10,7 +10,6 @@ export * from "./concat";
 export * from "./count";
 export * from "./distinct";
 export * from "./dropWhile";
-export * from "./empty";
 export * from "./every";
 export * from "./filter";
 export * from "./find";

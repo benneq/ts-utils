@@ -17,10 +17,12 @@ import { Predicate } from "@benneq/predicate";
  * @param predicate
  * @returns an {@link Iterable} that does not emit values until the given {@link Predicate} returns `false`
  */
-export const dropWhile = <T>(predicate: Predicate<[T]>) =>
-  function* (iterable: Iterable<T>): IterableIterator<T> {
-    let drop = true;
+type DropWhile = <T>(
+  predicate: Predicate<[T]>
+) => (iterable: Iterable<T>) => IterableIterator<T>;
 
+export const dropWhile: DropWhile = (predicate) =>
+  function* (iterable, drop = true) {
     for (const value of iterable) {
       if (!predicate(value)) {
         drop = false;

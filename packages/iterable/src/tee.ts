@@ -18,14 +18,14 @@ import { Tuple } from "@benneq/object";
  */
 export const tee =
   <N extends number>(length: N) =>
-  <T>(iterable: Iterable<T>): Tuple<IterableIterator<T>, N> => {
-    const buffers = Array.from(
+  <T>(
+    iterable: Iterable<T>,
+    buffers = Array.from(
       { length: length },
       () => [] as Array<IteratorResult<T>>
-    );
-
-    const iterator = iterable[Symbol.iterator]();
-
+    ),
+    iterator = iterable[Symbol.iterator]()
+  ): Tuple<IterableIterator<T>, N> => {
     return buffers.map(function* (buffer) {
       while (true) {
         // if the buffer is empty, fetch a new value from the source iterable

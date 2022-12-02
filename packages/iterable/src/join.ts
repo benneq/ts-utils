@@ -9,11 +9,9 @@ import { skip } from "./skip";
  * @param separator
  * @returns
  */
-export const join =
-  <T>(separator: ValueOrProvider<T>) =>
-  (iterable: Iterable<T>): IterableIterator<T> => {
-    return pipe(
-      flatMap((value: T) => [valueOrProviderResult(separator), value]),
-      skip<T>(1)
-    )(iterable);
-  };
+export const join = <T>(separator: ValueOrProvider<T>) => {
+  return pipe(
+    flatMap((value: T) => [valueOrProviderResult(separator), value]),
+    skip<T>(1)
+  );
+};

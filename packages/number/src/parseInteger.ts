@@ -17,8 +17,9 @@
  *
  * @returns the parsed Iloat if successful, otherwise `undefined`
  */
-export const parseInteger = (str: string): number | undefined => {
-  const number = Number.parseInt(str);
-
+export const parseInteger = (
+  str: string,
+  number = Number.parseInt(str)
+): number | undefined => {
   return Number.isNaN(number) ? undefined : number;
 };

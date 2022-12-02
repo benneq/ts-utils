@@ -25,9 +25,10 @@ export const pairwise = <L extends number = 2>(pairSize: L = 2 as L) => {
     console.assert(pairSize >= 1, "pairSize must be >= 1");
   }
 
-  return function* <T>(iterable: Iterable<T>): IterableIterator<Tuple<T, L>> {
-    let buffer: T[] = [];
-
+  return function* <T>(
+    iterable: Iterable<T>,
+    buffer: T[] = []
+  ): IterableIterator<Tuple<T, L>> {
     for (const value of iterable) {
       if (buffer.push(value) >= pairSize) {
         yield buffer as Tuple<T, L>;

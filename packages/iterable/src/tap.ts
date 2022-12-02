@@ -19,9 +19,9 @@ export const tap = <T>(
   callback: Callback<[T]>
 ): ((iterable: Iterable<T>) => IterableIterator<T>) => {
   return function* (iterable) {
-    for (const e of iterable) {
-      callback(e);
-      yield e;
+    for (const value of iterable) {
+      callback(value);
+      yield value;
     }
   };
 };

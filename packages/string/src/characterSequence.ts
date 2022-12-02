@@ -1,5 +1,5 @@
 import { pipe } from "@benneq/function";
-import { empty, map, takeWhile } from "@benneq/iterable";
+import { map, takeWhile } from "@benneq/iterable";
 import { numberSequence } from "@benneq/number";
 import { CharCodeRange } from "./_types";
 import { charCodeOf } from "./charCodeOf";
@@ -45,7 +45,7 @@ export const characterSequence = (
   stepSize = 1
 ): Iterable<string> => {
   if (!stepSize) {
-    return empty;
+    return [];
   }
 
   const charCode = initialCharacter

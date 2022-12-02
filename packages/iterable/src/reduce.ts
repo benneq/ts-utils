@@ -27,8 +27,7 @@ export const reduce =
     reducerFn: (previousValue: U, currentValue: T) => U,
     initialValue: U
   ) =>
-  (iterable: Iterable<T>): U => {
-    let result = initialValue;
+  (iterable: Iterable<T>, result = initialValue): U => {
     for (const value of iterable) {
       result = reducerFn(result, value);
     }

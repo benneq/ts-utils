@@ -17,8 +17,9 @@
  *
  * @returns the parsed Float if successful, otherwise `undefined`
  */
-export const parseFloat = (str: string): number | undefined => {
-  const number = Number.parseFloat(str);
-
+export const parseFloat = (
+  str: string,
+  number = Number.parseFloat(str)
+): number | undefined => {
   return Number.isNaN(number) ? undefined : number;
 };

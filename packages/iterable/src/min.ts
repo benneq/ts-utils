@@ -19,10 +19,9 @@ import { reduce } from "./reduce";
  * @returns the minimum element, or `undefined` if the {@link Iterable} is empty
  */
 export const min = <T>(
-  comparator: Comparator<T>
+  comparator: Comparator<T>,
+  minValueIsGreater = isGreaterThan(comparator)
 ): ((iterable: Iterable<T>) => T | undefined) => {
-  const minValueIsGreater = isGreaterThan(comparator);
-
   return reduce<T, T | undefined>((minValue, value) => {
     if (isUndefined(minValue) || minValueIsGreater(minValue, value)) {
       return value;

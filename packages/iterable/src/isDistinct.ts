@@ -17,11 +17,9 @@ import { Predicate } from "@benneq/predicate";
  */
 export const isDistinct =
   <T>(keyExtractor: Mapper<T, unknown> = identity): Predicate<[Iterable<T>]> =>
-  (iterable) => {
-    const seen = new Set();
-
+  (iterable, seen = new Set(), key: unknown = undefined) => {
     for (const value of iterable) {
-      const key = keyExtractor(value);
+      key = keyExtractor(value);
 
       if (seen.has(key)) {
         return false;

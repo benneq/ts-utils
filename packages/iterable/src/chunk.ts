@@ -36,9 +36,10 @@ export const chunk = <T>(chunkSize: number, ...fill: [] | [T]) => {
     console.assert(chunkSize >= 1, "chunkSize must be >= 1");
   }
 
-  return function* (iterable: Iterable<T>): IterableIterator<T[]> {
-    let buffer: T[] = [];
-
+  return function* (
+    iterable: Iterable<T>,
+    buffer: T[] = []
+  ): IterableIterator<T[]> {
     for (const value of iterable) {
       if (buffer.push(value) >= chunkSize) {
         yield buffer;
