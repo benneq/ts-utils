@@ -22,14 +22,14 @@ import { findIndex } from "./findIndex";
  */
 
 type FindAndReplace = <T>(
-  predicate: Predicate<[T]>,
+  predicate: Predicate<[T, number, ArrayLike<T>]>,
   value: ValueOrProvider<T, [T]>,
   fromIndex?: number
 ) => (array: T[]) => void;
 
 export const findAndReplace: FindAndReplace =
   <T>(
-    predicate: Predicate<[T]>,
+    predicate: Predicate<[T, number, ArrayLike<T>]>,
     value: ValueOrProvider<T, [T]>,
     fromIndex?: number
   ) =>

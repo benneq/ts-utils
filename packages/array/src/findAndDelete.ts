@@ -19,12 +19,12 @@ import { findIndex } from "./findIndex";
  * @param predicate - the {@link Predicate} to match
  */
 type FindAndDelete = <T>(
-  predicate: Predicate<[T]>,
+  predicate: Predicate<[T, number, ArrayLike<T>]>,
   fromIndex?: number
 ) => (array: T[]) => boolean;
 
 export const findAndDelete: FindAndDelete =
-  <T>(predicate: Predicate<[T]>, fromIndex?: number) =>
+  <T>(predicate: Predicate<[T, number, ArrayLike<T>]>, fromIndex?: number) =>
   (
     array: T[],
     // internal variables:

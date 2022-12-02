@@ -18,6 +18,9 @@ import { findAndDelete } from "./findAndDelete";
  * @param value - the value to delete from the {@link Array}
  * @returns `true` if an element was deleted, otherwise `false`
  */
-export const deleteFirst = <T>(value: T): ((array: T[]) => boolean) => {
-  return findAndDelete((v) => v === value);
+export const deleteFirst = <T>(
+  value: T,
+  fromIndex?: number
+): ((array: T[]) => boolean) => {
+  return findAndDelete((v) => v === value, fromIndex);
 };
