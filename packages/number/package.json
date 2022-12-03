@@ -12,7 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@bennq/object": "*",
+    "@benneq/object": "*",
     "@benneq/predicate": "*"
   }
 }
