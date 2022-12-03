@@ -8,5 +8,5 @@ export class OpenClosedRange<T> extends Range<T> {
     );
   }
 
-  override empty = this.comparator(this.from, this.to) === 0;
+  override empty = !this.comparator(this.from, this.to);
 }

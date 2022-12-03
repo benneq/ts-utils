@@ -10,7 +10,7 @@ import { Predicate } from "@benneq/predicate";
  * @example
  * Get the first matching element
  * ```ts
- * const findFirstEven = findFirst(x => x % 2 === 0);
+ * const findFirstEven = findFirst(isEven);
  * const result = findFirstEven([1,2,3]);
  * console.log(result); // 2
  * ```
@@ -18,7 +18,7 @@ import { Predicate } from "@benneq/predicate";
  * @example
  * Get the first matching element or the `defaultValue`
  * ```ts
- * const findFirstEven = findFirst(x => x % 2 === 0, 2);
+ * const findFirstEven = findFirst(isEven, 2);
  * const result = findFirstEven([1]);
  * console.log(result); // 2
  * ```

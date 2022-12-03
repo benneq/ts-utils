@@ -11,7 +11,7 @@ import { deleteAt } from "./deleteAt";
  * ```ts
  * const array = [1, 2, 3];
  *
- * deleteIf(array, n => n % 2 === 0);
+ * deleteIf(array, isEven);
  *
  * console.log(array); // [1, 3]
  * ```

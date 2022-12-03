@@ -18,7 +18,7 @@ import { identity, Mapper } from "@benneq/function";
  * @example
  * Distinct by `keyMapper` {@link Function}
  * ```ts
- * const distinctByValue = distinct(x => x % 2 === 0);
+ * const distinctByValue = distinct(isEven);
  * const distinctValues = distinctByValue([1,2,1,3]);
  * console.log(distinctValues); // [1,2]
  * ```

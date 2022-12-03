@@ -6,7 +6,7 @@ import { some } from "./some";
  *
  * @example
  * ```ts
- * const allValuesEven = every(x => x % 2 === 0);
+ * const allValuesEven = every(isEven);
  * const result = allValuesEven([2,4,6]);
  * console.log(result); // true
  * ```

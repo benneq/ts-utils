@@ -11,7 +11,7 @@ import { findIndex } from "./findIndex";
  * Square the first element equal to `2`
  * ```ts
  * const array = [1, 2, 3, 4];
- * findAndDelete(n => n % 2 === 0)(array);
+ * findAndDelete(isEven)(array);
  * console.log(array); // [1, 3]
  * ```
  *

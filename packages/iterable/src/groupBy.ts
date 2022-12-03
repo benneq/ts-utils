@@ -8,7 +8,7 @@ import { reduce } from "./reduce";
  *
  * @example
  * ```ts
- * const groupByEvenOdd = groupBy(x => x % 2 === 0);
+ * const groupByEvenOdd = groupBy(isEven);
  * const result = groupByEvenOdd([1,2,1,3]);
  * console.log(result); // Map([[1, [1,1,3]], [0, [2]]])
  * ```

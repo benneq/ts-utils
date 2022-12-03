@@ -7,7 +7,7 @@ import { Predicate } from "@benneq/predicate";
  * @example
  * Filter even numbers
  * ```ts
- * const filterEven = filter(n => n % 2 === 0);
+ * const filterEven = filter(isEven);
  * const iterable = [1,2,3,4];
  * const filteredIterable = filterEven(iterable);
  * console.log(filteredIterable); // [2,4]
