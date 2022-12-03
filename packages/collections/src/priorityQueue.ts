@@ -49,7 +49,10 @@ export const priorityQueue: {
     comparator(heap[a] as T, heap[b] as T) > 0,
   size = () => heap.length
 ): PriorityQueue<T> => {
-  const siftUp: () => void = (node = size() - 1, parent = ((node + 1) >>> 1) - 1) => {
+  const siftUp: () => void = (
+    node = size() - 1,
+    parent = ((node + 1) >>> 1) - 1
+  ) => {
     for (
       ;
       node && isGreater(node, parent);

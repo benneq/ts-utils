@@ -1,4 +1,5 @@
 import { Tuple } from "@benneq/object";
+import { generate } from "@benneq/array";
 
 /**
  * Creates a {@link Function} that returns a {@link Tuple} of {@link Iterable}s
@@ -20,10 +21,7 @@ export const tee =
   <N extends number>(length: N) =>
   <T>(
     iterable: Iterable<T>,
-    buffers = Array.from(
-      { length: length },
-      () => [] as Array<IteratorResult<T>>
-    ),
+    buffers = generate<IteratorResult<T>[]>(length, () => []),
     iterator = iterable[Symbol.iterator]()
   ): Tuple<IterableIterator<T>, N> => {
     return buffers.map(function* (buffer) {

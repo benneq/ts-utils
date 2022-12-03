@@ -1,3 +1,4 @@
+import { isEqualTo } from "@benneq/object";
 import { findAndDelete } from "./findAndDelete";
 
 /**
@@ -22,5 +23,5 @@ export const deleteFirst = <T>(
   value: T,
   fromIndex?: number
 ): ((array: T[]) => boolean) => {
-  return findAndDelete((v) => v === value, fromIndex);
+  return findAndDelete(isEqualTo(value), fromIndex);
 };

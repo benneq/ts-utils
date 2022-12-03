@@ -2,6 +2,7 @@ import { Predicate } from "@benneq/predicate";
 import { isString } from "./isString";
 import { isArray } from "@benneq/array";
 import { isRegExp } from "@benneq/regexp";
+import { isEqualTo } from "@benneq/object";
 
 /**
  *
@@ -37,7 +38,7 @@ export const stringPredicate = (
   predicateInput: StringPredicateInput
 ): Predicate<[string]> => {
   return isString(predicateInput)
-    ? (key) => key === predicateInput
+    ? isEqualTo(predicateInput)
     : isArray(predicateInput)
     ? (key) => predicateInput.includes(key)
     : isRegExp(predicateInput)

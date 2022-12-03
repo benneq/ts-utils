@@ -16,6 +16,7 @@ export * from "./every";
 export * from "./findAndDelete";
 export * from "./findAndReplace";
 export * from "./findIndex";
+export * from "./generate";
 export * from "./insertAt";
 export * from "./isArray";
 export * from "./isArrayLike";

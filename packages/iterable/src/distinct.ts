@@ -3,7 +3,7 @@ import { identity, Mapper } from "@benneq/function";
 /**
  * Only emit values of an {@link Iterable} that have not been emitted yet.
  *
- * The values are by defauled compared by identity (`===`). An optional
+ * The values are by default compared by identity (`===`). An optional
  * {@link Mapper} function can be used to map the values to a different
  * representation for the comparison.
  *
