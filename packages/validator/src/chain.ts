@@ -5,11 +5,11 @@ import { ConstraintViolation, Validator } from "./_types";
 /**
  *
  * @example
- * Check if `value` is between 0 and 5
+ * Check if `value` is positive and even
  * ```ts
  * const chainedValidator = validate(chain(
- *   valueValidator((n) => n > 0, "err1"),
- *   valueValidator((n) => n < 5, "err2")
+ *   valueValidator(isPositive, "err1"),
+ *   valueValidator(isEven, "err2")
  * ));
  * const result = chainedValidator(-1);
  * console.log(result); // [{ path: "$", message: "err1", value: -1 }]

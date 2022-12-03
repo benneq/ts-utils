@@ -16,7 +16,7 @@ export type Counter = {
  * const handleClickEvent = () => {
  *   clickCountdown.dec();
  *
- *   if(clickCountdown.get() === 0) {
+ *   if(isZero(clickCountdown.get())) {
  *     console.log("0");
  *     clickCountdown.set(5);
  *   }

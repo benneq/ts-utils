@@ -6,7 +6,7 @@ import { Predicate } from "@benneq/predicate";
  *
  * @example
  * ```ts
- * const isDivisibleBy3 = isDivisible(3);
+ * const isDivisibleBy3 = isDivisibleBy(3);
  *
  * const result = isDivisibleBy3(-6);
  *
