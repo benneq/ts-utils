@@ -14,6 +14,7 @@ export * from "./isNegative";
 export * from "./isNumber";
 export * from "./isOdd";
 export * from "./isPositive";
+export * from "./isZero";
 export * from "./mod";
 export * from "./numberSequence";
 export * from "./parseFloat";

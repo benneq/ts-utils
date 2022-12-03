@@ -8,6 +8,9 @@
   },
   "references": [
     {
+      "path": "../object"
+    },
+    {
       "path": "../predicate"
     }
   ]
