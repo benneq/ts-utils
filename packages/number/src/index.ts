@@ -6,10 +6,13 @@
 
 export * from "./clamp";
 export * from "./counter";
+export * from "./isDivisibleBy";
+export * from "./isEven";
 export * from "./isFloat";
 export * from "./isInteger";
 export * from "./isNegative";
 export * from "./isNumber";
+export * from "./isOdd";
 export * from "./isPositive";
 export * from "./mod";
 export * from "./numberSequence";

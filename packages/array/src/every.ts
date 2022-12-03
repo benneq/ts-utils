@@ -2,8 +2,8 @@ import { not, Predicate } from "@benneq/predicate";
 import { some } from "./some";
 
 /**
- * Creates a function that checks if any element of an {@link Array}
- * matches a {@link Predicate}.
+ * Creates a {@link Predicate} that checks if all elements of an {@link Array}
+ * match a {@link Predicate}.
  *
  * Returns `true` if the `array` is empty.
  *
@@ -11,8 +11,9 @@ import { some } from "./some";
  * @param fromIndex - the optional array index to begin with, defaults to `0`
  * @returns `true` if all elements match the `predicate`, otherwise `false`
  */
-export const every =
-  <T>(predicate: Predicate<[T, number, ArrayLike<T>]>, fromIndex?: number) =>
-  (array: ArrayLike<T>) => {
-    return !some<T>(not(predicate), fromIndex)(array);
-  };
+export const every = <T>(
+  predicate: Predicate<[T, number, ArrayLike<T>]>,
+  fromIndex?: number
+): Predicate<[ArrayLike<T>]> => {
+  return not(some(not(predicate), fromIndex));
+};

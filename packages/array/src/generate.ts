@@ -21,5 +21,5 @@ export const generate = <T>(length: number, mapper: Mapper<number, T>): T[] => {
     console.assert(length >= 0);
   }
 
-  return Array.from({ length }, (_value, index) => mapper(index));
+  return [...Array<T>(length)].map((_value, index) => mapper(index));
 };
