@@ -43,12 +43,13 @@ export const priorityQueue: {
   <T>(comparator: Comparator<T>): PriorityQueue<T>;
 } = <T>(
   comparator: Comparator<T>,
+  // internal variables:
   heap: T[] = [],
   isGreater = (a: number, b: number) =>
     comparator(heap[a] as T, heap[b] as T) > 0,
   size = () => heap.length
 ): PriorityQueue<T> => {
-  const siftUp = (node = size() - 1, parent = ((node + 1) >>> 1) - 1) => {
+  const siftUp: () => void = (node = size() - 1, parent = ((node + 1) >>> 1) - 1) => {
     for (
       ;
       node && isGreater(node, parent);
@@ -58,7 +59,7 @@ export const priorityQueue: {
     }
   };
 
-  const siftDown = (s = size(), node = 0) => {
+  const siftDown: () => void = (s = size(), node = 0) => {
     for (;;) {
       const leftNode = 2 * node + 1;
       const rightNode = leftNode + 1;
