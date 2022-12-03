@@ -1,6 +1,5 @@
 import { isNull } from "@benneq/object";
 import { predicateComparator } from "./predicateComparator";
-import { Comparator } from "./_types";
 
 /**
  *
@@ -16,8 +15,4 @@ import { Comparator } from "./_types";
  * @param comparator
  * @returns a {@link Comparator}
  */
-export const nullLast = <T>(
-  comparator: Comparator<T>
-): Comparator<T | null> => {
-  return predicateComparator(comparator, isNull, false);
-};
+export const nullLast = predicateComparator(isNull, false);

@@ -4,7 +4,7 @@ import { predicateComparator } from "./predicateComparator";
 
 describe("comparator.predicateComparator", () => {
   it("predicateComparator", () => {
-    const comparator = predicateComparator(numberComparator, isNull, true);
+    const comparator = predicateComparator(isNull, true)(numberComparator);
     expect([null, 3, null, 1, 2].sort(comparator)).toEqual([
       null,
       null,

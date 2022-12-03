@@ -1,6 +1,5 @@
-import { Falsy, isFalsy } from "@benneq/object";
+import { isFalsy } from "@benneq/object";
 import { predicateComparator } from "./predicateComparator";
-import { Comparator } from "./_types";
 
 /**
  *
@@ -16,8 +15,4 @@ import { Comparator } from "./_types";
  * @param comparator
  * @returns a {@link Comparator}
  */
-export const falsyFirst = <T>(
-  comparator: Comparator<T>
-): Comparator<T | Falsy> => {
-  return predicateComparator(comparator, isFalsy);
-};
+export const falsyFirst = predicateComparator(isFalsy);

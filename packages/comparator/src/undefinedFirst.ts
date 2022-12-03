@@ -1,6 +1,5 @@
 import { isUndefined } from "@benneq/object";
 import { predicateComparator } from "./predicateComparator";
-import { Comparator } from "./_types";
 
 /**
  *
@@ -16,8 +15,4 @@ import { Comparator } from "./_types";
  * @param comparator
  * @returns a {@link Comparator}
  */
-export const undefinedFirst = <T>(
-  comparator: Comparator<T>
-): Comparator<T | undefined> => {
-  return predicateComparator(comparator, isUndefined);
-};
+export const undefinedFirst = predicateComparator(isUndefined);

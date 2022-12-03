@@ -1,6 +1,5 @@
-import { Nullish, isNullish } from "@benneq/object";
+import { isNullish } from "@benneq/object";
 import { predicateComparator } from "./predicateComparator";
-import { Comparator } from "./_types";
 
 /**
  *
@@ -16,8 +15,4 @@ import { Comparator } from "./_types";
  * @param comparator
  * @returns a {@link Comparator}
  */
-export const nullishFirst = <T>(
-  comparator: Comparator<T>
-): Comparator<T | Nullish> => {
-  return predicateComparator(comparator, isNullish);
-};
+export const nullishFirst = predicateComparator(isNullish);
