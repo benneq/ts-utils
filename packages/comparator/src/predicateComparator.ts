@@ -11,14 +11,13 @@ import { Comparator } from "./_types";
  *
  * @typeParam T - the {@link Comparator} value type
  * @typeParam U - the {@link @benneq/predicate!Predicate} value type
- * @param comparator
  * @param predicate
  * @param trueFirst
  * @returns a {@link Comparator}
  */
 export const predicateComparator =
-  <T, U>(predicate: (value: T | U) => value is U, trueFirst = true) =>
-  (comparator: Comparator<T>): Comparator<T> => {
+  <U>(predicate: (value: unknown) => value is U, trueFirst = true) =>
+  <T>(comparator: Comparator<T>): Comparator<U | T> => {
     return (valueA, valueB) => {
       if (predicate(valueA)) {
         return predicate(valueB) ? 0 : trueFirst ? -1 : 1;
