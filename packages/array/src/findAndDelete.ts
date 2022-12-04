@@ -24,6 +24,6 @@ type FindAndDelete = <T>(
 ) => (array: T[]) => boolean;
 
 export const findAndDelete: FindAndDelete = findAndThen(
-  (_v, i, a) => deleteAt(i)(a),
+  (_value, index, array) => deleteAt(index)(array),
   false
 );

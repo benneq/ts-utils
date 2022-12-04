@@ -15,7 +15,6 @@ describe("array.findAndThen", () => {
 
   it("should return defaultValue if predicate does not match", () => {
     const [value1, value2] = symbolGenerator();
-
     const array = [value1];
 
     const result = findAndThen(() => {}, value2)(alwaysFalse)(array);

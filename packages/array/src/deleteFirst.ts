@@ -23,7 +23,5 @@ export const deleteFirst = <T>(
   value: T,
   fromIndex?: number
 ): ((array: T[]) => boolean) => {
-  // const a = findAndDelete(isEqualTo(value), fromIndex);
-
   return findAndDelete(isEqualTo(value), fromIndex);
 };
