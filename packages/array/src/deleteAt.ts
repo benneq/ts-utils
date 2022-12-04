@@ -9,7 +9,7 @@ import { RelativeIndex } from "./_types";
  * Delete a single element at index 1
  * ```ts
  * const array = [1, 2, 3];
- * deleteAt(array, 1);
+ * deleteAt(1)(array);
  * console.log(array); // [1, 3]
  * ```
  *
@@ -17,7 +17,7 @@ import { RelativeIndex } from "./_types";
  * Delete two elements at index 1
  * ```ts
  * const array = [1, 2, 3, 4];
- * deleteAt(array, 1, 2);
+ * deleteAt(1, 2)(array);
  * console.log(array); // [1, 4]
  * ```
  *

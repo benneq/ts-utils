@@ -11,7 +11,9 @@ import { findAndThen } from "./findAndThen";
  * Square the first element equal to `2`
  * ```ts
  * const array = [1, 2, 3, 4];
+ *
  * findAndDelete(isEven)(array);
+ *
  * console.log(array); // [1, 3]
  * ```
  *

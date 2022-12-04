@@ -5,7 +5,7 @@
  * ```ts
  * const array1 = [1, 2, 3];
  * const array2 = [1, 3, 2];
- * const result = equal(array1, array2);
+ * const result = equal(array1)(array2);
  * console.log(result); // false
  * ```
  *

@@ -10,7 +10,9 @@ import { findAndDelete } from "./findAndDelete";
  * Delete the first element equal to `2`
  * ```ts
  * const array = [1, 2, 3, 2];
- * deleteFirst(array, 2);
+ *
+ * deleteFirst(2)(array);
+ *
  * console.log(array); // [1, 3, 2]
  * ```
  *

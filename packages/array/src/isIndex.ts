@@ -4,19 +4,16 @@
  * @example
  * Is `index` in bounds of `array`?
  * ```ts
- * const array = [1,2,3];
- * const isIndexOfArray = isIndex(array);
+ * const result = isIndex(4)([1, 2, 3]);
  *
- * const index = 4;
- * const result = isIndexOfArray(index);
  * console.log(result); // false
  * ```
  *
  * @example
  * Works with strings, too
  * ```ts
- * const isIndexOfTest = isIndex("test");
- * const result = isIndexOfTest(3);
+ * const result = isIndex(3)("test");
+ *
  * console.log(result); // true
  * ```
  *

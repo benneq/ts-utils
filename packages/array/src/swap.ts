@@ -6,7 +6,9 @@
  * @exmaple
  * ```ts
  * const array = [1, 2, 3];
- * swap(array, 1, 2);
+ *
+ * swap(1, 2)(array);
+ *
  * console.log(array); // [1, 3, 2]
  * ```
  *

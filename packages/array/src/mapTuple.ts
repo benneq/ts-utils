@@ -7,10 +7,12 @@ import { Mapper } from "@benneq/function";
  * ```ts
  * const tuple = [1, "abc"];
  *
- * const result = mapTuple(
+ * const mapper = mapTuple(
  *   (num) => num > 0,
  *   (str) => str.length,
  * );
+ *
+ * const result = mapper(tuple);
  *
  * console.log(result); // [true, 3]
  * ```

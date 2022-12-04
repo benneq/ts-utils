@@ -5,7 +5,9 @@
  * @example
  * ```ts
  * const array = [1, 2, 3];
+ *
  * const iterable = toReverseIterable(array);
+ *
  * for(const value of iterable) {
  *   console.log(value); // 3, 2, 1
  * }

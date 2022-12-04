@@ -9,7 +9,7 @@ import { RelativeIndex } from "./_types";
  * Move two elements from index `2` to index `0`
  * ```ts
  * const array = [1, 2, 3, 4];
- * move(array)(2, 0, 2);
+ * move(2, 0, 2)(array);
  * console.log(array); // [3, 4, 1, 2]
  * ```
  *

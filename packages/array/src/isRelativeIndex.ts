@@ -4,19 +4,16 @@
  * @example
  * A {@link RelativeIndex} can be negative
  * ```ts
- * const array = [1,2,3];
- * const isRelativeIndexOfArray = isRelativeIndex(array);
+ * const result = isRelativeIndex(index)([1, 2, 3]);
  *
- * const index = -3;
- * const result = isRelativeIndexOfArray(index);
  * console.log(result); // true
  * ```
  *
  * @example
  * Works with Strings, too
  * ```ts
- * const isRelativeIndexOfTest = isRelativeIndex("test");
- * const result = isRelativeIndexOfTest(-5);
+ * const result = isRelativeIndex(-5)("test");
+ *
  * console.log(result); // false
  * ```
  *

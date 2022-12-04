@@ -6,7 +6,10 @@ type FindAndThen = {
     predicate: Predicate<[T, number, ArrayLike<T>]>,
     fromIndex?: number
   ) => (array: T[]) => R | undefined;
-  <T, R>(thenCallback: (value: T, index: number, array: T[]) => R, def: R): (
+  <T, R>(
+    thenCallback: (value: T, index: number, array: T[]) => R,
+    defaultValue: R
+  ): (
     predicate: Predicate<[T, number, ArrayLike<T>]>,
     fromIndex?: number
   ) => (array: T[]) => R;

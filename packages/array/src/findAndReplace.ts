@@ -10,7 +10,9 @@ import { findAndThen } from "./findAndThen";
  * Square the first element equal to `2`
  * ```ts
  * const array = [1, 2, 3, 2];
- * findAndReplace(array, 2);
+ *
+ * findAndReplace(2)(array);
+ *
  * console.log(array); // [1, 4, 3, 2]
  * ```
  *

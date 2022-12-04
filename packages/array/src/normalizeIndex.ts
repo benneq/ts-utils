@@ -7,7 +7,9 @@ import { RelativeIndex } from "./_types";
  * ```ts
  * const array = [1, 2, 3];
  * const index = -5;
- * const normalizedIndex = normalizeIndex(array)(index);
+ *
+ * const normalizedIndex = normalizeIndex(index)(array);
+ *
  * console.log(normalizedIndex); // 1
  * ```
  *
