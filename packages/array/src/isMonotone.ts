@@ -1,5 +1,6 @@
 import { Comparator } from "@benneq/comparator";
 import { Predicate } from "@benneq/predicate";
+import { every } from "./every";
 
 /**
  * Creates a {@link Predicate} function that checks if all elements of an
@@ -20,9 +21,9 @@ import { Predicate } from "@benneq/predicate";
  */
 export const isMonotone = <T>(
   comparator: Comparator<T>
-): Predicate<[readonly T[]]> => {
-  return (array) =>
-    array.every(
-      (value, index) => !index || comparator(array[index - 1] as T, value) < 0
-    );
+): Predicate<[ArrayLike<T>]> => {
+  return every<T>(
+    (value, index, array) =>
+      !index || comparator(array[index - 1] as T, value) < 0
+  );
 };

@@ -22,5 +22,10 @@ import { RelativeIndex } from "./_types";
 export const insertAt =
   <T>(index: RelativeIndex, ...values: T[]) =>
   (array: T[]): void => {
+    if (process.env.NODE_ENV !== "production") {
+      console.assert(index >= -array.length);
+      console.assert(index < array.length);
+    }
+
     array.splice(index, 0, ...values);
   };
