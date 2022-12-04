@@ -1,14 +1,22 @@
 /**
- * Checks if two comparison results are equal, i.e. if both are either
- * "greater than", "less than" or "equal".
+ * Checks if two numbers have equal signs.
  *
- * @param resultA - the comparison reesult to compare agains
- * @returns `true` if both comparison results have the same sign, otherwise `false`
+ * `+0` and `-0` are considered equal.
+ *
+ * @example
+ * ```ts
+ * const result = equalSign(3, 0.5);
+ *
+ * console.log(result); // true
+ * ```
+ *
+ * @param numberA - the number to compare against
+ * @returns `true` if both numbers have the same sign, otherwise `false`
  */
-type EqualSign = (resultA: number) => (resultB: number) => boolean;
+type EqualSign = (numberA: number) => (numberB: number) => boolean;
 
 export const equalSign: EqualSign =
-  (resultA: number, sign = Math.sign) =>
-  (resultB: number): boolean => {
-    return sign(resultA) == sign(resultB);
+  (numberA: number, sign = Math.sign) =>
+  (numberB: number): boolean => {
+    return sign(numberA) == sign(numberB);
   };
