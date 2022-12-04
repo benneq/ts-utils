@@ -7,7 +7,7 @@ describe("array.findAndReplace", () => {
 
     const array = [value1, value2];
 
-    findAndReplace(alwaysTrue, value3)(array);
+    findAndReplace(value3)(alwaysTrue)(array);
 
     expect(array).toEqual([value3, value2]);
   });
@@ -17,7 +17,7 @@ describe("array.findAndReplace", () => {
 
     const array = [value1];
 
-    findAndReplace(alwaysFalse, value2)(array);
+    findAndReplace(value2)(alwaysFalse)(array);
 
     expect(array).toEqual([value1]);
   });

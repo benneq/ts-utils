@@ -31,7 +31,7 @@ export const arrayComparator = <T>(
     bLength = arrayB.length,
     length = aLength < bLength ? aLength : bLength,
     i = 0,
-    result = 0
+    result?: number
   ) => {
     while (i < length && !result) {
       result = comparator(arrayA[i] as T, arrayB[i++] as T);

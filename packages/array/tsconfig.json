@@ -11,6 +11,9 @@
       "path": "../comparator"
     },
     {
+      "path": "../function"
+    },
+    {
       "path": "../number"
     },
     {

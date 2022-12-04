@@ -1,6 +1,5 @@
-import { Predicate } from "@benneq/predicate";
 import { ValueOrProvider, valueOrProviderResult } from "../../object/dist";
-import { findIndex } from "./findIndex";
+import { findAndThen } from "./findAndThen";
 
 /**
  * Replaces the first element from an Array that matches a {@link Predicate}.
@@ -20,25 +19,7 @@ import { findIndex } from "./findIndex";
  * @param predicate - the {@link Predicate} to match
  * @param value - the new value
  */
-
-type FindAndReplace = <T>(
-  predicate: Predicate<[T, number, ArrayLike<T>]>,
-  value: ValueOrProvider<T, [T]>,
-  fromIndex?: number
-) => (array: T[]) => void;
-
-export const findAndReplace: FindAndReplace =
-  <T>(
-    predicate: Predicate<[T, number, ArrayLike<T>]>,
-    value: ValueOrProvider<T, [T]>,
-    fromIndex?: number
-  ) =>
-  (
-    array: T[],
-    // internal variables:
-    index = findIndex<T>(predicate, fromIndex)(array)
-  ) => {
-    if (index >= 0) {
-      array[index] = valueOrProviderResult(value, array[index] as T);
-    }
-  };
+export const findAndReplace = <T>(value: ValueOrProvider<T, [T]>) =>
+  findAndThen<T, void>(
+    (v, index, array) => (array[index] = valueOrProviderResult(value, v))
+  );

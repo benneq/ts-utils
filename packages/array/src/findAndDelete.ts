@@ -1,6 +1,6 @@
 import { Predicate } from "@benneq/predicate";
 import { deleteAt } from "./deleteAt";
-import { findIndex } from "./findIndex";
+import { findAndThen } from "./findAndThen";
 
 /**
  * Removes the first element from an Array that matches a {@link Predicate}.
@@ -23,12 +23,7 @@ type FindAndDelete = <T>(
   fromIndex?: number
 ) => (array: T[]) => boolean;
 
-export const findAndDelete: FindAndDelete =
-  <T>(predicate: Predicate<[T, number, ArrayLike<T>]>, fromIndex?: number) =>
-  (
-    array: T[],
-    // internal variables:
-    index = findIndex<T>(predicate, fromIndex)(array)
-  ) => {
-    return index >= 0 && deleteAt(index)(array);
-  };
+export const findAndDelete: FindAndDelete = findAndThen(
+  (_v, i, a) => deleteAt(i)(a),
+  false
+);

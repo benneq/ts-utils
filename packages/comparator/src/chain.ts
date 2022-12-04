@@ -7,8 +7,8 @@ import { Comparator } from "./_types";
  * Sort objects first by age and then by name
  * ```ts
  * const personComparator = chain<Person>(
- *   comparing(numberComparator)(p => p.age),
- *   comparing(stringComparator)(p => p.name)
+ *   mappingComparator(numberComparator)(p => p.age),
+ *   mappingComparator(stringComparator)(p => p.name)
  * );
  *
  * const array: Person[] = [
@@ -25,9 +25,9 @@ import { Comparator } from "./_types";
  * @returns the result of the first {@link Comparator} that is not `0`, or else `0`
  */
 export const chain = <T>(...comparators: Comparator<T>[]): Comparator<T> => {
-  return (valueA, valueB) => {
+  return (valueA, valueB, result = 0) => {
     for (const comparator of comparators) {
-      const result = comparator(valueA, valueB);
+      result = comparator(valueA, valueB);
       if (result) {
         return result;
       }
