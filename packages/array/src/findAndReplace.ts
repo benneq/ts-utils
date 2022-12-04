@@ -22,6 +22,6 @@ import { findAndThen } from "./findAndThen";
  * @param value - the new value
  */
 export const findAndReplace = <T>(value: ValueOrProvider<T, [T]>) =>
-  findAndThen<T, void>(
+  findAndThen<T, void, T[]>(
     (v, index, array) => (array[index] = valueOrProviderResult(value, v))
   );

@@ -2,17 +2,19 @@ import { Predicate } from "@benneq/predicate";
 import { findIndex } from "./findIndex";
 
 type FindAndThen = {
-  <T, R>(thenCallback: (value: T, index: number, array: T[]) => R): (
-    predicate: Predicate<[T, number, ArrayLike<T>]>,
+  <T, R, A extends ArrayLike<T> = ArrayLike<T>>(
+    thenCallback: (value: T, index: number, array: A) => R
+  ): (
+    predicate: Predicate<[T, number, A]>,
     fromIndex?: number
-  ) => (array: T[]) => R | undefined;
-  <T, R>(
-    thenCallback: (value: T, index: number, array: T[]) => R,
+  ) => (array: A) => R | undefined;
+  <T, R, A extends ArrayLike<T> = ArrayLike<T>>(
+    thenCallback: (value: T, index: number, array: A) => R,
     defaultValue: R
   ): (
-    predicate: Predicate<[T, number, ArrayLike<T>]>,
+    predicate: Predicate<[T, number, A]>,
     fromIndex?: number
-  ) => (array: T[]) => R;
+  ) => (array: A) => R;
 };
 
 /**

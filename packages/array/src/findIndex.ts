@@ -1,12 +1,12 @@
 import { Predicate } from "@benneq/predicate";
 
-type FindIndex = <T>(
-  predicate: Predicate<[T, number, ArrayLike<T>]>,
+type FindIndex = <T, A extends ArrayLike<T> = ArrayLike<T>>(
+  predicate: Predicate<[T, number, A]>,
   fromIndex?: number
-) => (array: ArrayLike<T>) => number;
+) => (array: A) => number;
 
-export const findIndex: FindIndex = <T>(
-  predicate: Predicate<[T, number, ArrayLike<T>]>,
+export const findIndex: FindIndex = <T, A extends ArrayLike<T> = ArrayLike<T>>(
+  predicate: Predicate<[T, number, A]>,
   fromIndex = 0
 ) => {
   if (process.env.NODE_ENV !== "production") {
@@ -14,7 +14,7 @@ export const findIndex: FindIndex = <T>(
   }
 
   return (
-    array: ArrayLike<T>,
+    array: A,
     // internal variables:
     i = fromIndex
   ): number => {

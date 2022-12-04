@@ -6,6 +6,7 @@
 
 export * from "./clamp";
 export * from "./counter";
+export * from "./equalSign";
 export * from "./isDivisibleBy";
 export * from "./isEven";
 export * from "./isFloat";
