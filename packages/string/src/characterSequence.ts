@@ -42,17 +42,17 @@ import { charCodeOf } from "./charCodeOf";
 export const characterSequence = (
   [rangeStart, rangeEnd]: CharCodeRange,
   initialCharacter = "",
-  stepSize = 1
-): Iterable<string> => {
-  if (!stepSize) {
-    return [];
-  }
-
-  const charCode = initialCharacter
+  stepSize = 1,
+  // internal variables:
+  charCode = initialCharacter
     ? charCodeOf(initialCharacter)
     : stepSize < 0
     ? rangeEnd
-    : rangeStart;
+    : rangeStart
+): Iterable<string> => {
+  if (process.env.NODE_ENV !== "production") {
+    console.assert(stepSize >= 1);
+  }
 
   return pipe(
     takeWhile<number>((value) => value >= rangeStart && value <= rangeEnd),

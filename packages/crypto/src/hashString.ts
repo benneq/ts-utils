@@ -17,6 +17,5 @@
 export const hashString =
   (algorithm: AlgorithmIdentifier) =>
   async (str: string): Promise<ArrayBuffer> => {
-    const msgUint8 = new TextEncoder().encode(str);
-    return await crypto.subtle.digest(algorithm, msgUint8);
+    return await crypto.subtle.digest(algorithm, new TextEncoder().encode(str));
   };

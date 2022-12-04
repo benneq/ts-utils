@@ -21,8 +21,7 @@ import { SortDirectionCycler } from "./_types";
 export const toggle =
   (sortDirectionCycler: SortDirectionCycler) =>
   <T extends string>(property: T, clear?: boolean) =>
-  (sort: Sort<T>) => {
-    const direction = sortDirectionCycler(sort.get(property));
+  (sort: Sort<T>, direction = sortDirectionCycler(sort.get(property))) => {
     if (clear) {
       sort.clear();
     } else {

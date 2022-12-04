@@ -11,13 +11,6 @@ describe("string.characterSequence", () => {
     expect(it.next().done).toBe(false);
   });
 
-  it("should generate the same letter if stepSize is 0", () => {
-    const it = characterSequence(lowercaseAsciiLetterRange, "", 0)[
-      Symbol.iterator
-    ]();
-    expect(it.next().done).toBe(true);
-  });
-
   it("should stop after reaching the end of the range", () => {
     const it = characterSequence(lowercaseAsciiLetterRange, "xx")[
       Symbol.iterator

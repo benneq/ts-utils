@@ -33,14 +33,23 @@ import { mod } from "@benneq/number";
  */
 export const splice =
   (start = 0, deleteCount?: number, replacement = "") =>
-  (str: string, length = str.length): string => {
+  (
+    str: string,
+    length = str.length,
+    // internal variables:
     // normalize start index to align with Array.prototype.splice behavior
-    start = start < -length ? 0 : start < 0 ? mod(start, length) : start;
-
+    normalizedStart = start < -length
+      ? 0
+      : start < 0
+      ? mod(start, length)
+      : start
+  ): string => {
     return (
-      str.slice(0, start) +
+      str.slice(0, normalizedStart) +
       replacement +
       // normalize deleteCount to align with Array.prototype.splice behavior
-      str.slice(start + Math.max(deleteCount ?? length - start, 0))
+      str.slice(
+        normalizedStart + Math.max(deleteCount ?? length - normalizedStart, 0)
+      )
     );
   };
